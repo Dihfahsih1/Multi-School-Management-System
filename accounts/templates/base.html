@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+     {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'style.css'%}">
+
+    {% block head %}
+    <meta charset="utf-8">
+    <title></title>
+    {% endblock %}
+  </head>
+  <body>
+    {% block body %}
+    <h1>Menu</h1>
+    {% endblock %}
+  </body>
+</html>
