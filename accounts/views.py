@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import *
 from django.views.generic import CreateView
 from .models import *
 from .forms import *
@@ -13,7 +13,15 @@ def logout(request):
  return render(request, 'accounts/login.html')
 
 def createclassinformation(request):
- return render(request, 'accounts/createclassinformation.html')
+    if request.method=="POST":
+        form=Createclassinformation(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('createclassinformation')
+    else:
+        form = Createclassinformation()
+        context = {'form': form}
+        return render(request, 'accounts/createclassinformation.html', context)
 
 def editclassinformation(request):
  return render(request, 'accounts/editclassinformation.html')
