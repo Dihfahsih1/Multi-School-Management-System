@@ -9,6 +9,18 @@ def login(request):
  context = {'form': form}
  return render(request, 'accounts/login.html', context)
 
+def logout(request):
+ return render(request, 'accounts/login.html')
 
+def createclassinformation(request):
+ return render(request, 'accounts/createclassinformation.html')
 
+def editclassinformation(request):
+ return render(request, 'accounts/editclassinformation.html')
+
+def deleteclassinformation(request):
+ return render(request, 'accounts/deleteclassinformation.html')
+
+def viewclassinformation(request):
+ return render(request, 'accounts/viewclassinformation.html')
 # Create your views here.
