@@ -7,7 +7,7 @@ class LoginForm(forms.ModelForm):
         model = Login
         fields = ('username', 'password')
 
-class Createclassinformation(forms.ModelForm):
+class ClassinformationForm(forms.ModelForm):
     class Meta:
-        model = Createclassinformation
-        fields = ('ClassName', 'ClassTeacher', 'TotalStudents', 'NumberOfSections')        
+        model = Classinformation
+        fields = ('ClassName', 'ClassTeacher', 'TotalStudents', 'NumberOfSections')
