@@ -11,3 +11,7 @@ class ClassinformationForm(forms.ModelForm):
     class Meta:
         model = Classinformation
         fields = ('ClassName', 'ClassTeacher', 'TotalStudents', 'NumberOfSections')
+class EditinformationForm(forms.ModelForm):
+    class Meta:
+        model = Classinformation
+        fields = ('ClassName', 'ClassTeacher', 'TotalStudents', 'NumberOfSections')

@@ -34,7 +34,7 @@
        <td>{{ item.ClassTeacher}}</td>
        <td>{{ item.TotalStudents}}</td>
        <td>{{ item.NumberOfSections}}</td>
-       <td><a href="{% url 'editclassinformation' item.id  %}" >
+       <td><a href="{% url 'editclassinformation' pk=item.id  %}" >
          <button class="btn btn-warning">Edit Details</button></a>
        </td>
         {% endfor %}
