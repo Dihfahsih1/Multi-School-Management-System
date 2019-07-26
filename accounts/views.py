@@ -35,7 +35,7 @@ def editclassinformation(request, pk):
         return render(request, 'accounts/editclassinformation.html', {'form': form})
 
 def deleteclassinformation(request):
-
+    items=Classinformation.objects.all()
     return render(request, 'accounts/viewclassinformation.html')
 
 def viewclassinformation(request):
