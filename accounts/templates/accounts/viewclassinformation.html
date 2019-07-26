@@ -8,9 +8,6 @@
     </li>
     <li class="nav-item">
     <a class="nav-link" href="{% url 'viewclassinformation'  %}"><button class="btn btn-default">View</button></a>
-    </li
-    <li class="nav-item">
-    <a class="nav-link" href="{% url 'deleteclassinformation'  %}"><button class="btn btn-primary">Delete</button></a>
     </li>
   </ul>
 </nav>
@@ -35,7 +32,9 @@
        <td>{{ item.TotalStudents}}</td>
        <td>{{ item.NumberOfSections}}</td>
        <td><a href="{% url 'editclassinformation' pk=item.id  %}" >
-         <button class="btn btn-warning">Edit Details</button></a>
+         <button class="btn btn-warning">Edit Details</button></a>|
+         <a href="{% url 'deleteclassinformation'%}" >
+           <button class="btn btn-warning">Delete Class</button></a>
        </td>
         {% endfor %}
      </tr>

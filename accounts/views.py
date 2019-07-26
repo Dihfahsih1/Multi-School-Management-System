@@ -24,18 +24,19 @@ def createclassinformation(request):
         return render(request, 'accounts/createclassinformation.html', context)
 
 def editclassinformation(request, pk):
-    item = get_object_or_404(Classinformation, pk=pk)
+    item = get_object_or_404(Classinformation, id=pk)
     if request.method == "POST":
-        form =  ClassinformationForm(request.POST, instance=item)
+        form =  EditinformationForm(request.POST, instance=item)
         if form.is_valid():
             form.save()
             return redirect('viewclassinformation')
     else:
-        form =  ClassinformationForm(instance=item)
-        return render(request, 'accounts/createclassinformation.html', {'form': form})
+        form =  EditinformationForm(instance=item)
+        return render(request, 'accounts/editclassinformation.html', {'form': form})
 
 def deleteclassinformation(request):
- return render(request, 'accounts/deleteclassinformation.html')
+
+    return render(request, 'accounts/viewclassinformation.html')
 
 def viewclassinformation(request):
     all_info = Classinformation.objects.all()
