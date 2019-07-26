@@ -17,4 +17,30 @@
     </li>
   </ul>
 </nav>
+<table class="table table-hover" border="2">
+   <thead class="table-success">
+     <tr>
+         <td>id</td>
+         <td>Class Name</td>
+         <td>Class Teacher</td>
+         <td>Total Students</td>
+         <td>Number of Sections</td>
+         <td>Action</td>
+     </tr>
+   </thead>
+   <tbody>
+     {% if all_info %}
+     {% for item in all_info%}
+     <tr>
+       <td>{{ item.id}}</td>
+       <td>{{ item.ClassName}}</td>
+       <td>{{ item.ClassTeacher}}</td>
+       <td>{{ item.TotalStudents}}</td>
+       <td>{{ item.NumberOfSections}}</td>
+       <td><a href="#" ><button class="btn btn-warning">Edit Details</button></a></td>
+        {% endfor %}
+     </tr>
+     {% endif %}
+   </tbody>
+</table>
 {% endblock %}

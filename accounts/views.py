@@ -14,21 +14,24 @@ def logout(request):
 
 def createclassinformation(request):
     if request.method=="POST":
-        form=Createclassinformation(request.POST)
+        form=ClassinformationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('createclassinformation')
     else:
-        form = Createclassinformation()
+        form = ClassinformationForm()
         context = {'form': form}
         return render(request, 'accounts/createclassinformation.html', context)
 
 def editclassinformation(request):
+
  return render(request, 'accounts/editclassinformation.html')
 
 def deleteclassinformation(request):
  return render(request, 'accounts/deleteclassinformation.html')
 
 def viewclassinformation(request):
- return render(request, 'accounts/viewclassinformation.html')
+    all_info = Classinformation.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewclassinformation.html', context)
 # Create your views here.
