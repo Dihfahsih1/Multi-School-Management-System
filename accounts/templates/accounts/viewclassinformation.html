@@ -33,7 +33,7 @@
        <td>{{ item.NumberOfSections}}</td>
        <td><a href="{% url 'editclassinformation' pk=item.id  %}" >
          <button class="btn btn-warning">Edit Details</button></a>|
-         <a href="{% url 'deleteclassinformation'%}" >
+         <a href="{% url 'deleteclassinformation' pk=item.id %}" >
            <button class="btn btn-danger">Delete Class</button></a>
        </td>
         {% endfor %}
