@@ -11,11 +11,16 @@ class ClassinformationForm(forms.ModelForm):
     class Meta:
         model = Classinformation
         fields = ('ClassName', 'ClassTeacher', 'TotalStudents', 'NumberOfSections')
-class EditinformationForm(forms.ModelForm):
+class EditclassinformationForm(forms.ModelForm):
     class Meta:
         model = Classinformation
         fields = ('ClassName', 'ClassTeacher', 'TotalStudents', 'NumberOfSections')
+
 class SectioninformationForm(forms.ModelForm):
+    class Meta:
+        model = Sectioninformation
+        fields = ('SectionTeacher', 'NumberOfStudents', 'SectionName')
+class EditsectioninformationForm(forms.ModelForm):
     class Meta:
         model = Sectioninformation
         fields = ('SectionTeacher', 'NumberOfStudents', 'SectionName')

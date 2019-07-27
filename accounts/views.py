@@ -28,12 +28,12 @@ def createclassinformation(request):
 def editclassinformation(request, pk):
     item = get_object_or_404(Classinformation, id=pk)
     if request.method == "POST":
-        form =  EditinformationForm(request.POST, instance=item)
+        form =  EditclassinformationForm(request.POST, instance=item)
         if form.is_valid():
             form.save()
             return redirect('viewclassinformation')
     else:
-        form =  EditinformationForm(instance=item)
+        form =  EditclassinformationForm(instance=item)
         return render(request, 'accounts/editclassinformation.html', {'form': form})
 
 def deleteclassinformation(request, pk):
@@ -64,13 +64,13 @@ def createsectioninformation(request):
 def editsectioninformation(request, pk):
     item = get_object_or_404(Sectioninformation, id=pk)
     if request.method == "POST":
-        form =  SectioninformationForm(request.POST, instance=item)
+        form =  EditsectioninformationForm(request.POST, instance=item)
         if form.is_valid():
             form.save()
             return redirect('viewsectioninformation')
     else:
-        form =  EditinformationForm(instance=item)
-        return render(request, 'accounts/createsectioninformation.html', {'form': form})
+        form =  EditsectioninformationForm(instance=item)
+        return render(request, 'accounts/editsectioninformation.html', {'form': form})
 
 def deletesectioninformation(request, pk):
     Sectioninformation.objects.filter(id=pk).delete()
