@@ -18,4 +18,4 @@ class EditinformationForm(forms.ModelForm):
 class SectioninformationForm(forms.ModelForm):
     class Meta:
         model = Sectioninformation
-        fields = ('NameOfClass', 'SectionTeacher', 'NumberOfStudents', 'SectionName')
+        fields = ('SectionTeacher', 'NumberOfStudents', 'SectionName')

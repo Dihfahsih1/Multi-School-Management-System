@@ -12,6 +12,9 @@ def login(request):
 def logout(request):
  return render(request, 'accounts/login.html')
 
+ #######################################
+# THE CRUD OPERATIONS ON A CLASS MODULE #
+ #######################################
 def createclassinformation(request):
     if request.method=="POST":
         form=ClassinformationForm(request.POST)
@@ -22,7 +25,6 @@ def createclassinformation(request):
         form = ClassinformationForm()
         context = {'form': form}
         return render(request, 'accounts/createclassinformation.html', context)
-
 def editclassinformation(request, pk):
     item = get_object_or_404(Classinformation, id=pk)
     if request.method == "POST":
@@ -45,4 +47,40 @@ def viewclassinformation(request):
     all_info = Classinformation.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/viewclassinformation.html', context)
+
+#######################################
+# THE CRUD OPERATIONS ON SECTION MODULE #
+#######################################
+def createsectioninformation(request):
+    if request.method=="POST":
+        form=SectioninformationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('createsectioninformation')
+    else:
+        form = SectioninformationForm()
+        context = {'form': form}
+        return render(request, 'accounts/createsectioninformation.html', context)
+def editsectioninformation(request, pk):
+    item = get_object_or_404(Sectioninformation, id=pk)
+    if request.method == "POST":
+        form =  SectioninformationForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewsectioninformation')
+    else:
+        form =  EditinformationForm(instance=item)
+        return render(request, 'accounts/createsectioninformation.html', {'form': form})
+
+def deletesectioninformation(request, pk):
+    Sectioninformation.objects.filter(id=pk).delete()
+    all_info=Sectioninformation.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/viewsectioninformation.html', context)
+
+def viewsectioninformation(request):
+    all_info = Sectioninformation.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewsectioninformation.html', context)
+
 # Create your views here.
