@@ -34,9 +34,12 @@ def editclassinformation(request, pk):
         form =  EditinformationForm(instance=item)
         return render(request, 'accounts/editclassinformation.html', {'form': form})
 
-def deleteclassinformation(request):
-    items=Classinformation.objects.all()
-    return render(request, 'accounts/viewclassinformation.html')
+def deleteclassinformation(request, pk):
+    Classinformation.filter(id=pk).delete()
+    all_info=Classinformation.objects.all()
+    context={'all_info',all_info}
+
+    return render(request, 'accounts/viewclassinformation.html', context)
 
 def viewclassinformation(request):
     all_info = Classinformation.objects.all()
