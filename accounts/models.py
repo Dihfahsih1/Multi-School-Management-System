@@ -9,7 +9,7 @@ class Classinformation(models.Model):
     TotalStudents = models.CharField(max_length=30, blank=True)
     NumberOfSections = models.CharField(max_length=30, blank=True)
     def __str__(self):
-        return 'Class Name:{0} Students Number:{1}'.format(self.ClassName, self.TotalStudents)
+        return self.ClassName
 
 class Sectioninformation(models.Model):
     NameOfClass = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
