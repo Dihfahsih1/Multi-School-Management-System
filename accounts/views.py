@@ -153,3 +153,39 @@ def viewsubjects(request):
     all_info = Subjects.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/viewsubjects.html', context)
+
+
+#######################################
+#   CRUD FOR THE Syllabus MODULE        #
+#######################################
+def addsyllabus(request):
+    if request.method=="POST":
+        form=AddSyllabusForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('addsyllabus')
+    else:
+        form = AddSyllabusForm()
+        context = {'form': form}
+        return render(request, 'accounts/addsyllabus.html', context)
+def editsyllabus(request, pk):
+    item = get_object_or_404(Syllabus, id=pk)
+    if request.method == "POST":
+        form =  EditSyllabusForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewsyllabus')
+    else:
+        form =  EditSyllabusForm(instance=item)
+        return render(request, 'accounts/editsyllabus.html', {'form': form})
+
+def deletesyllabus(request, pk):
+    Syllabus.objects.filter(id=pk).delete()
+    all_info=Syllabus.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/viewsyllabus.html', context)
+
+def viewsyllabus(request):
+    all_info = Syllabus.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewsyllabus.html', context)

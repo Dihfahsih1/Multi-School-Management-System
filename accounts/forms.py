@@ -43,3 +43,13 @@ class EditSubjectForm(forms.ModelForm):
     class Meta:
         model = Subjects
         fields = ('Subjectname', 'Subjectcode', 'Author', 'Class', 'SubjectTeacher','Type','OtherNotes')
+
+class AddSyllabusForm(forms.ModelForm):
+    class Meta:
+        model = Syllabus
+        fields = ('SyllabusType', 'Subject', 'Class', 'Syllabus','Notes')
+
+class EditSyllabusForm(forms.ModelForm):
+    class Meta:
+        model = Syllabus
+        fields = ('SyllabusType', 'Subject', 'Class', 'Syllabus','Notes')        
