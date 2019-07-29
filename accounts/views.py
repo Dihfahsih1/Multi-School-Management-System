@@ -83,4 +83,38 @@ def viewsectioninformation(request):
     context={'all_info':all_info}
     return render(request, 'accounts/viewsectioninformation.html', context)
 
-# Create your views here.
+#######################################
+# CRUD FOR THE TEACHER MODULE         #
+#######################################
+
+def createteacher(request):
+    if request.method=="POST":
+        form=CreateTeacherForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('createteacher')
+    else:
+        form = CreateTeacherForm()
+        context = {'form': form}
+        return render(request, 'accounts/createteacher.html', context)
+def editteacher(request, pk):
+    item = get_object_or_404(Teacher, id=pk)
+    if request.method == "POST":
+        form =  CreateTeacherForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewteachers')
+    else:
+        form =  CreateTeacherForm(instance=item)
+        return render(request, 'accounts/editteacher.html', {'form': form})
+
+def deleteteacher(request, pk):
+    Teacher.objects.filter(id=pk).delete()
+    all_info=Sectioninformation.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/viewteachers.html', context)
+
+def viewteachers(request):
+    all_info = Teacher.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewteacher.html', context)
