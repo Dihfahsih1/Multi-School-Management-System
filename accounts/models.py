@@ -26,3 +26,20 @@ class Teacher(models.Model):
     Address = models.CharField(max_length=130)
     Username = models.CharField(max_length=130)
     Password = models.CharField(max_length=130)
+
+    def __str__(self):
+        return self.Name
+
+class Subjects(models.Model):
+    choices = (
+    ('Compulsory','Compulsory'),('Options','Options')
+    )
+    Subjectname = models.CharField(max_length=130)
+    Subjectcode = models.CharField(max_length=130)
+    Author = models.CharField(max_length=130)
+    Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
+    SubjectTeacher = models.ForeignKey(Teacher, on_delete=models.PROTECT, blank=True, null=True)
+    Type = models.CharField(max_length=130, choices=choices, blank=False)
+    OtherNotes = models.TextField(max_length=200, blank=True)
+    def __str__(self):
+        return self.Subjectname
