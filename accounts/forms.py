@@ -33,3 +33,13 @@ class EditTeacherForm(forms.ModelForm):
     class Meta:
         model = Teacher
         fields = ('Name', 'NationaId', 'Responsibility', 'Address')
+
+class AddSubjectForm(forms.ModelForm):
+    class Meta:
+        model = Subjects
+        fields = ('Subjectname', 'Subjectclass', 'Author', 'Class', 'SubjectTeacher','Type','OtherNotes')
+
+class EditSubjectForm(forms.ModelForm):
+    class Meta:
+        model = Subjects
+        fields = ('Subjectname', 'Subjectclass', 'Author', 'Class', 'SubjectTeacher','Type','OtherNotes')
