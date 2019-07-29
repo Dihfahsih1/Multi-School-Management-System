@@ -143,7 +143,7 @@ def editsubject(request, pk):
         form =  EditSubjectForm(instance=item)
         return render(request, 'accounts/editsubjects.html', {'form': form})
 
-def deletesubjects(request, pk):
+def deletesubject(request, pk):
     Subjects.objects.filter(id=pk).delete()
     all_info=Subjects.objects.all()
     context={'all_info' :all_info}

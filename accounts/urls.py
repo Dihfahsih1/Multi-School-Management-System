@@ -18,5 +18,10 @@ url(r'^createteacher', views.createteacher, name="createteacher"),
 url(r'^editteacher/(?P<pk>\d+)', views.editteacher, name="editteacher"),
 url(r'^deleteteacher/(?P<pk>\d+)', views.deleteteacher, name="deleteteacher"),
 url(r'^viewteachers', views.viewteachers, name="viewteachers"),
+
+url(r'^addsubject', views.addsubject, name="addsubject"),
+url(r'^editsubject/(?P<pk>\d+)', views.editsubject, name="editsubject"),
+url(r'^deletesubject/(?P<pk>\d+)', views.deletesubject, name="deletesubject"),
+url(r'^viewsubjects', views.viewsubjects, name="viewsubjects"),
 url(r'^logout', views.login, name="logout")
 ]
