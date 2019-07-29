@@ -110,7 +110,7 @@ def editteacher(request, pk):
 
 def deleteteacher(request, pk):
     Teacher.objects.filter(id=pk).delete()
-    all_info=Sectioninformation.objects.all()
+    all_info=Teacher.objects.all()
     context={'all_info' :all_info}
     return render(request, 'accounts/viewteacher.html', context)
 
@@ -118,3 +118,38 @@ def viewteachers(request):
     all_info = Teacher.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/viewteacher.html', context)
+
+#######################################
+#   CRUD FOR THE subject MODULE        #
+#######################################
+def addsubject(request):
+    if request.method=="POST":
+        form=AddSubjectForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('addsubject')
+    else:
+        form = AddSubjectForm()
+        context = {'form': form}
+        return render(request, 'accounts/addsubject.html', context)
+def editsubject(request, pk):
+    item = get_object_or_404(Subjects, id=pk)
+    if request.method == "POST":
+        form =  EditSubjectForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewsubjects')
+    else:
+        form =  EditSubjectForm(instance=item)
+        return render(request, 'accounts/editsubjects.html', {'form': form})
+
+def deletesubjects(request, pk):
+    Subjects.objects.filter(id=pk).delete()
+    all_info=Subjects.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/viewsubjects.html', context)
+
+def viewsubjects(request):
+    all_info = Subjects.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewsubjects.html', context)
