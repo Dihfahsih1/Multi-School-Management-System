@@ -141,7 +141,7 @@ def editsubject(request, pk):
             return redirect('viewsubjects')
     else:
         form =  EditSubjectForm(instance=item)
-        return render(request, 'accounts/editsubjects.html', {'form': form})
+        return render(request, 'accounts/editsubject.html', {'form': form})
 
 def deletesubject(request, pk):
     Subjects.objects.filter(id=pk).delete()

@@ -43,3 +43,12 @@ class Subjects(models.Model):
     OtherNotes = models.TextField(max_length=200, blank=True)
     def __str__(self):
         return self.Subjectname
+
+class Syllabus(models.Model):
+    SyllabusTime = models.CharField(max_length=130)
+    Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
+    Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
+    Syllabus = models.FileField(max_length=130, blank=False)
+    Notes = models.TextField(max_length=200, blank=True)
+    def __str__(self):
+        return self.Syllabus        
