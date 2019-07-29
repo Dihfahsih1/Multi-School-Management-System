@@ -15,16 +15,16 @@
    </thead>
    <tbody>
      {% if all_info %}
-     {% for item in all_info%}
+     {% for item in all_info %}
      <tr>
        <td>{{ item.id}}</td>
        <td>{{ item.Name}}</td>
        <td>{{ item.NationaId}}</td>
        <td>{{ item.Responsibility}}</td>
        <td>{{ item.Address}}</td>
-       <td><a href="{% url 'editclassinformation' pk=item.id  %}" >
+       <td><a href="{% url 'editteacher' pk=item.id  %}" >
          <button class="btn btn-warning">Edit Details</button></a>|
-         <a href="{% url 'deleteclassinformation' pk=item.id %}" >
+         <a href="{% url 'deleteteacher' pk=item.id %}" >
            <button class="btn btn-danger">Delete Class</button></a>
        </td>
         {% endfor %}

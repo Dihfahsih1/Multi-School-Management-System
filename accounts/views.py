@@ -112,7 +112,7 @@ def deleteteacher(request, pk):
     Teacher.objects.filter(id=pk).delete()
     all_info=Sectioninformation.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewteachers.html', context)
+    return render(request, 'accounts/viewteacher.html', context)
 
 def viewteachers(request):
     all_info = Teacher.objects.all()

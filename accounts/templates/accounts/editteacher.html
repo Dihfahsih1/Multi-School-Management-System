@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
 <h1>Edit Teacher Information</h1>
 <nav class="nav navbar-expand">
   <ul class="navbar-nav mr-auto">
@@ -21,5 +22,6 @@
   {% csrf_token %}
   {{ form|crispy}}
 <button type="submit" class="btn btn-success">Submit</button>
+</div>
 </div>
 {% endblock %}
