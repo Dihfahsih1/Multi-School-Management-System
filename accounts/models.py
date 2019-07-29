@@ -19,3 +19,10 @@ class Sectioninformation(models.Model):
 
     def __str__(self):
         return self.NameOfClass
+class Teacher(models.Model):
+    Name = models.CharField(max_length=130)
+    NationaId = models.CharField(max_length=130)
+    Responsibility = models.CharField(max_length=130)
+    Address = models.CharField(max_length=130)
+    Username = models.CharField(max_length=130)
+    Password = models.CharField(max_length=130)
