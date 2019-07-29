@@ -25,7 +25,11 @@ class EditsectioninformationForm(forms.ModelForm):
         model = Sectioninformation
         fields = ('SectionTeacher', 'NumberOfStudents', 'SectionName')
 
-class TeacherForm(forms.ModalForm):
+class CreateTeacherForm(forms.ModalForm):
     class Meta:
         model = Teacher
         fields = ('Name', 'NationalId', 'Responsibility', 'Address', 'Username', 'Password')
+class EditTeacherForm(forms.ModalForm):
+    class Meta:
+        model = Teacher
+        fields = ('Name', 'NationalId', 'Responsibility', 'Address')
