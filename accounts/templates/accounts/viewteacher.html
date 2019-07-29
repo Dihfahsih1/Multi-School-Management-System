@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+<h1>View List Of Teachers</h1>
+<table class="table table-hover" border="2">
+   <thead class="table-success">
+     <tr>
+         <td>id</td>
+         <td>Name</td>
+         <td>National Id</td>
+         <td>Responsibility</td>
+         <td>Address</td>
+         <td>Class</td>
+     </tr>
+   </thead>
+   <tbody>
+     {% if all_info %}
+     {% for item in all_info%}
+     <tr>
+       <td>{{ item.id}}</td>
+       <td>{{ item.Name}}</td>
+       <td>{{ item.NationaId}}</td>
+       <td>{{ item.Responsibility}}</td>
+       <td>{{ item.Address}}</td>
+       <td><a href="{% url 'editclassinformation' pk=item.id  %}" >
+         <button class="btn btn-warning">Edit Details</button></a>|
+         <a href="{% url 'deleteclassinformation' pk=item.id %}" >
+           <button class="btn btn-danger">Delete Class</button></a>
+       </td>
+        {% endfor %}
+     </tr>
+     {% endif %}
+   </tbody>
+</table>
+</div>
+{% endblock %}
