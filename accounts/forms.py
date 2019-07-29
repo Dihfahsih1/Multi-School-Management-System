@@ -37,9 +37,9 @@ class EditTeacherForm(forms.ModelForm):
 class AddSubjectForm(forms.ModelForm):
     class Meta:
         model = Subjects
-        fields = ('Subjectname', 'Subjectclass', 'Author', 'Class', 'SubjectTeacher','Type','OtherNotes')
+        fields = ('Subjectname', 'Subjectcode', 'Author', 'Class', 'SubjectTeacher','Type','OtherNotes')
 
 class EditSubjectForm(forms.ModelForm):
     class Meta:
         model = Subjects
-        fields = ('Subjectname', 'Subjectclass', 'Author', 'Class', 'SubjectTeacher','Type','OtherNotes')
+        fields = ('Subjectname', 'Subjectcode', 'Author', 'Class', 'SubjectTeacher','Type','OtherNotes')
