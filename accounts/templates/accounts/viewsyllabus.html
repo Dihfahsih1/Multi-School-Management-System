@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
-<h1>View List Of Subjects</h1>
+<h1>View list of syllabi</h1>
 <table class="table table-hover" border="2">
    <thead class="table-success">
      <tr>
          <td>id</td>
+         <td>Type</td>
+         <td>Subject</td>
          <td>Class</td>
-         <td>Name</td>
-         <td>Code</td>
-         <td>Teacher</td>
+         <td>Syllabus file</td>
+         <td>Notes</td>
      </tr>
    </thead>
    <tbody>
@@ -17,14 +18,17 @@
      {% for item in all_info %}
      <tr>
        <td>{{ item.id}}</td>
+       <td>{{ item.SyllabusType}}</td>
+       <td>{{ item.Subject}}</td>
        <td>{{ item.Class}}</td>
-       <td>{{ item.Subjectname}}</td>
-       <td>{{ item.Subjectcode}}</td>
-       <td>{{ item.SubjectTeacher}}</td>
+       <td>{{ item.Syllabus}}</td>
+       <td>{{ item.Notes}}</td>
        <td><a href="{% url 'editsubject' pk=item.id  %}" >
-         <button class="btn btn-warning">Edit Details</button></a>|
+         <button class="btn btn-warning">Edit</button></a>|
          <a href="{% url 'deletesubject' pk=item.id %}" >
-           <button class="btn btn-danger">Delete Class</button></a>
+           <button class="btn btn-danger">Delete</button></a>|
+           <a href="#" >
+             <button class="btn btn-danger download">Download</button></a>
        </td>
         {% endfor %}
      </tr>
