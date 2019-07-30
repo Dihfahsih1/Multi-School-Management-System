@@ -60,5 +60,5 @@ class HumanResource(models.Model):
     Designation = models.CharField(max_length=130)
     Phone = models.CharField(max_length=130)
     Gender = models.CharField(max_length=10, choices=choices, blank=False, null=True)
-    Adress = models.CharField(max_length=130)
+    Address = models.CharField(max_length=130)
     Religion = models.CharField(max_length=130)

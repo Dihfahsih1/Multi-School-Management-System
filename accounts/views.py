@@ -189,3 +189,38 @@ def viewsyllabus(request):
     all_info = Syllabus.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/viewsyllabus.html', context)
+
+ ###############################################
+#   CRUD FOR THE HUMAN RESOURCES MANAGER MODULE #
+ ###############################################
+def addhumanresource(request):
+    if request.method=="POST":
+        form=AddHumanResourceForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('addhumanresource')
+    else:
+        form = AddHumanResourceForm()
+        context = {'form': form}
+        return render(request, 'accounts/addhumanresource.html', context)
+def edithumanresource(request, pk):
+    item = get_object_or_404(HumanResource, id=pk)
+    if request.method == "POST":
+        form =  EditHumanResourceForm(request.POST,request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewhumanresource')
+    else:
+        form =  EditHumanResourceForm(instance=item)
+        return render(request, 'accounts/edithumanresource.html', {'form': form})
+
+def deletehumanresource(request, pk):
+    HumanResource.objects.filter(id=pk).delete()
+    all_info=HumanResource.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/viewhumanresource.html', context)
+
+def viewhumanresource(request):
+    all_info = HumanResource.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewhumanresource.html', context)

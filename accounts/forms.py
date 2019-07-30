@@ -38,7 +38,6 @@ class AddSubjectForm(forms.ModelForm):
     class Meta:
         model = Subjects
         fields = ('Subjectname', 'Subjectcode', 'Author', 'Class', 'SubjectTeacher','Type','OtherNotes')
-
 class EditSubjectForm(forms.ModelForm):
     class Meta:
         model = Subjects
@@ -48,8 +47,17 @@ class AddSyllabusForm(forms.ModelForm):
     class Meta:
         model = Syllabus
         fields = ('SyllabusType', 'Subject', 'Class', 'Syllabus','Notes')
-
 class EditSyllabusForm(forms.ModelForm):
     class Meta:
         model = Syllabus
-        fields = ('SyllabusType', 'Subject', 'Class', 'Syllabus','Notes')        
+        fields = ('SyllabusType', 'Subject', 'Class', 'Syllabus','Notes')
+
+class AddHumanResourceForm(forms.ModelForm):
+    class Meta:
+        model = HumanResource
+        fields = ('Name', 'NationaId', 'Designation', 'Phone','Address', 'Gender', 'Religion')
+
+class EditHumanResourceForm(forms.ModelForm):
+    class Meta:
+        model = HumanResource
+        fields = ('Name', 'Designation', 'Phone','Address')

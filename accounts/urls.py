@@ -28,5 +28,10 @@ url(r'^addsyllabus', views.addsyllabus, name="addsyllabus"),
 url(r'^editsyllabus/(?P<pk>\d+)', views.editsyllabus, name="editsyllabus"),
 url(r'^deletesyllabus/(?P<pk>\d+)', views.deletesyllabus, name="deletesyllabus"),
 url(r'^viewsyllabus', views.viewsyllabus, name="viewsyllabus"),
+
+url(r'^addhumanresource', views.addhumanresource, name="addhumanresource"),
+url(r'^edithumanresource/(?P<pk>\d+)', views.edithumanresource, name="edithumanresource"),
+url(r'^deletehumanresource/(?P<pk>\d+)', views.deletehumanresource, name="deletehumanresource"),
+url(r'^viewhumanresource', views.viewhumanresource, name="viewhumanresource"),
 url(r'^logout', views.login, name="logout")
 ]
