@@ -160,7 +160,7 @@ def viewsubjects(request):
 #######################################
 def addsyllabus(request):
     if request.method=="POST":
-        form=AddSyllabusForm(request.POST)
+        form=AddSyllabusForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect('addsyllabus')
@@ -171,7 +171,7 @@ def addsyllabus(request):
 def editsyllabus(request, pk):
     item = get_object_or_404(Syllabus, id=pk)
     if request.method == "POST":
-        form =  EditSyllabusForm(request.POST, instance=item)
+        form =  EditSyllabusForm(request.POST,request.FILES, instance=item)
         if form.is_valid():
             form.save()
             return redirect('viewsyllabus')
