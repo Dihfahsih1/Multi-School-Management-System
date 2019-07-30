@@ -48,5 +48,10 @@ url(r'^addexamgrade', views.addexamgrade, name="addexamgrade"),
 url(r'^editexamgrade/(?P<pk>\d+)', views.editexamgrade, name="editexamgrade"),
 url(r'^deleteexamgrade/(?P<pk>\d+)', views.deleteexamgrade, name="deleteexamgrade"),
 url(r'^viewexamgrade', views.viewexamgrade, name="viewexamgrade"),
+
+url(r'^addexamterm', views.addexamterm, name="addexamterm"),
+url(r'^editexamterm/(?P<pk>\d+)', views.editexamterm, name="editexamterm"),
+url(r'^deleteexamterm/(?P<pk>\d+)', views.deleteexamterm, name="deleteexamterm"),
+url(r'^viewexamterm', views.viewexamterm, name="viewexamterm"),
 url(r'^logout', views.login, name="logout")
 ]

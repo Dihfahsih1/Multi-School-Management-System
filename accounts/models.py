@@ -100,3 +100,11 @@ class ExamGrade(models.Model):
     Notes =  models.TextField(max_length=200, blank=True)
     def __str__(self):
         return self.ExamGrade
+
+class ExamTerm(models.Model):
+    School = models.CharField(max_length=130)
+    ExamTitle =  models.CharField(max_length=130)
+    StartDate = models.CharField(max_length=130)
+    Notes =  models.TextField(max_length=200, blank=True)
+    def __str__(self):
+        return self.ExamTitle

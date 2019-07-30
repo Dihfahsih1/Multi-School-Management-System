@@ -88,3 +88,13 @@ class EditExamGradeForm(forms.ModelForm):
     class Meta:
         model = ExamGrade
         fields = ('School','ExamGrade', 'GradePoint', 'MarkFrom', 'MarkTo','Notes')
+
+
+class AddExamTermForm(forms.ModelForm):
+    class Meta:
+        model = ExamTerm
+        fields = ('School','ExamTitle', 'StartDate','Notes')
+class EditExamTermForm(forms.ModelForm):
+    class Meta:
+        model = ExamTerm
+        fields =('School','ExamTitle', 'StartDate','Notes')

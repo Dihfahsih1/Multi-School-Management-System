@@ -329,3 +329,38 @@ def viewexamgrade(request):
     all_info = ExamGrade.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/viewexamgrade.html', context)
+
+
+#######################################
+#   CRUD FOR THE EXAM TERM MODULE    #
+#######################################
+def addexamterm(request):
+    if request.method=="POST":
+        form=AddExamTermForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('addexamterm')
+    else:
+        form = AddExamTermForm()
+        context = {'form': form}
+        return render(request, 'accounts/addexamterm.html', context)
+def editexamterm(request, pk):
+    item = get_object_or_404(ExamTerm, id=pk)
+    if request.method == "POST":
+        form =  EditExamTermForm(request.POST,request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewexamterm')
+    else:
+        form =  EditExamTermeForm(instance=item)
+        return render(request, 'accounts/editexamterm.html', {'form': form})
+
+def deleteexamterm(request, pk):
+    ExamTerm.objects.filter(id=pk).delete()
+    all_info=ExamTerm.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/viewexamterm.html', context)
+def viewexamterm(request):
+    all_info = ExamTerm.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewexamterm.html', context)
