@@ -126,6 +126,14 @@ body {
 <a href="{% url 'addsubject'  %}">Add</a>
 <a href="{% url 'viewsubjects'  %}">View</a>
 </div>
+
+<button class="dropdown-btn">Syllabus
+<i class="fa fa-caret-down"></i>
+</button>
+<div class="dropdown-container">
+<a href="{% url 'addsyllabus'  %}">Add</a>
+<a href="{% url 'viewsyllabus'  %}">View</a>
+</div>
 </div>
 
 {% block body %}
