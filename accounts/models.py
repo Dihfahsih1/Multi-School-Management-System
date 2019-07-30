@@ -18,7 +18,7 @@ class Sectioninformation(models.Model):
     NumberOfStudents = models.CharField(max_length=30, blank=True)
 
     def __str__(self):
-        return self.NameOfClass
+        return self.SectionName
 class Teacher(models.Model):
     Name = models.CharField(max_length=130)
     NationaId = models.CharField(max_length=130)
@@ -62,3 +62,20 @@ class HumanResource(models.Model):
     Gender = models.CharField(max_length=10, choices=choices, blank=False, null=True)
     Address = models.CharField(max_length=130)
     Religion = models.CharField(max_length=130)
+    def __str__(self):
+        return self.Name
+
+class Routine(models.Model):
+    choices = (('Monday','Monday'), ('Tuesday', 'Tuesday'),
+     ('Wednesday','Wednesday'), ('Thursday', 'Thursday'),
+     ('Friday','Friday'), ('Saturday', 'Saturday'),
+     ('Sunday','Sunday'))
+    Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
+    Section = models.ForeignKey(Sectioninformation, on_delete=models.PROTECT, blank=True, null=True)
+    Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
+    Day = models.CharField(max_length=10, choices=choices, blank=False, null=True)
+    Teacher = models.ForeignKey(Teacher, on_delete=models.PROTECT, blank=True, null=True)
+    StartTime = models.CharField(max_length=130, default="11:30 AM")
+    EndTime = models.CharField(max_length=130, default="1:30 PM")
+    Address = models.CharField(max_length=130)
+    RoomNumber = models.CharField(max_length=130)

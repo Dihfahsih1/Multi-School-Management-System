@@ -33,5 +33,10 @@ url(r'^addhumanresource', views.addhumanresource, name="addhumanresource"),
 url(r'^edithumanresource/(?P<pk>\d+)', views.edithumanresource, name="edithumanresource"),
 url(r'^deletehumanresource/(?P<pk>\d+)', views.deletehumanresource, name="deletehumanresource"),
 url(r'^viewhumanresource', views.viewhumanresource, name="viewhumanresource"),
+
+url(r'^addroutine', views.addroutine, name="addroutine"),
+url(r'^editroutine/(?P<pk>\d+)', views.editroutine, name="editroutine"),
+url(r'^deleteroutine/(?P<pk>\d+)', views.deleteroutine, name="deleteroutine"),
+url(r'^viewroutine', views.viewroutine, name="viewroutine"),
 url(r'^logout', views.login, name="logout")
 ]

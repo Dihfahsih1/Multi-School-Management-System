@@ -56,8 +56,17 @@ class AddHumanResourceForm(forms.ModelForm):
     class Meta:
         model = HumanResource
         fields = ('Name', 'NationaId', 'Designation', 'Phone','Address', 'Gender', 'Religion')
-
 class EditHumanResourceForm(forms.ModelForm):
     class Meta:
         model = HumanResource
         fields = ('Name', 'Designation', 'Phone','Address')
+        
+class AddRoutineForm(forms.ModelForm):
+    class Meta:
+        model = Routine
+        fields = ('Class', 'Section', 'Subject', 'Day','Teacher', 'StartTime', 'EndTime','Address','RoomNumber')
+
+class EditRoutineForm(forms.ModelForm):
+    class Meta:
+        model = Routine
+        fields = ('Class', 'Section', 'Subject', 'Day','Teacher', 'StartTime', 'EndTime','Address','RoomNumber')

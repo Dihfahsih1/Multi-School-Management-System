@@ -224,3 +224,38 @@ def viewhumanresource(request):
     all_info = HumanResource.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/viewhumanresource.html', context)
+
+ ###############################################
+############  CRUD FOR THE ROUTINE #############
+ ###############################################
+def addroutine(request):
+    if request.method=="POST":
+        form=AddRoutineForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('addroutine')
+    else:
+        form = AddRoutineForm()
+        context = {'form': form}
+        return render(request, 'accounts/addroutine.html', context)
+def editroutine(request, pk):
+    item = get_object_or_404(Routine, id=pk)
+    if request.method == "POST":
+        form =  EditRoutineForm(request.POST,request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewroutine')
+    else:
+        form =  EditRoutineForm(instance=item)
+        return render(request, 'accounts/editroutine.html', {'form': form})
+
+def deleteroutine(request, pk):
+    Routine.objects.filter(id=pk).delete()
+    all_info=Routine.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/viewroutine.html', context)
+
+def viewroutine(request):
+    all_info = Routine.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewroutine.html', context)
