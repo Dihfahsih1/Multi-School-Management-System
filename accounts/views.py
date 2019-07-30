@@ -294,3 +294,38 @@ def viewassignment(request):
     all_info = Assignment.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/viewassignment.html', context)
+
+#######################################
+#   CRUD FOR THE EXAM GRADE MODULE    #
+#######################################
+def addexamgrade(request):
+    if request.method=="POST":
+        form=AddExamGradeForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('addexamgrade')
+    else:
+        form = AddExamGradeForm()
+        context = {'form': form}
+        return render(request, 'accounts/addexamgrade.html', context)
+def editexamgrade(request, pk):
+    item = get_object_or_404(ExamGrade, id=pk)
+    if request.method == "POST":
+        form =  EditExamGradeForm(request.POST,request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewexamgrade')
+    else:
+        form =  EditExamGradeForm(instance=item)
+        return render(request, 'accounts/editexamgrade.html', {'form': form})
+
+def deleteexamgrade(request, pk):
+    ExamGrade.objects.filter(id=pk).delete()
+    all_info=ExamGrade.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/viewexamgrade.html', context)
+
+def viewexamgrade(request):
+    all_info = ExamGrade.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewexamgrade.html', context)

@@ -79,3 +79,12 @@ class EditAssignmentForm(forms.ModelForm):
     class Meta:
         model = Assignment
         fields = ('School','AssignmentType', 'Subject', 'Class', 'Assignment','Notes')
+
+class AddExamGradeForm(forms.ModelForm):
+    class Meta:
+        model = ExamGrade
+        fields = ('School','ExamGrade', 'GradePoint', 'MarkFrom', 'MarkTo','Notes')
+class EditExamGradeForm(forms.ModelForm):
+    class Meta:
+        model = ExamGrade
+        fields = ('School','ExamGrade', 'GradePoint', 'MarkFrom', 'MarkTo','Notes')

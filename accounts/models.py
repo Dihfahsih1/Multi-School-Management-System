@@ -89,4 +89,14 @@ class Assignment(models.Model):
     Assignment = models.FileField(max_length=130, blank=False)
     Notes = models.TextField(max_length=200, blank=True)
     def __str__(self):
-        return self.Syllabus    
+        return self.Assignment
+
+class ExamGrade(models.Model):
+    School = models.CharField(max_length=130)
+    ExamGrade =  models.CharField(max_length=130)
+    GradePoint = models.CharField(max_length=130)
+    MarkFrom = models.CharField(max_length=130)
+    MarkTo = models.CharField(max_length=130)
+    Notes =  models.TextField(max_length=200, blank=True)
+    def __str__(self):
+        return self.ExamGrade

@@ -161,8 +161,15 @@ body {
 <a href="{% url 'addassignment'  %}">Add</a>
 <a href="{% url 'viewassignment'  %}">View</a>
 </div>
-</div>
 
+<button class="dropdown-btn">Exam
+<i class="fa fa-caret-down"></i>
+</button>
+<div class="dropdown-container">
+<a href="{% url 'addexamgrade' %}">Exam Grade</a>
+<a href="{% url 'viewexamgrade' %}">View Grade</a>
+</div>
+</div>
 
 {% block body %}
 {% endblock %}
