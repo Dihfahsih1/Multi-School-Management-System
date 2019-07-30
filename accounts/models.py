@@ -52,3 +52,13 @@ class Syllabus(models.Model):
     Notes = models.TextField(max_length=200, blank=True)
     def __str__(self):
         return self.Syllabus
+
+class HumanResource(models.Model):
+    choices = (('female','female'), ('male', 'male'))
+    Name = models.CharField(max_length=130)
+    NationaId = models.CharField(max_length=130)
+    Designation = models.CharField(max_length=130)
+    Phone = models.CharField(max_length=130)
+    Gender = models.CharField(max_length=10, choices=choices, blank=False, null=True)
+    Adress = models.CharField(max_length=130)
+    Religion = models.CharField(max_length=130)
