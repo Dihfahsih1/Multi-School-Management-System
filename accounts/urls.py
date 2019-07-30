@@ -38,5 +38,10 @@ url(r'^addroutine', views.addroutine, name="addroutine"),
 url(r'^editroutine/(?P<pk>\d+)', views.editroutine, name="editroutine"),
 url(r'^deleteroutine/(?P<pk>\d+)', views.deleteroutine, name="deleteroutine"),
 url(r'^viewroutine', views.viewroutine, name="viewroutine"),
+
+url(r'^addassignment', views.addassignment, name="addassignment"),
+url(r'^editassignment/(?P<pk>\d+)', views.editassignment, name="editassignment"),
+url(r'^deleteassignment/(?P<pk>\d+)', views.deleteassignment, name="deleteassignment"),
+url(r'^viewassignment', views.viewassignment, name="viewassignment"),
 url(r'^logout', views.login, name="logout")
 ]

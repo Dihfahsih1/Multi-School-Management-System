@@ -259,3 +259,38 @@ def viewroutine(request):
     all_info = Routine.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/viewroutine.html', context)
+
+#######################################
+#   CRUD FOR THE ASSIGNMENT MODULE    #
+#######################################
+def addassignment(request):
+    if request.method=="POST":
+        form=AddAssignmentForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('addassignment')
+    else:
+        form = AddAssignmentForm()
+        context = {'form': form}
+        return render(request, 'accounts/addassignment.html', context)
+def editassignment(request, pk):
+    item = get_object_or_404(Assignment, id=pk)
+    if request.method == "POST":
+        form =  EditAssignmentForm(request.POST,request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewassignment')
+    else:
+        form =  EditAssignmentForm(instance=item)
+        return render(request, 'accounts/editassignment.html', {'form': form})
+
+def deleteassignment(request, pk):
+    Assignment.objects.filter(id=pk).delete()
+    all_info=Assignment.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/viewassignment.html', context)
+
+def viewassignment(request):
+    all_info = Assignment.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewassignment.html', context)

@@ -60,7 +60,7 @@ class EditHumanResourceForm(forms.ModelForm):
     class Meta:
         model = HumanResource
         fields = ('Name', 'Designation', 'Phone','Address')
-        
+
 class AddRoutineForm(forms.ModelForm):
     class Meta:
         model = Routine
@@ -70,3 +70,12 @@ class EditRoutineForm(forms.ModelForm):
     class Meta:
         model = Routine
         fields = ('Class', 'Section', 'Subject', 'Day','Teacher', 'StartTime', 'EndTime','Address','RoomNumber')
+
+class AddAssignmentForm(forms.ModelForm):
+    class Meta:
+        model = Assignment
+        fields = ('School','AssignmentType', 'Subject', 'Class', 'Assignment','Notes')
+class EditAssignmentForm(forms.ModelForm):
+    class Meta:
+        model = Assignment
+        fields = ('School','AssignmentType', 'Subject', 'Class', 'Assignment','Notes')

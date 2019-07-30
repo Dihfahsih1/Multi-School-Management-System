@@ -135,7 +135,7 @@ body {
 <a href="{% url 'viewsyllabus'  %}">View</a>
 </div>
 
-<button class="dropdown-btn">HumanResource
+<button class="dropdown-btn">Resource
 <i class="fa fa-caret-down"></i>
 </button>
 <div class="dropdown-container">
@@ -143,14 +143,26 @@ body {
 <a href="{% url 'viewhumanresource'  %}">View</a>
 </div>
 
-<button class="dropdown-btn">Routine
+<button class="dropdown-btn">Attendance
 <i class="fa fa-caret-down"></i>
 </button>
 <div class="dropdown-container">
-<a href="{% url 'addroutine'  %}">Add</a>
-<a href="{% url 'viewroutine'  %}">View</a>
+<a href="#">Students</a>
+<a href="#">Teacher</a>
+<a href="#">Employee</a>
+<a href="#">AbsentSms</a>
+<a href="#">AbsentEmail</a>
+</div>
+
+<button class="dropdown-btn">Assignment
+<i class="fa fa-caret-down"></i>
+</button>
+<div class="dropdown-container">
+<a href="{% url 'addassignment'  %}">Add</a>
+<a href="{% url 'viewassignment'  %}">View</a>
 </div>
 </div>
+
 
 {% block body %}
 {% endblock %}

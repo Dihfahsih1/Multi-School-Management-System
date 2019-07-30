@@ -79,3 +79,14 @@ class Routine(models.Model):
     EndTime = models.CharField(max_length=130, default="1:30 PM")
     Address = models.CharField(max_length=130)
     RoomNumber = models.CharField(max_length=130)
+
+class Assignment(models.Model):
+    School = models.CharField(max_length=130)
+    AssignmentType = models.CharField(max_length=130)
+    Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
+    Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
+    Deadline =models.CharField(max_length=130, blank=False)
+    Assignment = models.FileField(max_length=130, blank=False)
+    Notes = models.TextField(max_length=200, blank=True)
+    def __str__(self):
+        return self.Syllabus    
