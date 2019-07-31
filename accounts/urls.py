@@ -68,5 +68,10 @@ url(r'^addlibrarybook', views.addlibrarybook, name="addlibrarybook"),
 url(r'^editlibrarybook/(?P<pk>\d+)', views.editlibrarybook, name="editlibrarybook"),
 url(r'^deletelibrarybook/(?P<pk>\d+)', views.deletelibrarybook, name="deletelibrarybook"),
 url(r'^viewlibrarybook', views.viewlibrarybook, name="viewlibrarybook"),
+
+url(r'^addvehicle', views.addvehicle, name="addvehicle"),
+url(r'^editvehicle/(?P<pk>\d+)', views.editvehicle, name="editvehicle"),
+url(r'^deletevehicle/(?P<pk>\d+)', views.deletevehicle, name="deletevehicle"),
+url(r'^viewvehicle', views.viewvehicle, name="viewvehicle"),
 url(r'^logout', views.login, name="logout")
 ]

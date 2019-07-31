@@ -142,4 +142,13 @@ class Library(models.Model):
     Language = models.CharField(max_length=130)
     Price = models.CharField(max_length=130)
     Quantity = models.CharField(max_length=130)
-    BookCover =  models.FileField(max_length=130, blank=False)       
+    BookCover =  models.FileField(max_length=130, blank=False)
+
+class Transport(models.Model):
+    School = models.CharField(max_length=130)
+    VehicleNumber = models.CharField(max_length=130)
+    VehicleModel = models.CharField(max_length=130)
+    Driver= models.CharField(max_length=130)
+    VehicleLicense = models.CharField(max_length=130)
+    VehicleContact= models.CharField(max_length=130)
+    Notes = models.CharField(max_length=130)

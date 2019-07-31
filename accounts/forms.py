@@ -124,3 +124,13 @@ class EditLibraryBookForm(forms.ModelForm):
     class Meta:
         model = Library
         fields = ('School','BookTitle', 'ISBN_no', 'BookId', 'Edition','Author', 'Language', 'Price', 'Quantity','BookCover')
+
+
+class AddVehicleForm(forms.ModelForm):
+    class Meta:
+        model = Transport
+        fields = ('School','VehicleNumber', 'VehicleModel', 'Driver', 'VehicleLicense','VehicleContact', 'Notes')
+class EditVehicleForm(forms.ModelForm):
+    class Meta:
+        model = Transport
+        fields = ('School','VehicleNumber', 'VehicleModel', 'Driver', 'VehicleLicense','VehicleContact', 'Notes')
