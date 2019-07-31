@@ -44,7 +44,7 @@ url(r'^editassignment/(?P<pk>\d+)', views.editassignment, name="editassignment")
 url(r'^deleteassignment/(?P<pk>\d+)', views.deleteassignment, name="deleteassignment"),
 url(r'^viewassignment', views.viewassignment, name="viewassignment"),
 
-url(r'^addexamgrade', views.addexamgrade, name="addexamgrade"),addexamschedule
+url(r'^addexamgrade', views.addexamgrade, name="addexamgrade"),
 url(r'^editexamgrade/(?P<pk>\d+)', views.editexamgrade, name="editexamgrade"),
 url(r'^deleteexamgrade/(?P<pk>\d+)', views.deleteexamgrade, name="deleteexamgrade"),
 url(r'^viewexamgrade', views.viewexamgrade, name="viewexamgrade"),
