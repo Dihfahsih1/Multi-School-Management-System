@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+<h1>Edit Exam Term</h1>
+<nav class="nav navbar-expand">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'addexamterm' %}"><button class="btn btn-primary">Create</button></a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#"><button class="btn btn-default">Edit</button></a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewexamterm' %}"><button class="btn btn-primary">View</button></a>
+    </li
+  </ul>
+</nav>
+{% load crispy_forms_tags %}
+<div class="col-lg-4" style="float:left">
+<form method="post" enctype="multipart/form-data">
+<p>Edit Details</p>
+  {% csrf_token %}
+  {{ form|crispy}}
+<button type="submit" class="btn btn-success">Submit</button>
+</div>
+</div>
+{% endblock %}

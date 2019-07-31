@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+<h4>View Exam Schedule List</h4>
+<nav class="nav navbar-expand">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewexamgrade' %}">Exam Grade</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewexamterm' %}">Exam Term</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">Exam Schedule</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">Exam Suggestion</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">Exam Attendence</a>
+    </li>
+
+  </ul>
+</nav>
+<nav class="nav navbar-expand" style="float:left">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#"><button class="btn btn-default">Exam Schedule</button></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'addexamschedule' %}"><button class="btn btn-success">Schedule Exam</button></a>
+    </li>
+  </ul>
+</nav>
+<br>
+<table class="table table-hover" border="2">
+   <thead class="table-success">
+    <tr>
+         <td>id</td>
+         <td>School</td>
+         <td>Exam </td>
+         <td>CLass</td>
+         <td>Subject</td>
+         <td>ExamDate</td>
+         <td>Start Time</td>
+         <td>End Time</td>
+         <td>Room</td>
+         <td>Action</td>
+     </tr>
+   </thead>
+   <tbody>
+     {% if all_info %}
+     {% for item in all_info %}
+     <tr>
+       <td>{{ item.id}}</td>
+       <td>{{ item.School}}</td>
+       <td>{{ item.Exam}}</td>
+       <td>{{ item.Class}}</td>
+       <td>{{ item.Subject}}</td
+         <td>{{ item.ExamDate}}</td>
+         <td>{{ item.StartTime}}</td>
+         <td>{{ item.EndTime}}</td>
+         <td>{{ item.RoomNumber}}</td>
+       <td><a href="{% url 'editexamschedule' pk=item.id  %}" >
+         <button class="btn btn-warning">Edit Details</button></a>|
+         <a href="{% url 'deleteexamschedule' pk=item.id %}" >
+           <button class="btn btn-danger">Delete Class</button></a>
+       </td>
+        {% endfor %}
+     </tr>
+     {% endif %}
+   </tbody>
+</table>
+</div>
+{% endblock %}
