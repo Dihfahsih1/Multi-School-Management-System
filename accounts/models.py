@@ -108,3 +108,16 @@ class ExamTerm(models.Model):
     Notes =  models.TextField(max_length=200, blank=True)
     def __str__(self):
         return self.ExamTitle
+
+class ExamSchedule(models.Model):
+    School = models.CharField(max_length=130)
+    Exam = models.ForeignKey(ExamTerm, on_delete=models.PROTECT, blank=True, null=True)
+    Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
+    Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
+    ExamDate = models.CharField(max_length=130)
+    StartTime = models.CharField(max_length=130)
+    EndTime = models.CharField(max_length=130)
+    RoomNumber =  models.TextField(max_length=200, blank=True)
+    Notes =  models.TextField(max_length=200, blank=True)
+    def __str__(self):
+        return self.ExamDate
