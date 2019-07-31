@@ -98,3 +98,11 @@ class EditExamTermForm(forms.ModelForm):
     class Meta:
         model = ExamTerm
         fields =('School','ExamTitle', 'StartDate','Notes')
+class AddExamScheduleForm(form.ModelForm):
+    class Meta:
+        model = ExamSchedule
+        fields = ('School','Exam', 'Class', 'Subject', 'ExamDate','StartTime','EndTime','RoomNumber','Notes')
+class EditExamScheduleForm(form.ModelForm):
+    class Meta:
+        model = ExamSchedule
+        fields = ('School','Exam', 'Class', 'Subject', 'ExamDate','StartTime','EndTime','RoomNumber','Notes')
