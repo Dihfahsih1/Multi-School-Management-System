@@ -115,3 +115,12 @@ class EditExamSuggestionForm(forms.ModelForm):
     class Meta:
         model = ExamSuggestion
         fields = ('School','SuggestionTitle', 'Class', 'Subject', 'Suggestion','Notes')
+
+class AddLibraryBookForm(forms.ModelForm):
+    class Meta:
+        model = Library
+        fields = ('School','BookTitle', 'ISBN_no', 'BookId', 'Edition','Author', 'Language', 'Price', 'Quantity','BookCover')
+class EditLibraryBookForm(forms.ModelForm):
+    class Meta:
+        model = Library
+        fields = ('School','BookTitle', 'ISBN_no', 'BookId', 'Edition','Author', 'Language', 'Price', 'Quantity','BookCover')

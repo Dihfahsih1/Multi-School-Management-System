@@ -63,5 +63,10 @@ url(r'^addexamsuggestion', views.addexamsuggestion, name="addexamsuggestion"),
 url(r'^editexamsuggestion/(?P<pk>\d+)', views.editexamsuggestion, name="editexamsuggestion"),
 url(r'^deleteexamsuggestion/(?P<pk>\d+)', views.deleteexamsuggestion, name="deleteexamsuggestion"),
 url(r'^viewexamsuggestion', views.viewexamsuggestion, name="viewexamsuggestion"),
+
+url(r'^addlibrarybook', views.addlibrarybook, name="addlibrarybook"),
+url(r'^editlibrarybook/(?P<pk>\d+)', views.editlibrarybook, name="editlibrarybook"),
+url(r'^deletelibrarybook/(?P<pk>\d+)', views.deletelibrarybook, name="deletelibrarybook"),
+url(r'^viewlibrarybook', views.viewlibrarybook, name="viewlibrarybook"),
 url(r'^logout', views.login, name="logout")
 ]

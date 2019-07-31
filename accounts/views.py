@@ -424,7 +424,7 @@ def editexamsuggestion(request, pk):
     else:
         form =  EditExamSuggestionForm(instance=item)
         return render(request, 'accounts/editexamsuggestion.html', {'form': form})
-        
+
 def deleteexamsuggestion(request, pk):
     ExamSuggestion.objects.filter(id=pk).delete()
     all_info=ExamSuggestion.objects.all()
@@ -434,3 +434,37 @@ def viewexamsuggestion(request):
     all_info = ExamSuggestion.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/viewexamsuggestion.html', context)
+
+  #######################################
+#   CRUD FOR THE LIBRARY MODULE         #
+  #######################################
+def addlibrarybook(request):
+    if request.method=="POST":
+        form=AddLibraryBookForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('addlibrarybook')
+    else:
+        form = AddLibraryBookForm()
+        context = {'form': form}
+        return render(request, 'accounts/addlibrarybook.html', context)
+def editlibrarybook(request, pk):
+    item = get_object_or_404(Library, id=pk)
+    if request.method == "POST":
+        form =  EditLibraryBookForm(request.POST,request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewlibrarybook')
+    else:
+        form =  EditLibraryBookForm(instance=item)
+        return render(request, 'accounts/editlibrarybook.html', {'form': form})
+
+def deletelibrarybook(request, pk):
+    Library.objects.filter(id=pk).delete()
+    all_info=Library.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/viewlibrarybook.html', context)
+def viewlibrarybook(request):
+    all_info = Library.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewlibrarybook.html', context)

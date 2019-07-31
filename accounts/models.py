@@ -131,3 +131,15 @@ class ExamSuggestion(models.Model):
     Notes = models.TextField(max_length=150, blank=True)
     def __str__(self):
         return self.Assignment
+
+class Library(models.Model):
+    School = models.CharField(max_length=130)
+    BookTitle = models.CharField(max_length=130)
+    ISBN_no = models.CharField(max_length=130)
+    BookId= models.CharField(max_length=130)
+    Edition = models.CharField(max_length=130)
+    Author= models.CharField(max_length=130)
+    Language = models.CharField(max_length=130)
+    Price = models.CharField(max_length=130)
+    Quantity = models.CharField(max_length=130)
+    BookCover =  models.FileField(max_length=130, blank=False)       
