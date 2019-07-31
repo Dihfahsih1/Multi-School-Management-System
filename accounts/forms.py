@@ -143,3 +143,12 @@ class EditRouteForm(forms.ModelForm):
     class Meta:
         model = Route
         fields = ('School','RouteTitle', 'StartRoute', 'EndRoute','Notes')
+
+class AddHostelForm(forms.ModelForm):
+    class Meta:
+        model = Hostel
+        fields = ('School','HostelName', 'HostType', 'Address','Notes')
+class EditHostelForm(forms.ModelForm):
+    class Meta:
+        model = Hostel
+        fields = ('School','HostelName', 'HostType', 'Address','Notes')

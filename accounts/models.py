@@ -49,7 +49,7 @@ class Syllabus(models.Model):
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
     Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
     Syllabus = models.FileField(max_length=130, blank=False)
-    Notes = models.TextField(max_length=200, blank=True)
+    Notes = models.TextField(max_length=100)
     def __str__(self):
         return self.Syllabus
 
@@ -87,7 +87,7 @@ class Assignment(models.Model):
     Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
     Deadline =models.CharField(max_length=130, blank=False)
     Assignment = models.FileField(max_length=130, blank=False)
-    Notes = models.TextField(max_length=200, blank=True)
+    Notes = models.TextField(max_length=100)
     def __str__(self):
         return self.Assignment
 
@@ -97,7 +97,7 @@ class ExamGrade(models.Model):
     GradePoint = models.CharField(max_length=130)
     MarkFrom = models.CharField(max_length=130)
     MarkTo = models.CharField(max_length=130)
-    Notes =  models.TextField(max_length=200, blank=True)
+    Notes = models.TextField(max_length=100)
     def __str__(self):
         return self.ExamGrade
 
@@ -105,7 +105,7 @@ class ExamTerm(models.Model):
     School = models.CharField(max_length=130)
     ExamTitle =  models.CharField(max_length=130)
     StartDate = models.CharField(max_length=130)
-    Notes =  models.TextField(max_length=200, blank=True)
+    Notes = models.TextField(max_length=100)
     def __str__(self):
         return self.ExamTitle
 
@@ -118,7 +118,7 @@ class ExamSchedule(models.Model):
     StartTime = models.CharField(max_length=130)
     EndTime = models.CharField(max_length=130)
     RoomNumber =  models.CharField(max_length=100, blank=True)
-    Notes =  models.TextField(max_length=150, blank=True)
+    Notes = models.TextField(max_length=100)
     def __str__(self):
         return self.ExamDate
 class ExamSuggestion(models.Model):
@@ -128,7 +128,7 @@ class ExamSuggestion(models.Model):
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
     Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
     Suggestion = models.FileField(max_length=130, blank=False)
-    Notes = models.TextField(max_length=150, blank=True)
+    Notes = models.TextField(max_length=100)
     def __str__(self):
         return self.Assignment
 
@@ -151,11 +151,22 @@ class Transport(models.Model):
     Driver= models.CharField(max_length=130)
     VehicleLicense = models.CharField(max_length=130)
     VehicleContact= models.CharField(max_length=130)
-    Notes = models.CharField(max_length=130)
-
+    Notes = models.TextField(max_length=100)
 class Route(models.Model):
     School = models.CharField(max_length=130)
     RouteTitle = models.CharField(max_length=130)
     StartRoute = models.CharField(max_length=130)
     EndRoute= models.CharField(max_length=130)
-    Notes = models.CharField(max_length=130)
+    Notes = models.TextField(max_length=100)
+    def __str__(self):
+        return self.RouteTitle
+
+class Hostel(models.Model):
+    choices = (('Boys','Boys'),('Girls','Girls'),('Combined','Combined'))
+    School = models.CharField(max_length=130)
+    HostelName= models.CharField(max_length=130)
+    HostType = models.CharField(max_length=130, choices=choices, blank=False, null=True)
+    Address= models.CharField(max_length=130)
+    Notes = models.TextField(max_length=110)
+    def __str__(self):
+        return self.HostelName

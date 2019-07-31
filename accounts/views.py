@@ -539,3 +539,41 @@ def viewroute(request):
     all_info = Route.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/viewroute.html', context)
+
+
+
+  ################################################
+#   CRUD FOR THE HOSTEL INFORMATION MODULE         #
+  ################################################
+def addhostel(request):
+    if request.method=="POST":
+        form=AddHostelForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('addhostel')
+    else:
+        form = AddHostelForm()
+        context = {'form': form}
+        return render(request, 'accounts/addhostel.html', context)
+        
+def edithostel(request, pk):
+    item = get_object_or_404(Hostel, id=pk)
+    if request.method == "POST":
+        form =  EditHostelForm(request.POST,request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewhostel')
+    else:
+        form =  EditHostelForm(instance=item)
+        return render(request, 'accounts/edithostel.html', {'form': form})
+
+def deletehostel(request, pk):
+    Hostel.objects.filter(id=pk).delete()
+    all_info=Hostel.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/viewhostel.html', context)
+
+def viewhostel(request):
+    all_info = Hostel.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewhostel.html', context)
