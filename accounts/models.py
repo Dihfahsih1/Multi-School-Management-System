@@ -117,7 +117,7 @@ class ExamSchedule(models.Model):
     ExamDate = models.CharField(max_length=130)
     StartTime = models.CharField(max_length=130)
     EndTime = models.CharField(max_length=130)
-    RoomNumber =  models.TextField(max_length=200, blank=True)
-    Notes =  models.TextField(max_length=200, blank=True)
+    RoomNumber =  models.CharField(max_length=100, blank=True)
+    Notes =  models.TextField(max_length=150, blank=True)
     def __str__(self):
         return self.ExamDate
