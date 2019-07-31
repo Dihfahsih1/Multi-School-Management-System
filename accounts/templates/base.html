@@ -19,7 +19,7 @@ body {
 
 /* Fixed sidenav, full height */
 .sidenav {
-  height: 100%;
+  height: auto;
   width: 185px;
   position: fixed;
   z-index: 1;
@@ -170,6 +170,7 @@ body {
 <a href="{% url 'viewexamterm' %}">Exam Term</a>
 </div>
 <a href="{% url 'viewexamschedule'%}">Exam Schedule</a>
+<a href="{% url 'viewexamsuggestion'%}">ExamSuggestions</a>
 </div>
 
 {% block body %}

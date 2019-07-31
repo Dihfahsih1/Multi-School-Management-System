@@ -58,5 +58,10 @@ url(r'^addexamschedule', views.addexamschedule, name="addexamschedule"),
 url(r'^editexamschedule/(?P<pk>\d+)', views.editexamschedule, name="editexamschedule"),
 url(r'^deleteexamschedule/(?P<pk>\d+)', views.deleteexamschedule, name="deleteexamschedule"),
 url(r'^viewexamschedule', views.viewexamschedule, name="viewexamschedule"),
+
+url(r'^addexamsuggestion', views.addexamsuggestion, name="addexamsuggestion"),
+url(r'^editexamsuggestion/(?P<pk>\d+)', views.editexamsuggestion, name="editexamsuggestion"),
+url(r'^deleteexamsuggestion/(?P<pk>\d+)', views.deleteexamsuggestion, name="deleteexamsuggestion"),
+url(r'^viewexamsuggestion', views.viewexamsuggestion, name="viewexamsuggestion"),
 url(r'^logout', views.login, name="logout")
 ]

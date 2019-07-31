@@ -106,3 +106,12 @@ class EditExamScheduleForm(forms.ModelForm):
     class Meta:
         model = ExamSchedule
         fields = ('School','Exam', 'Class', 'Subject', 'ExamDate','StartTime','EndTime','RoomNumber','Notes')
+
+class AddExamSuggestionForm(forms.ModelForm):
+    class Meta:
+        model = ExamSuggestion
+        fields = ('School','SuggestionTitle', 'Class', 'Subject', 'Suggestion','Notes')
+class EditExamSuggestionForm(forms.ModelForm):
+    class Meta:
+        model = ExamSuggestion
+        fields = ('School','SuggestionTitle', 'Class', 'Subject', 'Suggestion','Notes')

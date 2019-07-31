@@ -121,3 +121,13 @@ class ExamSchedule(models.Model):
     Notes =  models.TextField(max_length=150, blank=True)
     def __str__(self):
         return self.ExamDate
+class ExamSuggestion(models.Model):
+    School = models.CharField(max_length=130)
+    SuggestionTitle = models.CharField(max_length=130)
+    Exam = models.ForeignKey(ExamTerm, on_delete=models.PROTECT, blank=True, null=True)
+    Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
+    Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
+    Suggestion = models.FileField(max_length=130, blank=False)
+    Notes = models.TextField(max_length=150, blank=True)
+    def __str__(self):
+        return self.Assignment

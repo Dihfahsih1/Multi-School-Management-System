@@ -398,3 +398,39 @@ def viewexamschedule(request):
     all_info = ExamSchedule.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/viewexamschedule.html', context)
+
+
+
+  #######################################
+#   CRUD FOR THE EXAM SUGGESTION MODULE    #
+  #######################################
+def addexamsuggestion(request):
+    if request.method=="POST":
+        form=AddExamSuggestionForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('addexamsuggestion')
+    else:
+        form = AddExamSuggestionForm()
+        context = {'form': form}
+        return render(request, 'accounts/addexamsuggestion.html', context)
+def editexamsuggestion(request, pk):
+    item = get_object_or_404(ExamSuggestion, id=pk)
+    if request.method == "POST":
+        form =  EditExamSuggestionForm(request.POST,request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewexamsuggestion')
+    else:
+        form =  EditExamSuggestionForm(instance=item)
+        return render(request, 'accounts/editexamsuggestion.html', {'form': form})
+        
+def deleteexamsuggestion(request, pk):
+    ExamSuggestion.objects.filter(id=pk).delete()
+    all_info=ExamSuggestion.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/viewexamsuggestion.html', context)
+def viewexamsuggestion(request):
+    all_info = ExamSuggestion.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewexamsuggestion.html', context)
