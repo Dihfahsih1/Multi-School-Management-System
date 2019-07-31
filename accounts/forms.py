@@ -134,3 +134,12 @@ class EditVehicleForm(forms.ModelForm):
     class Meta:
         model = Transport
         fields = ('School','VehicleNumber', 'VehicleModel', 'Driver', 'VehicleLicense','VehicleContact', 'Notes')
+
+class AddRouteForm(forms.ModelForm):
+    class Meta:
+        model = Route
+        fields = ('School','RouteTitle', 'StartRoute', 'EndRoute','Notes')
+class EditRouteForm(forms.ModelForm):
+    class Meta:
+        model = Route
+        fields = ('School','RouteTitle', 'StartRoute', 'EndRoute','Notes')

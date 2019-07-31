@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
-<h4>View Vehicles List</h4>
+<h4>View Vehicle Routes List</h4>
 <nav class="nav navbar-expand">
   <p style="font-size: 15px;">Quick Links</p>
   <ul class="navbar-nav mr-auto">
@@ -20,11 +20,11 @@
 <nav class="nav navbar-expand" style="float:left">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#"><button class="btn btn-default">Vehicles List</button></a>
+      <a class="nav-link" href="#"><button class="btn btn-default">Vehicle Routes List</button></a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'addvehicle' %}"><button class="btn btn-success">Add Vehicle</button></a>
+      <a class="nav-link" href="{% url 'addroute' %}"><button class="btn btn-success">Add Vehicle</button></a>
     </li>
   </ul>
 </nav>
@@ -34,11 +34,9 @@
     <tr>
          <td>id</td>
          <td>School</td>
-         <td>Car Number</td>
-         <td>Car Model</td>
-         <td>Driver</td>
-         <td>Car License</td>
-         <td>Car Contact</td>
+         <td>Route Title</td>
+         <td>Start Route</td>
+         <td>End Route</td>
          <td>Notes</td>
          <td>Action</td>
      </tr>
@@ -49,15 +47,13 @@
      <tr>
        <td>{{ item.id}}</td>
        <td>{{ item.School}}</td>
-       <td>{{ item.VehicleNumber}}</td>
-       <td>{{ item.VehicleModel}}</td>
-       <td>{{ item.Driver}}</td>
-       <td>{{ item.VehicleLicense}}</td>
-       <td>{{ item.VehicleContact}}</td>
+       <td>{{ item.RouteTitle}}</td>
+       <td>{{ item.StartRoute}}</td>
+       <td>{{ item.EndRoute}}</td>
        <td>{{ item.Notes}}</td>
-       <td><a href="{% url 'editvehicle' pk=item.id  %}" >
+       <td><a href="{% url 'editroute' pk=item.id  %}" >
          <button class="btn btn-warning">Edit</button></a>|
-         <a href="{% url 'deletevehicle' pk=item.id %}" >
+         <a href="{% url 'deleteroute' pk=item.id %}" >
            <button class="btn btn-danger">Delete</button></a>
        </td>
         {% endfor %}

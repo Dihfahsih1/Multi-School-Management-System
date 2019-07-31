@@ -503,3 +503,39 @@ def viewvehicle(request):
     all_info = Transport.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/viewvehicle.html', context)
+
+
+
+  #############################################
+#   CRUD FOR THE TRANSPORT ROUTE MODULE         #
+  #############################################
+def addroute(request):
+    if request.method=="POST":
+        form=AddRouteForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('addroute')
+    else:
+        form = AddRouteForm()
+        context = {'form': form}
+        return render(request, 'accounts/addroute.html', context)
+def editroute(request, pk):
+    item = get_object_or_404(Transport, id=pk)
+    if request.method == "POST":
+        form =  EditRouteForm(request.POST,request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewroute')
+    else:
+        form =  EditRouteForm(instance=item)
+        return render(request, 'accounts/editroute.html', {'form': form})
+
+def deleteroute(request, pk):
+    Route.objects.filter(id=pk).delete()
+    all_info=Route.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/viewroute.html', context)
+def viewroute(request):
+    all_info = Route.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/viewroute.html', context)

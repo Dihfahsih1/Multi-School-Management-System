@@ -152,3 +152,10 @@ class Transport(models.Model):
     VehicleLicense = models.CharField(max_length=130)
     VehicleContact= models.CharField(max_length=130)
     Notes = models.CharField(max_length=130)
+
+class Route(models.Model):
+    School = models.CharField(max_length=130)
+    RouteTitle = models.CharField(max_length=130)
+    StartRoute = models.CharField(max_length=130)
+    EndRoute= models.CharField(max_length=130)
+    Notes = models.CharField(max_length=130)

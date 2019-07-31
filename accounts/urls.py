@@ -73,5 +73,10 @@ url(r'^addvehicle', views.addvehicle, name="addvehicle"),
 url(r'^editvehicle/(?P<pk>\d+)', views.editvehicle, name="editvehicle"),
 url(r'^deletevehicle/(?P<pk>\d+)', views.deletevehicle, name="deletevehicle"),
 url(r'^viewvehicle', views.viewvehicle, name="viewvehicle"),
+
+url(r'^addroute', views.addroute, name="addroute"),
+url(r'^editroute/(?P<pk>\d+)', views.editroute, name="editroute"),
+url(r'^deleteroute/(?P<pk>\d+)', views.deleteroute, name="deleteroute"),
+url(r'^viewroute', views.viewroute, name="viewroute"),
 url(r'^logout', views.login, name="logout")
 ]
