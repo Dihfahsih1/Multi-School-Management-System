@@ -555,7 +555,7 @@ def addhostel(request):
         form = AddHostelForm()
         context = {'form': form}
         return render(request, 'accounts/addhostel.html', context)
-        
+
 def edithostel(request, pk):
     item = get_object_or_404(Hostel, id=pk)
     if request.method == "POST":
@@ -577,3 +577,39 @@ def viewhostel(request):
     all_info = Hostel.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/viewhostel.html', context)
+
+ ################################################
+#   CRUD FOR THE HOSTEL ROOM MODULE              #
+ ################################################
+def addhostelroom(request):
+   if request.method=="POST":
+       form=AddHostelRoomForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addhostelroom')
+   else:
+       form = AddHostelRoomForm()
+       context = {'form': form}
+       return render(request, 'accounts/addhostelroom.html', context)
+
+def edithostelroom(request, pk):
+   item = get_object_or_404(HostelRoom, id=pk)
+   if request.method == "POST":
+       form =  EditHostelRoomForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewhostelroom')
+   else:
+       form =  EditHostelRoomForm(instance=item)
+       return render(request, 'accounts/edithostelroom.html', {'form': form})
+
+def deletehostelroom(request, pk):
+   HostelRoom.objects.filter(id=pk).delete()
+   all_info=HostelRoom.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/viewhostelroom.html', context)
+
+def viewhostelroom(request):
+   all_info = HostelRoom.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/viewhostelroom.html', context)

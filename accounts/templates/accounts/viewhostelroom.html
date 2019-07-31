@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
-<h4>View All Hostels</h4>
+<h4>View All Hostel Rooms</h4>
 <nav class="nav navbar-expand">
   <p style="font-size: 15px;">Quick Links</p>
   <ul class="navbar-nav mr-auto">
@@ -9,7 +9,7 @@
     <a class="nav-link" href="{% url 'viewhostel' %}">Manage Hostel</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="{% url 'viewhostelroom' %}">Manage Room</a>
+    <a class="nav-link" href=" {% url 'viewhostelroom' %}">Manage Room</a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="#">Hostel Member</a>
@@ -20,11 +20,11 @@
 <nav class="nav navbar-expand" style="float:left">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#"><button class="btn btn-default">Hostel List</button></a>
+      <a class="nav-link" href="#"><button class="btn btn-default">Hostel Rooms List</button></a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'addhostel' %}"><button class="btn btn-success">Add Hostel</button></a>
+      <a class="nav-link" href="{% url 'addhostelroom' %}"><button class="btn btn-success">Add Hostel Room</button></a>
     </li>
   </ul>
 </nav>
@@ -34,9 +34,11 @@
     <tr>
          <td>id</td>
          <td>School</td>
+         <td>Room number</td>
          <td>Hostel Name</td>
-         <td>Hostel Type</td>
-         <td>Address</td>
+         <td>Room Type</td>
+         <td>Cost per Seat</td>
+         <td>Seat Total</td>
          <td>Notes</td>
          <td>Action</td>
      </tr>
@@ -47,13 +49,14 @@
      <tr>
        <td>{{ item.id}}</td>
        <td>{{ item.School}}</td>
-       <td>{{ item.HostelName}}</td>
-       <td>{{ item.HostType}}</td>
-       <td>{{ item.Address}}</td>
+       <td>{{ item.Room_no}}</td>
+       <td>{{ item.RoomType}}</td>
+       <td>{{ item.CostPerSeat}}</td>
+       <td>{{ item.SeatTotal}}</td>
        <td>{{ item.Notes}}</td>
-       <td><a href="{% url 'edithostel' pk=item.id  %}" >
+       <td><a href="{% url 'edithostelroom' pk=item.id  %}" >
          <button class="btn btn-warning">Edit</button></a>|
-         <a href="{% url 'deletehostel' pk=item.id %}" >
+         <a href="{% url 'deletehostelroom' pk=item.id %}" >
            <button class="btn btn-danger">Delete</button></a>
        </td>
         {% endfor %}

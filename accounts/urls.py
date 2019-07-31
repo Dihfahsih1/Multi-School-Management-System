@@ -83,5 +83,10 @@ url(r'^addhostel', views.addhostel, name="addhostel"),
 url(r'^edithostel/(?P<pk>\d+)', views.edithostel, name="edithostel"),
 url(r'^deletehostel/(?P<pk>\d+)', views.deletehostel, name="deletehostel"),
 url(r'^viewhostel', views.viewhostel, name="viewhostel"),
+
+url(r'^addhostelroom', views.addhostelroom, name="addhostelroom"),
+url(r'^edithostelroom/(?P<pk>\d+)', views.edithostelroom, name="edithostelroom"),
+url(r'^deletehostelroom/(?P<pk>\d+)', views.deletehostelroom, name="deletehostelroom"),
+url(r'^viewhostelroom', views.viewhostelroom, name="viewhostelroom"),
 url(r'^logout', views.login, name="logout")
 ]

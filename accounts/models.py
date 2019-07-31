@@ -170,3 +170,15 @@ class Hostel(models.Model):
     Notes = models.TextField(max_length=110)
     def __str__(self):
         return self.HostelName
+
+class HostelRoom(models.Model):
+    choices = (('AC','AC'),('No AC ','No AC'))
+    School = models.CharField(max_length=130)
+    Room_no= models.CharField(max_length=130)
+    Hostel= models.ForeignKey(Hostel,  on_delete=models.PROTECT, blank=True, null=True)
+    RoomType = models.CharField(max_length=130, choices=choices, blank=False, null=True)
+    SeatTotal= models.CharField(max_length=130)
+    CostPerSeat= models.CharField(max_length=130)
+    Notes = models.TextField(max_length=110)
+    def __str__(self):
+        return self.Room_no
