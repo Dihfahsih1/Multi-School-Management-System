@@ -208,3 +208,9 @@ class SalaryGrade(models.Model):
     GrossPay= models.CharField(max_length=130)
     NetSalary=models.CharField(max_length=130)
     Notes = models.TextField(max_length=110)
+
+class Discount(models.Model):
+    School = models.CharField(max_length=130)
+    Title= models.CharField(max_length=130)
+    Amount= models.CharField(max_length=130)
+    Notes = models.TextField(max_length=110)

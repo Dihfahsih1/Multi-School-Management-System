@@ -685,3 +685,39 @@ def viewsalarygrade(request):
    all_info = SalaryGrade.objects.all()
    context={'all_info':all_info}
    return render(request, 'accounts/viewsalarygrade.html', context)
+
+ ################################################
+#   CRUD FOR THE DISCOUNT MODULE        #
+ ################################################
+def adddiscount(request):
+   if request.method=="POST":
+       form=AddDiscountForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('adddiscount')
+   else:
+       form = AddDiscountForm()
+       context = {'form': form}
+       return render(request, 'accounts/adddiscount.html', context)
+
+def editdiscount(request, pk):
+   item = get_object_or_404(Discount, id=pk)
+   if request.method == "POST":
+       form =  EditDiscountForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewdiscount')
+   else:
+       form =  EditDiscountForm(instance=item)
+       return render(request, 'accounts/discount.html', {'form': form})
+
+def deletediscount(request, pk):
+   Discount.objects.filter(id=pk).delete()
+   all_info=Discount.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/viewdiscount.html', context)
+
+def viewdiscount(request):
+   all_info = Discount.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/viewdiscount.html', context)

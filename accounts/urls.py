@@ -98,5 +98,10 @@ url(r'^addsalarygrade', views.addsalarygrade, name="addsalarygrade"),
 url(r'^editsalarygrade/(?P<pk>\d+)', views.editsalarygrade, name="editsalarygrade"),
 url(r'^deletesalarygrade/(?P<pk>\d+)', views.deletesalarygrade, name="deletesalarygrade"),
 url(r'^viewsalarygrade', views.viewsalarygrade, name="viewsalarygrade"),
+
+url(r'^adddiscount', views.adddiscount, name="adddiscount"),
+url(r'^editdiscount/(?P<pk>\d+)', views.editdiscount, name="editdiscount"),
+url(r'^deletediscount/(?P<pk>\d+)', views.deletediscount, name="deletediscount"),
+url(r'^viewdiscount', views.viewdiscount, name="viewdiscount"),
 url(r'^logout', views.login, name="logout")
 ]

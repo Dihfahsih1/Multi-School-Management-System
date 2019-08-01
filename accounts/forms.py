@@ -184,3 +184,12 @@ class EditSalaryGradeForm(forms.ModelForm):
         fields = ('School','GradeName','BasicSalary', 'HouseRent', 'TransportAllowance','MedicalAllowance',
         'OverTimeHourlyRate', 'ProvidentFund','HourlyRate','TotalAllowance', 'TotalDeduction', 'GrossPay',
         'NetSalary','Notes')
+
+class AddDiscountForm(forms.ModelForm):
+    class Meta:
+        model = Discount
+        fields = ('School','Title','Amount','Notes')
+class EditDiscountForm(forms.ModelForm):
+    class Meta:
+        model = Discount
+        fields =('School','Title','Amount','Notes')
