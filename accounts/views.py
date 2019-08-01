@@ -649,3 +649,39 @@ def viewvisitor(request):
    all_info = VisitorInfor.objects.all()
    context={'all_info':all_info}
    return render(request, 'accounts/viewvisitor.html', context)
+
+ ################################################
+#   CRUD FOR THE SALARY GRADE INFO MODULE        #
+ ################################################
+def addsalarygrade(request):
+   if request.method=="POST":
+       form=AddSalaryGradeForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addsalarygrade')
+   else:
+       form = AddSalaryGradeForm()
+       context = {'form': form}
+       return render(request, 'accounts/addsalarygrade.html', context)
+
+def editsalarygrade(request, pk):
+   item = get_object_or_404(SalaryGrade, id=pk)
+   if request.method == "POST":
+       form =  EditSalaryGradeForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewsalarygrade')
+   else:
+       form =  EditSalaryGradeForm(instance=item)
+       return render(request, 'accounts/editsalarygrade.html', {'form': form})
+
+def deletesalarygrade(request, pk):
+   SalaryGrade.objects.filter(id=pk).delete()
+   all_info=SalaryGrade.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/viewsalarygrade.html', context)
+
+def viewsalarygrade(request):
+   all_info = SalaryGrade.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/viewsalarygrade.html', context)

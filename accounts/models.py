@@ -192,3 +192,19 @@ class VisitorInfor(models.Model):
     Notes = models.TextField(max_length=110)
     def __str__(self):
         return self.Name
+
+class SalaryGrade(models.Model):
+    School = models.CharField(max_length=130)
+    GradeName= models.CharField(max_length=130)
+    BasicSalary= models.CharField(max_length=130)
+    HouseRent= models.CharField(max_length=130)
+    TransportAllowance=models.CharField(max_length=130)
+    MedicalAllowance=models.CharField(max_length=130)
+    OverTimeHourlyRate= models.CharField(max_length=130)
+    ProvidentFund= models.CharField(max_length=130)
+    HourlyRate=models.CharField(max_length=130)
+    TotalAllowance=models.CharField(max_length=130)
+    TotalDeduction= models.CharField(max_length=130)
+    GrossPay= models.CharField(max_length=130)
+    NetSalary=models.CharField(max_length=130)
+    Notes = models.TextField(max_length=110)

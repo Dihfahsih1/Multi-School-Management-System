@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+<h4>Manage Salary Grade</h4>
+<nav class="nav navbar-expand">
+  <i style="font-size: 15px; color:red;">Quick Links</i>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewsalarygrade' %}">Salary Grade</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewsalarygrade' %}">Salary Payment</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewsalarygrade' %}">Payment History</a>
+    </li>
+
+  </ul>
+</nav>
+<nav class="nav navbar-expand" style="float:left">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#"><button class="btn btn-default">Salary Grade List</button></a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'addsalarygrade' %}"><button class="btn btn-success">Add Salary Grade</button></a>
+    </li>
+  </ul>
+</nav>
+<br>
+<table class="table table-hover" border="2" style="font-size:15px">
+   <thead class="table-success">
+    <tr>
+         <td>id</td>
+         <td>School</td>
+         <td>Grade Name</td>
+         <td>Basic Salary</td>
+         <td>House Rent</td>
+         <td>Transport All</td>
+         <td>Medical All</td>
+         <td>Over Time Rate</td>
+         <td>Provident Funde</td>
+         <td>Hourly Rate</td>
+         <td>Total All</td>
+         <td>Total Deduc</td>
+         <td>Gross Pay</td>
+         <td>Net Salary</td>
+         <td>Notes</td>
+         <td>Action</td>
+     </tr>
+   </thead>
+   <tbody>
+     {% if all_info %}
+     {% for item in all_info %}
+     <tr>
+       <td>{{ item.id}}</td>
+       <td>{{ item.School}}</td>
+       <td>{{ item.GradeName}}</td>
+       <td>{{ item.BasicSalary}}</td>
+       <td>{{ item.HouseRent}}</td>
+       <td>{{ item.TransportAllowance}}</td>
+       <td>{{ item.MedicalAllowance}}</td>
+       <td>{{ item.OverTimeHourlyRate}}</td>
+       <td>{{ item.ProvidentFund}}</td>
+       <td>{{ item.HourlyRate}}</td>
+       <td>{{ item.TotalAllowance}}</td>
+       <td>{{ item.TotalDeduction}}</td>
+       <td>{{ item.GrossPay}}</td>
+       <td>{{ item.NetSalary}}</td>
+       <td>{{ item.Notes}}</td>
+       <td><a  href="{% url 'editsalarygrade' pk=item.id  %}" >Edit</a>|
+         <a href="{% url 'deletesalarygrade' pk=item.id %}" >Delete</a>
+       </td>
+        {% endfor %}
+     </tr>
+     {% endif %}
+   </tbody>
+</table>
+</div>
+{% endblock %}

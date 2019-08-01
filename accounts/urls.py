@@ -93,5 +93,10 @@ url(r'^addvisitor', views.addvisitor, name="addvisitor"),
 url(r'^editvisitor/(?P<pk>\d+)', views.editvisitor, name="editvisitor"),
 url(r'^deletevisitor/(?P<pk>\d+)', views.deletevisitor, name="deletevisitor"),
 url(r'^viewvisitor', views.viewvisitor, name="viewvisitor"),
+
+url(r'^addsalarygrade', views.addsalarygrade, name="addsalarygrade"),
+url(r'^editsalarygrade/(?P<pk>\d+)', views.editsalarygrade, name="editsalarygrade"),
+url(r'^deletesalarygrade/(?P<pk>\d+)', views.deletesalarygrade, name="deletesalarygrade"),
+url(r'^viewsalarygrade', views.viewsalarygrade, name="viewsalarygrade"),
 url(r'^logout', views.login, name="logout")
 ]

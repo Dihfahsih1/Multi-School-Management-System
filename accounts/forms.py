@@ -170,3 +170,17 @@ class EditVistorInfoForm(forms.ModelForm):
     class Meta:
         model = VisitorInfor
         fields = ('School','Name','Phone', 'ComingFrom', 'ToMeetUserType','ReasonToMeet','Notes')
+
+
+class AddSalaryGradeForm(forms.ModelForm):
+    class Meta:
+        model = SalaryGrade
+        fields = ('School','GradeName','BasicSalary', 'HouseRent', 'TransportAllowance','MedicalAllowance',
+        'OverTimeHourlyRate', 'ProvidentFund','HourlyRate','TotalAllowance', 'TotalDeduction', 'GrossPay',
+        'NetSalary','Notes')
+class EditSalaryGradeForm(forms.ModelForm):
+    class Meta:
+        model = SalaryGrade
+        fields = ('School','GradeName','BasicSalary', 'HouseRent', 'TransportAllowance','MedicalAllowance',
+        'OverTimeHourlyRate', 'ProvidentFund','HourlyRate','TotalAllowance', 'TotalDeduction', 'GrossPay',
+        'NetSalary','Notes')

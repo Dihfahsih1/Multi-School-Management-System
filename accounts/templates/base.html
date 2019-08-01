@@ -218,7 +218,17 @@ background-color: #4285F4; }
 <a href="{% url 'viewroom' %}">Manage Room</a>
 <a href="#">Hostel Member</a>
 </div>
+
 <a href="{% url 'viewvisitor'%}">Visitor Info</a>
+
+<button class="dropdown-btn">Payroll
+<i class="fa fa-caret-down"></i>
+</button>
+<div class="dropdown-container">
+<a href="{% url 'viewsalarygrade'  %}">Salary Grade</a>
+<a href="{% url 'viewsalarygrade'  %}">Salary Payment/a>
+<a href="{% url 'viewsalarygrade'  %}">Payment History</a>
+</div>
 </div>
 
 
