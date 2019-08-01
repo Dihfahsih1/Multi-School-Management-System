@@ -123,5 +123,10 @@ url(r'^addexpenditure', views.addexpenditure, name="addexpenditure"),
 url(r'^editexpenditure/(?P<pk>\d+)', views.editexpenditure, name="editexpenditure"),
 url(r'^deleteexpenditure/(?P<pk>\d+)', views.deleteexpenditure, name="deleteexpenditure"),
 url(r'^viewexpenditure', views.viewexpenditure, name="viewexpenditure"),
+
+url(r'^addevents', views.addevents, name="addevents"),
+url(r'^editevents/(?P<pk>\d+)', views.editevents, name="editevents"),
+url(r'^deleteevents/(?P<pk>\d+)', views.deleteevents, name="deleteevents"),
+url(r'^viewevents', views.viewevents, name="viewevents"),
 url(r'^logout', views.login, name="logout")
 ]

@@ -867,3 +867,39 @@ def viewexpenditure(request):
    all_info = Expenditure.objects.all()
    context={'all_info':all_info}
    return render(request, 'accounts/Accounting/viewexpenditure.html', context)
+
+################################################
+#   CRUD FOR THE EVENTS MODULE        #
+################################################
+def addevents(request):
+   if request.method=="POST":
+       form=AddEventsForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addevents')
+   else:
+       form = AddEventsForm()
+       context = {'form': form}
+       return render(request, 'accounts/Events/addevents.html', context)
+
+def editevents(request, pk):
+   item = get_object_or_404(Events, id=pk)
+   if request.method == "POST":
+       form =  EditEventsForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewevents')
+   else:
+       form =  EditEventsForm(instance=item)
+       return render(request, 'accounts/Events/editevents.html', {'form': form})
+
+def deleteevents(request, pk):
+   Events.objects.filter(id=pk).delete()
+   all_info=Events.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/Events/viewevents.html', context)
+
+def viewevents(request):
+   all_info = Events.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/Events/viewevents.html', context)

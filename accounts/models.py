@@ -267,3 +267,16 @@ class Expenditure(models.Model):
     Notes = models.TextField(max_length=50)
     def __str__(self):
         return self.ExpenditureHead
+
+class Events(models.Model):
+    School = models.CharField(max_length=130)
+    EventTitle=models.CharField(max_length=130)
+    EventFor=models.CharField(max_length=130)
+    EventPlace=models.CharField(max_length=130)
+    Amount = models.CharField(max_length=130)
+    FromDate = models.CharField(max_length=130)
+    ToDate = models.CharField(max_length=130)
+    Image = models.FileField(max_length=130, blank=False)
+    Notes = models.TextField(max_length=50)
+    def __str__(self):
+        return self.ExpenditureHead

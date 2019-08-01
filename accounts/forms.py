@@ -229,3 +229,12 @@ class EditExpenditureForm(forms.ModelForm):
     class Meta:
         model = Expenditure
         fields = ('School','ExpenditureHead','ExpenditureMethod','Amount','Date','Notes')
+
+class AddEventsForm(forms.ModelForm):
+    class Meta:
+        model = Events
+        fields = ('School','EventTitle','EventFor','EventPlace','FromDate','ToDate','Image','Notes')
+class EditEventsForm(forms.ModelForm):
+    class Meta:
+        model = Events
+        fields = ('School','EventTitle','EventFor','EventPlace','FromDate','ToDate','Image','Notes')
