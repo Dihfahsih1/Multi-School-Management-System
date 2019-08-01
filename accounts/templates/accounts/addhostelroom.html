@@ -9,7 +9,7 @@
     <a class="nav-link" href="{% url 'viewhostel' %}">Manage Hostel</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="viewhostelroom">Manage Room</a>
+    <a class="nav-link" href="viewroom">Manage Room</a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="#">Hostel Member</a>
@@ -20,7 +20,7 @@
 <nav class="nav navbar-expand" style="float:left">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'viewhostelroom' %}"><button class="btn btn-success">Hostel Rooms List</button></a>
+      <a class="nav-link" href="{% url 'viewroom' %}"><button class="btn btn-success">Hostel Rooms List</button></a>
     </li>
 
     <li class="nav-item">
@@ -36,7 +36,7 @@
   {% csrf_token %}
   {{ form|crispy}}
 <button type="submit" class="btn btn-success">Submit</button></form>
-<a href="{% url 'viewhostelroom'%}"><button class="btn btn-info">Cancel</button></a>
+<a href="{% url 'viewroom'%}"><button class="btn btn-info">Cancel</button></a>
 </div>
 </div>
 {% endblock %}

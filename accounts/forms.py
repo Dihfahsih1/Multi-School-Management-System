@@ -155,9 +155,9 @@ class EditHostelForm(forms.ModelForm):
 
 class AddHostelRoomForm(forms.ModelForm):
     class Meta:
-        model = HostelRoom
+        model = HostelRooms
         fields = ('School','Room_no','Hostel', 'RoomType', 'CostPerSeat','SeatTotal','Notes')
 class EditHostelRoomForm(forms.ModelForm):
     class Meta:
-        model = HostelRoom
+        model = HostelRooms
         fields = ('School','Room_no','Hostel', 'RoomType', 'CostPerSeat','SeatTotal','Notes')

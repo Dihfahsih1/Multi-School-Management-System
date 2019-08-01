@@ -171,7 +171,7 @@ class Hostel(models.Model):
     def __str__(self):
         return self.HostelName
 
-class HostelRoom(models.Model):
+class HostelRooms(models.Model):
     choices = (('AC','AC'),('No AC ','No AC'))
     School = models.CharField(max_length=130)
     Room_no= models.CharField(max_length=130)
