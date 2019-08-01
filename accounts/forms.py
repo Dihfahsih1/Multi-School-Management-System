@@ -211,3 +211,21 @@ class EditFeeCollectionForm(forms.ModelForm):
     class Meta:
         model = FeeCollection
         fields = ('School','Class','Student','FeeType','FeeAmount','Month','IsApplicableDiscount','PaidStatus','Notes')
+
+class AddIncomeForm(forms.ModelForm):
+    class Meta:
+        model = Income
+        fields = ('School','IncomeHead','PaymentMethod','Amount','Date','Notes')
+class EditIncomeForm(forms.ModelForm):
+    class Meta:
+        model = Income
+        fields = ('School','IncomeHead','PaymentMethod','Amount','Date','Notes')
+
+class AddExpenditureForm(forms.ModelForm):
+    class Meta:
+        model = Expenditure
+        fields = ('School','ExpenditureHead','ExpenditureMethod','Amount','Date','Notes')
+class EditExpenditureForm(forms.ModelForm):
+    class Meta:
+        model = Expenditure
+        fields = ('School','ExpenditureHead','ExpenditureMethod','Amount','Date','Notes')

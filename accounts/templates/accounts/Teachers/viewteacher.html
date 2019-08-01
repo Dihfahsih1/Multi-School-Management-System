@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+<br><h4>Manage Teachers</h4>
+<nav class="nav navbar-expand">
+  <ul class="navbar-nav mr-auto">
+
+    <li class="nav-item">
+    <a class="nav-link" href="#"><button class="btn btn-default">List of Teachers</button></a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'createteacher' %}"><button class="btn btn-primary">Add Teacher</button></a>
+  </ul>
+</nav>
+<table class="table table-hover" border="2">
+   <thead class="table-success">
+     <tr>
+         <td>id</td>
+         <td>Name</td>
+         <td>National Id</td>
+         <td>Responsibility</td>
+         <td>Address</td>
+         <td>Class</td>
+     </tr>
+   </thead>
+   <tbody>
+     {% if all_info %}
+     {% for item in all_info %}
+     <tr>
+       <td>{{ item.id}}</td>
+       <td>{{ item.Name}}</td>
+       <td>{{ item.NationaId}}</td>
+       <td>{{ item.Responsibility}}</td>
+       <td>{{ item.Address}}</td>
+       <td><a href="{% url 'editteacher' pk=item.id  %}" >
+         <button class="btn btn-warning">Edit Details</button></a>|
+         <a href="{% url 'deleteteacher' pk=item.id %}" >
+           <button class="btn btn-danger">Delete Class</button></a>
+       </td>
+        {% endfor %}
+     </tr>
+     {% endif %}
+   </tbody>
+</table>
+</div>
+{% endblock %}

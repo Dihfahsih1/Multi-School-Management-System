@@ -1,42 +1,30 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
-<h4>Manage School Finance</h4>
+<br><h4>View All Hostel Rooms</h4>
 <nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
-  <i style="font-size: 15px; color:red;">Quick Links</i>
   <ul class="navbar-nav mr-auto">
+    <i style="font-size: 15px; color:red;">Quick Links</i>
     <li class="nav-item">
-    <a class="nav-link" href="{% url 'viewdiscount'  %}">Discount</a>
+    <a class="nav-link" href="{% url 'viewhostel' %}">Manage Hostel</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="{% url 'viewfeetype'  %}">FeeType</a>
+    <a class="nav-link" href=" {% url 'viewroom' %}">Manage Room</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="{% url 'addfeecollection'  %}">FeeCollection</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link"href="{% url 'viewfeecollection'  %}">ManageInvoice</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link"href="#">DueFee</a>
+    <a class="nav-link" href="#">Hostel Member</a>
     </li>
 
-    <li class="nav-item">
-    <a class="nav-link" href="{% url 'viewincome'  %}">Income</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link"<a href="{% url 'viewexpenditure'  %}">Expenditure</a>
-    </li>
   </ul>
 </nav>
 <nav class="nav navbar-expand" style="float:left">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#"><button class="btn btn-default">Discounts list</button></a>
+      <a class="nav-link" href="#"><button class="btn btn-default">Hostel Rooms List</button></a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'addfeetype' %}"><button class="btn btn-success">Add Fee Type</button></a>
+      <a class="nav-link" href="{% url 'addroom' %}"><button class="btn btn-success">Add Hostel Room</button></a>
     </li>
   </ul>
 </nav>
@@ -46,7 +34,11 @@
     <tr>
          <td>id</td>
          <td>School</td>
-         <td>Fee Title</td>
+         <td>Room number</td>
+         <td>Hostel Name</td>
+         <td>Room Type</td>
+         <td>Cost per Seat</td>
+         <td>Seat Total</td>
          <td>Notes</td>
          <td>Action</td>
      </tr>
@@ -57,11 +49,15 @@
      <tr>
        <td>{{ item.id}}</td>
        <td>{{ item.School}}</td>
-       <td>{{ item.FeeTitle}}</td>
+       <td>{{ item.Room_no}}</td>
+       <td>{{ item.Hostel}}</td>
+       <td>{{ item.RoomType}}</td>
+       <td>{{ item.CostPerSeat}}</td>
+       <td>{{ item.SeatTotal}}</td>
        <td>{{ item.Notes}}</td>
-       <td><a href="{% url 'editfeetype' pk=item.id  %}" >
+       <td><a href="{% url 'editroom' pk=item.id  %}" >
          <button class="btn btn-warning">Edit</button></a>|
-         <a href="{% url 'deletefeetype' pk=item.id %}" >
+         <a href="{% url 'deleteroom' pk=item.id %}" >
            <button class="btn btn-danger">Delete</button></a>
        </td>
         {% endfor %}

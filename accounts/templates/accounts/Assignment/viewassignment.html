@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+  <h4>Manage Assignment</h4>
+  <nav class="nav navbar-expand">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+      <a class="nav-link" href="#"><button class="btn btn-default">List Of Assignment</button></a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{% url 'addassignment' %}"><button class="btn btn-primary">Add Assignment</button></a>
+      </li>
+    </ul>
+  </nav>
+<table class="table table-hover" border="2">
+   <thead class="table-success">
+     <tr>
+         <td>id</td>
+         <td>School</td>
+         <td>Type</td>
+         <td>Subject</td>
+         <td>Class</td>
+         <td>Assignment</td>
+         <td>Notes</td>
+         <td>Action</td>
+     </tr>
+   </thead>
+   <tbody>
+     {% if all_info %}
+     {% for item in all_info %}
+     <tr>
+       <td>{{ item.id}}</td>
+       <td>{{ item.School}}</td>
+       <td>{{ item.AssignmentType}}</td>
+       <td>{{ item.Subject}}</td>
+       <td>{{ item.Class}}</td>
+       <td>{{ item.Assignment}}</td>
+       <td>{{ item.Notes}}</td>
+       <td><a href="{% url 'editassignment' pk=item.id  %}" >Edit</a>|
+         <a href="{% url 'deleteassignment' pk=item.id %}" >Delete</a>|
+         <a href="#" >Download</a>
+       </td>
+        {% endfor %}
+     </tr>
+     {% endif %}
+   </tbody>
+</table>
+</div>
+{% endblock %}

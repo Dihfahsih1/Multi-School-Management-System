@@ -24,7 +24,7 @@ def createclassinformation(request):
     else:
         form = ClassinformationForm()
         context = {'form': form}
-        return render(request, 'accounts/createclassinformation.html', context)
+        return render(request, 'accounts/Class/createclassinformation.html', context)
 def editclassinformation(request, pk):
     item = get_object_or_404(Classinformation, id=pk)
     if request.method == "POST":
@@ -34,19 +34,19 @@ def editclassinformation(request, pk):
             return redirect('viewclassinformation')
     else:
         form =  EditclassinformationForm(instance=item)
-        return render(request, 'accounts/editclassinformation.html', {'form': form})
+        return render(request, 'accounts/Class/editclassinformation.html', {'form': form})
 
 def deleteclassinformation(request, pk):
     Classinformation.objects.filter(id=pk).delete()
     all_info=Classinformation.objects.all()
     context={'all_info' :all_info}
 
-    return render(request, 'accounts/viewclassinformation.html', context)
+    return render(request, 'accounts/Class/viewclassinformation.html', context)
 
 def viewclassinformation(request):
     all_info = Classinformation.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewclassinformation.html', context)
+    return render(request, 'accounts/Class/viewclassinformation.html', context)
 
 #######################################
 # THE CRUD OPERATIONS ON SECTION MODULE #
@@ -60,7 +60,7 @@ def createsectioninformation(request):
     else:
         form = SectioninformationForm()
         context = {'form': form}
-        return render(request, 'accounts/createsectioninformation.html', context)
+        return render(request, 'accounts/Section/createsectioninformation.html', context)
 def editsectioninformation(request, pk):
     item = get_object_or_404(Sectioninformation, id=pk)
     if request.method == "POST":
@@ -70,18 +70,18 @@ def editsectioninformation(request, pk):
             return redirect('viewsectioninformation')
     else:
         form =  EditsectioninformationForm(instance=item)
-        return render(request, 'accounts/editsectioninformation.html', {'form': form})
+        return render(request, 'accounts/Section/editsectioninformation.html', {'form': form})
 
 def deletesectioninformation(request, pk):
     Sectioninformation.objects.filter(id=pk).delete()
     all_info=Sectioninformation.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewsectioninformation.html', context)
+    return render(request, 'accounts/Section/viewsectioninformation.html', context)
 
 def viewsectioninformation(request):
     all_info = Sectioninformation.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewsectioninformation.html', context)
+    return render(request, 'accounts/Section/viewsectioninformation.html', context)
 
 #######################################
 # CRUD FOR THE TEACHER MODULE         #
@@ -96,7 +96,7 @@ def createteacher(request):
     else:
         form = CreateTeacherForm()
         context = {'form': form}
-        return render(request, 'accounts/createteacher.html', context)
+        return render(request, 'accounts/Teachers/createteacher.html', context)
 def editteacher(request, pk):
     item = get_object_or_404(Teacher, id=pk)
     if request.method == "POST":
@@ -106,18 +106,18 @@ def editteacher(request, pk):
             return redirect('viewteachers')
     else:
         form =  CreateTeacherForm(instance=item)
-        return render(request, 'accounts/editteacher.html', {'form': form})
+        return render(request, 'accounts/Teachers/editteacher.html', {'form': form})
 
 def deleteteacher(request, pk):
     Teacher.objects.filter(id=pk).delete()
     all_info=Teacher.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewteacher.html', context)
+    return render(request, 'accounts/Teachers/viewteacher.html', context)
 
 def viewteachers(request):
     all_info = Teacher.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewteacher.html', context)
+    return render(request, 'accounts/Teachers/viewteacher.html', context)
 
 #######################################
 #   CRUD FOR THE subject MODULE        #
@@ -131,7 +131,7 @@ def addsubject(request):
     else:
         form = AddSubjectForm()
         context = {'form': form}
-        return render(request, 'accounts/addsubject.html', context)
+        return render(request, 'accounts/Subject/addsubject.html', context)
 def editsubject(request, pk):
     item = get_object_or_404(Subjects, id=pk)
     if request.method == "POST":
@@ -141,18 +141,18 @@ def editsubject(request, pk):
             return redirect('viewsubjects')
     else:
         form =  EditSubjectForm(instance=item)
-        return render(request, 'accounts/editsubject.html', {'form': form})
+        return render(request, 'accounts/Subject/editsubject.html', {'form': form})
 
 def deletesubject(request, pk):
     Subjects.objects.filter(id=pk).delete()
     all_info=Subjects.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewsubjects.html', context)
+    return render(request, 'accounts/Subject/viewsubjects.html', context)
 
 def viewsubjects(request):
     all_info = Subjects.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewsubjects.html', context)
+    return render(request, 'accounts/Subject/viewsubjects.html', context)
 
 
 #######################################
@@ -167,7 +167,7 @@ def addsyllabus(request):
     else:
         form = AddSyllabusForm()
         context = {'form': form}
-        return render(request, 'accounts/addsyllabus.html', context)
+        return render(request, 'accounts/Syllabus/addsyllabus.html', context)
 def editsyllabus(request, pk):
     item = get_object_or_404(Syllabus, id=pk)
     if request.method == "POST":
@@ -177,18 +177,18 @@ def editsyllabus(request, pk):
             return redirect('viewsyllabus')
     else:
         form =  EditSyllabusForm(instance=item)
-        return render(request, 'accounts/editsyllabus.html', {'form': form})
+        return render(request, 'accounts/Syllabus/editsyllabus.html', {'form': form})
 
 def deletesyllabus(request, pk):
     Syllabus.objects.filter(id=pk).delete()
     all_info=Syllabus.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewsyllabus.html', context)
+    return render(request, 'accounts/Syllabus/viewsyllabus.html', context)
 
 def viewsyllabus(request):
     all_info = Syllabus.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewsyllabus.html', context)
+    return render(request, 'accounts/Syllabus/viewsyllabus.html', context)
 
  ###############################################
 #   CRUD FOR THE HUMAN RESOURCES MANAGER MODULE #
@@ -202,7 +202,7 @@ def addhumanresource(request):
     else:
         form = AddHumanResourceForm()
         context = {'form': form}
-        return render(request, 'accounts/addhumanresource.html', context)
+        return render(request, 'accounts/HumanResource/addhumanresource.html', context)
 def edithumanresource(request, pk):
     item = get_object_or_404(HumanResource, id=pk)
     if request.method == "POST":
@@ -212,18 +212,18 @@ def edithumanresource(request, pk):
             return redirect('viewhumanresource')
     else:
         form =  EditHumanResourceForm(instance=item)
-        return render(request, 'accounts/edithumanresource.html', {'form': form})
+        return render(request, 'accounts/HumanResource/edithumanresource.html', {'form': form})
 
 def deletehumanresource(request, pk):
     HumanResource.objects.filter(id=pk).delete()
     all_info=HumanResource.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewhumanresource.html', context)
+    return render(request, 'accounts/HumanResource/viewhumanresource.html', context)
 
 def viewhumanresource(request):
     all_info = HumanResource.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewhumanresource.html', context)
+    return render(request, 'accounts/HumanResource/viewhumanresource.html', context)
 
  ###############################################
 ############  CRUD FOR THE ROUTINE #############
@@ -237,7 +237,7 @@ def addroutine(request):
     else:
         form = AddRoutineForm()
         context = {'form': form}
-        return render(request, 'accounts/addroutine.html', context)
+        return render(request, 'accounts/Routine/addroutine.html', context)
 def editroutine(request, pk):
     item = get_object_or_404(Routine, id=pk)
     if request.method == "POST":
@@ -247,18 +247,18 @@ def editroutine(request, pk):
             return redirect('viewroutine')
     else:
         form =  EditRoutineForm(instance=item)
-        return render(request, 'accounts/editroutine.html', {'form': form})
+        return render(request, 'accounts/Routine/editroutine.html', {'form': form})
 
 def deleteroutine(request, pk):
     Routine.objects.filter(id=pk).delete()
     all_info=Routine.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewroutine.html', context)
+    return render(request, 'accounts/Routine/viewroutine.html', context)
 
 def viewroutine(request):
     all_info = Routine.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewroutine.html', context)
+    return render(request, 'accounts/Routine/viewroutine.html', context)
 
 #######################################
 #   CRUD FOR THE ASSIGNMENT MODULE    #
@@ -272,7 +272,7 @@ def addassignment(request):
     else:
         form = AddAssignmentForm()
         context = {'form': form}
-        return render(request, 'accounts/addassignment.html', context)
+        return render(request, 'accounts/Assignment/addassignment.html', context)
 def editassignment(request, pk):
     item = get_object_or_404(Assignment, id=pk)
     if request.method == "POST":
@@ -282,18 +282,18 @@ def editassignment(request, pk):
             return redirect('viewassignment')
     else:
         form =  EditAssignmentForm(instance=item)
-        return render(request, 'accounts/editassignment.html', {'form': form})
+        return render(request, 'accounts/Assignment/editassignment.html', {'form': form})
 
 def deleteassignment(request, pk):
     Assignment.objects.filter(id=pk).delete()
     all_info=Assignment.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewassignment.html', context)
+    return render(request, 'accounts/Assignment/viewassignment.html', context)
 
 def viewassignment(request):
     all_info = Assignment.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewassignment.html', context)
+    return render(request, 'accounts/Assignment/viewassignment.html', context)
 
 #######################################
 #   CRUD FOR THE EXAM GRADE MODULE    #
@@ -307,7 +307,7 @@ def addexamgrade(request):
     else:
         form = AddExamGradeForm()
         context = {'form': form}
-        return render(request, 'accounts/addexamgrade.html', context)
+        return render(request, 'accounts/Exam/addexamgrade.html', context)
 def editexamgrade(request, pk):
     item = get_object_or_404(ExamGrade, id=pk)
     if request.method == "POST":
@@ -317,18 +317,18 @@ def editexamgrade(request, pk):
             return redirect('viewexamgrade')
     else:
         form =  EditExamGradeForm(instance=item)
-        return render(request, 'accounts/editexamgrade.html', {'form': form})
+        return render(request, 'accounts/Exam/editexamgrade.html', {'form': form})
 
 def deleteexamgrade(request, pk):
     ExamGrade.objects.filter(id=pk).delete()
     all_info=ExamGrade.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewexamgrade.html', context)
+    return render(request, 'accounts/Exam/viewexamgrade.html', context)
 
 def viewexamgrade(request):
     all_info = ExamGrade.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewexamgrade.html', context)
+    return render(request, 'accounts/Exam/viewexamgrade.html', context)
 
 
 #######################################
@@ -343,7 +343,7 @@ def addexamterm(request):
     else:
         form = AddExamTermForm()
         context = {'form': form}
-        return render(request, 'accounts/addexamterm.html', context)
+        return render(request, 'accounts/Exam/addexamterm.html', context)
 def editexamterm(request, pk):
     item = get_object_or_404(ExamTerm, id=pk)
     if request.method == "POST":
@@ -353,17 +353,17 @@ def editexamterm(request, pk):
             return redirect('viewexamterm')
     else:
         form =  EditExamTermeForm(instance=item)
-        return render(request, 'accounts/editexamterm.html', {'form': form})
+        return render(request, 'accounts/Exam/editexamterm.html', {'form': form})
 
 def deleteexamterm(request, pk):
     ExamTerm.objects.filter(id=pk).delete()
     all_info=ExamTerm.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewexamterm.html', context)
+    return render(request, 'accounts/Exam/viewexamterm.html', context)
 def viewexamterm(request):
     all_info = ExamTerm.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewexamterm.html', context)
+    return render(request, 'accounts/Exam/viewexamterm.html', context)
 
   #######################################
 #   CRUD FOR THE EXAM SCHEDULE MODULE    #
@@ -377,7 +377,7 @@ def addexamschedule(request):
     else:
         form = AddExamScheduleForm()
         context = {'form': form}
-        return render(request, 'accounts/addexamschedule.html', context)
+        return render(request, 'accounts/Exam/addexamschedule.html', context)
 def editexamschedule(request, pk):
     item = get_object_or_404(ExamSchedule, id=pk)
     if request.method == "POST":
@@ -387,17 +387,17 @@ def editexamschedule(request, pk):
             return redirect('viewexamschedule')
     else:
         form =  EditExamScheduleForm(instance=item)
-        return render(request, 'accounts/editexamschedule.html', {'form': form})
+        return render(request, 'accounts/Exam/editexamschedule.html', {'form': form})
 
 def deleteexamschedule(request, pk):
     ExamSchedule.objects.filter(id=pk).delete()
     all_info=ExamSchedule.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewexamschedule.html', context)
+    return render(request, 'accounts/Exam/viewexamschedule.html', context)
 def viewexamschedule(request):
     all_info = ExamSchedule.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewexamschedule.html', context)
+    return render(request, 'accounts/Exam/viewexamschedule.html', context)
 
 
 
@@ -413,7 +413,7 @@ def addexamsuggestion(request):
     else:
         form = AddExamSuggestionForm()
         context = {'form': form}
-        return render(request, 'accounts/addexamsuggestion.html', context)
+        return render(request, 'accounts/Exam/addexamsuggestion.html', context)
 def editexamsuggestion(request, pk):
     item = get_object_or_404(ExamSuggestion, id=pk)
     if request.method == "POST":
@@ -423,17 +423,17 @@ def editexamsuggestion(request, pk):
             return redirect('viewexamsuggestion')
     else:
         form =  EditExamSuggestionForm(instance=item)
-        return render(request, 'accounts/editexamsuggestion.html', {'form': form})
+        return render(request, 'accounts/Exam/editexamsuggestion.html', {'form': form})
 
 def deleteexamsuggestion(request, pk):
     ExamSuggestion.objects.filter(id=pk).delete()
     all_info=ExamSuggestion.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewexamsuggestion.html', context)
+    return render(request, 'accounts/Exam/viewexamsuggestion.html', context)
 def viewexamsuggestion(request):
     all_info = ExamSuggestion.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewexamsuggestion.html', context)
+    return render(request, 'accounts/Exam/viewexamsuggestion.html', context)
 
   #######################################
 #   CRUD FOR THE LIBRARY MODULE         #
@@ -447,7 +447,7 @@ def addlibrarybook(request):
     else:
         form = AddLibraryBookForm()
         context = {'form': form}
-        return render(request, 'accounts/addlibrarybook.html', context)
+        return render(request, 'accounts/Library/addlibrarybook.html', context)
 def editlibrarybook(request, pk):
     item = get_object_or_404(Library, id=pk)
     if request.method == "POST":
@@ -457,17 +457,17 @@ def editlibrarybook(request, pk):
             return redirect('viewlibrarybook')
     else:
         form =  EditLibraryBookForm(instance=item)
-        return render(request, 'accounts/editlibrarybook.html', {'form': form})
+        return render(request, 'accounts/Library/editlibrarybook.html', {'form': form})
 
 def deletelibrarybook(request, pk):
     Library.objects.filter(id=pk).delete()
     all_info=Library.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewlibrarybook.html', context)
+    return render(request, 'accounts/Library/viewlibrarybook.html', context)
 def viewlibrarybook(request):
     all_info = Library.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewlibrarybook.html', context)
+    return render(request, 'accounts/Library/viewlibrarybook.html', context)
 
 
   #######################################
@@ -482,7 +482,7 @@ def addvehicle(request):
     else:
         form = AddVehicleForm()
         context = {'form': form}
-        return render(request, 'accounts/addvehicle.html', context)
+        return render(request, 'accounts/Transport/addvehicle.html', context)
 def editvehicle(request, pk):
     item = get_object_or_404(Transport, id=pk)
     if request.method == "POST":
@@ -492,17 +492,17 @@ def editvehicle(request, pk):
             return redirect('viewvehicle')
     else:
         form =  EditVehicleForm(instance=item)
-        return render(request, 'accounts/editvehicle.html', {'form': form})
+        return render(request, 'accounts/Transport/editvehicle.html', {'form': form})
 
 def deletevehicle(request, pk):
     Transport.objects.filter(id=pk).delete()
     all_info=Transport.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewvehicle.html', context)
+    return render(request, 'accounts/Transport/viewvehicle.html', context)
 def viewvehicle(request):
     all_info = Transport.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewvehicle.html', context)
+    return render(request, 'accounts/Transport/viewvehicle.html', context)
 
 
 
@@ -518,7 +518,7 @@ def addroute(request):
     else:
         form = AddRouteForm()
         context = {'form': form}
-        return render(request, 'accounts/addroute.html', context)
+        return render(request, 'accounts/Transport/addroute.html', context)
 def editroute(request, pk):
     item = get_object_or_404(Transport, id=pk)
     if request.method == "POST":
@@ -528,17 +528,17 @@ def editroute(request, pk):
             return redirect('viewroute')
     else:
         form =  EditRouteForm(instance=item)
-        return render(request, 'accounts/editroute.html', {'form': form})
+        return render(request, 'accounts/Transport/editroute.html', {'form': form})
 
 def deleteroute(request, pk):
     Route.objects.filter(id=pk).delete()
     all_info=Route.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewroute.html', context)
+    return render(request, 'accounts/Transport/viewroute.html', context)
 def viewroute(request):
     all_info = Route.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewroute.html', context)
+    return render(request, 'accounts/Transport/viewroute.html', context)
 
 
 
@@ -554,7 +554,7 @@ def addhostel(request):
     else:
         form = AddHostelForm()
         context = {'form': form}
-        return render(request, 'accounts/addhostel.html', context)
+        return render(request, 'accounts/Hostel/addhostel.html', context)
 
 def edithostel(request, pk):
     item = get_object_or_404(Hostel, id=pk)
@@ -565,18 +565,18 @@ def edithostel(request, pk):
             return redirect('viewhostel')
     else:
         form =  EditHostelForm(instance=item)
-        return render(request, 'accounts/edithostel.html', {'form': form})
+        return render(request, 'accounts/Hostel/edithostel.html', {'form': form})
 
 def deletehostel(request, pk):
     Hostel.objects.filter(id=pk).delete()
     all_info=Hostel.objects.all()
     context={'all_info' :all_info}
-    return render(request, 'accounts/viewhostel.html', context)
+    return render(request, 'accounts/Hostel/viewhostel.html', context)
 
 def viewhostel(request):
     all_info = Hostel.objects.all()
     context={'all_info':all_info}
-    return render(request, 'accounts/viewhostel.html', context)
+    return render(request, 'accounts/Hostel/viewhostel.html', context)
 
  ################################################
 #   CRUD FOR THE HOSTEL ROOM MODULE              #
@@ -590,7 +590,7 @@ def addroom(request):
    else:
        form = AddHostelRoomForm()
        context = {'form': form}
-       return render(request, 'accounts/addhostelroom.html', context)
+       return render(request, 'accounts/Hostel/addhostelroom.html', context)
 
 def editroom(request, pk):
    item = get_object_or_404(HostelRooms, id=pk)
@@ -601,18 +601,18 @@ def editroom(request, pk):
            return redirect('viewroom')
    else:
        form =  EditHostelRoomForm(instance=item)
-       return render(request, 'accounts/edithostelroom.html', {'form': form})
+       return render(request, 'accounts/Hostel/edithostelroom.html', {'form': form})
 
 def deleteroom(request, pk):
    HostelRooms.objects.filter(id=pk).delete()
    all_info=HostelRooms.objects.all()
    context={'all_info' :all_info}
-   return render(request, 'accounts/viewhostelroom.html', context)
+   return render(request, 'accounts/Hostel/viewhostelroom.html', context)
 
 def viewroom(request):
    all_info = HostelRooms.objects.all()
    context={'all_info':all_info}
-   return render(request, 'accounts/viewhostelroom.html', context)
+   return render(request, 'accounts/Hostel/viewhostelroom.html', context)
 
  ################################################
 #   CRUD FOR THE VISITOR INFO MODULE              #
@@ -626,7 +626,7 @@ def addvisitor(request):
    else:
        form = AddVistorInfoForm()
        context = {'form': form}
-       return render(request, 'accounts/addvisitor.html', context)
+       return render(request, 'accounts/Visitor/addvisitor.html', context)
 
 def editvisitor(request, pk):
    item = get_object_or_404(VisitorInfor, id=pk)
@@ -637,18 +637,18 @@ def editvisitor(request, pk):
            return redirect('viewvisitor')
    else:
        form =  EditVistorInfoForm(instance=item)
-       return render(request, 'accounts/editvisitor.html', {'form': form})
+       return render(request, 'accounts/Visitor/editvisitor.html', {'form': form})
 
 def deletevisitor(request, pk):
    VisitorInfor.objects.filter(id=pk).delete()
    all_info=VisitorInfor.objects.all()
    context={'all_info' :all_info}
-   return render(request, 'accounts/viewvisitor.html', context)
+   return render(request, 'accounts/Visitor/viewvisitor.html', context)
 
 def viewvisitor(request):
    all_info = VisitorInfor.objects.all()
    context={'all_info':all_info}
-   return render(request, 'accounts/viewvisitor.html', context)
+   return render(request, 'accounts/Visitor/viewvisitor.html', context)
 
  ################################################
 #   CRUD FOR THE SALARY GRADE INFO MODULE        #
@@ -662,7 +662,7 @@ def addsalarygrade(request):
    else:
        form = AddSalaryGradeForm()
        context = {'form': form}
-       return render(request, 'accounts/addsalarygrade.html', context)
+       return render(request, 'accounts/Payroll/addsalarygrade.html', context)
 
 def editsalarygrade(request, pk):
    item = get_object_or_404(SalaryGrade, id=pk)
@@ -673,18 +673,18 @@ def editsalarygrade(request, pk):
            return redirect('viewsalarygrade')
    else:
        form =  EditSalaryGradeForm(instance=item)
-       return render(request, 'accounts/editsalarygrade.html', {'form': form})
+       return render(request, 'accounts/Payroll/editsalarygrade.html', {'form': form})
 
 def deletesalarygrade(request, pk):
    SalaryGrade.objects.filter(id=pk).delete()
    all_info=SalaryGrade.objects.all()
    context={'all_info' :all_info}
-   return render(request, 'accounts/viewsalarygrade.html', context)
+   return render(request, 'accounts/Payroll/viewsalarygrade.html', context)
 
 def viewsalarygrade(request):
    all_info = SalaryGrade.objects.all()
    context={'all_info':all_info}
-   return render(request, 'accounts/viewsalarygrade.html', context)
+   return render(request, 'accounts/Payroll/viewsalarygrade.html', context)
 
  ################################################
 #   CRUD FOR THE DISCOUNT MODULE        #
@@ -698,7 +698,7 @@ def adddiscount(request):
    else:
        form = AddFeeTypeForm()
        context = {'form': form}
-       return render(request, 'accounts/adddiscount.html', context)
+       return render(request, 'accounts/Accounting/adddiscount.html', context)
 
 def editdiscount(request, pk):
    item = get_object_or_404(Discount, id=pk)
@@ -709,18 +709,18 @@ def editdiscount(request, pk):
            return redirect('viewdiscount')
    else:
        form =  EditDiscountForm(instance=item)
-       return render(request, 'accounts/editdiscount.html', {'form': form})
+       return render(request, 'accounts/Accounting/editdiscount.html', {'form': form})
 
 def deletediscount(request, pk):
    Discount.objects.filter(id=pk).delete()
    all_info=Discount.objects.all()
    context={'all_info' :all_info}
-   return render(request, 'accounts/viewdiscount.html', context)
+   return render(request, 'accounts/Accounting/viewdiscount.html', context)
 
 def viewdiscount(request):
    all_info = Discount.objects.all()
    context={'all_info':all_info}
-   return render(request, 'accounts/viewdiscount.html', context)
+   return render(request, 'accounts/Accounting/viewdiscount.html', context)
 
 ################################################
 #   CRUD FOR THE FEE TYPE MODULE        #
@@ -734,7 +734,7 @@ def addfeetype(request):
    else:
        form = AddFeeTypeForm()
        context = {'form': form}
-       return render(request, 'accounts/addfeetype.html', context)
+       return render(request, 'accounts/Accounting/addfeetype.html', context)
 
 def editfeetype(request, pk):
    item = get_object_or_404(FeeType, id=pk)
@@ -745,18 +745,18 @@ def editfeetype(request, pk):
            return redirect('viewfeetype')
    else:
        form =  EditFeeTypeForm(instance=item)
-       return render(request, 'accounts/editfeetype.html', {'form': form})
+       return render(request, 'accounts/Accounting/editfeetype.html', {'form': form})
 
 def deletefeetype(request, pk):
    FeeType.objects.filter(id=pk).delete()
    all_info=FeeType.objects.all()
    context={'all_info' :all_info}
-   return render(request, 'accounts/viewfeetype.html', context)
+   return render(request, 'accounts/Accounting/viewfeetype.html', context)
 
 def viewfeetype(request):
    all_info = FeeType.objects.all()
    context={'all_info':all_info}
-   return render(request, 'accounts/viewfeetype.html', context)
+   return render(request, 'accounts/Accounting/viewfeetype.html', context)
 
 
 ################################################
@@ -771,7 +771,7 @@ def addfeecollection(request):
    else:
        form = AddFeeCollectionForm()
        context = {'form': form}
-       return render(request, 'accounts/addfeecollection.html', context)
+       return render(request, 'accounts/Accounting/addfeecollection.html', context)
 
 def editfeecollection(request, pk):
    item = get_object_or_404(FeeCollection, id=pk)
@@ -782,15 +782,88 @@ def editfeecollection(request, pk):
            return redirect('viewfeecollection')
    else:
        form =  EditFeeCollectionForm(instance=item)
-       return render(request, 'accounts/editfeecollection.html', {'form': form})
+       return render(request, 'accounts/Accounting/editfeecollection.html', {'form': form})
 
 def deletefeecollection(request, pk):
    FeeCollection.objects.filter(id=pk).delete()
    all_info=FeeCollection.objects.all()
    context={'all_info' :all_info}
-   return render(request, 'accounts/feecollection.html', context)
+   return render(request, 'accounts/Accounting/feecollection.html', context)
 
 def viewfeecollection(request):
    all_info = FeeCollection.objects.all()
    context={'all_info':all_info}
-   return render(request, 'accounts/viewfeecollection.html', context)
+   return render(request, 'accounts/Accounting/viewfeecollection.html', context)
+
+################################################
+#   CRUD FOR THE FEE INCOME MODULE        #
+################################################
+def addincome(request):
+   if request.method=="POST":
+       form=AddIncomeForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addincome')
+   else:
+       form = AddIncomeForm()
+       context = {'form': form}
+       return render(request, 'accounts/Accounting/addincome.html', context)
+
+def editincome(request, pk):
+   item = get_object_or_404(Income, id=pk)
+   if request.method == "POST":
+       form =  EditIncomeForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewincome')
+   else:
+       form =  EditIncomeForm(instance=item)
+       return render(request, 'accounts/Accounting/editincome.html', {'form': form})
+
+def deleteincome(request, pk):
+   Income.objects.filter(id=pk).delete()
+   all_info=Income.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/Accounting/viewincome.html', context)
+
+def viewincome(request):
+   all_info = Income.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/Accounting/viewincome.html', context)
+
+
+################################################
+#   CRUD FOR THE FEE EXPENDITURE MODULE        #
+################################################
+def addexpenditure(request):
+   if request.method=="POST":
+       form=AddExpenditureForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addexpenditure')
+   else:
+       form = AddExpenditureForm()
+       context = {'form': form}
+       return render(request, 'accounts/Accounting/addexpenditure.html', context)
+
+def editexpenditure(request, pk):
+   item = get_object_or_404(Expenditure, id=pk)
+   if request.method == "POST":
+       form =  EditExpenditureForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewincome')
+   else:
+       form =  EditExpenditureForm(instance=item)
+       return render(request, 'accounts/Accounting/editexpenditure.html', {'form': form})
+
+def deleteexpenditure(request, pk):
+   Expenditure.objects.filter(id=pk).delete()
+   all_info=Expenditure.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/Accounting/viewexpenditure.html', context)
+
+def viewexpenditure(request):
+   all_info = Expenditure.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/Accounting/viewexpenditure.html', context)

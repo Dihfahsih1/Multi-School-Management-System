@@ -113,5 +113,15 @@ url(r'^addfeecollection', views.addfeecollection, name="addfeecollection"),
 url(r'^editfeecollection/(?P<pk>\d+)', views.editfeecollection, name="editfeecollection"),
 url(r'^deletefeecollection/(?P<pk>\d+)', views.deletefeecollection, name="deletefeecollection"),
 url(r'^viewfeecollection', views.viewfeecollection, name="viewfeecollection"),
+
+url(r'^addincome', views.addincome, name="addincome"),
+url(r'^editincome/(?P<pk>\d+)', views.editincome, name="editincome"),
+url(r'^deleteincome/(?P<pk>\d+)', views.deleteincome, name="deleteincome"),
+url(r'^viewincome', views.viewincome, name="viewincome"),
+
+url(r'^addexpenditure', views.addexpenditure, name="addexpenditure"),
+url(r'^editexpenditure/(?P<pk>\d+)', views.editexpenditure, name="editexpenditure"),
+url(r'^deleteexpenditure/(?P<pk>\d+)', views.deleteexpenditure, name="deleteexpenditure"),
+url(r'^viewexpenditure', views.viewexpenditure, name="viewexpenditure"),
 url(r'^logout', views.login, name="logout")
 ]

@@ -240,6 +240,30 @@ class FeeCollection(models.Model):
     Month = models.CharField(max_length=130)
     IsApplicableDiscount = models.CharField(max_length=130, choices=choices, blank=False, null=True)
     PaidStatus=models.CharField(max_length=130, choices=status, blank=False, null=True)
-    Notes = models.TextField(max_length=110)
+    Notes = models.TextField(max_length=60)
     def __str__(self):
         return self.PaidStatus
+
+class Income(models.Model):
+    method = (('Cheque','Cheque'),('Cash','Cash'))
+    head = (('General','General'),('Others','Others'))
+    School = models.CharField(max_length=130)
+    IncomeHead=models.CharField(max_length=130, choices=head,  blank=False, null=True)
+    PaymentMethod=models.CharField(max_length=130, choices=method,  blank=False, null=True)
+    Amount = models.CharField(max_length=130)
+    Date = models.CharField(max_length=130)
+    Notes = models.TextField(max_length=50)
+    def __str__(self):
+        return self.IncomeHead
+
+class Expenditure(models.Model):
+    method = (('Cheque','Cheque'),('Cash','Cash'))
+    head = (('General','General'),('Others','Others'))
+    School = models.CharField(max_length=130)
+    ExpenditureHead=models.CharField(max_length=130, choices=head,  blank=False, null=True)
+    ExpenditureMethod=models.CharField(max_length=130, choices=method,  blank=False, null=True)
+    Amount = models.CharField(max_length=130)
+    Date = models.CharField(max_length=130)
+    Notes = models.TextField(max_length=50)
+    def __str__(self):
+        return self.ExpenditureHead

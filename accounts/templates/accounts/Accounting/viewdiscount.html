@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
-<div class="container" style="margin-left: 200px;font-size: 16px; padding: 0px 10px;">
-<h4>Manage Invoice</h4>
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+<h4>Manage School Finance</h4>
 <nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
   <i style="font-size: 15px; color:red;">Quick Links</i>
   <ul class="navbar-nav mr-auto">
@@ -20,6 +20,7 @@
     <li class="nav-item">
     <a class="nav-link"href="#">DueFee</a>
     </li>
+
     <li class="nav-item">
     <a class="nav-link" href="{% url 'viewincome'  %}">Income</a>
     </li>
@@ -31,11 +32,11 @@
 <nav class="nav navbar-expand" style="float:left">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#"><button class="btn btn-default">Invoice list</button></a>
+      <a class="nav-link" href="#"><button class="btn btn-default">Discounts list</button></a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'addfeecollection' %}"><button class="btn btn-success">Create Invoice</button></a>
+      <a class="nav-link" href="{% url 'adddiscount' %}"><button class="btn btn-success">Add Discount</button></a>
     </li>
   </ul>
 </nav>
@@ -45,13 +46,8 @@
     <tr>
          <td>id</td>
          <td>School</td>
-         <td>Class</td>
-         <td>Student</td>
-         <td>Fee Type</td>
-         <td>Fee Amount</td>
-         <td>Month</td>
-         <td>Discount</td>
-          <td>Status</td>
+         <td>Title</td>
+         <td>Amount</td>
          <td>Notes</td>
          <td>Action</td>
      </tr>
@@ -62,17 +58,12 @@
      <tr>
        <td>{{ item.id}}</td>
        <td>{{ item.School}}</td>
-       <td>{{ item.Class}}</td>
-       <td>{{ item.Student}}</td>
-       <td>{{ item.FeeType}}</td>
-       <td>{{ item.FeeAmount}}</td>
-       <td>{{ item.Month}}</td>
-       <td>{{ item.IsApplicableDiscount}}</td>
-       <td>{{ item.PaidStatus}}</td>
+       <td>{{ item.Title}}</td>
+       <td>{{ item.Amount}}</td>
        <td>{{ item.Notes}}</td>
-       <td><a href="{% url 'editfeecollection' pk=item.id  %}" >
+       <td><a href="{% url 'editdiscount' pk=item.id  %}" >
          <button class="btn btn-warning">Edit</button></a>|
-         <a href="{% url 'deletefeecollection' pk=item.id %}" >
+         <a href="{% url 'deletediscount' pk=item.id %}" >
            <button class="btn btn-danger">Delete</button></a>
        </td>
         {% endfor %}

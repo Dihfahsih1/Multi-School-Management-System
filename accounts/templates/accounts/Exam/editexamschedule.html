@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+  <br>  <nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
+      <ul class="navbar-nav mr-auto">
+        <i style="font-size: 15px; color:red;">Quick Links</i>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'viewexamgrade'%}">Add Exam Grade</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'viewexamterm'%}">Exam Term</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'viewexamschedule'%}">Exam Schedule</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'viewexamsuggestion'%}">Exam Suggestion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Exam Attendence</a>
+        </li>
+      </ul>
+    </nav>
+<br><h4>EditSchedule</h4>
+{% load crispy_forms_tags %}
+<div class="col-lg-4" style="float:left">
+<form method="post" enctype="multipart/form-data">
+<p>Edit Details</p>
+  {% csrf_token %}
+  {{ form|crispy}}
+<button type="submit" class="btn btn-success">Submit</button>
+<a href="{% url 'viewexamschedule' %}"<button type="submit" class="btn btn-danger">Cancel</button></a>
+</div>
+</div>
+{% endblock %}

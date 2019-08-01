@@ -32,42 +32,23 @@
 <nav class="nav navbar-expand" style="float:left">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#"><button class="btn btn-default">Discounts list</button></a>
+      <a class="nav-link" href="{% url 'viewdiscount' %}"><button class="btn btn-success">Discounts list</button></a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'addfeetype' %}"><button class="btn btn-success">Add Fee Type</button></a>
+      <a class="nav-link" href="#"><button class="btn btn-default">Add Discount</button></a>
     </li>
   </ul>
 </nav>
-<br>
-<table class="table table-hover" border="2">
-   <thead class="table-success">
-    <tr>
-         <td>id</td>
-         <td>School</td>
-         <td>Fee Title</td>
-         <td>Notes</td>
-         <td>Action</td>
-     </tr>
-   </thead>
-   <tbody>
-     {% if all_info %}
-     {% for item in all_info %}
-     <tr>
-       <td>{{ item.id}}</td>
-       <td>{{ item.School}}</td>
-       <td>{{ item.FeeTitle}}</td>
-       <td>{{ item.Notes}}</td>
-       <td><a href="{% url 'editfeetype' pk=item.id  %}" >
-         <button class="btn btn-warning">Edit</button></a>|
-         <a href="{% url 'deletefeetype' pk=item.id %}" >
-           <button class="btn btn-danger">Delete</button></a>
-       </td>
-        {% endfor %}
-     </tr>
-     {% endif %}
-   </tbody>
-</table>
+<br><br>
+{% load crispy_forms_tags %}
+<div class="col-lg-4" style="float:left">
+<form method="post" enctype="multipart/form-data">
+<p>Enter Details</p>
+  {% csrf_token %}
+  {{ form|crispy }}
+<button type="submit" class="btn btn-success">Submit</button></form>
+<a href="{% url 'viewdiscount' %}"><button class="btn btn-info">Cancel</button></a>
+</div>
 </div>
 {% endblock %}
