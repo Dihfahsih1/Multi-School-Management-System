@@ -88,5 +88,10 @@ url(r'^addroom', views.addroom, name="addroom"),
 url(r'^editroom/(?P<pk>\d+)', views.editroom, name="editroom"),
 url(r'^deleteroom/(?P<pk>\d+)', views.deleteroom, name="deleteroom"),
 url(r'^viewroom', views.viewroom, name="viewroom"),
+
+url(r'^addvisitor', views.addvisitor, name="addvisitor"),
+url(r'^editvisitor/(?P<pk>\d+)', views.editvisitor, name="editvisitor"),
+url(r'^deletevisitor/(?P<pk>\d+)', views.deletevisitor, name="deletevisitor"),
+url(r'^viewvisitor', views.viewvisitor, name="viewvisitor"),
 url(r'^logout', views.login, name="logout")
 ]

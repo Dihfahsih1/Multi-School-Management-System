@@ -613,3 +613,39 @@ def viewroom(request):
    all_info = HostelRooms.objects.all()
    context={'all_info':all_info}
    return render(request, 'accounts/viewhostelroom.html', context)
+
+ ################################################
+#   CRUD FOR THE VISITOR INFO MODULE              #
+ ################################################
+def addvisitor(request):
+   if request.method=="POST":
+       form=AddVistorInfoForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addvisitor')
+   else:
+       form = AddVistorInfoForm()
+       context = {'form': form}
+       return render(request, 'accounts/addvisitor.html', context)
+
+def editvisitor(request, pk):
+   item = get_object_or_404(VisitorInfor, id=pk)
+   if request.method == "POST":
+       form =  EditVistorInfoForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewvisitor')
+   else:
+       form =  EditVistorInfoForm(instance=item)
+       return render(request, 'accounts/editvisitor.html', {'form': form})
+
+def deletevisitor(request, pk):
+   VisitorInfor.objects.filter(id=pk).delete()
+   all_info=VisitorInfor.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/viewvisitor.html', context)
+
+def viewvisitor(request):
+   all_info = VisitorInfor.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/viewvisitor.html', context)

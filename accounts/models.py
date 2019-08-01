@@ -182,3 +182,13 @@ class HostelRooms(models.Model):
     Notes = models.TextField(max_length=110)
     def __str__(self):
         return self.Room_no
+class VisitorInfor(models.Model):
+    School = models.CharField(max_length=130)
+    Name= models.CharField(max_length=130)
+    Phone= models.CharField(max_length=130)
+    ComingFrom= models.CharField(max_length=130)
+    ToMeetUserType=models.CharField(max_length=130)
+    ReasonToMeet=models.CharField(max_length=130)
+    Notes = models.TextField(max_length=110)
+    def __str__(self):
+        return self.Name

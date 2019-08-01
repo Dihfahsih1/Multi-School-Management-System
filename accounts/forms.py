@@ -161,3 +161,12 @@ class EditHostelRoomForm(forms.ModelForm):
     class Meta:
         model = HostelRooms
         fields = ('School','Room_no','Hostel', 'RoomType', 'CostPerSeat','SeatTotal','Notes')
+
+class AddVistorInfoForm(forms.ModelForm):
+    class Meta:
+        model = VisitorInfor
+        fields = ('School','Name','Phone', 'ComingFrom', 'ToMeetUserType','ReasonToMeet','Notes')
+class EditVistorInfoForm(forms.ModelForm):
+    class Meta:
+        model = VisitorInfor
+        fields = ('School','Name','Phone', 'ComingFrom', 'ToMeetUserType','ReasonToMeet','Notes')
