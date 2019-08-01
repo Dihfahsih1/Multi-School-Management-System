@@ -691,12 +691,12 @@ def viewsalarygrade(request):
  ################################################
 def adddiscount(request):
    if request.method=="POST":
-       form=AddDiscountForm(request.POST,request.FILES)
+       form=AddFeeTypeForm(request.POST,request.FILES)
        if form.is_valid():
            form.save()
            return redirect('adddiscount')
    else:
-       form = AddDiscountForm()
+       form = AddFeeTypeForm()
        context = {'form': form}
        return render(request, 'accounts/adddiscount.html', context)
 
@@ -709,7 +709,7 @@ def editdiscount(request, pk):
            return redirect('viewdiscount')
    else:
        form =  EditDiscountForm(instance=item)
-       return render(request, 'accounts/discount.html', {'form': form})
+       return render(request, 'accounts/editdiscount.html', {'form': form})
 
 def deletediscount(request, pk):
    Discount.objects.filter(id=pk).delete()
@@ -721,3 +721,39 @@ def viewdiscount(request):
    all_info = Discount.objects.all()
    context={'all_info':all_info}
    return render(request, 'accounts/viewdiscount.html', context)
+
+################################################
+#   CRUD FOR THE FEE TYPE MODULE        #
+################################################
+def addfeetype(request):
+   if request.method=="POST":
+       form=AddFeeTypeForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addfeetype')
+   else:
+       form = AddFeeTypeForm()
+       context = {'form': form}
+       return render(request, 'accounts/addfeetype.html', context)
+
+def editfeetype(request, pk):
+   item = get_object_or_404(FeeType, id=pk)
+   if request.method == "POST":
+       form =  EditFeeTypeForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewfeetype')
+   else:
+       form =  EditFeeTypeForm(instance=item)
+       return render(request, 'accounts/editfeetype.html', {'form': form})
+
+def deletefeetype(request, pk):
+   FeeType.objects.filter(id=pk).delete()
+   all_info=FeeType.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/viewfeetype.html', context)
+
+def viewfeetype(request):
+   all_info = FeeType.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/viewfeetype.html', context)

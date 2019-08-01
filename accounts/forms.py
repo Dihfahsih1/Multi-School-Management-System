@@ -193,3 +193,12 @@ class EditDiscountForm(forms.ModelForm):
     class Meta:
         model = Discount
         fields =('School','Title','Amount','Notes')
+
+class AddFeeTypeForm(forms.ModelForm):
+    class Meta:
+        model = FeeType
+        fields = ('School','FeeType','FeeTitle','Notes')
+class EditFeeTypeForm(forms.ModelForm):
+    class Meta:
+        model = FeeType
+        fields = ('School','FeeType','FeeTitle','Notes')       

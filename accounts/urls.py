@@ -103,5 +103,10 @@ url(r'^adddiscount', views.adddiscount, name="adddiscount"),
 url(r'^editdiscount/(?P<pk>\d+)', views.editdiscount, name="editdiscount"),
 url(r'^deletediscount/(?P<pk>\d+)', views.deletediscount, name="deletediscount"),
 url(r'^viewdiscount', views.viewdiscount, name="viewdiscount"),
+
+url(r'^addfeetype', views.addfeetype, name="addfeetype"),
+url(r'^editfeetype/(?P<pk>\d+)', views.editfeetype, name="editfeetype"),
+url(r'^deletefeetype/(?P<pk>\d+)', views.deletefeetype, name="deletefeetype"),
+url(r'^viewfeetype', views.viewfeetype, name="viewfeetype"),
 url(r'^logout', views.login, name="logout")
 ]

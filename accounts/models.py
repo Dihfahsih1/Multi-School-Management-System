@@ -208,9 +208,22 @@ class SalaryGrade(models.Model):
     GrossPay= models.CharField(max_length=130)
     NetSalary=models.CharField(max_length=130)
     Notes = models.TextField(max_length=110)
+    def __str__(self):
+        return self.NetSalary
 
 class Discount(models.Model):
     School = models.CharField(max_length=130)
     Title= models.CharField(max_length=130)
     Amount= models.CharField(max_length=130)
     Notes = models.TextField(max_length=110)
+    def __str__(self):
+        return self.Title
+
+class FeeType(models.Model):
+    choices = (('General Fee','General Fee'),('Transport','Transport'),('Hostel','Hostel'))
+    School = models.CharField(max_length=130)
+    FeeTitle= models.CharField(max_length=130)
+    FeeType = models.CharField(max_length=130, choices=choices, blank=False, null=True)
+    Notes = models.TextField(max_length=110)
+    def __str__(self):
+        return self.FeeTitle
