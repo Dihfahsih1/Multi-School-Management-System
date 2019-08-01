@@ -227,3 +227,19 @@ class FeeType(models.Model):
     Notes = models.TextField(max_length=110)
     def __str__(self):
         return self.FeeTitle
+
+class FeeCollection(models.Model):
+    fee = (('General Fee','General Fee'),('Transport','Transport'),('Hostel','Hostel'))
+    choices = (('Yes','Yes'),('No','No'))
+    status = (('Paid','Paid'),('Unpaid','Unpaid'))
+    School = models.CharField(max_length=130)
+    Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
+    Student =models.CharField(max_length=130)
+    FeeType = models.CharField(max_length=130, choices=fee, blank=False, null=True)
+    FeeAmount = models.CharField(max_length=130)
+    Month = models.CharField(max_length=130)
+    IsApplicableDiscount = models.CharField(max_length=130, choices=choices, blank=False, null=True)
+    PaidStatus=models.CharField(max_length=130, choices=status, blank=False, null=True)
+    Notes = models.TextField(max_length=110)
+    def __str__(self):
+        return self.PaidStatus

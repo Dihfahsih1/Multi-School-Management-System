@@ -108,5 +108,10 @@ url(r'^addfeetype', views.addfeetype, name="addfeetype"),
 url(r'^editfeetype/(?P<pk>\d+)', views.editfeetype, name="editfeetype"),
 url(r'^deletefeetype/(?P<pk>\d+)', views.deletefeetype, name="deletefeetype"),
 url(r'^viewfeetype', views.viewfeetype, name="viewfeetype"),
+
+url(r'^addfeecollection', views.addfeecollection, name="addfeecollection"),
+url(r'^editfeecollection/(?P<pk>\d+)', views.editfeecollection, name="editfeecollection"),
+url(r'^deletefeecollection/(?P<pk>\d+)', views.deletefeecollection, name="deletefeecollection"),
+url(r'^viewfeecollection', views.viewfeecollection, name="viewfeecollection"),
 url(r'^logout', views.login, name="logout")
 ]

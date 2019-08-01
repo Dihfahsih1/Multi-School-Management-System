@@ -201,4 +201,13 @@ class AddFeeTypeForm(forms.ModelForm):
 class EditFeeTypeForm(forms.ModelForm):
     class Meta:
         model = FeeType
-        fields = ('School','FeeType','FeeTitle','Notes')       
+        fields = ('School','FeeType','FeeTitle','Notes')
+
+class AddFeeCollectionForm(forms.ModelForm):
+    class Meta:
+        model = FeeCollection
+        fields = ('School','Class','Student','FeeType','FeeAmount','Month','IsApplicableDiscount','PaidStatus','Notes')
+class EditFeeCollectionForm(forms.ModelForm):
+    class Meta:
+        model = FeeCollection
+        fields = ('School','Class','Student','FeeType','FeeAmount','Month','IsApplicableDiscount','PaidStatus','Notes')
