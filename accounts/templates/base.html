@@ -45,7 +45,7 @@ background-color: #4285F4; }
   position:absolute;
   top: 0;
   left: 0;
-  margin-top: 2%;
+  margin-top: 0%;
   background-color: #111;
   padding-top: 20px;
   overflow: auto;
@@ -98,22 +98,29 @@ background-color: #4285F4; }
 </style>
 </head>
 <body><br>
-  <nav class="nav navbar-expand navbar-dark bg-dark" style="margin-top:-1.6%; margin-left:14%; margin-right:3%">
-    <div class="collapse navbar-collapse" id="navbarExample02">
+  <diV class="container-fluid">
+  <div class="col-lg-12" style="margin-left:5.7%; margin-top:-2%">
+  <nav class=" container nav navbar-expand navbar-dark bg-dark" >
+    <div class="col-lg-8" style="color:white; font-size:160%">
+      <b>CANON - MULTI - SCHOOL MANAGEMENT SYSTEM</b></div>
+      <div class="col-lg-4">
+      <div class="collapse navbar-collapse" id="navbarExample02"  style="float:right;margin-right:-10%">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-            <a class="nav-link" href="{% url 'home'  %}">Home</a>
-            </li>
+
              <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
+            <a class="nav-link" href="{% url 'viewprofile'  %}">Profile</a>
             </li>
             <li class="nav-item">
            <a class="nav-link" href="{% url 'logout'  %}">logout</a>
            </li>
       </ul>
+    </div></div>
 </nav>
+</div>
 
+<div class="row">
 <div class="sidenav scrollbar scrollbar-primary">
+  <br><br><br><br>
   <h3 style=" color: white">MANAGE</h3>
   <button class="dropdown-btn">Class
     <i class="fa fa-caret-down"></i>
@@ -273,7 +280,7 @@ background-color: #4285F4; }
     <a href="#">Password reset</a>
     <a href="#">Logout</a>
 </div>
-
+</div>
 </div>
 
 
@@ -282,6 +289,7 @@ background-color: #4285F4; }
 
 {% block body %}
 {% endblock %}
+
 <script>
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -298,7 +306,7 @@ for (i = 0; i < dropdown.length; i++) {
   });
 }
 </script>
-
+</div>
 </body>
 
 </html>
