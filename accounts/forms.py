@@ -276,3 +276,29 @@ class EditProfileForm(forms.ModelForm):
         model = Profile
         fields = ('Name','Phone','PresentAdress','PermanentAddress','Gender',
         'DateOfBirth','Religion','Email','Photo','Resume', 'OtherInfo')
+
+
+class AddBasicInfoForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ('Name','AdmissionNo','AdmissionDate','Gender','DateOfBirth','BloodType','Religion')
+class EditBasicInfoForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields =('Name','AdmissionNo','AdmissionDate','Gender','DateOfBirth','BloodType','Religion')
+class AddContactInfoForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ('Guardian','RelationshipWithGuardian','Phone','NationalId','PresentAdress','PermanentAddress')
+class EditContactInfoForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields =('Guardian','RelationshipWithGuardian','Phone','NationalId','PresentAdress','PermanentAddress')
+class AddAcademicInfoForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ('Class','Subject','Group','RollNo','RegistrationNo','SecondLang')
+class EditAcadenicInfoForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields =('Class','Subject','Group','RollNo','RegistrationNo','SecondLang')              
