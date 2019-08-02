@@ -148,5 +148,12 @@ url(r'^addprofile', views.addprofile, name="addprofile"),
 url(r'^editprofile/(?P<pk>\d+)', views.editprofile, name="editprofile"),
 url(r'^deleteprofile/(?P<pk>\d+)', views.deleteprofile, name="deleteprofile"),
 url(r'^viewprofile', views.viewprofile, name="viewprofile"),
+
+url(r'^addstudent', views.addstudent, name="addstudent"),
+url(r'^addcontactstudent', views.addcontactstudent, name="addcontactstudent"),
+url(r'^addacademicstudent', views.addacademicstudent, name="addacademicstudent"),
+url(r'^editstudent/(?P<pk>\d+)', views.editstudent, name="editstudent"),
+url(r'^deletestudent/(?P<pk>\d+)', views.deletestudent, name="deletestudent"),
+url(r'^viewstudent', views.viewstudent, name="viewstudent"),
 url(r'^logout', views.login, name="logout")
 ]

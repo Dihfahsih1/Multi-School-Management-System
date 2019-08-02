@@ -297,8 +297,8 @@ class EditContactInfoForm(forms.ModelForm):
 class AddAcademicInfoForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ('Class','Subject','Group','RollNo','RegistrationNo','SecondLang')
+        fields = ('Class','Section','Group','RollNo','RegistrationNo','SecondLang')
 class EditAcadenicInfoForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields =('Class','Subject','Group','RollNo','RegistrationNo','SecondLang')              
+        fields =('Class','Section','Group','RollNo','RegistrationNo','SecondLang')

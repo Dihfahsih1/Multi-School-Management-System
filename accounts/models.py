@@ -326,8 +326,8 @@ class Student (models.Model):
     group = (('A','Arts'),('S','Sciences'))
     blood = (('A-','A-'), ('A+','A+'),('B-','B-'),('B+','B+'),
           ('O+','O+'),('O-','O-'), ('AB-','AB-'), ('AB+','AB-'))
-    parent = (('F','Father'), ('M','Mother'),('B','Brother'),('S','Sister'),
-          ('U','Uncle'),('A','Auntie'), ('MU','Maternal'), ('O','Others'))
+    parent = (('Father','Father'), ('Mother','Mother'),('Brother','Brother'),('Sister','Sister'),
+          ('Uncle','Uncle'),('Auntie','Auntie'),  ('Other','Others'))
     Name =  models.CharField(max_length=130)
     AdmissionNo = models.CharField(max_length=130)
     AdmissionDate = models.CharField(max_length=130)
@@ -335,14 +335,14 @@ class Student (models.Model):
     DateOfBirth = models.CharField(max_length=130)
     BloodType = models.CharField(max_length=130, choices=blood)
     Religion = models.CharField(max_length=130)
-    Guardian = models.CharField(max_length=130, choices=parent)
-    RelationshipWithGuardian=models.CharField(max_length=130, choices=blood)
+    Guardian = models.CharField(max_length=130)
+    RelationshipWithGuardian=models.CharField(max_length=130, choices=parent)
     PresentAdress=models.CharField(max_length=130)
     PermanentAddress =models.CharField(max_length=130)
     Phone = models.CharField(max_length=130)
     NationalId = models.CharField(max_length=130)
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
-    Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
+    Section= models.ForeignKey(Sectioninformation, on_delete=models.PROTECT, blank=True, null=True)
     Group = models.CharField(max_length=130, choices=group)
     RollNo = models.CharField(max_length=130)
     RegistrationNo = models.CharField(max_length=130, blank=False)
