@@ -256,3 +256,12 @@ class EditNewsForm(forms.ModelForm):
     class Meta:
         model = News
         fields =('School','NewsTitle','Date','Image','News')
+
+class AddHolidaysForm(forms.ModelForm):
+    class Meta:
+        model = Holiday
+        fields = ('School','HolidayTitle','FromDate','ToDate','Notes')
+class EditHolidaysForm(forms.ModelForm):
+    class Meta:
+        model = Holiday
+        fields =('School','HolidayTitle','FromDate','ToDate','Notes')

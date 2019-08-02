@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
-<br><h4>Manage News</h4>
+<br><h4>Manage Holidays</h4>
 <nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
   <i style="font-size: 15px; color:red;">Quick Links</i>
   <ul class="navbar-nav mr-auto">
@@ -19,10 +19,10 @@
 <nav class="nav navbar-expand" style="float:left">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#"><button class="btn btn-default">News List</button></a>
+      <a class="nav-link" href="#"><button class="btn btn-default">Holidays List</button></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'addnews' %}"><button class="btn btn-success">Add Notice</button></a>
+      <a class="nav-link" href="{% url 'addholiday' %}"><button class="btn btn-success">Add Holiday</button></a>
     </li>
   </ul>
 </nav>
@@ -32,10 +32,10 @@
     <tr>
          <td>id</td>
          <td>School</td>
-         <td>News Title</td>
-         <td>News Date</td>
-         <td>Image</td>
-         <td>News Details</td>
+         <td>HolidayTitle</td>
+         <td>From</td>
+         <td>To</td>
+         <td>Notes</td>
          <td>Action</td>
      </tr>
    </thead>
@@ -45,10 +45,10 @@
      <tr>
        <td>{{ item.id}}</td>
        <td>{{ item.School}}</td>
-       <td>{{ item.NewsTitle}}</td>
-       <td>{{ item.Date}}</td>
-       <td>{{ item.Image}}</td>
-       <td>{{ item.News}}</td>
+       <td>{{ item.HolidayTitle}}</td>
+       <td>{{ item.FromDate}}</td>
+       <td>{{ item.ToDate}}</td>
+       <td>{{ item.Notes}}</td>
        <td><a  href="{% url 'editnews' pk=item.id  %}" >Edit</a>|
          <a href="{% url 'deletenews' pk=item.id %}" >Delete</a>
        </td>

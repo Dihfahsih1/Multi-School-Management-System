@@ -138,5 +138,10 @@ url(r'^addnews', views.addnews, name="addnews"),
 url(r'^editnews/(?P<pk>\d+)', views.editnews, name="editnews"),
 url(r'^deletenews/(?P<pk>\d+)', views.deletenews, name="deletenews"),
 url(r'^viewnews', views.viewnews, name="viewnews"),
+
+url(r'^addholiday', views.addholiday, name="addholiday"),
+url(r'^editholiday/(?P<pk>\d+)', views.editholiday, name="editholiday"),
+url(r'^deleteholiday/(?P<pk>\d+)', views.deleteholiday, name="deleteholiday"),
+url(r'^viewholidays', views.viewholidays, name="viewholidays"),
 url(r'^logout', views.login, name="logout")
 ]

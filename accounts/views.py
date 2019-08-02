@@ -1040,11 +1040,47 @@ def editnews(request, pk):
 
 def deletenews(request, pk):
    News.objects.filter(id=pk).delete()
-   all_info=Notice.objects.all()
+   all_info=News.objects.all()
    context={'all_info' :all_info}
-   return render(request, 'accounts/Announcement/viewnewshtml', context)
+   return render(request, 'accounts/Announcement/viewnews.html', context)
 
 def viewnews(request):
    all_info = News.objects.all()
    context={'all_info':all_info}
    return render(request, 'accounts/Announcement/viewnews.html', context)
+
+################################################
+#   CRUD FOR THE HOLIDAYS MODULE                #
+################################################
+def addholiday(request):
+   if request.method=="POST":
+       form=AddHolidaysForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addholiday')
+   else:
+       form = AddHolidaysForm()
+       context = {'form': form}
+       return render(request, 'accounts/Announcement/addholiday.html', context)
+
+def editholiday(request, pk):
+   item = get_object_or_404(Holiday, id=pk)
+   if request.method == "POST":
+       form =  EditHolidaysForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewholidays')
+   else:
+       form =  EditHolidaysForm(instance=item)
+       return render(request, 'accounts/Announcement/editholiday.html', {'form': form})
+
+def deleteholiday(request, pk):
+   Holiday.objects.filter(id=pk).delete()
+   all_info=Holiday.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/Announcement/viewholidays.html', context)
+
+def viewholidays(request):
+   all_info = Holiday.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/Announcement/viewholidays.html', context)

@@ -297,4 +297,13 @@ class News(models.Model):
     Image = models.FileField(max_length=130, blank=False)
     News=models.TextField(max_length=130)
     def __str__(self):
-        return self.NoticeTitle
+        return self.NewsTitle
+
+class Holiday (models.Model):
+    School = models.CharField(max_length=130)
+    HolidayTitle=models.CharField(max_length=130)
+    FromDate = models.CharField(max_length=130)
+    ToDate = models.CharField(max_length=130)
+    Notes = models.TextField(max_length=50)
+    def __str__(self):
+        return self.HolidayTitle
