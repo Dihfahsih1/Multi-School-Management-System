@@ -280,3 +280,12 @@ class Events(models.Model):
     Notes = models.TextField(max_length=50)
     def __str__(self):
         return self.ExpenditureHead
+
+class Notice(models.Model):
+    School = models.CharField(max_length=130)
+    NoticeTitle=models.CharField(max_length=130)
+    NoticeDate=models.CharField(max_length=130, default="02-July-2019")
+    NoticeFor=models.CharField(max_length=130)
+    Notice=models.TextField(max_length=130)
+    def __str__(self):
+        return self.NoticeTitle

@@ -903,3 +903,112 @@ def viewevents(request):
    all_info = Events.objects.all()
    context={'all_info':all_info}
    return render(request, 'accounts/Events/viewevents.html', context)
+
+################################################
+#   CRUD FOR THE FEE INCOME MODULE        #
+################################################
+def addincome(request):
+   if request.method=="POST":
+       form=AddIncomeForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addincome')
+   else:
+       form = AddIncomeForm()
+       context = {'form': form}
+       return render(request, 'accounts/Accounting/addincome.html', context)
+
+def editincome(request, pk):
+   item = get_object_or_404(Income, id=pk)
+   if request.method == "POST":
+       form =  EditIncomeForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewincome')
+   else:
+       form =  EditIncomeForm(instance=item)
+       return render(request, 'accounts/Accounting/editincome.html', {'form': form})
+
+def deleteincome(request, pk):
+   Income.objects.filter(id=pk).delete()
+   all_info=Income.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/Accounting/viewincome.html', context)
+
+def viewincome(request):
+   all_info = Income.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/Accounting/viewincome.html', context)
+
+
+################################################
+#   CRUD FOR THE FEE EXPENDITURE MODULE        #
+################################################
+def addexpenditure(request):
+   if request.method=="POST":
+       form=AddExpenditureForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addexpenditure')
+   else:
+       form = AddExpenditureForm()
+       context = {'form': form}
+       return render(request, 'accounts/Accounting/addexpenditure.html', context)
+
+def editexpenditure(request, pk):
+   item = get_object_or_404(Expenditure, id=pk)
+   if request.method == "POST":
+       form =  EditExpenditureForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewincome')
+   else:
+       form =  EditExpenditureForm(instance=item)
+       return render(request, 'accounts/Accounting/editexpenditure.html', {'form': form})
+
+def deleteexpenditure(request, pk):
+   Expenditure.objects.filter(id=pk).delete()
+   all_info=Expenditure.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/Accounting/viewexpenditure.html', context)
+
+def viewexpenditure(request):
+   all_info = Expenditure.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/Accounting/viewexpenditure.html', context)
+
+################################################
+#   CRUD FOR THE NOTICE MODULE                #
+################################################
+def addnotice(request):
+   if request.method=="POST":
+       form=AddNoticeForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addnotice')
+   else:
+       form = AddNoticeForm()
+       context = {'form': form}
+       return render(request, 'accounts/Announcement/addnotice.html', context)
+
+def editnotice(request, pk):
+   item = get_object_or_404(Notice, id=pk)
+   if request.method == "POST":
+       form =  EditNoticeForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewnotice')
+   else:
+       form =  EditNoticeForm(instance=item)
+       return render(request, 'accounts/Announcement/editnotice.html', {'form': form})
+
+def deletenotice(request, pk):
+   Notice.objects.filter(id=pk).delete()
+   all_info=Notice.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/Announcement/viewnotice.html', context)
+
+def viewnotice(request):
+   all_info = Notice.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/Announcement/viewnotice.html', context)

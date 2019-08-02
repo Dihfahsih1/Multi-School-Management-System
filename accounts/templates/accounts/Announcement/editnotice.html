@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+<br><h4>Edit Notice</h4>
+
+{% load crispy_forms_tags %}
+<div class="col-lg-4" style="float:left">
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form|crispy}}
+<a href="{% url 'viewnotice' %}" style="float:right"><button class="btn btn-danger" >Cancel</button></a>
+<button type="submit" class="btn btn-success">Submit</button>
+</div>
+</div>
+{% endblock %}

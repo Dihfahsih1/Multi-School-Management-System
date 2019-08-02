@@ -128,5 +128,10 @@ url(r'^addevents', views.addevents, name="addevents"),
 url(r'^editevents/(?P<pk>\d+)', views.editevents, name="editevents"),
 url(r'^deleteevents/(?P<pk>\d+)', views.deleteevents, name="deleteevents"),
 url(r'^viewevents', views.viewevents, name="viewevents"),
+
+url(r'^addnotice', views.addnotice, name="addnotice"),
+url(r'^editnotice/(?P<pk>\d+)', views.editnotice, name="editnotice"),
+url(r'^deletenotice/(?P<pk>\d+)', views.deletenotice, name="deletenotice"),
+url(r'^viewnotice', views.viewnotice, name="viewnotice"),
 url(r'^logout', views.login, name="logout")
 ]

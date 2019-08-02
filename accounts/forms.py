@@ -238,3 +238,12 @@ class EditEventsForm(forms.ModelForm):
     class Meta:
         model = Events
         fields = ('School','EventTitle','EventFor','EventPlace','FromDate','ToDate','Image','Notes')
+
+class AddNoticeForm(forms.ModelForm):
+    class Meta:
+        model = Notice
+        fields = ('School','NoticeTitle','NoticeDate','NoticeFor','Notice')
+class EditNoticeForm(forms.ModelForm):
+    class Meta:
+        model = Notice
+        fields = ('School','NoticeTitle','NoticeDate','NoticeFor','Notice')
