@@ -321,3 +321,31 @@ class Profile (models.Model):
     Photo = models.FileField(max_length=130, blank=False)
     Resume = models.FileField(max_length=130, blank=False)
     OtherInfo = models.TextField(max_length=120)
+class Student (models.Model):
+    sex = (('M','Male'),('F','Female'))
+    group = (('A','Arts'),('S','Sciences'))
+    blood = (('A-','A-'), ('A+','A+'),('B-','B-'),('B+','B+'),
+          ('O+','O+'),('O-','O-'), ('AB-','AB-'), ('AB+','AB-'))
+    parent = (('F','Father'), ('M','Mother'),('B','Brother'),('S','Sister'),
+          ('U','Uncle'),('A','Auntie'), ('MU','Maternal'), ('O','Others'))
+    Name =  models.CharField(max_length=130)
+    AdmissionNo = models.CharField(max_length=130)
+    AdmissionDate = models.CharField(max_length=130)
+    Gender = models.CharField(max_length=130, choices=sex)
+    DateOfBirth = models.CharField(max_length=130)
+    BloodType = models.CharField(max_length=130, choices=blood)
+    Religion = models.CharField(max_length=130)
+    Guardian = models.CharField(max_length=130, choices=parent)
+    RelationshipWithGuardian=models.CharField(max_length=130, choices=blood)
+    PresentAdress=models.CharField(max_length=130)
+    PermanentAddress =models.CharField(max_length=130)
+    Phone = models.CharField(max_length=130)
+    NationalId = models.CharField(max_length=130)
+    Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
+    Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
+    Group = models.CharField(max_length=130, choices=group)
+    RollNo = models.CharField(max_length=130)
+    RegistrationNo = models.CharField(max_length=130, blank=False)
+    SecondLang = models.CharField(max_length=130, blank=False)
+    def __str__(self):
+        return self.Name
