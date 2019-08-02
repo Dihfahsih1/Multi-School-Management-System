@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
-<br><h4>Manage Notice</h4>
+<br><h4>Manage News</h4>
 <nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
   <i style="font-size: 15px; color:red;">Quick Links</i>
   <ul class="navbar-nav mr-auto">
@@ -19,10 +19,10 @@
 <nav class="nav navbar-expand" style="float:left">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-      <a class="nav-link" href="#"><button class="btn btn-default">Add Notice</button></a>
+      <a class="nav-link" href="#"><button class="btn btn-default">Add News</button></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'viewnotice' %}"><button class="btn btn-success">Notice List</button></a>
+      <a class="nav-link" href="{% url 'viewnews' %}"><button class="btn btn-success">News List</button></a>
     </li>
 
   </ul>
@@ -34,7 +34,7 @@
 <p>Enter Details</p>
   {% csrf_token %}
   {{ form|crispy}}
-<a href="{% url 'viewnotice'%}" style="float:right"><button class="btn btn-danger">Cancel</button></a>
+<a href="{% url 'viewnews'%}" style="float:right"><button class="btn btn-danger">Cancel</button></a>
 <button type="submit" class="btn btn-success">Submit</button></form>
 
 </div>

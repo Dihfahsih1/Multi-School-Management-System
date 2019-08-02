@@ -133,5 +133,10 @@ url(r'^addnotice', views.addnotice, name="addnotice"),
 url(r'^editnotice/(?P<pk>\d+)', views.editnotice, name="editnotice"),
 url(r'^deletenotice/(?P<pk>\d+)', views.deletenotice, name="deletenotice"),
 url(r'^viewnotice', views.viewnotice, name="viewnotice"),
+
+url(r'^addnews', views.addnews, name="addnews"),
+url(r'^editnews/(?P<pk>\d+)', views.editnews, name="editnews"),
+url(r'^deletenews/(?P<pk>\d+)', views.deletenews, name="deletenews"),
+url(r'^viewnews', views.viewnews, name="viewnews"),
 url(r'^logout', views.login, name="logout")
 ]

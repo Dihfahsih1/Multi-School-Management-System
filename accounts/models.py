@@ -289,3 +289,12 @@ class Notice(models.Model):
     Notice=models.TextField(max_length=130)
     def __str__(self):
         return self.NoticeTitle
+
+class News(models.Model):
+    School = models.CharField(max_length=130)
+    NewsTitle=models.CharField(max_length=130)
+    Date=models.CharField(max_length=130, default="02-July-2019")
+    Image = models.FileField(max_length=130, blank=False)
+    News=models.TextField(max_length=130)
+    def __str__(self):
+        return self.NoticeTitle

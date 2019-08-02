@@ -247,3 +247,12 @@ class EditNoticeForm(forms.ModelForm):
     class Meta:
         model = Notice
         fields = ('School','NoticeTitle','NoticeDate','NoticeFor','Notice')
+
+class AddNewsForm(forms.ModelForm):
+    class Meta:
+        model = News
+        fields = ('School','NewsTitle','Date','Image','News')
+class EditNewsForm(forms.ModelForm):
+    class Meta:
+        model = News
+        fields =('School','NewsTitle','Date','Image','News')
