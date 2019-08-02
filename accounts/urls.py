@@ -143,5 +143,10 @@ url(r'^addholiday', views.addholiday, name="addholiday"),
 url(r'^editholiday/(?P<pk>\d+)', views.editholiday, name="editholiday"),
 url(r'^deleteholiday/(?P<pk>\d+)', views.deleteholiday, name="deleteholiday"),
 url(r'^viewholidays', views.viewholidays, name="viewholidays"),
+
+url(r'^addprofile', views.addprofile, name="addprofile"),
+url(r'^editprofile/(?P<pk>\d+)', views.editprofile, name="editprofile"),
+url(r'^deleteprofile/(?P<pk>\d+)', views.deleteprofile, name="deleteprofile"),
+url(r'^viewprofile', views.viewprofile, name="viewprofile"),
 url(r'^logout', views.login, name="logout")
 ]

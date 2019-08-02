@@ -1084,3 +1084,40 @@ def viewholidays(request):
    all_info = Holiday.objects.all()
    context={'all_info':all_info}
    return render(request, 'accounts/Announcement/viewholidays.html', context)
+
+
+################################################
+#   CRUD FOR THE Profile MODULE                #
+################################################
+def addprofile(request):
+   if request.method=="POST":
+       form=AddProfileForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addprofile')
+   else:
+       form = AddProfileForm()
+       context = {'form': form}
+       return render(request, 'accounts/Profile/addprofile.html', context)
+
+def editprofile(request, pk):
+   item = get_object_or_404(Profile, id=pk)
+   if request.method == "POST":
+       form =  EditProfileForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewprofile')
+   else:
+       form =  EditProfileForm(instance=item)
+       return render(request, 'accounts/Profile/editprofile.html', {'form': form})
+
+def deleteprofile(request, pk):
+   Profile.objects.filter(id=pk).delete()
+   all_info=Profile.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/Profile/viewprofile.html', context)
+
+def viewprofile(request):
+   all_info = Profile.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/Profile/viewprofile.html', context)

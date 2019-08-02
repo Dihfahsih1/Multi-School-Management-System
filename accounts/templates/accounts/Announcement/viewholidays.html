@@ -49,8 +49,8 @@
        <td>{{ item.FromDate}}</td>
        <td>{{ item.ToDate}}</td>
        <td>{{ item.Notes}}</td>
-       <td><a  href="{% url 'editnews' pk=item.id  %}" >Edit</a>|
-         <a href="{% url 'deletenews' pk=item.id %}" >Delete</a>
+       <td><a  href="{% url 'editholiday' pk=item.id  %}" >Edit</a>|
+         <a href="{% url 'deleteholiday' pk=item.id %}" >Delete</a>
        </td>
         {% endfor %}
      </tr>

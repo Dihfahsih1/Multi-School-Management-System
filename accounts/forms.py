@@ -265,3 +265,14 @@ class EditHolidaysForm(forms.ModelForm):
     class Meta:
         model = Holiday
         fields =('School','HolidayTitle','FromDate','ToDate','Notes')
+
+class AddProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('Name','Phone','PresentAdress','PermanentAddress','Gender',
+        'DateOfBirth','Religion','Email','Photo','Resume', 'OtherInfo')
+class EditProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('Name','Phone','PresentAdress','PermanentAddress','Gender',
+        'DateOfBirth','Religion','Email','Photo','Resume', 'OtherInfo')

@@ -307,3 +307,17 @@ class Holiday (models.Model):
     Notes = models.TextField(max_length=50)
     def __str__(self):
         return self.HolidayTitle
+
+class Profile (models.Model):
+    sex = (('female','female'), ('male','male'))
+    Name =  models.CharField(max_length=130)
+    Phone = models.CharField(max_length=130)
+    PresentAdress=models.CharField(max_length=130)
+    PermanentAddress =models.CharField(max_length=130)
+    Gender = models.CharField(max_length=130, choices=sex, blank=False)
+    DateOfBirth = models.CharField(max_length=130)
+    Religion = models.CharField(max_length=130)
+    Email = models.CharField(max_length=130)
+    Photo = models.FileField(max_length=130, blank=False)
+    Resume = models.FileField(max_length=130, blank=False)
+    OtherInfo = models.TextField(max_length=120)

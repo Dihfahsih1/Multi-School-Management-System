@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+<br><h4>Manage Profiles</h4>
+<nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
+  <i style="font-size: 15px; color:red;">Quick Links</i>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewprofile'  %}">Manage Profile</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewprofile'  %}">Reset Password</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewprofile'  %}">Log Out</a>
+    </li>
+  </ul>
+</nav>
+<nav class="nav navbar-expand" style="float:left">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#"><button class="btn btn-default">Add Profile</button></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'viewprofile' %}"><button class="btn btn-success">List of Profiles</button></a>
+    </li>
+
+  </ul>
+</nav>
+<br><br>
+{% load crispy_forms_tags %}
+<div class="col-lg-4" style="float:left">
+<form method="post" enctype="multipart/form-data">
+<p>Enter Details</p>
+  {% csrf_token %}
+  {{ form|crispy}}
+<a href="{% url 'viewprofile'%}" style="float:right"><button class="btn btn-danger">Cancel</button></a>
+<button type="submit" class="btn btn-success">Submit</button></form>
+
+</div>
+</div>
+{% endblock %}
