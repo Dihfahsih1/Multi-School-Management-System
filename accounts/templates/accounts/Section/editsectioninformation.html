@@ -1,7 +1,29 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
-  <h1>Edit Section Information</h1>
+  <h4>Edit Section Information</h4>
+  <nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
+    <ul class="navbar-nav mr-auto">
+      <i style="font-size: 15px; color:red;">Quick Links</i>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'viewclassinformation'%}">Manage Class</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'viewsectioninformation'%}">Manage Section</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'viewsubjects'%}">Manage Subject</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'viewsyllabus'%}">Manage Syllabus</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Manage Class Attendence</a>
+      </li>
+    </ul>
+  </nav>
+    <hr style=" margin-top: 1rem;margin-bottom: 1rem;border: 0;
+     border-top: 1px solid rgba(0, 0, 0, 0.1);"/>
   {% load crispy_forms_tags %}
   <div class="col-lg-4" style="float:left">
     <form method="post" enctype="multipart/form-data">
