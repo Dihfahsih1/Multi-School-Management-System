@@ -345,7 +345,5 @@ class Student(models.Model):
     student_previous_class = models.CharField(max_length=100)
     student_previous_school = models.CharField(max_length=100)
     student_image = models.ImageField(upload_to="gallery")
-    is_favorite = models.BooleanField(default=False)
-
     def __str__(self):
         return self.student_name + ' - ' + self.student_reg_no

@@ -70,6 +70,7 @@
   </ul>
 </nav>
 <br>
+<div class="container" style="margin-left:10px; font-size:15px; padding:3px" >
 <table class="table table-hover" border="2">
    <thead class="table-success">
     <tr>
@@ -92,15 +93,14 @@
        <td>{{ item.Address}}</td>
        <td>{{ item.Phone}}</td>
        <td>{{ item.DateOfRegistration}}</td>
-       <td><a href="{% url 'editschool' pk=item.id  %}" >
-         <button class="btn btn-warning">Edit</button></a>|
-         <a href="{% url 'deleteschool' pk=item.id %}" >
-           <button class="btn btn-danger">Delete</button></a>
+       <td><a href="{% url 'editschool' pk=item.id %}">Edit</a>|
+         <a href="{% url 'deleteschool' pk=item.id %}">Delete</a>
        </td>
         {% endfor %}
      </tr>
      {% endif %}
    </tbody>
 </table>
+</div>
 </div>
 {% endblock %}
