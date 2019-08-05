@@ -153,5 +153,10 @@ url(r'^addschool', views.addschool, name="addschool"),
 url(r'^editschool/(?P<pk>\d+)', views.editschool, name="editschool"),
 url(r'^deleteschool/(?P<pk>\d+)', views.deleteschool, name="deleteschool"),
 url(r'^viewschools', views.viewschools, name="viewschools"),
+
+url(r'^addstudent', views.addstudent, name="addstudent"),
+url(r'^editstudent/(?P<pk>\d+)', views.editstudent, name="editstudent"),
+url(r'^deletestudent/(?P<pk>\d+)', views.deletestudent, name="deletestudent"),
+url(r'^viewstudents', views.viewstudents, name="viewstudents"),
 url(r'^logout', views.login, name="logout")
 ]

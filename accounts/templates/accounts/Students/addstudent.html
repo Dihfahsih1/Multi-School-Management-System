@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
-<br><h4>Manage Profiles</h4>
+<br><h4>Manage Students</h4>
 <nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
   <i style="font-size: 15px; color:red;">Quick Links</i>
   <ul class="navbar-nav mr-auto">
@@ -24,7 +24,7 @@
       <a class="nav-link" href="#"><button class="btn btn-default">Add Student</button></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'viewstudent' %}"><button class="btn btn-success">List of Students</button></a>
+      <a class="nav-link" href="{% url 'viewstudents' %}"><button class="btn btn-success">List of Students</button></a>
     </li>
 
   </ul>
@@ -39,8 +39,8 @@
 
   {% csrf_token %}
 
-<a href="{% url 'viewstudent'%}" style="float:right"><button class="btn btn-danger">Cancel</button></a>
-<button type="submit" class="btn btn-success">Next</button></form>
+<a href="{% url 'viewstudents'%}" style="float:right"><button class="btn btn-danger">Cancel</button></a>
+<button type="submit" class="btn btn-success">Add Student</button></form>
 </div>
 </div>
 </div>

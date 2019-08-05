@@ -1158,3 +1158,40 @@ def viewschools(request):
    all_info = School.objects.all()
    context={'all_info':all_info}
    return render(request, 'accounts/School/viewschools.html', context)
+
+
+################################################
+#   CRUD FOR THE STUDENTS MODULE                #
+################################################
+def addstudent(request):
+   if request.method=="POST":
+       form=AddStudentForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addstudent')
+   else:
+       form = AddStudentForm()
+       context = {'form': form}
+       return render(request, 'accounts/Students/addstudent.html', context)
+
+def editstudent(request, pk):
+   item = get_object_or_404(Student, id=pk)
+   if request.method == "POST":
+       form =  EditStudentForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewstudents')
+   else:
+       form =  EditStudentForm(instance=item)
+       return render(request, 'accounts/Students/editstudent.html', {'form': form})
+
+def deletestudent(request, pk):
+   Student.objects.filter(id=pk).delete()
+   all_info=Student.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/Students/viewstudents.html', context)
+
+def viewstudents(request):
+   all_info = Student.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/Students/viewstudents.html', context)
