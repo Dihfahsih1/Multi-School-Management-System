@@ -1,4 +1,12 @@
 from django.db import models
+class School (models.Model):
+    SchooCode=models.CharField(max_length=130)
+    SchooName=models.CharField(max_length=130)
+    Address=models.CharField(max_length=130)
+    Phone=models.CharField(max_length=130)
+    DateOfRegistration=models.CharField(max_length=130)
+    def __str__(self):
+        return self.SchoolName
 class Login(models.Model):
     username = models.CharField(max_length=130)
     password = models.CharField(max_length=30, blank=True)
@@ -81,7 +89,7 @@ class Routine(models.Model):
     RoomNumber = models.CharField(max_length=130)
 
 class Assignment(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     AssignmentType = models.CharField(max_length=130)
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
     Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
@@ -92,7 +100,7 @@ class Assignment(models.Model):
         return self.Assignment
 
 class ExamGrade(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     ExamGrade =  models.CharField(max_length=130)
     GradePoint = models.CharField(max_length=130)
     MarkFrom = models.CharField(max_length=130)
@@ -102,7 +110,7 @@ class ExamGrade(models.Model):
         return self.ExamGrade
 
 class ExamTerm(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     ExamTitle =  models.CharField(max_length=130)
     StartDate = models.CharField(max_length=130)
     Notes = models.TextField(max_length=100)
@@ -110,7 +118,7 @@ class ExamTerm(models.Model):
         return self.ExamTitle
 
 class ExamSchedule(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     Exam = models.ForeignKey(ExamTerm, on_delete=models.PROTECT, blank=True, null=True)
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
     Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
@@ -122,7 +130,7 @@ class ExamSchedule(models.Model):
     def __str__(self):
         return self.ExamDate
 class ExamSuggestion(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     SuggestionTitle = models.CharField(max_length=130)
     Exam = models.ForeignKey(ExamTerm, on_delete=models.PROTECT, blank=True, null=True)
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
@@ -133,7 +141,7 @@ class ExamSuggestion(models.Model):
         return self.Assignment
 
 class Library(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     BookTitle = models.CharField(max_length=130)
     ISBN_no = models.CharField(max_length=130)
     BookId= models.CharField(max_length=130)
@@ -145,7 +153,7 @@ class Library(models.Model):
     BookCover =  models.ImageField(upload_to="gallery")
 
 class Transport(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     VehicleNumber = models.CharField(max_length=130)
     VehicleModel = models.CharField(max_length=130)
     Driver= models.CharField(max_length=130)
@@ -153,7 +161,7 @@ class Transport(models.Model):
     VehicleContact= models.CharField(max_length=130)
     Notes = models.TextField(max_length=100)
 class Route(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     RouteTitle = models.CharField(max_length=130)
     StartRoute = models.CharField(max_length=130)
     EndRoute= models.CharField(max_length=130)
@@ -163,7 +171,7 @@ class Route(models.Model):
 
 class Hostel(models.Model):
     choices = (('Boys','Boys'),('Girls','Girls'),('Combined','Combined'))
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     HostelName= models.CharField(max_length=130)
     HostType = models.CharField(max_length=130, choices=choices, blank=False, null=True)
     Address= models.CharField(max_length=130)
@@ -173,7 +181,7 @@ class Hostel(models.Model):
 
 class HostelRooms(models.Model):
     choices = (('AC','AC'),('No AC ','No AC'))
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     Room_no= models.CharField(max_length=130)
     Hostel= models.ForeignKey(Hostel,  on_delete=models.PROTECT, blank=True, null=True)
     RoomType = models.CharField(max_length=130, choices=choices, blank=False, null=True)
@@ -183,7 +191,7 @@ class HostelRooms(models.Model):
     def __str__(self):
         return self.Room_no
 class VisitorInfor(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     Name= models.CharField(max_length=130)
     Phone= models.CharField(max_length=130)
     ComingFrom= models.CharField(max_length=130)
@@ -194,7 +202,7 @@ class VisitorInfor(models.Model):
         return self.Name
 
 class SalaryGrade(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     GradeName= models.CharField(max_length=130)
     BasicSalary= models.CharField(max_length=130)
     HouseRent= models.CharField(max_length=130)
@@ -212,7 +220,7 @@ class SalaryGrade(models.Model):
         return self.NetSalary
 
 class Discount(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     Title= models.CharField(max_length=130)
     Amount= models.CharField(max_length=130)
     Notes = models.TextField(max_length=110)
@@ -221,7 +229,7 @@ class Discount(models.Model):
 
 class FeeType(models.Model):
     choices = (('General Fee','General Fee'),('Transport','Transport'),('Hostel','Hostel'))
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     FeeTitle= models.CharField(max_length=130)
     FeeType = models.CharField(max_length=130, choices=choices, blank=False, null=True)
     Notes = models.TextField(max_length=110)
@@ -232,7 +240,7 @@ class FeeCollection(models.Model):
     fee = (('General Fee','General Fee'),('Transport','Transport'),('Hostel','Hostel'))
     choices = (('Yes','Yes'),('No','No'))
     status = (('Paid','Paid'),('Unpaid','Unpaid'))
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
     Student =models.CharField(max_length=130)
     FeeType = models.CharField(max_length=130, choices=fee, blank=False, null=True)
@@ -247,7 +255,7 @@ class FeeCollection(models.Model):
 class Income(models.Model):
     method = (('Cheque','Cheque'),('Cash','Cash'))
     head = (('General','General'),('Others','Others'))
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     IncomeHead=models.CharField(max_length=130, choices=head,  blank=False, null=True)
     PaymentMethod=models.CharField(max_length=130, choices=method,  blank=False, null=True)
     Amount = models.CharField(max_length=130)
@@ -259,7 +267,7 @@ class Income(models.Model):
 class Expenditure(models.Model):
     method = (('Cheque','Cheque'),('Cash','Cash'))
     head = (('General','General'),('Others','Others'))
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     ExpenditureHead=models.CharField(max_length=130, choices=head,  blank=False, null=True)
     ExpenditureMethod=models.CharField(max_length=130, choices=method,  blank=False, null=True)
     Amount = models.CharField(max_length=130)
@@ -269,7 +277,7 @@ class Expenditure(models.Model):
         return self.ExpenditureHead
 
 class Events(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     EventTitle=models.CharField(max_length=130)
     EventFor=models.CharField(max_length=130)
     EventPlace=models.CharField(max_length=130)
@@ -282,7 +290,7 @@ class Events(models.Model):
         return self.ExpenditureHead
 
 class Notice(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     NoticeTitle=models.CharField(max_length=130)
     NoticeDate=models.CharField(max_length=130, default="02-July-2019")
     NoticeFor=models.CharField(max_length=130)
@@ -291,7 +299,7 @@ class Notice(models.Model):
         return self.NoticeTitle
 
 class News(models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     NewsTitle=models.CharField(max_length=130)
     Date=models.CharField(max_length=130, default="02-July-2019")
     Image = models.ImageField(upload_to="gallery")
@@ -300,14 +308,13 @@ class News(models.Model):
         return self.NewsTitle
 
 class Holiday (models.Model):
-    School = models.CharField(max_length=130)
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     HolidayTitle=models.CharField(max_length=130)
     FromDate = models.CharField(max_length=130)
     ToDate = models.CharField(max_length=130)
     Notes = models.TextField(max_length=50)
     def __str__(self):
         return self.HolidayTitle
-
 class Profile (models.Model):
     sex = (('female','female'), ('male','male'))
     Name =  models.CharField(max_length=130)
@@ -321,3 +328,24 @@ class Profile (models.Model):
     Photo =models.ImageField(upload_to="gallery")
     Resume = models.ImageField(upload_to="gallery")
     OtherInfo = models.TextField(max_length=120)
+class Student(models.Model):
+    school = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
+    student_name = models.CharField(max_length=100)
+    student_username = models.CharField(max_length=100)
+    student_gender = models.CharField(max_length=10)
+    student_religion = models.CharField(max_length=100)
+    student_email = models.CharField(max_length=100)
+    student_phone = models.CharField(max_length=15)
+    student_address = models.CharField(max_length=100)
+    student_birth_date = models.CharField(max_length=100)
+    student_health_condition = models.CharField(max_length=100)
+    student_reg_no = models.CharField(max_length=100)
+    student_admission_no = models.CharField(max_length=100)
+    student_admission_date = models.CharField(max_length=100)
+    student_previous_class = models.CharField(max_length=100)
+    student_previous_school = models.CharField(max_length=100)
+    student_image = models.FileField()
+    is_favorite = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.student_name + ' - ' + self.student_reg_no

@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+<br><h4>Manage Schools</h4>
+<nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
+
+  <ul class="navbar-nav mr-auto">
+    <i style="font-size: 15px; color:red;">Quick Links</i>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewexpenditure' %}">Manage Accounts</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewnews' %}">Manage Notice</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewvehicle' %}">Manage Transport</a>
+    </li>
+
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewclassinformation' %}">Manage Class</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewteachers' %}">Manage Teachers</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewexamgrade' %}">Manage Exam</a>
+    </li>
+
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewevents' %}">Manage Events</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewhostel' %}">Manage Hostels</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewhumanresource' %}">Manage HR</a>
+    </li>
+
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewlibrarybook' %}">Manage Library</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewsalarygrade' %}">Manage Payroll</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewroutine' %}">Manage Routine</a>
+    </li>
+
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewsubjects' %}">Manage Subject</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewsyllabus' %}">Manage Syllabus</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewvisitor' %}">Manage Visitor</a>
+    </li>
+  </ul>
+</nav>
+<hr style=" margin-top: 1rem;margin-bottom: 1rem;border: 0;
+ border-top: 1px solid rgba(0, 0, 0, 0.1);"/>
+<nav class="nav navbar-expand" style="float:left">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="#"><button class="btn btn-default">View Schools</button></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'addschool' %}"><button class="btn btn-success">Add School</button></a>
+    </li>
+  </ul>
+</nav>
+<br>
+<table class="table table-hover" border="2">
+   <thead class="table-success">
+    <tr>
+         <td>id</td>
+         <td>School Name</td>
+         <td>School Code</td>
+         <td>Address</td>
+         <td>Phone</td>
+         <td>Date Of Registration</td>
+         <td>Action</td>
+     </tr>
+   </thead>
+   <tbody>
+     {% if all_info %}
+     {% for item in all_info %}
+     <tr>
+       <td>{{ item.id}}</td>
+       <td>{{ item.SchooName}}</td>
+       <td>{{ item.SchooCode}}</td>
+       <td>{{ item.Address}}</td>
+       <td>{{ item.Phone}}</td>
+       <td>{{ item.DateOfRegistration}}</td>
+       <td><a href="{% url 'editschool' pk=item.id  %}" >
+         <button class="btn btn-warning">Edit</button></a>|
+         <a href="{% url 'deleteschool' pk=item.id %}" >
+           <button class="btn btn-danger">Delete</button></a>
+       </td>
+        {% endfor %}
+     </tr>
+     {% endif %}
+   </tbody>
+</table>
+</div>
+{% endblock %}

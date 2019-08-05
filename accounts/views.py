@@ -1121,3 +1121,40 @@ def viewprofile(request):
    all_info = Profile.objects.all()
    context={'all_info':all_info}
    return render(request, 'accounts/Profile/viewprofile.html', context)
+
+
+################################################
+#   CRUD FOR THE SCHOOL MODULE                #
+################################################
+def addschool(request):
+   if request.method=="POST":
+       form=AddSchoolForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addschool')
+   else:
+       form = AddSchoolForm()
+       context = {'form': form}
+       return render(request, 'accounts/School/addschool.html', context)
+
+def editschool(request, pk):
+   item = get_object_or_404(School, id=pk)
+   if request.method == "POST":
+       form =  EditSchoolForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewschools')
+   else:
+       form =  EditSchoolForm(instance=item)
+       return render(request, 'accounts/School/editschool.html', {'form': form})
+
+def deleteschool(request, pk):
+   School.objects.filter(id=pk).delete()
+   all_info=School.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/School/viewschools.html', context)
+
+def viewschools(request):
+   all_info = School.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/School/viewschools.html', context)
