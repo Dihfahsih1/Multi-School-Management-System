@@ -142,7 +142,7 @@ class Library(models.Model):
     Language = models.CharField(max_length=130)
     Price = models.CharField(max_length=130)
     Quantity = models.CharField(max_length=130)
-    BookCover =  models.FileField(max_length=130, blank=False)
+    BookCover =  models.ImageField(upload_to="gallery")
 
 class Transport(models.Model):
     School = models.CharField(max_length=130)
@@ -276,7 +276,7 @@ class Events(models.Model):
     Amount = models.CharField(max_length=130)
     FromDate = models.CharField(max_length=130)
     ToDate = models.CharField(max_length=130)
-    Image = models.FileField(max_length=130, blank=False)
+    Image = models.ImageField(upload_to="gallery")
     Notes = models.TextField(max_length=50)
     def __str__(self):
         return self.ExpenditureHead
@@ -294,7 +294,7 @@ class News(models.Model):
     School = models.CharField(max_length=130)
     NewsTitle=models.CharField(max_length=130)
     Date=models.CharField(max_length=130, default="02-July-2019")
-    Image = models.FileField(max_length=130, blank=False)
+    Image = models.ImageField(upload_to="gallery")
     News=models.TextField(max_length=130)
     def __str__(self):
         return self.NewsTitle
@@ -318,6 +318,6 @@ class Profile (models.Model):
     DateOfBirth = models.CharField(max_length=130)
     Religion = models.CharField(max_length=130)
     Email = models.CharField(max_length=130)
-    Photo = models.FileField(max_length=130, blank=False)
-    Resume = models.FileField(max_length=130, blank=False)
+    Photo =models.ImageField(upload_to="gallery")
+    Resume = models.ImageField(upload_to="gallery")
     OtherInfo = models.TextField(max_length=120)

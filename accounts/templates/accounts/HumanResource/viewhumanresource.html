@@ -37,10 +37,8 @@
        <td>{{ item.Designation}}</td>
        <td>{{ item.Phone}}</td>
        <td>{{ item.Address}}</td>
-       <td><a href="{% url 'edithumanresource' pk=item.id  %}" >
-         <button class="btn btn-warning">Edit</button></a>|
-         <a href="{% url 'deletehumanresource' pk=item.id %}" >
-           <button class="btn btn-danger">Delete</button></a>
+       <td><a href="{% url 'edithumanresource' pk=item.id  %}" >Edit</a>|
+         <a href="{% url 'deletehumanresource' pk=item.id %}" >Delete</a>
        </td>
         {% endfor %}
      </tr>
