@@ -1,4 +1,13 @@
 from django.db import models
+class School (models.Model):
+    SchoolCode=models.CharField(max_length=130)
+    SchoolName=models.CharField(max_length=130)
+    Address=models.CharField(max_length=130)
+    Phone=models.CharField(max_length=130)
+    DateOfRegistration=models.CharField(max_length=130)
+    def __str__(self):
+        return self.SchoolName
+
 class SalaryGrade(models.Model):
     GradeName= models.CharField(max_length=130)
     BasicSalary= models.CharField(max_length=130)
@@ -15,18 +24,6 @@ class SalaryGrade(models.Model):
     Notes = models.TextField(max_length=110)
     def __str__(self):
         return self.GradeName
-class School (models.Model):
-
-    SchoolCode=models.CharField(max_length=130)
-    SchoolName=models.CharField(max_length=130)
-    Address=models.CharField(max_length=130)
-    Phone=models.CharField(max_length=130)
-    DateOfRegistration=models.CharField(max_length=130)
-
-
-    def __str__(self):
-        return self.SchoolName
-
 class Teacher(models.Model):
     choices = (('female','female'), ('male', 'male'))
     type = (('Monthly','Monthly'), ('hourly', 'hourly'))
@@ -36,22 +33,21 @@ class Teacher(models.Model):
     NationaId = models.CharField(max_length=130)
     Responsibility = models.CharField(max_length=130)
     Phone=models.CharField(max_length=130)
-    Gender=models.CharField(max_length=10, choices=choices, blank=False)
-    BloodGroup=models.CharField(max_length=10, choices=blood, blank=False)
+    Gender=models.CharField(max_length=10, choices=choices, blank=False, null=True)
+    BloodGroup=models.CharField(max_length=10, choices=blood, blank=False, null=True)
     Religion =models.CharField(max_length=130)
-    DateOfBirth.DateField(max_length=130)
+    DateOfBirth=models.DateField(max_length=130, default="15-10-1990")
     PermanentAddress=models.CharField(max_length=130)
     PresentAddress=models.CharField(max_length=130)
     Email=models.CharField(max_length=130)
     Password=models.CharField(max_length=130)
     Username=models.CharField(max_length=130)
-    SalaryGrade = models.ForeignKey(SalaryGrade, on_delete=models.PROTECT, blank=True, null=True)
+    Salary = models.ForeignKey(SalaryGrade, on_delete=models.PROTECT, blank=True, null=True)
     SalaryType =models.CharField(max_length=10, choices=type, blank=False)
-    JoiningDate=models.DateField(max_length=130)
+    JoiningDate=models.DateField(max_length=130,  default="15-10-1990")
     Resume=models.FileField(upload_to="gallery")
     TeacherPhoto=models.FileField(upload_to="gallery")
-    OtherInfo=models.TextField(max_length=100)
-
+    OtherInfo=models.TextField(max_length=100,  default="Enter Other Notes")
     def __str__(self):
         return self.Name
 
@@ -239,23 +235,6 @@ class VisitorInfor(models.Model):
     Notes = models.TextField(max_length=110)
     def __str__(self):
         return self.Name
-
-class SalaryGrade(models.Model):
-    GradeName= models.CharField(max_length=130)
-    BasicSalary= models.CharField(max_length=130)
-    HouseRent= models.CharField(max_length=130)
-    TransportAllowance=models.CharField(max_length=130)
-    MedicalAllowance=models.CharField(max_length=130)
-    OverTimeHourlyRate= models.CharField(max_length=130)
-    ProvidentFund= models.CharField(max_length=130)
-    HourlyRate=models.CharField(max_length=130)
-    TotalAllowance=models.CharField(max_length=130)
-    TotalDeduction= models.CharField(max_length=130)
-    GrossPay= models.CharField(max_length=130)
-    NetSalary=models.CharField(max_length=130)
-    Notes = models.TextField(max_length=110)
-    def __str__(self):
-        return self.GradeName
 
 class Discount(models.Model):
     School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)

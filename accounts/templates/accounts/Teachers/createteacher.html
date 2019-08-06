@@ -12,20 +12,75 @@
       </li>
     </ul>
   </nav>
-  {% load crispy_forms_tags %}
-<div class="container" style="margin-left:20px; font-size:15px; padding:3px">
-  <div class="col-lg-4" style="float:left">
-    <form method="post" enctype="multipart/form-data">
-    <p>Enter Class Details</p>
-      {% csrf_token %}
-    {{ form|crispy}}
-    <button type="submit" class="btn btn-success">Add</button>
-    </form>
-  </div>
+  <div class="container">
+    {% load crispy_forms_tags %}
+     <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
 
-  <div class="col-lg-7 jumbotron" style="float:right; border:1px solid red; margin-right:3%">
-    <p>More Teacher Information</p>
-  </div>
+    <div class="form-row" style="margin:5px;">
+    <div class="col-md-4 col-sm-6 col-xs-12 " >
+            <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="text-warning">Basic Information</h5>
+                    <p>{{ form.Name |as_crispy_field }}</p>
+                    <p>{{ form.NationaId|as_crispy_field }}</p>
+                    <p>{{ form.Responsibility|as_crispy_field }}</p>
+                    <p>{{ form.Gender |as_crispy_field }}</p>
+                    <p>{{ form.BloodGroup|as_crispy_field }}</p>
+                    <p>{{ form.Religion|as_crispy_field }}</p>
+                    <p>{{ form.DateOfBirth |as_crispy_field }}</p>
+                    <p>{{ form.PresentAddress|as_crispy_field }}</p>
+                    <p>{{ form.PermanentAddress|as_crispy_field }}</p>
+                    <p>{{ form.Phone|as_crispy_field }}</p>
+                    </div>
+            </div>
+
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="text-warning">Academic Information</h5>
+                    <p>{{ form.Email|as_crispy_field }}</p>
+                    <p>{{ form.Username|as_crispy_field }}</p>
+                    <p>{{ form.Password|as_crispy_field }}</p>
+                    <p>{{ form.Salary|as_crispy_field }}</p>
+                    <p>{{ form.SalaryType|as_crispy_field }}</p>
+                    </div>
+            </div>
+
+    </div>
 </div>
+
+
+      <div class="col-md-4 col-sm-6 col-xs-6">
+              <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                              <h5 class="text-warning">Other Information</h5>
+                              <p>{{ form.JoiningDate|as_crispy_field }}</p>
+                              <p>{{ form.TeacherPhoto|as_crispy_field }}</p>
+                              <p>{{ form.Resume|as_crispy_field }}</p>
+                              <p>{{ form.OtherInfo|as_crispy_field }}</p>
+
+                      </div>
+              </div>
+
+      </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                            <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                            <h5 class="text-warning">Submit Data</h5>
+                                            <button type="submit" class="btn btn-primary" name="button"> Add Member </button>
+
+                                    </div>
+                            </div>
+
+                    </div>
+
+                    </div>
+
+    </form>
+</div>
+
 </div>
 {% endblock %}

@@ -32,7 +32,7 @@
        <td>{{ item.Name}}</td>
        <td>{{ item.NationaId}}</td>
        <td>{{ item.Responsibility}}</td>
-       <td>{{ item.Address}}</td>
+       <td>{{ item.PermanentAddress}}</td>
        <td><a href="{% url 'editteacher' pk=item.id  %}" >
          <button class="btn btn-warning">Edit Details</button></a>|
          <a href="{% url 'deleteteacher' pk=item.id %}" >
