@@ -98,7 +98,7 @@ def createteacher(request):
         context = {'form': form}
         return render(request, 'accounts/Teachers/createteacher.html', context)
 def editteacher(request, pk):
-    item = get_object_or_404(Teacher, id=pk)
+    item = get_object_or_404(TeachersInformation, id=pk)
     if request.method == "POST":
         form =  CreateTeacherForm(request.POST, instance=item)
         if form.is_valid():
@@ -109,13 +109,13 @@ def editteacher(request, pk):
         return render(request, 'accounts/Teachers/editteacher.html', {'form': form})
 
 def deleteteacher(request, pk):
-    Teacher.objects.filter(id=pk).delete()
-    all_info=Teacher.objects.all()
+    TeachersInformation.objects.filter(id=pk).delete()
+    all_info=TeachersInformation.objects.all()
     context={'all_info' :all_info}
     return render(request, 'accounts/Teachers/viewteacher.html', context)
 
 def viewteachers(request):
-    all_info = Teacher.objects.all()
+    all_info = TeachersInformation.objects.all()
     context={'all_info':all_info}
     return render(request, 'accounts/Teachers/viewteacher.html', context)
 
@@ -1101,7 +1101,7 @@ def addprofile(request):
        return render(request, 'accounts/Profile/addprofile.html', context)
 
 def editprofile(request, pk):
-   item = get_object_or_404(Profile, id=pk) 
+   item = get_object_or_404(Profile, id=pk)
    if request.method == "POST":
        form =  EditProfileForm(request.POST,request.FILES, instance=item)
        if form.is_valid():

@@ -28,15 +28,15 @@ class EditsectioninformationForm(forms.ModelForm):
 
 class CreateTeacherForm(forms.ModelForm):
     class Meta:
-        model = Teacher
-        fields = ('Name', 'NationaId', 'Responsibility', 'Phone', 'Gender', 'BloodGroup',
+        model = TeachersInformation
+        fields = ('Name', 'NationaId', 'Responsibility', 'Gender', 'BloodGroup',
         'Religion', 'DateOfBirth', 'PermanentAddress', 'PresentAddress', 'Email','Resume',
         'Username', 'Password','Salary', 'SalaryType', 'JoiningDate', 'TeacherPhoto', 'OtherInfo')
         widgets = {'JoiningDate': forms.DateTimeInput(attrs={'class': 'datetime-input'})}
 class EditTeacherForm(forms.ModelForm):
     class Meta:
-        model = Teacher
-        fields =('Name', 'NationaId', 'Responsibility', 'Phone', 'Gender', 'BloodGroup','Resume',
+        model = TeachersInformation
+        fields =('Name', 'NationaId', 'Responsibility', 'Gender', 'BloodGroup','Resume',
         'Religion', 'DateOfBirth', 'Responsibility', 'PermanentAddress', 'PresentAddress', 'Email',
         'Username','Password', 'Salary', 'SalaryType', 'JoiningDate', 'TeacherPhoto', 'OtherInfo')
 

@@ -31,17 +31,58 @@
 </nav>
 <br><br>
 {% load crispy_forms_tags %}
-<div class="col-lg-4" style="float:left">
 <form method="post" enctype="multipart/form-data">
-<div class="container" style="margin-left:50%; font-size:15px; padding:3px" >
-  <p>Student Basic Information</p>
-      {{ form|crispy}}
+{% csrf_token %}
+<div class="form-row" style="margin-left: 15px;font-size: 15px; padding: 0px 10px;">
+  <div class="col-lg-4" style="float:right">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="text-warning">Basic Information</h5>
+        <p>{{ form.student_name |as_crispy_field }}</p>
+        <p>{{ form.student_username|as_crispy_field }}</p>
+        <p>{{ form.student_gender|as_crispy_field }}</p>
+        <p>{{ form.student_religion |as_crispy_field }}</p>
+        <p>{{ form.student_email|as_crispy_field }}</p>
+        <p>{{ form.student_phone|as_crispy_field }}</p>
 
-  {% csrf_token %}
 
-<a href="{% url 'viewstudents'%}" style="float:right"><button class="btn btn-danger">Cancel</button></a>
-<button type="submit" class="btn btn-success">Add Student</button></form>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 " >
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="text-warning">Academic Information</h5>
+          <p>{{ form.student_address|as_crispy_field }}</p>
+          <p>{{ form.student_birth_date|as_crispy_field }}</p>
+          <p>{{ form.student_health_condition|as_crispy_field }}</p>
+          <p>{{ form.student_admission_no|as_crispy_field }}</p>
+          <p>{{ form.student_admission_date|as_crispy_field }}</p>
+      </div>
+     </div>
+  </div>
+<div class="col-lg-4 " >
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="text-warning">Other Information</h5>
+      <p>{{ form.student_reg_no|as_crispy_field }}</p>
+      <p>{{ form.student_previous_school|as_crispy_field }}</p>
+      <p>{{ form.student_previous_class|as_crispy_field }}</p>
+      <p>{{ form.student_image|as_crispy_field }}</p>
+    </div>
+  </div>
 </div>
+</div>
+
+    <div class="col-md-4 col-sm-6 col-xs-6" style="float:right">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="text-default">Submit Data</h5>
+          <button type="submit" class="btn btn-success" name="button"> Add Student </button>
+        </div>
+      </div>
+    </div>
+</form>
 </div>
 
 </div>

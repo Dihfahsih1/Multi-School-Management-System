@@ -24,7 +24,7 @@ class SalaryGrade(models.Model):
     Notes = models.TextField(max_length=110)
     def __str__(self):
         return self.GradeName
-class Teacher(models.Model):
+class TeachersInformation(models.Model):
     choices = (('female','female'), ('male', 'male'))
     type = (('Monthly','Monthly'), ('hourly', 'hourly'))
     blood= (('A+','A+'), ('A-', 'A-'),('B+','B+'), ('B-', 'B-'),('AB+','AB+'), ('AB-', 'AB-'),
@@ -32,13 +32,12 @@ class Teacher(models.Model):
     Name = models.CharField(max_length=130)
     NationaId = models.CharField(max_length=130)
     Responsibility = models.CharField(max_length=130)
-    Phone=models.CharField(max_length=130)
     Gender=models.CharField(max_length=10, choices=choices, blank=False, null=True)
     BloodGroup=models.CharField(max_length=10, choices=blood, blank=False, null=True)
     Religion =models.CharField(max_length=130)
-    DateOfBirth=models.DateField(max_length=130, default="15-10-1990")
+    DateOfBirth=models.CharField(max_length=130, default="15-10-1990")
     PermanentAddress=models.CharField(max_length=130)
-    PresentAddress=models.CharField(max_length=130)
+    PresentAddress=models.CharField(max_length=130 )
     Email=models.CharField(max_length=130)
     Password=models.CharField(max_length=130)
     Username=models.CharField(max_length=130)
@@ -46,7 +45,7 @@ class Teacher(models.Model):
     SalaryType =models.CharField(max_length=10, choices=type, blank=False)
     JoiningDate=models.DateField(max_length=130,  default="15-10-1990")
     Resume=models.FileField(upload_to="gallery")
-    TeacherPhoto=models.FileField(upload_to="gallery")
+    TeacherPhoto=models.ImageField(upload_to="gallery")
     OtherInfo=models.TextField(max_length=100,  default="Enter Other Notes")
     def __str__(self):
         return self.Name
@@ -57,7 +56,7 @@ class Login(models.Model):
 
 class Classinformation(models.Model):
     ClassName = models.CharField(max_length=130)
-    ClassTeacher = models.ForeignKey(Teacher, on_delete=models.PROTECT, blank=True, null=True)
+    ClassTeacher = models.ForeignKey(TeachersInformation, on_delete=models.PROTECT, blank=True, null=True)
     TotalStudents = models.CharField(max_length=30, blank=True)
     NumberOfSections = models.CharField(max_length=30, blank=True)
     def __str__(self):
@@ -81,7 +80,7 @@ class Subjects(models.Model):
     Subjectcode = models.CharField(max_length=130)
     Author = models.CharField(max_length=130)
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
-    SubjectTeacher = models.ForeignKey(Teacher, on_delete=models.PROTECT, blank=True, null=True)
+    SubjectTeacher = models.ForeignKey(TeachersInformation, on_delete=models.PROTECT, blank=True, null=True)
     Type = models.CharField(max_length=130, choices=choices, blank=False)
     OtherNotes = models.TextField(max_length=200, blank=True)
     def __str__(self):
@@ -117,7 +116,7 @@ class Routine(models.Model):
     Section = models.ForeignKey(Sectioninformation, on_delete=models.PROTECT, blank=True, null=True)
     Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
     Day = models.CharField(max_length=10, choices=choices, blank=False, null=True)
-    Teacher = models.ForeignKey(Teacher, on_delete=models.PROTECT, blank=True, null=True)
+    Teacher = models.ForeignKey(TeachersInformation, on_delete=models.PROTECT, blank=True, null=True)
     StartTime = models.CharField(max_length=130, default="11:30 AM")
     EndTime = models.CharField(max_length=130, default="1:30 PM")
     Address = models.CharField(max_length=130)
