@@ -1,7 +1,7 @@
 from django.db import models
 class School (models.Model):
-    SchooCode=models.CharField(max_length=130)
-    SchooName=models.CharField(max_length=130)
+    SchoolCode=models.CharField(max_length=130)
+    SchoolName=models.CharField(max_length=130)
     Address=models.CharField(max_length=130)
     Phone=models.CharField(max_length=130)
     DateOfRegistration=models.CharField(max_length=130)

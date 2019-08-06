@@ -281,12 +281,12 @@ class EditProfileForm(forms.ModelForm):
 class AddSchoolForm(forms.ModelForm):
     class Meta:
         model = School
-        fields = ('SchooName','SchooCode','Address','Phone','DateOfRegistration')
+        fields = ('SchoolName','SchoolCode','Address','Phone','DateOfRegistration')
 
 class EditSchoolForm(forms.ModelForm):
     class Meta:
         model = School
-        fields = ('SchooName','SchooCode','Address','Phone','DateOfRegistration')
+        fields = ('SchoolName','SchoolCode','Address','Phone','DateOfRegistration')
 
 class AddStudentForm(forms.ModelForm):
     class Meta:
