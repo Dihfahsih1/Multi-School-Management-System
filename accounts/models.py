@@ -328,6 +328,9 @@ class Profile (models.Model):
     Photo =models.ImageField(upload_to="gallery")
     Resume = models.ImageField(upload_to="gallery")
     OtherInfo = models.TextField(max_length=120)
+    def __str__(self):
+        return self.Name
+
 class Student(models.Model):
     school = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     student_name = models.CharField(max_length=100)

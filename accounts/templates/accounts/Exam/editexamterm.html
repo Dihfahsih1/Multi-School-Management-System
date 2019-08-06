@@ -24,6 +24,7 @@
 <h4>Edit Exam Term</h4>
 
 {% load crispy_forms_tags %}
+<div class="container" style="margin-left:20px; font-size:15px; padding:3px">
 <div class="col-lg-4" style="float:left">
 <form method="post" enctype="multipart/form-data">
 <p>Edit Details</p>
@@ -31,6 +32,7 @@
   {{ form|crispy}}
 <button type="submit" class="btn btn-success">Submit</button>
 <a href="{% url 'viewexamterm' %}"><button class="btn btn-success">Cancel</button></a>
+</div>
 </div>
 </div>
 {% endblock %}
