@@ -1,19 +1,67 @@
 from django.db import models
+class SalaryGrade(models.Model):
+    GradeName= models.CharField(max_length=130)
+    BasicSalary= models.CharField(max_length=130)
+    HouseRent= models.CharField(max_length=130)
+    TransportAllowance=models.CharField(max_length=130)
+    MedicalAllowance=models.CharField(max_length=130)
+    OverTimeHourlyRate= models.CharField(max_length=130)
+    ProvidentFund= models.CharField(max_length=130)
+    HourlyRate=models.CharField(max_length=130)
+    TotalAllowance=models.CharField(max_length=130)
+    TotalDeduction= models.CharField(max_length=130)
+    GrossPay= models.CharField(max_length=130)
+    NetSalary=models.CharField(max_length=130)
+    Notes = models.TextField(max_length=110)
+    def __str__(self):
+        return self.GradeName
 class School (models.Model):
+
     SchoolCode=models.CharField(max_length=130)
     SchoolName=models.CharField(max_length=130)
     Address=models.CharField(max_length=130)
     Phone=models.CharField(max_length=130)
     DateOfRegistration=models.CharField(max_length=130)
+
+
     def __str__(self):
         return self.SchoolName
+
+class Teacher(models.Model):
+    choices = (('female','female'), ('male', 'male'))
+    type = (('Monthly','Monthly'), ('hourly', 'hourly'))
+    blood= (('A+','A+'), ('A-', 'A-'),('B+','B+'), ('B-', 'B-'),('AB+','AB+'), ('AB-', 'AB-'),
+    ('O+','O+'), ('O-', 'O-'))
+    Name = models.CharField(max_length=130)
+    NationaId = models.CharField(max_length=130)
+    Responsibility = models.CharField(max_length=130)
+    Phone=models.CharField(max_length=130)
+    Gender=models.CharField(max_length=10, choices=choices, blank=False)
+    BloodGroup=models.CharField(max_length=10, choices=blood, blank=False)
+    Religion =models.CharField(max_length=130)
+    DateOfBirth.DateField(max_length=130)
+    PermanentAddress=models.CharField(max_length=130)
+    PresentAddress=models.CharField(max_length=130)
+    Email=models.CharField(max_length=130)
+    Password=models.CharField(max_length=130)
+    Username=models.CharField(max_length=130)
+    SalaryGrade = models.ForeignKey(SalaryGrade, on_delete=models.PROTECT, blank=True, null=True)
+    SalaryType =models.CharField(max_length=10, choices=type, blank=False)
+    JoiningDate=models.DateField(max_length=130)
+    Resume=models.FileField(upload_to="gallery")
+    TeacherPhoto=models.FileField(upload_to="gallery")
+    OtherInfo=models.TextField(max_length=100)
+
+    def __str__(self):
+        return self.Name
+
 class Login(models.Model):
     username = models.CharField(max_length=130)
     password = models.CharField(max_length=30, blank=True)
 
 class Classinformation(models.Model):
     ClassName = models.CharField(max_length=130)
-    ClassTeacher = models.CharField(max_length=30, blank=True)
+    ClassTeacher = models.ForeignKey(Teacher, on_delete=models.PROTECT, blank=True, null=True)
     TotalStudents = models.CharField(max_length=30, blank=True)
     NumberOfSections = models.CharField(max_length=30, blank=True)
     def __str__(self):
@@ -27,16 +75,7 @@ class Sectioninformation(models.Model):
 
     def __str__(self):
         return self.SectionName
-class Teacher(models.Model):
-    Name = models.CharField(max_length=130)
-    NationaId = models.CharField(max_length=130)
-    Responsibility = models.CharField(max_length=130)
-    Address = models.CharField(max_length=130)
-    Username = models.CharField(max_length=130)
-    Password = models.CharField(max_length=130)
 
-    def __str__(self):
-        return self.Name
 
 class Subjects(models.Model):
     choices = (
@@ -202,7 +241,6 @@ class VisitorInfor(models.Model):
         return self.Name
 
 class SalaryGrade(models.Model):
-    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     GradeName= models.CharField(max_length=130)
     BasicSalary= models.CharField(max_length=130)
     HouseRent= models.CharField(max_length=130)
@@ -217,7 +255,7 @@ class SalaryGrade(models.Model):
     NetSalary=models.CharField(max_length=130)
     Notes = models.TextField(max_length=110)
     def __str__(self):
-        return self.NetSalary
+        return self.GradeName
 
 class Discount(models.Model):
     School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
