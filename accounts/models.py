@@ -344,7 +344,7 @@ class Student(models.Model):
     student_health_condition = models.CharField(max_length=100)
     student_reg_no = models.CharField(max_length=100)
     student_admission_no = models.CharField(max_length=100)
-    student_admission_date = models.CharField(max_length=100)
+    student_admission_date = models.DateField(max_length=100)
     student_previous_class = models.CharField(max_length=100)
     student_previous_school = models.CharField(max_length=100)
     student_image = models.ImageField(upload_to="gallery")
