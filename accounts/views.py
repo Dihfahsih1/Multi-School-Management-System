@@ -89,7 +89,7 @@ def viewsectioninformation(request):
 
 def createteacher(request):
     if request.method=="POST":
-        form=CreateTeacherForm(request.POST)
+        form=CreateTeacherForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('createteacher')
@@ -119,9 +119,9 @@ def viewteachers(request):
     context={'all_info':all_info}
     return render(request, 'accounts/Teachers/viewteacher.html', context)
 
-#######################################
-#   CRUD FOR THE subject MODULE        #
-#######################################
+  #######################################
+#   CRUD FOR THE SUBJECT MODULE          #
+  #######################################
 def addsubject(request):
     if request.method=="POST":
         form=AddSubjectForm(request.POST)

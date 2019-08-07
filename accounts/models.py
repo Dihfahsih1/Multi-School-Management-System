@@ -354,7 +354,7 @@ class Student(models.Model):
     student_gender = models.CharField(max_length=10)
     student_religion = models.CharField(max_length=100)
     student_email = models.CharField(max_length=100)
-    student_phone = models.CharField(max_length=15)
+    student_phone = models.CharField(max_length=150)
     student_address = models.CharField(max_length=100)
     student_birth_date = models.CharField(max_length=100)
     student_health_condition = models.CharField(max_length=100)

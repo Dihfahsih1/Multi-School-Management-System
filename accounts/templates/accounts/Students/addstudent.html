@@ -38,14 +38,13 @@
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="text-warning">Basic Information</h5>
+        <p>{{ form.student_school|as_crispy_field }}</p>
         <p>{{ form.student_name |as_crispy_field }}</p>
         <p>{{ form.student_username|as_crispy_field }}</p>
         <p>{{ form.student_gender|as_crispy_field }}</p>
         <p>{{ form.student_religion |as_crispy_field }}</p>
         <p>{{ form.student_email|as_crispy_field }}</p>
-        <p>{{ form.student_phone|as_crispy_field }}</p>
-
-
+        
       </div>
     </div>
   </div>
@@ -69,6 +68,7 @@
       <p>{{ form.student_previous_school|as_crispy_field }}</p>
       <p>{{ form.student_previous_class|as_crispy_field }}</p>
       <p>{{ form.student_image|as_crispy_field }}</p>
+      <p>{{ form.student_phone|as_crispy_field }}</p>
     </div>
   </div>
 </div>
