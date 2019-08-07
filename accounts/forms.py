@@ -295,15 +295,12 @@ class EditSchoolForm(forms.ModelForm):
 
 class AddStudentForm(forms.ModelForm):
     class Meta:
-        model = Student
-        fields = ['student_school','student_name','student_username','student_gender','student_religion','student_email','student_phone',
-                  'student_address','student_birth_date','student_health_condition','student_admission_no','student_admission_date',
-                  'student_reg_no', 'student_previous_school','student_previous_class', 'student_image']
-        widgets = {'student_birth_date': forms.DateTimeInput(attrs={'class': 'datetime-input'})}
+        model = StudentData
+        fields = ('school','name','username','gender','religion','email','phone',
+                  'address','birth_date','health_condition','admission_no','admission_date',
+                  'reg_no', 'previous_school','previous_class', 'image')
+        widgets = {'birth_date': forms.DateTimeInput(attrs={'class': 'datetime-input'})}
 class EditStudentForm(forms.ModelForm):
     class Meta:
-        model = Student
-        fields = ['student_school','student_name','student_username','student_gender','student_religion','student_email','student_phone',
-                  'student_address','student_birth_date','student_health_condition','student_admission_no','student_admission_date',
-                  'student_reg_no', 'student_previous_school','student_previous_class', 'student_image']
-        widgets = {'student_birth_date': forms.DateTimeInput(attrs={'class': 'datetime-input'})}
+        model = StudentData
+        fields = ('name','username','religion','email','phone', 'address','health_condition','image')

@@ -54,7 +54,6 @@ background-color: #4285F4; }
   overflow: auto;
 }
 
-/* Style the sidenav links and the dropdown button */
 .sidenav a, .dropdown-btn {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -289,7 +288,7 @@ background-color: #4285F4; }
 </button>
 <div class="dropdown-container">
     <a href="{% url 'addstudent'  %}">Admit Students</a>
-    <a href="#">Manage Student</a>
+    <a href="{% url 'viewstudents'  %}">Manage Student</a>
     <a href="#">Student Activity</a>
 </div>
 

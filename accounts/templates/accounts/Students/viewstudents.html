@@ -30,10 +30,10 @@
     </ul>
   </nav>
 <br>
-<table class="table table-hover" border="2" style="font-size:15px">
+<div class="container" style="margin-left:20px; font-size:15px; padding:3px">
+<table class="table table-hover" border="2">
    <thead class="table-success">
     <tr>
-
          <td>id</td>
          <td>Name</td>
          <td>Username</td>
@@ -42,14 +42,12 @@
          <td>Email</td>
          <td>Phone</td>
          <td>Adress</td>
-         <td>DOB</td>
          <td>Health</td>
          <td>AdmissionNo</td>
-         <td>AdmissionDate</td>
          <td>RegNo</td>
          <td>Previous School</td>
          <td>Previous Class</td>
-         <td>Image</td>
+         <td>Previous Class</td>
          <td>Action</td>
      </tr>
    </thead>
@@ -58,21 +56,19 @@
      {% for item in all_info %}
      <tr>
        <td>{{ item.id}}</td>
-       <td>{{ item.student_name}}</td>
-       <td>{{ item.student_username}}</td>
-       <td>{{ item.student_gender}}</td>
-       <td>{{ item.student_religion}}</td>
-       <td>{{ item.student_email}}</td>
-       <td>{{ item.student_phone}}</td>
-       <td>{{ item.student_address}}</td>
-       <td>{{ item.student_birth_date}}</td>
-       <td>{{ item.student_health_condition}}</td>
-       <td>{{ item.student_admission_no}}</td>
-       <td>{{ item.student_admission_date}}</td>
-       <td>{{ item.student_reg_no}}</td>
-       <td>{{ item.student_previous_school}}</td>
-       <td>{{ item.student_previous_class}}</td>
-       <td><img src="{{item.student_image.url}}"/></td>
+       <td>{{ item.name}}</td>
+       <td>{{ item.username}}</td>
+       <td>{{ item.gender}}</td>
+       <td>{{ item.religion}}</td>
+       <td>{{ item.email}}</td>
+       <td>{{ item.phone}}</td>
+       <td>{{ item.address}}</td>
+       <td>{{ item.health_condition}}</td>
+       <td>{{ item.admission_no}}</td>
+       <td>{{ item.reg_no}}</td>
+       <td>{{ item.previous_school}}</td>
+       <td>{{ item.previous_class}}</td>
+       <td><img src="{{item.image.url}}"</td>
        <td><a  href="{% url 'editstudent' pk=item.id  %}" >Update</a>|
          <a href="{% url 'deletestudent' pk=item.id %}" >Delete</a>
        </td>
@@ -81,5 +77,6 @@
      {% endif %}
    </tbody>
 </table>
+</div>
 </div>
 {% endblock %}

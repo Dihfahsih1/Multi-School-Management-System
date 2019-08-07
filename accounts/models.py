@@ -347,23 +347,24 @@ class Profile (models.Model):
     def __str__(self):
         return self.Name
 
-class Student(models.Model):
+class StudentData(models.Model):
     sex = (('female','female'), ('male','male'))
+    reli = (('moslem','moslem'), ('Christian','Christian'),('Others','Others'))
     school = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     name = models.CharField(max_length=100)
     username = models.CharField(max_length=100)
     gender = models.CharField(max_length=130, choices=sex, blank=False)
-    religion = models.CharField(max_length=100)
+    religion = models.CharField(max_length=130, choices=reli, blank=False)
     email = models.CharField(max_length=100)
     phone = models.CharField(max_length=150)
     address = models.CharField(max_length=100)
-    birth_date = models.CharField(max_length=100)
+    birth_date = models.DateField(max_length=100)
     health_condition = models.CharField(max_length=100)
     reg_no = models.CharField(max_length=100)
     admission_no = models.CharField(max_length=100)
-    admission_date = models.DateField(max_length=100)
+    admission_date = models.CharField(max_length=100)
     previous_class = models.CharField(max_length=100)
     previous_school = models.CharField(max_length=100)
     image = models.ImageField(upload_to="gallery")
     def __str__(self):
-        return self.student_name + ' - ' + self.student_reg_no
+        return self.name
