@@ -83,41 +83,6 @@ def viewsectioninformation(request):
     context={'all_info':all_info}
     return render(request, 'accounts/Section/viewsectioninformation.html', context)
 
-#######################################
-# CRUD FOR THE TEACHER MODULE         #
-#######################################
-
-def createteacher(request):
-    if request.method=="POST":
-        form=CreateTeacherForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('createteacher')
-    else:
-        form = CreateTeacherForm()
-        context = {'form': form}
-        return render(request, 'accounts/Teachers/createteacher.html', context)
-def editteacher(request, pk):
-    item = get_object_or_404(TeachersInformation, id=pk)
-    if request.method == "POST":
-        form =  CreateTeacherForm(request.POST, instance=item)
-        if form.is_valid():
-            form.save()
-            return redirect('viewteachers')
-    else:
-        form =  CreateTeacherForm(instance=item)
-        return render(request, 'accounts/Teachers/editteacher.html', {'form': form})
-
-def deleteteacher(request, pk):
-    TeachersInformation.objects.filter(id=pk).delete()
-    all_info=TeachersInformation.objects.all()
-    context={'all_info' :all_info}
-    return render(request, 'accounts/Teachers/viewteacher.html', context)
-
-def viewteachers(request):
-    all_info = TeachersInformation.objects.all()
-    context={'all_info':all_info}
-    return render(request, 'accounts/Teachers/viewteacher.html', context)
 
   #######################################
 #   CRUD FOR THE SUBJECT MODULE          #
@@ -1159,25 +1124,62 @@ def viewschools(request):
    context={'all_info':all_info}
    return render(request, 'accounts/School/viewschools.html', context)
 
+#######################################
+# CRUD FOR THE TEACHER MODULE         #
+#######################################
+
+def createteacher(request):
+    if request.method=="POST":
+        form=CreateTeacherForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('createteacher')
+    else:
+        form = CreateTeacherForm()
+        context = {'form': form}
+        return render(request, 'accounts/Teachers/createteacher.html', context)
+def editteacher(request, pk):
+    item = get_object_or_404(TeachersInformation, id=pk)
+    if request.method == "POST":
+        form =  CreateTeacherForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('viewteachers')
+    else:
+        form =  CreateTeacherForm(instance=item)
+        return render(request, 'accounts/Teachers/editteacher.html', {'form': form})
+
+def deleteteacher(request, pk):
+    TeachersInformation.objects.filter(id=pk).delete()
+    all_info=TeachersInformation.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/Teachers/viewteacher.html', context)
+
+def viewteachers(request):
+    all_info = TeachersInformation.objects.all()
+    context={'all_info':all_info}
+    return render(request, 'accounts/Teachers/viewteacher.html', context)
+
 
 ################################################
 #   CRUD FOR THE STUDENTS MODULE                #
 ################################################
 def addstudent(request):
-   if request.method=="POST":
-       form=AddStudentForm(request.POST,request.FILES)
-       if form.is_valid():
-           form.save()
-           return redirect('addstudent')
-   else:
-       form = AddStudentForm()
-       context = {'form': form}
-       return render(request, 'accounts/Students/addstudent.html', context)
+    if request.method=="POST":
+        form=AddStudentForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('addstudent')
+        
+    else:
+        form = AddStudentForm()
+        context = {'form': form}
+        return render(request, 'accounts/Students/addstudent.html', context)
 
 def editstudent(request, pk):
    item = get_object_or_404(Student, id=pk)
    if request.method == "POST":
-       form =  EditStudentForm(request.POST,request.FILES, instance=item)
+       form =  EditStudentForm(request.POST,request.FILES,instance=item)
        if form.is_valid():
            form.save()
            return redirect('viewstudents')
