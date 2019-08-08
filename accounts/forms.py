@@ -36,9 +36,7 @@ class CreateTeacherForm(forms.ModelForm):
 class EditTeacherForm(forms.ModelForm):
     class Meta:
         model = TeachersInformation
-        fields =('Name', 'NationaId', 'Responsibility', 'Gender', 'BloodGroup','Resume',
-        'Religion', 'DateOfBirth', 'Responsibility', 'PermanentAddress', 'PresentAddress', 'Email',
-        'Username','Password', 'Salary', 'SalaryType', 'JoiningDate', 'TeacherPhoto', 'OtherInfo')
+        fields =('Name', 'Responsibility','Resume','PermanentAddress', 'PresentAddress', 'Email','Salary', 'SalaryType')
 
 class AddSubjectForm(forms.ModelForm):
     class Meta:
