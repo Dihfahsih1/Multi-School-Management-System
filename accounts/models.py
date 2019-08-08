@@ -29,11 +29,11 @@ class TeachersInformation(models.Model):
     type = (('Monthly','Monthly'), ('hourly', 'hourly'))
     blood= (('A+','A+'), ('A-', 'A-'),('B+','B+'), ('B-', 'B-'),('AB+','AB+'), ('AB-', 'AB-'),
     ('O+','O+'), ('O-', 'O-'))
-    responsibility=(('Mathematics','Mathematics'), ('English', 'English'),('History','B+'), ('B-', 'B-'),('AB+','AB+'), ('AB-', 'AB-'),
-    ('O+','O+'), ('O-', 'O-'))
+    responsibility=(('Mathematics','Mathematics'), ('English', 'English'),('History','History'), ('Biology', 'Biology')
+    ,('Chemistry','Chemistry'), ('Physics', 'Physics'),('Geography','Geography'), ('Economics', 'Economics'))
     Name = models.CharField(max_length=130)
     NationaId = models.CharField(max_length=130)
-    Responsibility = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
+    Responsibility = models.CharField(max_length=10, choices=responsibility, blank=False)
     Gender=models.CharField(max_length=10, choices=choices, blank=False, null=True)
     BloodGroup=models.CharField(max_length=10, choices=blood, blank=False, null=True)
     Religion =models.CharField(max_length=130)
