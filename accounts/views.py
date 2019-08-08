@@ -1124,9 +1124,9 @@ def viewschools(request):
    context={'all_info':all_info}
    return render(request, 'accounts/School/viewschools.html', context)
 
-#######################################
-# CRUD FOR THE TEACHER MODULE         #
-#######################################
+  #######################################
+#     CRUD FOR THE TEACHER MODULE        #
+ #######################################
 
 def createteacher(request):
     if request.method=="POST":

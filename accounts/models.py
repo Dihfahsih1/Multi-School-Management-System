@@ -64,8 +64,8 @@ class Classinformation(models.Model):
 
 class Sectioninformation(models.Model):
     NameOfClass = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
+    StreamTeacher = models.ForeignKey(TeachersInformation, on_delete=models.PROTECT, blank=True, null=True)
     SectionName = models.CharField(max_length=130)
-    SectionTeacher = models.CharField(max_length=30, blank=True)
     NumberOfStudents = models.CharField(max_length=30, blank=True)
 
     def __str__(self):
@@ -351,6 +351,8 @@ class StudentData(models.Model):
     sex = (('female','female'), ('male','male'))
     reli = (('moslem','moslem'), ('Christian','Christian'),('Others','Others'))
     school = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
+    Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
+    stream = models.ForeignKey(Sectioninformation, on_delete=models.PROTECT, blank=True, null=True)
     name = models.CharField(max_length=100)
     username = models.CharField(max_length=100)
     gender = models.CharField(max_length=130, choices=sex, blank=False)

@@ -1,8 +1,5 @@
 from django import forms
-
 from .models import *
-
-
 class LoginForm(forms.ModelForm):
     class Meta:
         model = Login
@@ -20,11 +17,11 @@ class EditclassinformationForm(forms.ModelForm):
 class SectioninformationForm(forms.ModelForm):
     class Meta:
         model = Sectioninformation
-        fields = ('SectionTeacher','NameOfClass','NumberOfStudents', 'SectionName')
+        fields = ('StreamTeacher','NameOfClass','NumberOfStudents', 'SectionName')
 class EditsectioninformationForm(forms.ModelForm):
     class Meta:
         model = Sectioninformation
-        fields = ('SectionTeacher', 'NumberOfStudents', 'SectionName')
+        fields = ('StreamTeacher','NameOfClass', 'SectionName')
 
 class CreateTeacherForm(forms.ModelForm):
     class Meta:
@@ -36,7 +33,7 @@ class CreateTeacherForm(forms.ModelForm):
 class EditTeacherForm(forms.ModelForm):
     class Meta:
         model = TeachersInformation
-        fields =('Name', 'Responsibility','Resume','PermanentAddress', 'PresentAddress', 'Email','Salary', 'SalaryType')
+        fields =('Name', 'Responsibility')
 
 class AddSubjectForm(forms.ModelForm):
     class Meta:
@@ -294,7 +291,7 @@ class EditSchoolForm(forms.ModelForm):
 class AddStudentForm(forms.ModelForm):
     class Meta:
         model = StudentData
-        fields = ('school','name','username','gender','religion','email','phone',
+        fields = ('school','name','username','gender','religion','email','phone','Class','stream',
                   'address','birth_date','health_condition','admission_no','admission_date',
                   'reg_no', 'previous_school','previous_class', 'image')
         widgets = {'birth_date': forms.DateTimeInput(attrs={'class': 'datetime-input'})}
