@@ -29,9 +29,11 @@ class TeachersInformation(models.Model):
     type = (('Monthly','Monthly'), ('hourly', 'hourly'))
     blood= (('A+','A+'), ('A-', 'A-'),('B+','B+'), ('B-', 'B-'),('AB+','AB+'), ('AB-', 'AB-'),
     ('O+','O+'), ('O-', 'O-'))
+    responsibility=(('Mathematics','Mathematics'), ('English', 'English'),('History','B+'), ('B-', 'B-'),('AB+','AB+'), ('AB-', 'AB-'),
+    ('O+','O+'), ('O-', 'O-'))
     Name = models.CharField(max_length=130)
     NationaId = models.CharField(max_length=130)
-    Responsibility = models.CharField(max_length=130)
+    Responsibility = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
     Gender=models.CharField(max_length=10, choices=choices, blank=False, null=True)
     BloodGroup=models.CharField(max_length=10, choices=blood, blank=False, null=True)
     Religion =models.CharField(max_length=130)
@@ -80,7 +82,7 @@ class Subjects(models.Model):
     Subjectcode = models.CharField(max_length=130)
     Author = models.CharField(max_length=130)
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
-    SubjectTeacher = models.ForeignKey(TeachersInformation, on_delete=models.PROTECT, blank=True, null=True)
+    SubjectTeacher = models.ForeignKey(TeachersInformation, on_delete=models.PROTECT)
     Type = models.CharField(max_length=130, choices=choices, blank=False)
     OtherNotes = models.TextField(max_length=200, blank=True)
     def __str__(self):
