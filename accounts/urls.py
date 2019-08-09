@@ -158,5 +158,7 @@ url(r'^addstudent', views.addstudent, name="addstudent"),
 url(r'^editstudent/(?P<pk>\d+)', views.editstudent, name="editstudent"),
 url(r'^deletestudent/(?P<pk>\d+)', views.deletestudent, name="deletestudent"),
 url(r'^viewstudents', views.viewstudents, name="viewstudents"),
+
+url(r'^singleteacherdetails/(?P<pk>\d+)', views.singleteacherdetails, name="singleteacherdetails"),
 url(r'^logout', views.login, name="logout")
 ]

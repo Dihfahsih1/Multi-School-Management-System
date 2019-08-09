@@ -33,47 +33,16 @@
        <td>{{ item.NationaId}}</td>
        <td>{{ item.Responsibility}}</td>
        <td>{{ item.PermanentAddress}}</td>
-       <td><a href="{% url 'editteacher' pk=item.id  %}">Edit</a>|
+       <td>
+         <a href="{% url 'singleteacherdetails' pk=item.id  %}">View</a>|
+         <a href="{% url 'editteacher' pk=item.id  %}">Edit</a>|
          <a href="{% url 'deleteteacher' pk=item.id %}">Delete</a>
        </td>
         {% endfor %}
      </tr>
      {% endif %}
-
    </tbody>
-
 </table>
-<button type="button" class="btn btn-success btn-lg" id="myBtn">View</button>
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="padding:35px 50px;">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4><span class="glyphicon glyphicon-lock"></span> Teacher Details</h4>
-      </div>
-      <div class="modal-body" style="padding:40px 50px;">
-        <p> Name:{{ item.Name}}</p> <p> Name:{{ item.NationaId}}</p>
-        <p> Name:{{ item.Responsibility}}</p><p> Name:{{ item.Gender}}</p><p> Name:{{ item.BloodGroup}}</p>
-        <p> Name:{{ item.Religion}}</p><p> Name:{{ item.DateOfBirth}}</p><p> Name:{{ item.PermanentAddress}}</p>
-        <p> Name:{{ item.PresentAddress}}</p><p> Name:{{ item.Email}}</p><p> Name:{{ item.Username}}</p>
-        <p> Name:{{ item.Password}}</p><p> Name:{{ item.Salary}}</p><p> Name:{{ item.SalaryType}}</p>
-        <p> Name:{{ item.JoiningDate}}</p><p> Name:{{ item.TeacherPhoto}}</p><p> Name:{{ item.OtherInfo}}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
-        <span class="glyphicon glyphicon-remove"></span> Cancel</button>
-      </div>
-    </div>
-  </div>
-</div>
-  <script>
-$(document).ready(function(){
-  $("#myBtn").click(function(){
-    $("#myModal").modal();
-  });
-});
-</script>
 </div>
 </div>
 {% endblock %}

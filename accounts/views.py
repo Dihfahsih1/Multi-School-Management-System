@@ -1134,7 +1134,7 @@ def createteacher(request):
         if form.is_valid():
             form.save()
             return redirect('createteacher')
-        return render(request, 'accounts/Teachers/createteacher.html', {'form': form})    
+        return render(request, 'accounts/Teachers/createteacher.html', {'form': form})
     else:
         form = CreateTeacherForm()
         context = {'form': form}
@@ -1161,6 +1161,10 @@ def viewteachers(request):
     context={'all_info':all_info}
     return render(request, 'accounts/Teachers/viewteacher.html', context)
 
+def singleteacherdetails(request, pk):
+    all_info = TeachersInformation.objects.filter(id=pk)
+    context={'all_info':all_info}
+    return render(request, 'accounts/Teachers/singleteacherdetails.html', context)
 
 ################################################
 #   CRUD FOR THE STUDENTS MODULE                #
