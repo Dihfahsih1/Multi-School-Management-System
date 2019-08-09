@@ -33,7 +33,7 @@ class TeachersInformation(models.Model):
     ,('Chemistry','Chemistry'), ('Physics', 'Physics'),('Geography','Geography'), ('Economics', 'Economics'))
     Name = models.CharField(max_length=130)
     NationaId = models.CharField(max_length=130)
-    Responsibility = models.CharField(max_length=10, choices=responsibility, blank=False)
+    Responsibility = models.CharField(max_length=100, choices=responsibility, blank=False)
     Gender=models.CharField(max_length=10, choices=choices, blank=False, null=True)
     BloodGroup=models.CharField(max_length=10, choices=blood, blank=False, null=True)
     Religion =models.CharField(max_length=130)
@@ -45,7 +45,7 @@ class TeachersInformation(models.Model):
     Username=models.CharField(max_length=130)
     Salary = models.ForeignKey(SalaryGrade, on_delete=models.PROTECT, blank=True, null=True)
     SalaryType =models.CharField(max_length=10, choices=type, blank=False)
-    JoiningDate=models.DateField(max_length=130,  default="15-10-1990")
+    JoiningDate=models.CharField(max_length=130,  default="15-10-1990")
     Resume=models.FileField(upload_to="gallery")
     TeacherPhoto=models.ImageField(upload_to="gallery")
     OtherInfo=models.TextField(max_length=100,  default="Enter Other Notes")
@@ -73,14 +73,12 @@ class Sectioninformation(models.Model):
     def __str__(self):
         return self.SectionName
 class Subjects(models.Model):
-    choices = (
-    ('Compulsory','Compulsory'),('Options','Options')
-    )
+    choices = (('Compulsory','Compulsory'),('Options','Options'))
     Subjectname = models.CharField(max_length=130)
     Subjectcode = models.CharField(max_length=130)
     Author = models.CharField(max_length=130)
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
-    SubjectTeacher = models.ForeignKey(TeachersInformation, on_delete=models.PROTECT)
+    SubjectTeacher = models.ForeignKey(TeachersInformation, on_delete=models.PROTECT, blank=True, null=True)
     Type = models.CharField(max_length=130, choices=choices, blank=False)
     OtherNotes = models.TextField(max_length=200, blank=True)
     def __str__(self):

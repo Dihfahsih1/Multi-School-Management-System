@@ -1130,10 +1130,11 @@ def viewschools(request):
 
 def createteacher(request):
     if request.method=="POST":
-        form=CreateTeacherForm(request.POST, request.FILES)
+        form=CreateTeacherForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect('createteacher')
+        return render(request, 'accounts/Teachers/createteacher.html', {'form': form})    
     else:
         form = CreateTeacherForm()
         context = {'form': form}
