@@ -5,13 +5,18 @@
 <nav class="nav navbar-expand">
   <ul class="navbar-nav mr-auto">
 
+
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'createteacher' %}"><button class="btn btn-primary">Add Teacher</button></a></li>
     <li class="nav-item">
     <a class="nav-link" href="#"><button class="btn btn-default">List of Teachers</button></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="{% url 'createteacher' %}"><button class="btn btn-primary">Add Teacher</button></a>
+    <a class="nav-link" href="#"><button class="btn btn-primary">Teachers Archived</button></a>
+    </li>
   </ul>
 </nav>
+  <hr style="margin-top: 1rem; margin-bottom: 1rem;border: 0; border-top: 1px solid rgba(0, 0, 0, 0.1);"/>
 <div class="container" style="margin-left:20px; font-size:15px; padding:3px">
 <table class="table table-hover" border="2">
    <thead class="table-success">
@@ -34,9 +39,8 @@
        <td>{{ item.Responsibility}}</td>
        <td>{{ item.PermanentAddress}}</td>
        <td>
-         <a href="{% url 'singleteacherdetails' pk=item.id  %}">View</a>|
-         <a href="{% url 'editteacher' pk=item.id  %}">Edit</a>|
-         <a href="{% url 'deleteteacher' pk=item.id %}">Delete</a>
+         <a href="{% url 'singleteacherdetails' pk=item.id  %}">View </a> |
+         <a href="{% url 'deleteteacher' pk=item.id %}">Archive Data</a>
        </td>
         {% endfor %}
      </tr>

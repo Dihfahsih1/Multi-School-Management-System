@@ -13,9 +13,12 @@
     </li>
     <li class="nav-item">
     <a class="nav-link" href="#"><button class="btn btn-default">Teacher Details</button></a><li>
+      <li class="nav-item">
+      <a class="nav-link" href="#"><button class="btn btn-primary">Teachers Archived</button></a>
+      </li>
   </ul>
 </nav>
-<div class="container" style="margin-left:20px; font-size:15px; padding:3px">
+<div class="container" style="margin-left:20px; font-size:130%; padding:3px">
 <br><h4>Biodata Information of Teacher : {{ item.Name}} </h4>
 <style>
 b{
@@ -64,6 +67,21 @@ color:blue;
     </div>
   </div>
 </div>
+</div>
+<div class="col-md-4 col-sm-6 col-xs-6" style="float:right">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <button class="btn btn-warning" name="button"> Print </button>
+    </div>
+  </div>
+</div>
+<div class="col-md-4 col-sm-6 col-xs-6" style="float:right">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="text-default">Edit Teacher's Data</h5>
+      <a href="{% url 'editteacher' pk=item.id  %}"><button  class="btn btn-success" name="button"> Edit </button></a>
+    </div>
+  </div>
 </div>
 {% endfor %}
 {% endif %}

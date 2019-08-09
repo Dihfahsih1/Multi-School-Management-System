@@ -1142,12 +1142,12 @@ def createteacher(request):
 def editteacher(request, pk):
     item = get_object_or_404(TeachersInformation, id=pk)
     if request.method == "POST":
-        form =  EditTeacherForm(request.POST, instance=item)
+        form =  CreateTeacherForm(request.POST, instance=item)
         if form.is_valid():
             form.save()
             return redirect('viewteachers')
     else:
-        form =  EditTeacherForm(instance=item)
+        form =  CreateTeacherForm(instance=item)
         return render(request, 'accounts/Teachers/editteacher.html', {'form': form})
 
 def deleteteacher(request, pk):
