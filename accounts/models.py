@@ -72,8 +72,6 @@ class Sectioninformation(models.Model):
 
     def __str__(self):
         return self.SectionName
-
-
 class Subjects(models.Model):
     choices = (
     ('Compulsory','Compulsory'),('Options','Options')
