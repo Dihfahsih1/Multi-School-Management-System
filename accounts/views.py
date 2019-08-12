@@ -36,13 +36,6 @@ def editclassinformation(request, pk):
         form =  EditclassinformationForm(instance=item)
         return render(request, 'accounts/Class/editclassinformation.html', {'form': form})
 
-def deleteclassinformation(request, pk):
-    Classinformation.objects.filter(id=pk).delete()
-    all_info=Classinformation.objects.all()
-    context={'all_info' :all_info}
-
-    return render(request, 'accounts/Class/viewclassinformation.html', context)
-
 def viewclassinformation(request):
     all_info = Classinformation.objects.all()
     context={'all_info':all_info}
@@ -71,12 +64,6 @@ def editsectioninformation(request, pk):
     else:
         form =  EditsectioninformationForm(instance=item)
         return render(request, 'accounts/Section/editsectioninformation.html', {'form': form})
-
-def deletesectioninformation(request, pk):
-    Sectioninformation.objects.filter(id=pk).delete()
-    all_info=Sectioninformation.objects.all()
-    context={'all_info' :all_info}
-    return render(request, 'accounts/Section/viewsectioninformation.html', context)
 
 def viewsectioninformation(request):
     all_info = Sectioninformation.objects.all()

@@ -56,9 +56,9 @@
        <td>{{ item.NumberOfStudents}}</td>
        <td>{{ item.SectionName}}</td>
        <td><a href="{% url 'editsectioninformation' pk=item.id  %}" >
-         <button class="btn btn-warning">Edit Details</button></a>|
-         <a href="{% url 'deletesectioninformation' pk=item.id %}" >
-           <button class="btn btn-danger">Delete Section</button></a>
+         <i class="btn btn-warning">Edit</i></a>|
+         <a href="#" >
+           <i class="btn btn-danger">View</i></a>
        </td>
         {% endfor %}
      </tr>
