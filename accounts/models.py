@@ -57,7 +57,10 @@ class Login(models.Model):
     password = models.CharField(max_length=30, blank=True)
 
 class Classinformation(models.Model):
-    ClassName = models.CharField(max_length=130)
+    nameclass= (('Form One','Form One'), ('Form Two', 'Form Two'),('Form Three','Form Three'), ('Form Four', 'Form Four'),
+    ('Form Five Arts','Form Five Arts'), ('Form Five Sciences', 'Form Five Sciences'),
+    ('Form Five Six','Form Six Arts'), ('Form Six Sciences', 'Form Six Sciences'))
+    ClassName = models.CharField(max_length=130, choices=nameclass, blank=False)
     ClassTeacher = models.ForeignKey(TeachersInformation, on_delete=models.PROTECT, blank=True, null=True)
     TotalStudents = models.CharField(max_length=30, blank=True)
     NumberOfSections = models.CharField(max_length=30, blank=True)
@@ -65,9 +68,10 @@ class Classinformation(models.Model):
         return self.ClassName
 
 class Sectioninformation(models.Model):
+    choices = (('A','A'),('B','B'))
     NameOfClass = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
     StreamTeacher = models.ForeignKey(TeachersInformation, on_delete=models.PROTECT, blank=True, null=True)
-    SectionName = models.CharField(max_length=130)
+    SectionName = models.CharField(max_length=130, choices=choices, blank=False)
     NumberOfStudents = models.CharField(max_length=30, blank=True)
 
     def __str__(self):
