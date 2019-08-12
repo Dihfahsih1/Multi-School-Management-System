@@ -42,53 +42,13 @@
 <div class="sidenav scrollbar scrollbar-primary">
   <br><br><br><br>
   <h3 style=" color: white">MANAGE</h3>
-  <button class="dropdown-btn">Class
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="{% url 'createclassinformation'  %}">Add Class</a>
-    <a href="{% url 'viewclassinformation'  %}">List of Classes</a>
-  </div>
 
-    <button class="dropdown-btn">STREAM
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="{% url 'createsectioninformation'  %}">Create</a>
-    <a href="{% url 'viewsectioninformation'  %}">View</a>
-  </div>
-
-  <button class="dropdown-btn">Teacher
-  <i class="fa fa-caret-down"></i>
-</button>
-<div class="dropdown-container">
-  <a href="{% url 'createteacher'  %}">Add</a>
-  <a href="{% url 'viewteachers'  %}">View</a>
-</div>
-
-<button class="dropdown-btn">Subject
-<i class="fa fa-caret-down"></i>
-</button>
-<div class="dropdown-container">
-<a href="{% url 'addsubject'  %}">Add</a>
-<a href="{% url 'viewsubjects'  %}">View</a>
-</div>
-
-<button class="dropdown-btn">Syllabus
-<i class="fa fa-caret-down"></i>
-</button>
-<div class="dropdown-container">
-<a href="{% url 'addsyllabus'  %}">Add</a>
-<a href="{% url 'viewsyllabus'  %}">View</a>
-</div>
-
-<button class="dropdown-btn">Resource
-<i class="fa fa-caret-down"></i>
-</button>
-<div class="dropdown-container">
-<a href="{% url 'addhumanresource'  %}">Add</a>
-<a href="{% url 'viewhumanresource'  %}">View</a>
-</div>
+    <a href="{% url 'viewclassinformation'  %}">Classes</a>
+    <a href="{% url 'viewsectioninformation'  %}">Streams</a>
+    <a href="{% url 'viewteachers'  %}">Teachers</a>
+    <a href="{% url 'viewsubjects'  %}">Subjects</a>
+    <a href="{% url 'viewsyllabus'  %}">Syllabus</a>
+   <a href="{% url 'viewhumanresource'  %}">Human Resource</a>
 
 <button class="dropdown-btn">Attendance
 <i class="fa fa-caret-down"></i>
@@ -100,15 +60,7 @@
 <a href="#">AbsentSms</a>
 <a href="#">AbsentEmail</a>
 </div>
-
-<button class="dropdown-btn">Assignment
-<i class="fa fa-caret-down"></i>
-</button>
-<div class="dropdown-container">
-<a href="{% url 'addassignment'  %}">Add</a>
-<a href="{% url 'viewassignment'  %}">View</a>
-</div>
-
+<a href="{% url 'viewassignment'  %}">Assignment</a>
 <button class="dropdown-btn">Exam
 <i class="fa fa-caret-down"></i>
 </button>
