@@ -29,7 +29,7 @@ class TeachersInformation(models.Model):
     type = (('Monthly','Monthly'), ('hourly', 'hourly'))
     blood= (('A+','A+'), ('A-', 'A-'),('B+','B+'), ('B-', 'B-'),('AB+','AB+'), ('AB-', 'AB-'),
     ('O+','O+'), ('O-', 'O-'))
-    responsibility=(('Mathematics','Mathematics'), ('English', 'English'),('History','History'), ('Biology', 'Biology')
+    responsibility = (('Mathematics','Mathematics'), ('English', 'English'),('History','History'), ('Biology', 'Biology')
     ,('Chemistry','Chemistry'), ('Physics', 'Physics'),('Geography','Geography'), ('Economics', 'Economics'))
     Name = models.CharField(max_length=130)
     NationaId = models.CharField(max_length=130)
@@ -352,12 +352,16 @@ class Profile (models.Model):
 class StudentData(models.Model):
     sex = (('female','female'), ('male','male'))
     reli = (('moslem','moslem'), ('Christian','Christian'),('Others','Others'))
+    relation = (('Brother','Brother'), ('Sister','Sister'),('Mother','Mother'),
+    ('Father','Father'), ('Uncle','Uncle'),('Auntie','Auntie'))
     school = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
     stream = models.ForeignKey(Sectioninformation, on_delete=models.PROTECT, blank=True, null=True)
     name = models.CharField(max_length=100)
     username = models.CharField(max_length=100)
     gender = models.CharField(max_length=130, choices=sex, blank=False)
+    Guardian = models.CharField(max_length=130, default="text")
+    GuardianRelationshipToStudent = models.CharField(max_length=130, choices=relation, default="text",blank=False)
     religion = models.CharField(max_length=130, choices=reli, blank=False)
     email = models.CharField(max_length=100)
     phone = models.CharField(max_length=150)
@@ -370,5 +374,17 @@ class StudentData(models.Model):
     previous_class = models.CharField(max_length=100)
     previous_school = models.CharField(max_length=100)
     image = models.ImageField(upload_to="gallery")
+    TransferCertificate = models.ImageField(upload_to="gallery",default="text")
+    FatherName = models.CharField(max_length=100, default="text")
+    FatherPhone =  models.CharField(max_length=100, default="text")
+    FatherProfession =  models.CharField(max_length=100, default="text")
+    FatherDesignation = models.CharField(max_length=100, default="text")
+    FatherPhoto = models.ImageField(upload_to="gallery",default="text")
+    MotherName = models.CharField(max_length=100, default="text")
+    MotherPhone =  models.CharField(max_length=100, default="text")
+    MotherProfession =  models.CharField(max_length=100, default="text")
+    MotherDesignation = models.CharField(max_length=100, default="text")
+    MotherPhoto = models.ImageField(upload_to="gallery", default="text")
+    password = models.CharField(max_length=100, default="text")
     def __str__(self):
         return self.name

@@ -44,7 +44,6 @@
         <p>{{ form.gender|as_crispy_field }}</p>
         <p>{{ form.religion|as_crispy_field }}</p>
         <p>{{ form.email|as_crispy_field }}</p>
-
       </div>
     </div>
   </div>
@@ -54,8 +53,6 @@
         <h5 class="text-warning">Academic Information</h5>
           <p>{{ form.Class |as_crispy_field }}</p>
           <p>{{ form.stream |as_crispy_field }}</p>
-          <p>{{ form.birth_date|as_crispy_field }}</p>
-          <p>{{ form.health_condition|as_crispy_field }}</p>
           <p>{{ form.admission_no|as_crispy_field }}</p>
           <p>{{ form.admission_date|as_crispy_field }}</p>
       </div>
@@ -64,13 +61,14 @@
 <div class="col-lg-4 " >
   <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="text-warning">Other Information</h5>
-      <p>{{ form.address|as_crispy_field }}</p>
+      <h5 class="text-warning">Contact Information</h5>
+      <p>{{ form.Guardian|as_crispy_field }}</p>
+      <p>{{ form.Relation|as_crispy_field }}</p>
+      <p>{{ form.GuardianRelationshipToStudent|as_crispy_field }}</p>
+      <p>{{ form.NationaId|as_crispy_field }}</p>
       <p>{{ form.phone|as_crispy_field }}</p>
-      <p>{{ form.reg_no|as_crispy_field }}</p>
-      <p>{{ form.previous_school|as_crispy_field }}</p>
-      <p>{{ form.previous_class|as_crispy_field }}</p>
-      <p>{{ form.image|as_crispy_field }}</p>
+      <p>{{ form.PresentAdress|as_crispy_field }}</p>
+      <p>{{ form.PermanentAdress|as_crispy_field }}</p>
     </div>
   </div>
  </div>
