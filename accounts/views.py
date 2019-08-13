@@ -1162,7 +1162,7 @@ def addstudent(request):
         if form.is_valid():
             form.save()
             return redirect('addstudent')
-
+        return render(request, 'accounts/Students/addstudent.html', context)
     else:
         form = AddStudentForm()
         context = {'form': form}

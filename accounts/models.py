@@ -68,10 +68,10 @@ class Classinformation(models.Model):
         return self.ClassName
 
 class Sectioninformation(models.Model):
-    choices = (('A','A'),('B','B'))
+    options = (('A','A'),('B','B'))
     NameOfClass = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
     StreamTeacher = models.ForeignKey(TeachersInformation, on_delete=models.PROTECT, blank=True, null=True)
-    SectionName = models.CharField(max_length=130, choices=choices, blank=False)
+    SectionName = models.CharField(max_length=130, choices=options, blank=False)
     NumberOfStudents = models.CharField(max_length=30, blank=True)
 
     def __str__(self):
