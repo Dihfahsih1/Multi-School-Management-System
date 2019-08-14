@@ -3,7 +3,6 @@
 <div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
   <br><h4>Manage Students</h4>
   <hr style=" margin-top: 1rem;margin-bottom: 1rem;border: 0; border-top: 1px solid rgba(0, 0, 0, 0.1);"/>
-
   <nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
     <i style="font-size: 15px; color:red;">Quick Links</i>
     <ul class="navbar-nav mr-auto">
@@ -26,7 +25,6 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'addstudent' %}"><button class="btn btn-success">Add Students</button></a>
       </li>
-
     </ul>
   </nav>
 <br>
@@ -35,7 +33,6 @@
    <thead class="table-success">
     <tr>
          <td>id</td>
-         <td>Photo</td>
          <td>Name</td>
          <td>Class</td>
          <td>Stream</td>
@@ -48,14 +45,13 @@
      {% for item in all_info %}
      <tr>
        <td>{{ item.id}}</td>
-       <td><img src="{{item.image.url}}"</td>
        <td>{{ item.name}}</td>
        <td>{{ item.Class}}</td>
        <td>{{ item.stream}}</td>
        <td>{{ item.reg_no}}</td>
 
-       <td><a  href="{% url 'editstudent' pk=item.id  %}" >Update</a>|
-         <a href="{% url 'deletestudent' pk=item.id %}" >Delete</a>
+       <td><a  href="{% url 'editstudent' pk=item.id  %}">Update</a>|
+         <a href="{% url 'deletestudent' pk=item.id %}">Delete</a>
        </td>
         {% endfor %}
      </tr>

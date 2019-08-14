@@ -289,13 +289,38 @@ class EditSchoolForm(forms.ModelForm):
         fields = ('SchoolName','SchoolCode','Address','Phone','DateOfRegistration')
 
 class AddStudentForm(forms.ModelForm):
+
     class Meta:
         model = StudentData
-        fields = ('school','name','username','gender','religion','email','phone','Class','stream',
-                  'address','birth_date','health_condition','admission_no','admission_date',
-                  'reg_no', 'previous_school','previous_class', 'image')
+        fields = ('school',
+                   'name',
+                   'NationaId',
+                   'username',
+                   'gender',
+                   'religion',
+                   'email',
+                   'phone',
+                   'Class',
+                   'stream',
+                  'PermanentAddress',
+                  'PresentAddress',
+                  'birth_date',
+                  'health_condition',
+                  'admission_no',
+                  'admission_date',
+                  'reg_no',
+                  'previous_school',
+                  'previous_class',
+                   'Guardian',
+                   'GuardianRelationshipToStudent',
+                  'FatherName',
+                  'FatherPhone',
+                  'FatherProfession',
+                  'FatherDesignation',
+                  'MotherName','MotherPhone','MotherProfession','MotherDesignation',
+                  'password')
         widgets = {'birth_date': forms.DateTimeInput(attrs={'class': 'datetime-input'})}
 class EditStudentForm(forms.ModelForm):
     class Meta:
         model = StudentData
-        fields = ('name','username','religion','email','phone', 'address','health_condition','image')
+        fields = ('name','username','religion','email','phone', 'PresentAddress','health_condition')
