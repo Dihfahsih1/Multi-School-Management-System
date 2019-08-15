@@ -370,5 +370,7 @@ class DataStudent(models.Model):
     NationaId = models.CharField(max_length=150, default="Use NIN")
     PresentAddress = models.CharField(max_length=100, default="current area")
     PermanentAddress = models.CharField(max_length=100, default="home")
+    previous_class = models.CharField(max_length=100, default="home")
+    previous_school = models.CharField(max_length=100, default="home")
     def __str__(self):
         return self.name

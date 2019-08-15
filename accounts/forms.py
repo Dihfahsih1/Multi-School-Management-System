@@ -302,4 +302,6 @@ class AddStudentForm(forms.ModelForm):
                   'admission_no',
                   'admission_date',
                   'reg_no',
-                  'Guardian','GuardianRelationshipToStudent','NationaId','phone','PresentAddress','PermanentAddress')
+                  'Guardian','GuardianRelationshipToStudent',
+                  'NationaId','phone','PresentAddress','PermanentAddress',
+                  'previous_school','previous_class')
