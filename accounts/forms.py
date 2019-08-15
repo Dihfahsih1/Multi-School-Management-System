@@ -301,7 +301,6 @@ class AddStudentForm(forms.ModelForm):
                    'stream',
                   'admission_no',
                   'admission_date',
-                  'reg_no',
                   'Guardian','GuardianRelationshipToStudent',
                   'NationaId','phone','PresentAddress','PermanentAddress',
                   'previous_school','previous_class',

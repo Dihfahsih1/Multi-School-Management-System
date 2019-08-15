@@ -361,7 +361,6 @@ class DataStudent(models.Model):
     gender = models.CharField(max_length=130, choices=sex, blank=False)
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
     stream = models.ForeignKey(Sectioninformation, on_delete=models.PROTECT, blank=True, null=True)
-    reg_no = models.CharField(max_length=120, default="nypuyud")
     admission_no = models.CharField(max_length=130, default="nypefjhjhd")
     admission_date = models.CharField(max_length=100, default="nyfjhjpd")
     Guardian = models.CharField(max_length=130, default="text")

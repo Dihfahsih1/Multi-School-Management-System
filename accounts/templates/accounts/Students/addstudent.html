@@ -58,17 +58,30 @@
           <p>{{ form.Class |as_crispy_field }}</p>
           <p>{{ form.stream |as_crispy_field }}</p>
           <p>{{ form.admission_no|as_crispy_field }}</p>
-          <p>{{ form.reg_no|as_crispy_field }}</p>
           <p>{{ form.admission_date|as_crispy_field }}</p>
+          <p>{{ form.Transfer_Certificate |as_crispy_field }}</p>
+         <p>{{ form.Student_Photo|as_crispy_field }}</p>
       </div>
      </div>
   </div>
+  <div class="col-lg-4">
+     <div class="card" style="width: 18rem;">
+       <div class="card-body">
+         <h5 class="text-warning">Other Information</h5>
+           <p>{{ form.email |as_crispy_field }}</p>
+           <p>{{ form.password|as_crispy_field }}</p>
+           <p>{{ form.health_condition|as_crispy_field }}</p>
+            {{ form.previous_class.errors }}
+            <p>{{ form.previous_school |as_crispy_field }}</p>
+            {{ form.previous_school.errors }}
+            <p>{{ form.previous_class |as_crispy_field }}</p>
+       </div>
+      </div>
+   </div>
   <div class="col-lg-4 " >
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="text-warning">Contact Information</h5>
-        {{ form.Guardian.errors }}{{ form.GuardianRelationshipToStudent.errors }}{{ form.NationaId.errors }}{{ form.phone.errors }}
-        {{ form.PresentAddress.errors }} {{ form.PermanentAddress.errors }}
       <p>{{ form.Guardian|as_crispy_field }}</p>
       <p>{{ form.GuardianRelationshipToStudent|as_crispy_field }}</p>
       <p>{{ form.NationaId|as_crispy_field }}</p>
@@ -82,11 +95,11 @@
      <div class="card" style="width: 18rem;">
        <div class="card-body">
          <h5 class="text-warning">Father Information</h5>
-         {{ form.FatherName.errors }}{{ form.FatherPhone.errors }}{{ form.FatherProfession.errors }}{{ form.FatherDesignation.errors }}
            <p>{{ form.FatherName |as_crispy_field }}</p>
            <p>{{ form.FatherPhone |as_crispy_field }}</p>
            <p>{{ form.FatherProfession|as_crispy_field }}</p>
             <p>{{ form.FatherDesignation|as_crispy_field }}</p>
+            <p>{{ form.Father_Photo |as_crispy_field }}</p>
        </div>
       </div>
    </div>
@@ -94,40 +107,15 @@
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="text-warning">Mother Information</h5>
-            {{ form.MotherName.errors }}{{ form.MotherName.errors }}{{ form.MotherProfession.errors }}{{ form.MotherDesignation.errors }}
               <p>{{ form.MotherName |as_crispy_field }}</p>
               <p>{{ form.MotherPhone |as_crispy_field }}</p>
               <p>{{ form.MotherProfession|as_crispy_field }}</p>
                <p>{{ form.MotherDesignation|as_crispy_field }}</p>
+                <p>{{ form.Mother_Photo|as_crispy_field }}</p>
           </div>
          </div>
       </div>
-      <div class="col-lg-4">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="text-warning">Upload Photoa</h5>
-                <p>{{ form.Transfer_Certificate |as_crispy_field }}</p>
-                <p>{{ form.Father_Photo |as_crispy_field }}</p>
-                <p>{{ form.Student_Photo|as_crispy_field }}</p>
-                 <p>{{ form.Mother_Photo|as_crispy_field }}</p>
-            </div>
-           </div>
-        </div>
-     <div class="col-lg-4">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="text-warning">Other Information</h5>
-            {{ form.email.errors }}{{ form.password.errors }}{{ form.health_condition.errors }}
-              <p>{{ form.email |as_crispy_field }}</p>
-              <p>{{ form.password|as_crispy_field }}</p>
-              <p>{{ form.health_condition|as_crispy_field }}</p>
-               {{ form.previous_class.errors }}
-               <p>{{ form.previous_school |as_crispy_field }}</p>
-               {{ form.previous_school.errors }}
-               <p>{{ form.previous_class |as_crispy_field }}</p>
-          </div>
-         </div>
-      </div>
+
 </div>
 <div class="col-md-4 col-sm-6 col-xs-6" style="float:right">
   <div class="card" style="width: 18rem;">
