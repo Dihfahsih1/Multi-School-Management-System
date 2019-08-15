@@ -363,6 +363,7 @@ class DataStudent(models.Model):
     stream = models.ForeignKey(Sectioninformation, on_delete=models.PROTECT, blank=True, null=True)
     admission_no = models.CharField(max_length=130, default="nypefjhjhd")
     admission_date = models.CharField(max_length=100, default="nyfjhjpd")
+    Birth_Date= models.CharField(max_length=100, default="nyfjhjpd")
     Guardian = models.CharField(max_length=130, default="text")
     GuardianRelationshipToStudent = models.CharField(max_length=130, choices=relation, default="text",blank=False)
     phone = models.CharField(max_length=150, default="Use NIN")
