@@ -306,4 +306,5 @@ class AddStudentForm(forms.ModelForm):
                   'NationaId','phone','PresentAddress','PermanentAddress',
                   'previous_school','previous_class',
                   'FatherName','FatherPhone','FatherProfession','FatherDesignation',
-                  'MotherName','MotherPhone','MotherProfession','MotherDesignation')
+                  'MotherName','MotherPhone','MotherProfession','MotherDesignation',
+                  'email','username','password','health_condition')

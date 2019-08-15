@@ -114,6 +114,18 @@
           </div>
          </div>
       </div>
+         <div class="col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="text-warning">Other Information</h5>
+            {{ form.email.errors }}{{ form.username.errors }}{{ form.password.errors }}{{ form.health_condition.errors }}
+              <p>{{ form.email |as_crispy_field }}</p>
+              <p>{{ form.username |as_crispy_field }}</p>
+              <p>{{ form.password|as_crispy_field }}</p>
+              <p>{{ form.health_condition|as_crispy_field }}</p>
+          </div>
+         </div>
+      </div>
 </div>
 <div class="col-md-4 col-sm-6 col-xs-6" style="float:right">
   <div class="card" style="width: 18rem;">

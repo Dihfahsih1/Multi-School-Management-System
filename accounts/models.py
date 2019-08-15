@@ -380,5 +380,9 @@ class DataStudent(models.Model):
     MotherPhone =  models.CharField(max_length=100, default="text")
     MotherProfession =  models.CharField(max_length=100, default="text")
     MotherDesignation = models.CharField(max_length=100, default="text")
+    email = models.CharField(max_length=100, default="text")
+    birth_date = models.CharField(max_length=100, default="text")
+    health_condition = models.CharField(max_length=100, default="text")
+    password = models.CharField(max_length=100, default="text")
     def __str__(self):
         return self.name
