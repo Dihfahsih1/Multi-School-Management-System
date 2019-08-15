@@ -372,5 +372,9 @@ class DataStudent(models.Model):
     PermanentAddress = models.CharField(max_length=100, default="home")
     previous_class = models.CharField(max_length=100, default="home")
     previous_school = models.CharField(max_length=100, default="home")
+    FatherName = models.CharField(max_length=100, default="text")
+    FatherPhone =  models.CharField(max_length=100, default="text")
+    FatherProfession =  models.CharField(max_length=100, default="text")
+    FatherDesignation = models.CharField(max_length=100, default="text")
     def __str__(self):
         return self.name
