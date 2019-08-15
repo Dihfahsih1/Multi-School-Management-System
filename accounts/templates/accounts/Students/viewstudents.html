@@ -46,9 +46,9 @@
      <tr>
        <td>{{ item.id}}</td>
        <td>{{ item.name}}</td>
-       <td>{{ item.Class}}</td>
-       <td>{{ item.stream}}</td>
-       <td>{{ item.reg_no}}</td>
+       <td>{{ item.username}}</td>
+       <td>{{ item.gender}}</td>
+       <td>{{ item.school}}</td>
 
        <td><a  href="{% url 'editstudent' pk=item.id  %}">Update</a>|
          <a href="{% url 'deletestudent' pk=item.id %}">Delete</a>

@@ -1169,7 +1169,7 @@ def addstudent(request):
         return render(request, 'accounts/Students/addstudent.html', context)
 
 def editstudent(request, pk):
-   item = get_object_or_404(StudentData, id=pk)
+   item = get_object_or_404(DataStudent, id=pk)
    if request.method == "POST":
        form =  EditStudentForm(request.POST,request.FILES,instance=item)
        if form.is_valid():
@@ -1180,12 +1180,12 @@ def editstudent(request, pk):
        return render(request, 'accounts/Students/editstudent.html', {'form': form})
 
 def deletestudent(request, pk):
-   StudentData.objects.filter(id=pk).delete()
-   all_info=StudentData.objects.all()
+   DataStudent.objects.filter(id=pk).delete()
+   all_info=DataStudent.objects.all()
    context={'all_info' :all_info}
    return render(request, 'accounts/Students/viewstudents.html', context)
 
 def viewstudents(request):
-    all_info = StudentData.objects.all()
+    all_info = DataStudent.objects.all()
     context={'all_info' :all_info}
     return render(request, 'accounts/Students/viewstudents.html', context)

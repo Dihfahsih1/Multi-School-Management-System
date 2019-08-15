@@ -349,40 +349,26 @@ class Profile (models.Model):
     def __str__(self):
         return self.Name
 
-class StudentData(models.Model):
+class DataStudent(models.Model):
     sex = (('female','female'), ('male','male'))
     reli = (('moslem','moslem'), ('Christian','Christian'),('Others','Others'))
     relation = (('Brother','Brother'), ('Sister','Sister'),('Mother','Mother'),
     ('Father','Father'), ('Uncle','Uncle'),('Auntie','Auntie'))
     school = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
-    Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
-    stream = models.ForeignKey(Sectioninformation, on_delete=models.PROTECT, blank=True, null=True)
+    religion = models.CharField(max_length=130, choices=reli, blank=False)
     name = models.CharField(max_length=100)
     username = models.CharField(max_length=100)
     gender = models.CharField(max_length=130, choices=sex, blank=False)
+    Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
+    stream = models.ForeignKey(Sectioninformation, on_delete=models.PROTECT, blank=True, null=True)
+    reg_no = models.CharField(max_length=120, default="nypuyud")
+    admission_no = models.CharField(max_length=130, default="nypefjhjhd")
+    admission_date = models.CharField(max_length=100, default="nyfjhjpd")
     Guardian = models.CharField(max_length=130, default="text")
     GuardianRelationshipToStudent = models.CharField(max_length=130, choices=relation, default="text",blank=False)
-    religion = models.CharField(max_length=130, choices=reli, blank=False)
-    email = models.CharField(max_length=100)
-    phone = models.CharField(max_length=150)
+    phone = models.CharField(max_length=150, default="Use NIN")
     NationaId = models.CharField(max_length=150, default="Use NIN")
     PresentAddress = models.CharField(max_length=100, default="current area")
     PermanentAddress = models.CharField(max_length=100, default="home")
-    birth_date = models.CharField(max_length=100)
-    health_condition = models.CharField(max_length=100)
-    reg_no = models.CharField(max_length=100)
-    admission_no = models.CharField(max_length=100)
-    admission_date = models.CharField(max_length=100)
-    previous_class = models.CharField(max_length=100)
-    previous_school = models.CharField(max_length=100)
-    FatherName = models.CharField(max_length=100, default="text")
-    FatherPhone =  models.CharField(max_length=100, default="text")
-    FatherProfession =  models.CharField(max_length=100, default="text")
-    FatherDesignation = models.CharField(max_length=100, default="text")
-    MotherName = models.CharField(max_length=100, default="text")
-    MotherPhone =  models.CharField(max_length=100, default="text")
-    MotherProfession =  models.CharField(max_length=100, default="text")
-    MotherDesignation = models.CharField(max_length=100, default="text")
-    password = models.CharField(max_length=100, default="text")
     def __str__(self):
         return self.name
