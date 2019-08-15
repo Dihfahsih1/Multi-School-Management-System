@@ -384,5 +384,9 @@ class DataStudent(models.Model):
     birth_date = models.CharField(max_length=100, default="text")
     health_condition = models.CharField(max_length=100, default="text")
     password = models.CharField(max_length=100, default="text")
+    Transfer_Certificate = models.ImageField(upload_to="gallery", default="text")
+    Father_Photo = models.ImageField(upload_to="gallery", default="text")
+    Student_Photo = models.ImageField(upload_to="gallery", default="text")
+    Mother_Photo = models.ImageField(upload_to="gallery", default="text")
     def __str__(self):
         return self.name

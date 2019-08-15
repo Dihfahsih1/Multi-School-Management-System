@@ -307,4 +307,5 @@ class AddStudentForm(forms.ModelForm):
                   'previous_school','previous_class',
                   'FatherName','FatherPhone','FatherProfession','FatherDesignation',
                   'MotherName','MotherPhone','MotherProfession','MotherDesignation',
-                  'email','username','password','health_condition')
+                  'email','password','health_condition','Transfer_Certificate',
+                  'Father_Photo','Student_Photo','Mother_Photo')

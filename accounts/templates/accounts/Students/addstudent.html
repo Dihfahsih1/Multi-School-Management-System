@@ -79,18 +79,6 @@
   </div>
  </div>
   <div class="col-lg-4">
-   <div class="card" style="width: 18rem;">
-     <div class="card-body">
-       <h5 class="text-warning">Previous School Information</h5>
-       {{ form.previous_class.errors }}
-
-         <p>{{ form.previous_school |as_crispy_field }}</p>
-         {{ form.previous_school.errors }}
-         <p>{{ form.previous_class |as_crispy_field }}</p>
-     </div>
-    </div>
- </div>
-  <div class="col-lg-4">
      <div class="card" style="width: 18rem;">
        <div class="card-body">
          <h5 class="text-warning">Father Information</h5>
@@ -114,15 +102,29 @@
           </div>
          </div>
       </div>
-         <div class="col-lg-4">
+      <div class="col-lg-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="text-warning">Upload Photoa</h5>
+                <p>{{ form.Transfer_Certificate |as_crispy_field }}</p>
+                <p>{{ form.Father_Photo |as_crispy_field }}</p>
+                <p>{{ form.Student_Photo|as_crispy_field }}</p>
+                 <p>{{ form.Mother_Photo|as_crispy_field }}</p>
+            </div>
+           </div>
+        </div>
+     <div class="col-lg-4">
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="text-warning">Other Information</h5>
-            {{ form.email.errors }}{{ form.username.errors }}{{ form.password.errors }}{{ form.health_condition.errors }}
+            {{ form.email.errors }}{{ form.password.errors }}{{ form.health_condition.errors }}
               <p>{{ form.email |as_crispy_field }}</p>
-              <p>{{ form.username |as_crispy_field }}</p>
               <p>{{ form.password|as_crispy_field }}</p>
               <p>{{ form.health_condition|as_crispy_field }}</p>
+               {{ form.previous_class.errors }}
+               <p>{{ form.previous_school |as_crispy_field }}</p>
+               {{ form.previous_school.errors }}
+               <p>{{ form.previous_class |as_crispy_field }}</p>
           </div>
          </div>
       </div>
