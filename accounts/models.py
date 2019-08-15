@@ -376,5 +376,9 @@ class DataStudent(models.Model):
     FatherPhone =  models.CharField(max_length=100, default="text")
     FatherProfession =  models.CharField(max_length=100, default="text")
     FatherDesignation = models.CharField(max_length=100, default="text")
+    MotherName = models.CharField(max_length=100, default="text")
+    MotherPhone =  models.CharField(max_length=100, default="text")
+    MotherProfession =  models.CharField(max_length=100, default="text")
+    MotherDesignation = models.CharField(max_length=100, default="text")
     def __str__(self):
         return self.name
