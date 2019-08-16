@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+from datetime import datetime
 class School (models.Model):
     SchoolCode=models.CharField(max_length=130)
     SchoolName=models.CharField(max_length=130)
@@ -389,11 +391,8 @@ class DataStudent(models.Model):
     Father_Photo = models.ImageField(upload_to="gallery", default="text")
     Student_Photo = models.ImageField(upload_to="gallery", default="text")
     Mother_Photo = models.ImageField(upload_to="gallery", default="text")
+    created_at = models.DateField(default=timezone.now())
     def __str__(self):
         return self.name
     def __str__(self):
         return self.Student_Photo
-
-class StudentAttendance(models.Model):
-    Student_Name = models.ForeignKey(DataStudent, on_delete=models.CASCADE, blank=True, null=True)
-    Present = models.BooleanField(default=False)
