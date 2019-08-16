@@ -350,16 +350,14 @@ class Profile (models.Model):
         return self.Name
 
 class DataStudent(models.Model):
-    Present = 'Yes'
-    Absent = 'No'
-    attendance = ((Present,'Yes'), (Absent,'No'))
+    attendance = (("1",'Present'), ("0",'Absent'))
     sex = (('female','female'), ('male','male'))
     reli = (('moslem','moslem'), ('Christian','Christian'),('Others','Others'))
     relation = (('Brother','Brother'), ('Sister','Sister'),('Mother','Mother'),
     ('Father','Father'), ('Uncle','Uncle'),('Auntie','Auntie'))
     school = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     religion = models.CharField(max_length=130, choices=reli, blank=False)
-    Student_Attendance=models.CharField(max_length=130, choices=attendance,null=True,default="none")
+    Student_Attendance=models.CharField(max_length=8, choices=attendance,null=True,default="none")
     name = models.CharField(max_length=100)
     username = models.CharField(max_length=100)
     gender = models.CharField(max_length=130, choices=sex, blank=False)
