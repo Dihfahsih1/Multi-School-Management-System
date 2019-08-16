@@ -4,7 +4,6 @@
 <br><h4>Manage Subjects</h4>
 <nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
   <ul class="navbar-nav mr-auto">
-    <i style="font-size: 15px; color:red;">Quick Links</i>
     <li class="nav-item">
       <a class="nav-link" href="{% url 'viewclassinformation'%}">Manage Class</a>
     </li>
@@ -18,7 +17,7 @@
       <a class="nav-link" href="{% url 'viewsyllabus'%}">Manage Syllabus</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Manage Class Attendence</a>
+      <a class="nav-link" href="{% url 'studentattendance'%}">Student Attendence</a>
     </li>
   </ul>
 </nav>
