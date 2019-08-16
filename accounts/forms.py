@@ -299,7 +299,7 @@ class AddStudentForm(forms.ModelForm):
                   'MotherName','MotherPhone','MotherProfession','MotherDesignation',
                   'email','password','health_condition','Transfer_Certificate',
                   'Father_Photo','Student_Photo','Mother_Photo','Birth_Date')
-        widgets = {'birth_date': forms.DateTimeInput(attrs={'class': 'datetime-input'})}
+        widgets = {'Birth_Date': forms.DateTimeInput(attrs={'class': 'datetime-input'})}
 class EditStudentForm(forms.ModelForm):
     class Meta:
         model = DataStudent

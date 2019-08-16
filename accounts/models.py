@@ -381,7 +381,6 @@ class DataStudent(models.Model):
     MotherProfession =  models.CharField(max_length=100, default="text")
     MotherDesignation = models.CharField(max_length=100, default="text")
     email = models.CharField(max_length=100, default="text")
-    birth_date = models.CharField(max_length=100, default="text")
     health_condition = models.CharField(max_length=100, default="text")
     password = models.CharField(max_length=100, default="text")
     Transfer_Certificate = models.ImageField(upload_to="gallery", default="text")
@@ -392,6 +391,6 @@ class DataStudent(models.Model):
         return self.name + self.Student_Photo
 
 class StudentAttendance(models.Model):
-    Student_Name = models.ForeignKey(DataStudent, related_name='name', on_delete=models.CASCADE, blank=True, null=True)
-    Photo =models.ForeignKey(DataStudent, related_name='Student_Photo', on_delete=models.CASCADE, blank=True, null=True)
+    Student_Name = models.ForeignKey(DataStudent, related_name='+', on_delete=models.CASCADE, blank=True, null=True)
+    Photo =models.ForeignKey(DataStudent, related_name='+', on_delete=models.CASCADE, blank=True, null=True)
     Present = models.CharField(max_length=100)
