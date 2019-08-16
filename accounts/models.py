@@ -389,4 +389,9 @@ class DataStudent(models.Model):
     Student_Photo = models.ImageField(upload_to="gallery", default="text")
     Mother_Photo = models.ImageField(upload_to="gallery", default="text")
     def __str__(self):
-        return self.name
+        return self.name + self.Student_Photo
+
+class StudentAttendance(models.Model):
+    Student_Name = models.ForeignKey(DataStudent, related_name='name', on_delete=models.CASCADE, blank=True, null=True)
+    Photo =models.ForeignKey(DataStudent, related_name='Student_Photo', on_delete=models.CASCADE, blank=True, null=True)
+    Present = models.CharField(max_length=100)
