@@ -1194,13 +1194,6 @@ def viewstudents(request):
 #         STUDENT ATTENDANCE MODULE               #
   ################################################
 def studentattendance(request):
-    if request.method=="POST":
-        form=StudentAttendanceForm(request.POST,request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('studentattendance')
-        return render(request, 'accounts/Attendance/studentattendance.html',{'form': form})
-    else:
-        form = StudentAttendanceForm()
-        context = {'form': form}
-        return render(request, 'accounts/Attendance/studentattendance.html',{'form': form})
+    all_info = DataStudent.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/Attendance/studentattendance.html', context)

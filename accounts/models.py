@@ -350,12 +350,16 @@ class Profile (models.Model):
         return self.Name
 
 class DataStudent(models.Model):
+    Present = 'Yes'
+    Absent = 'No'
+    attendance = ((Present,'Yes'), (Absent,'No'))
     sex = (('female','female'), ('male','male'))
     reli = (('moslem','moslem'), ('Christian','Christian'),('Others','Others'))
     relation = (('Brother','Brother'), ('Sister','Sister'),('Mother','Mother'),
     ('Father','Father'), ('Uncle','Uncle'),('Auntie','Auntie'))
     school = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     religion = models.CharField(max_length=130, choices=reli, blank=False)
+    Student_Attendance=models.CharField(max_length=130, choices=attendance,null=True,default="none")
     name = models.CharField(max_length=100)
     username = models.CharField(max_length=100)
     gender = models.CharField(max_length=130, choices=sex, blank=False)
@@ -388,9 +392,10 @@ class DataStudent(models.Model):
     Student_Photo = models.ImageField(upload_to="gallery", default="text")
     Mother_Photo = models.ImageField(upload_to="gallery", default="text")
     def __str__(self):
-        return self.name + self.Student_Photo
+        return self.name
+    def __str__(self):
+        return self.Student_Photo
 
 class StudentAttendance(models.Model):
-    Student_Name = models.ForeignKey(DataStudent, related_name='+', on_delete=models.CASCADE, blank=True, null=True)
-    Photo =models.ForeignKey(DataStudent, related_name='+', on_delete=models.CASCADE, blank=True, null=True)
-    Present = models.CharField(max_length=100)
+    Student_Name = models.ForeignKey(DataStudent, on_delete=models.CASCADE, blank=True, null=True)
+    Present = models.BooleanField(default=False)
