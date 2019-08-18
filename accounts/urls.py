@@ -158,6 +158,7 @@ url(r'^deletestudent/(?P<pk>\d+)', views.deletestudent, name="deletestudent"),
 url(r'^viewstudents', views.viewstudents, name="viewstudents"),
 url(r'^studentattendance', views.studentattendance, name="studentattendance"),
 url(r'^studentattendance/(?P<pk>\d+)', views.studentattendance, name="studentattendance"),
+url(r'^viewstudentattendence', views.viewstudentattendence, name="viewstudentattendence"),
 
 url(r'^singleteacherdetails/(?P<pk>\d+)', views.singleteacherdetails, name="singleteacherdetails"),
 url(r'^logout', views.login, name="logout")

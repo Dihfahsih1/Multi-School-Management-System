@@ -301,13 +301,14 @@ class AddStudentForm(forms.ModelForm):
                   'email','password','health_condition','Transfer_Certificate',
                   'Father_Photo','Student_Photo','Mother_Photo','Birth_Date',
                   'Student_Attendance', 'created_at')
-        widgets = {'Student_Attendance': forms.RadioSelect}
+
 class EditStudentForm(forms.ModelForm):
     class Meta:
         model = DataStudent
         fields = ('name','username','religion','email','phone', 'PresentAddress','health_condition')
 
-class StudentAttendanceForm(forms.ModelForm):
+class AddStudentAttendanceForm(forms.ModelForm):
     class Meta:
         model = DataStudent
         fields=('name','Student_Attendance')
+        widgets = {'Student_Attendance': forms.RadioSelect}
