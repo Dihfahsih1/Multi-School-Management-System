@@ -52,7 +52,7 @@
        <td>{{ item.stream}}</td>
        <td>{{ item.admission_no}}</td>
 
-       <td><a  href="{% url 'editstudent' pk=item.id  %}">Update</a>|
+       <td><a  href="{% url 'singlestudentdetails' pk=item.id  %}">View</a>|
          <a href="{% url 'deletestudent' pk=item.id %}">Delete</a>
        </td>
         {% endfor %}

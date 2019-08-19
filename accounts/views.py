@@ -1196,5 +1196,13 @@ def viewstudents(request):
 def studentattendance(request):
     time=datetime.now()
     queryset = StudentPresence.objects.all()
-    context={'queryset' :queryset, 'time':time}
+    context={'queryset':queryset, 'time':time}
     return render(request, 'accounts/Attendance/studentattendance.html', context)
+
+  ################################################
+#         SINGLE STUDENT INFORMATION               #
+  ################################################
+def singlestudentdetails(request, pk):
+    all_info = DataStudent.objects.filter(id=pk)
+    context={'all_info':all_info}
+    return render(request, 'accounts/Students/singlestudentdetails.html', context)
