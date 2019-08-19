@@ -1195,6 +1195,6 @@ def viewstudents(request):
   ################################################
 def studentattendance(request):
     time=datetime.now()
-    queryset = StudentAttendance.objects.all()
+    queryset = StudentPresence.objects.all()
     context={'queryset' :queryset, 'time':time}
     return render(request, 'accounts/Attendance/studentattendance.html', context)

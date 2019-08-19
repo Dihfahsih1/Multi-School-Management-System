@@ -392,8 +392,10 @@ class DataStudent(models.Model):
     def __str__(self):
         return self.name
 
-class StudentAttendance(models.Model):
-    attendance = (("1",'Present'), ("0",'Absent'))
+class StudentPresence(models.Model):
+    attend = (('1','Present'), ('0','Absent'))
     Student_Name = models.ForeignKey(DataStudent,on_delete=models.PROTECT, blank=False)
-    Student_Attendance=models.CharField(max_length=8, choices=attendance,null=True,default="none")
+    Attendance=models.CharField(max_length=8, choices=attend,null=True,default="none")
     Attendance_Date = models.DateField(default=timezone.now())
+    def __str__(self):
+        return self.Student_Name

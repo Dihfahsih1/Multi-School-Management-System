@@ -305,3 +305,7 @@ class EditStudentForm(forms.ModelForm):
     class Meta:
         model = DataStudent
         fields = ('name','username','religion','email','phone', 'PresentAddress','health_condition')
+class AddStudentAttendanceForm(forms.ModelForm):
+    class Meta:
+        model = StudentPresence
+        fields = ('Student_Name','Attendance','Attendance_Date')

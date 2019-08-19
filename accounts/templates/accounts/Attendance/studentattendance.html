@@ -37,6 +37,7 @@
 <br>
 <div class="container" style="margin-left:20px; font-size:15px; padding:3px">
 <p style="color:red; font-size:20px">  Student Roll Call Made on {{time}}</p>
+{{queryset}}
 <table class="table table-hover" border="2">
   {% load crispy_forms_tags %}
    <thead class="table-success">
@@ -47,15 +48,14 @@
      </tr>
    </thead>
    <tbody>
-     {% for item in queryset %}
-       <tr>
-         <td>{{ item.id}}</td>
-         <td>{{ item.Student_Name}}</td>
-         <td>{{ item.Student_Attendance}}</td>
-         {% endfor %}
-       </tr>
-       <td>
-   </tbody>
+    {% for item in queryset %}
+    <tr>
+      <td>{{ item.id}}</td>
+      <td>{{ item.Student_Name}}</td>
+      <td>{{ item.Attendance}}</td>
+       {% endfor %}
+    </tr>
+    </tbody>
 </table>
 
 </div>
