@@ -17,7 +17,7 @@ color:blue;
     <a class="nav-link" href="{% url 'viewstudents' %}"><button class="btn btn-warning">All Students</button></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="{% url 'singlestudentdetails' %}"><button class="btn btn-primary">Basic Information</button></a><li>
+    <a class="nav-link" href="{% url 'singlestudentdetails' pk=item.id  %}"><button class="btn btn-primary">Basic Information</button></a><li>
     <li class="nav-item">
     <a class="nav-link" href="#"><button class="btn btn-default">Guardian Information</button></a>
     </li>
@@ -60,14 +60,6 @@ color:blue;
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <button class="btn btn-warning" name="button"> Print </button>
-    </div>
-  </div>
-</div>
-<div class="col-md-4 col-sm-6 col-xs-6" style="float:right">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="text-default">Edit Guardian's Data</h5>
-      <a href="{% url 'editstudent' pk=item.id  %}"><button  class="btn btn-success" name="button"> Edit </button></a>
     </div>
   </div>
 </div>

@@ -19,7 +19,7 @@ color:blue;
     <li class="nav-item">
     <a class="nav-link" href="#"><button class="btn btn-default">Basic Information</button></a><li>
     <li class="nav-item">
-    <a class="nav-link" href="{% url 'guardianofstudentdetails' %}"><button class="btn btn-primary">Guardian Information</button></a>
+    <a class="nav-link" href="{% url 'guardianofstudentdetails' pk=item.id  %}"><button class="btn btn-primary">Guardian Information</button></a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="#"><button class="btn btn-primary">Parent Information</button></a><li>
