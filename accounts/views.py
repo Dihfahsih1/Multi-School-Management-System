@@ -1206,3 +1206,8 @@ def singlestudentdetails(request, pk):
     all_info = DataStudent.objects.filter(id=pk)
     context={'all_info':all_info}
     return render(request, 'accounts/Students/singlestudentdetails.html', context)
+
+def guardianofstudentdetails(request, pk):
+    all_info = DataStudent.objects.filter(id=pk)
+    context={'all_info':all_info}
+    return render(request, 'accounts/Students/guardianofstudentdetails.html', context)    
