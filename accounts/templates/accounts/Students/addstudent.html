@@ -41,7 +41,6 @@
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="text-warning">Basic Information</h5>
-        {{ form.school.errors }}{{ form.name.errors }}{{ form.username.errors }}{{ form.gender.errors }}{{ form.religion.errors }}
         <p>{{ form.school|as_crispy_field }}</p>
         <p>{{ form.name|as_crispy_field }}</p>
         <p>{{ form.username|as_crispy_field }}</p>
@@ -55,9 +54,8 @@
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="text-warning">Academic Information</h5>
-        {{ form.Class.errors }}{{ form.stream.errors }}{{ form.admission_no.errors }}{{ form.reg_no.errors }}{{ form.admission_date.errors }}
-          <p>{{ form.Class |as_crispy_field }}</p>
           <p>{{ form.stream |as_crispy_field }}</p>
+          <p>{{ form.Class |as_crispy_field }}</p>
           <p>{{ form.admission_no|as_crispy_field }}</p>
           <p>{{ form.admission_date|as_crispy_field }}</p>
           <p>{{ form.Transfer_Certificate |as_crispy_field }}</p>
@@ -72,9 +70,7 @@
            <p>{{ form.email |as_crispy_field }}</p>
            <p>{{ form.password|as_crispy_field }}</p>
            <p>{{ form.health_condition|as_crispy_field }}</p>
-            {{ form.previous_class.errors }}
             <p>{{ form.previous_school |as_crispy_field }}</p>
-            {{ form.previous_school.errors }}
             <p>{{ form.previous_class |as_crispy_field }}</p>
        </div>
       </div>

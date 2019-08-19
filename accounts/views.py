@@ -1194,20 +1194,7 @@ def viewstudents(request):
 #         STUDENT ATTENDANCE MODULE               #
   ################################################
 def studentattendance(request):
-    all_info = DataStudent.objects.all()
     time=datetime.now()
-    if request.method == "POST":
-        form =  AddStudentAttendanceForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('studentattendance')
-    else:
-        form =  AddStudentAttendanceForm()
-
-        context={'all_info' :all_info,
-                   'form':form, 'time':time}
-        return render(request, 'accounts/Attendance/studentattendance.html', context)
-def viewstudentattendence(request):
-    all_info = DataStudent.objects.all()
-    context={'all_info' :all_info}
-    return render(request, 'accounts/Attendance/viewstudentattendance.html', context)
+    queryset = StudentAttendance.objects.all()
+    context={'queryset' :queryset, 'time':time}
+    return render(request, 'accounts/Attendance/studentattendance.html', context)

@@ -299,16 +299,9 @@ class AddStudentForm(forms.ModelForm):
                   'FatherName','FatherPhone','FatherProfession','FatherDesignation',
                   'MotherName','MotherPhone','MotherProfession','MotherDesignation',
                   'email','password','health_condition','Transfer_Certificate',
-                  'Father_Photo','Student_Photo','Mother_Photo','Birth_Date',
-                  'Student_Attendance', 'created_at')
+                  'Father_Photo','Student_Photo','Mother_Photo','Birth_Date')
 
 class EditStudentForm(forms.ModelForm):
     class Meta:
         model = DataStudent
         fields = ('name','username','religion','email','phone', 'PresentAddress','health_condition')
-
-class AddStudentAttendanceForm(forms.ModelForm):
-    class Meta:
-        model = DataStudent
-        fields=('name','Student_Attendance')
-        widgets = {'Student_Attendance': forms.RadioSelect}

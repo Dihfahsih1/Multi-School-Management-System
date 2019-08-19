@@ -27,7 +27,7 @@
   <nav class="nav navbar-expand" style="float:left">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'viewstudentattendence' %}"><button class="btn btn-success">View Student Attendance</button></a>
+        <a class="nav-link" href="#"><button class="btn btn-success">View Student Attendance</button></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"><button class="btn btn-default">Take Roll Call</button></a>
@@ -44,28 +44,19 @@
          <td>id</td>
          <td>Student Name</td>
          <td>Tick Present</td>
-         <td>Action</td>
      </tr>
    </thead>
    <tbody>
-    <form method="post" action="{% url 'studentattendance' %}"enctype="multipart/form-data">
-     {% if all_info %}
-     {% for item in all_info %}
-     <tr>
-       <td>{{ item.id}}</td>
-       <td>{{ item.name}}</td>
-        <td>
-          <form enctype="multipart/form-data">
-          {% csrf_token %}
-          {{ form.Student_Attendance}}
-         </form>
-       </td>
-        {% endfor %}
-     {% endif %}
+     {% for item in queryset %}
+       <tr>
+         <td>{{ item.id}}</td>
+         <td>{{ item.Student_Name}}</td>
+         <td>{{ item.Student_Attendance}}</td>
+         {% endfor %}
        </tr>
+       <td>
    </tbody>
 </table>
-<td><button type="button" class="btn btn-primary" style="float:right">Submit Attendance</button></td>
 
 </div>
 </div>
