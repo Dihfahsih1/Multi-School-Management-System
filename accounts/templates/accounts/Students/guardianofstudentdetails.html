@@ -57,9 +57,18 @@ color:blue;
   </div>
 </div>
 <div class="col-md-4 col-sm-6 col-xs-6" style="float:right">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <button class="btn btn-warning" name="button"> Print </button>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <button class="btn btn-warning" name="button"> Print </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-6 col-xs-6" style="float:right">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="text-default">Edit Parent's Data</h5>
+        <a href="{% url 'editstudent' pk=item.id  %}"><button  class="btn btn-success" name="button"> Edit </button></a>
+      </div>
     </div>
   </div>
 </div>
