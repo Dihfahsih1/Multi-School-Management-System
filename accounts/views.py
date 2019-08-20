@@ -1217,7 +1217,38 @@ def parentofstudentdetails(request, pk):
     context={'all_info':all_info}
     return render(request, 'accounts/Students/parentofstudentdetails.html', context)
 
-def studentsinaclass1(request, pk):
-    all_info = DataStudent.objects.filter(Class=Form_One)
+def studentsinaclass1(request):
+    all_classes=Classinformation.objects.all()
+    all_info = DataStudent.objects.filter(Class=all_classes[0])
     context={'all_info':all_info}
-    return render(request, 'accounts/Students/parentofstudentdetails.html', context)
+    return render(request, 'accounts/StudentClass/view_form_one_students.html', context)
+
+def studentsinaclass2(request):
+    all_classes=Classinformation.objects.all()
+    all_info = DataStudent.objects.filter(Class=all_classes[1])
+    context={'all_info':all_info}
+    return render(request, 'accounts/StudentClass/view_form_two_students.html', context)
+
+def studentsinaclass3(request):
+    all_classes=Classinformation.objects.all()
+    all_info = DataStudent.objects.filter(Class=all_classes[2])
+    context={'all_info':all_info}
+    return render(request, 'accounts/StudentClass/view_form_three_students.html', context)
+
+def studentsinaclass4(request):
+    all_classes=Classinformation.objects.all()
+    all_info = DataStudent.objects.filter(Class=all_classes[3])
+    context={'all_info':all_info}
+    return render(request, 'accounts/StudentClass/view_form_four_students.html', context)
+
+def studentsinaclass5(request):
+    all_classes=Classinformation.objects.all()
+    all_info = DataStudent.objects.filter(Class=all_classes[4])
+    context={'all_info':all_info}
+    return render(request, 'accounts/StudentClass/view_form_five_students.html', context)
+
+def studentsinaclass6(request):
+    all_classes=Classinformation.objects.all()
+    all_info = DataStudent.objects.filter(Class=all_classes[5])
+    context={'all_info':all_info}
+    return render(request, 'accounts/StudentClass/view_form_six_students.html', context)

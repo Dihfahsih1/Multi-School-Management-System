@@ -27,14 +27,16 @@
   <nav class="nav navbar-expand">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-      <a class="nav-link" href="#"><button class="btn btn-default">List of Syllab</button></a>
-      </li>
+      <a class="btn btn-default a-btn-slide-text" href="#"><span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+        <span><strong>List of Syllabus</strong></span></a></li>
+|
       <li class="nav-item">
-      <a class="nav-link" href="{% url 'addsyllabus' %}"><button class="btn btn-primary">Add Syllabus</button></a>
+      <a class="btn btn-primary a-btn-slide-text" href="{% url 'addsyllabus' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <span><strong>Add Syllabus</strong></span>  </a>
       </li
     </ul>
   </nav>
-  <div class="container" style="margin-left:20px; font-size:15px; padding:3px">
+  <div class="container" style="margin-left:1px; font-size:15px; padding:3px">
 <table class="table table-hover" border="2">
    <thead class="table-success">
      <tr>
@@ -51,18 +53,25 @@
      {% if all_info %}
      {% for item in all_info %}
      <tr>
+       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
        <td>{{ item.id}}</td>
        <td>{{ item.SyllabusType}}</td>
        <td>{{ item.Subject}}</td>
        <td>{{ item.Class}}</td>
        <td>{{ item.Syllabus}}</td>
        <td>{{ item.Notes}}</td>
-       <td><a href="{% url 'editsubject' pk=item.id  %}" >
-         <button class="btn btn-warning">Edit</button></a>|
-         <a href="{% url 'deletesubject' pk=item.id %}" >
-           <button class="btn btn-danger">Delete</button></a>|
-           <a href="#" >
-             <button class="btn btn-danger download">Download</button></a>
+
+       <td><a class='btn btn-warning a-btn-slide-text' href="{% url 'editsubject' pk=item.id  %}" >
+         <span  class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span><strong>Edit</strong></span></a>
+
+         <a  class="btn btn-danger a-btn-slide-text" href="{% url 'deletesubject' pk=item.id %}" >
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          <span><strong>Delete</strong></span> </a>
+
+           <a class='btn btn-primary a-btn-slide-text' href="#" ><span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+          <span><strong>Download</strong></span></a>
        </td>
         {% endfor %}
      </tr>

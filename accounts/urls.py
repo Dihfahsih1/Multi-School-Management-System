@@ -155,12 +155,19 @@ url(r'^viewschools', views.viewschools, name="viewschools"),
 url(r'^addstudent', views.addstudent, name="addstudent"),
 url(r'^editstudent/(?P<pk>\d+)', views.editstudent, name="editstudent"),
 url(r'^deletestudent/(?P<pk>\d+)', views.deletestudent, name="deletestudent"),
-url(r'^viewstudents', views.viewstudents, name="viewstudents"),
+url(r'^viewstudents/(?P<pk>\d+)', views.viewstudents, name="viewstudents"),
 url(r'^studentattendance', views.studentattendance, name="studentattendance"),
 
 url(r'^guardianofstudentdetails/(?P<pk>\d+)', views.guardianofstudentdetails, name="guardianofstudentdetails"),
 url(r'^singleteacherdetails/(?P<pk>\d+)', views.singleteacherdetails, name="singleteacherdetails"),
 url(r'^singlestudentdetails/(?P<pk>\d+)', views.singlestudentdetails, name="singlestudentdetails"),
 url(r'^parentofstudentdetails/(?P<pk>\d+)', views.parentofstudentdetails, name="parentofstudentdetails"),
+url(r'^studentsinaclass1', views.studentsinaclass1, name="studentsinaclass1"),
+url(r'^studentsinaclass2', views.studentsinaclass2, name="studentsinaclass2"),
+url(r'^studentsinaclass3', views.studentsinaclass3, name="studentsinaclass3"),
+url(r'^studentsinaclass4', views.studentsinaclass4, name="studentsinaclass4"),
+url(r'^studentsinaclass5', views.studentsinaclass5, name="studentsinaclass5"),
+url(r'^studentsinaclass6', views.studentsinaclass6, name="studentsinaclass6"),
+
 url(r'^logout', views.login, name="logout")
 ]
