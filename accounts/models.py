@@ -59,9 +59,9 @@ class Login(models.Model):
     password = models.CharField(max_length=30, blank=True)
 
 class Classinformation(models.Model):
-    nameclass= (('Form One','Form One'), ('Form Two', 'Form Two'),('Form Three','Form Three'), ('Form Four', 'Form Four'),
-    ('Form Five Arts','Form Five Arts'), ('Form Five Sciences', 'Form Five Sciences'),
-    ('Form Five Six','Form Six Arts'), ('Form Six Sciences', 'Form Six Sciences'))
+    nameclass= (('Form_One','Form_One'), ('Form_Two', 'Form_Two'),('Form_Three','Form_Three'), ('Form_Four', 'Form_Four'),
+    ('Form_Five_Arts','Form_Five_Arts'), ('Form_Five_Sciences', 'Form_Five_Sciences'),
+    ('Form_Five_Six','Form_Six_Arts'), ('Form_Six_Sciences', 'Form_Six_Sciences'))
     ClassName = models.CharField(max_length=130, choices=nameclass, blank=False)
     ClassTeacher = models.ForeignKey(TeachersInformation, on_delete=models.PROTECT, blank=True, null=True)
     TotalStudents = models.CharField(max_length=30, blank=True)

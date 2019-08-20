@@ -1216,3 +1216,8 @@ def parentofstudentdetails(request, pk):
     all_info = DataStudent.objects.filter(id=pk)
     context={'all_info':all_info}
     return render(request, 'accounts/Students/parentofstudentdetails.html', context)
+
+def studentsinaclass1(request, pk):
+    all_info = DataStudent.objects.filter(Class=Form_One)
+    context={'all_info':all_info}
+    return render(request, 'accounts/Students/parentofstudentdetails.html', context)
