@@ -18,6 +18,19 @@
       <a class="nav-link" href="#">Student Activity</a>
       </li>
     </ul>
+    <div style="float:right;">
+    <button class="dropdown-btn" style="float:right; background:white;color:black"><b>All Classes</b>
+    <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container"style="background:white">
+    <a  href="{% url 'studentsinaclass1'  %}">Form One</a>
+    <a href="{% url 'studentsinaclass2' %}">Form Two</a>
+    <a href="{% url 'studentsinaclass3' %}">Form Three</a>
+    <a href="{% url 'studentsinaclass4' %}">Form Four</a>
+    <a href="{% url 'studentsinaclass5' %}">Form Five</a>
+    <a href="{% url 'studentsinaclass6' %}">Form Six</a>
+    </div>
+    </div>
   </nav>
   <nav class="nav navbar-expand" style="float:left">
     <ul class="navbar-nav mr-auto">

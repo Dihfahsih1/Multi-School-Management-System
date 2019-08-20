@@ -1203,6 +1203,7 @@ def studentattendance(request):
 #         SINGLE STUDENT INFORMATION               #
   ################################################
 def singlestudentdetails(request, pk):
+
     all_info = DataStudent.objects.filter(id=pk)
     context={'all_info':all_info}
     return render(request, 'accounts/Students/singlestudentdetails.html', context)
@@ -1220,7 +1221,7 @@ def parentofstudentdetails(request, pk):
 def studentsinaclass1(request):
     all_classes=Classinformation.objects.all()
     all_info = DataStudent.objects.filter(Class=all_classes[0])
-    context={'all_info':all_info}
+    context={'all_info':all_info,'all_classes':all_classes}
     return render(request, 'accounts/StudentClass/view_form_one_students.html', context)
 
 def studentsinaclass2(request):
