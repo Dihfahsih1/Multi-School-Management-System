@@ -50,7 +50,9 @@
        <td>{{ item.Subjectcode}}</td>
        <td>{{ item.Class}}</td>
        <td>{{ item.SubjectTeacher}}</td>
-       <td><a  href="#">View</a>
+       <td><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <a class="btn btn-primary a-btn-slide-text" href="{% url 'viewsinglesubjectsinclassdetails' pk=item.id  %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+     <span><strong>View</strong></span></a>
        </td>
         {% endfor %}
      </tr>
