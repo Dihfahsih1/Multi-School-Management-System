@@ -1301,3 +1301,13 @@ def viewsinglesubjectsinclassdetails(request, pk):
     all_info = Subjects.objects.filter(id=pk)
     context={'all_info':all_info}
     return render(request, 'accounts/Subject/viewsinglesubjectsinclassdetails.html', context)
+
+
+      ################################################
+    #     STUDENT  VIEWING HIS SYLLABUS               #
+      ################################################
+def syllabusofclass1(request):
+    all_classes=Classinformation.objects.all()
+    all_info = Syllabus.objects.filter(Class=all_classes[0])
+    context={'all_info':all_info,'all_classes':all_classes}
+    return render(request, 'accounts/Subject/view_form_one_syllabus.html', context)

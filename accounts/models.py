@@ -79,7 +79,7 @@ class Sectioninformation(models.Model):
     def __str__(self):
         return self.SectionName
 class Subjects(models.Model):
-    choices = (('Compulsory','Compulsory'),('Options','Options'))
+    choices = (('Compulsory','Compulsory'),('Optional','Optional'))
     Subjectname = models.CharField(max_length=130)
     Subjectcode = models.CharField(max_length=130)
     Author = models.CharField(max_length=130)
@@ -94,7 +94,7 @@ class Syllabus(models.Model):
     SyllabusType = models.CharField(max_length=130)
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
     Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
-    Syllabus = models.FileField(max_length=130, blank=False)
+    Syllabus = models.FileField(upload_to="gallery", default="text")
     Notes = models.TextField(max_length=100)
     def __str__(self):
         return self.Syllabus
@@ -132,7 +132,7 @@ class Assignment(models.Model):
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
     Subject = models.ForeignKey(Subjects, on_delete=models.PROTECT, blank=True, null=True)
     Deadline =models.CharField(max_length=130, blank=False)
-    Assignment = models.FileField(max_length=130, blank=False)
+    Assignment = models.FileField(upload_to="gallery", default="text")
     Notes = models.TextField(max_length=100)
     def __str__(self):
         return self.Assignment

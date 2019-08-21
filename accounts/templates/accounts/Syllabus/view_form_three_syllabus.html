@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+  <br><h4>Student Syllabus</h4>
+    <hr style=" margin-top: 1rem;margin-bottom: 1rem;border: 0;
+     border-top: 1px solid rgba(0, 0, 0, 0.1);"/>
+  <nav class="nav navbar-expand">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+      <a class="btn btn-default a-btn-slide-text" href="#"><span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+        <span><strong>List of Syllabus</strong></span></a></li>
+    </ul>
+  </nav>
+  <div class="container" style="margin-left:1px; font-size:15px; padding:3px">
+<table class="table table-hover" border="2">
+   <thead class="table-success">
+     <tr>
+         <td>Type</td>
+         <td>Subject</td>
+         <td>Class</td>
+         <td>Syllabus file</td>
+         <td>Notes</td>
+         <td>Actions</td>
+     </tr>
+   </thead>
+   <tbody>
+     {% if all_info %}
+     {% for item in all_info %}
+     <tr>
+       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+       <td>{{ item.SyllabusType}}</td>
+       <td>{{ item.Subject}}</td>
+       <td>{{ item.Class}}</td>
+       <td>{{ item.Syllabus}}</td>
+       <td>{{ item.Notes}}</td>
+
+       <td>
+           <a class='btn btn-primary a-btn-slide-text' href="#" ><span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+          <span><strong>Download</strong></span></a>
+       </td>
+        {% endfor %}
+     </tr>
+     {% endif %}
+   </tbody>
+</table>
+</div>
+</div>
+{% endblock %}
