@@ -8,7 +8,10 @@
 body {
   font-family: "Lato", sans-serif;
 }
-
+b{
+font-size:100%;
+color:blue;
+}
 /* Fixed sidenav, full height */
 .scrollbar {
 float: left;

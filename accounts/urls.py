@@ -178,5 +178,10 @@ url(r'^subjectsinaclass6', views.subjectsinaclass6, name="subjectsinaclass6"),
 url(r'^viewsinglesubjectsinclassdetails/(?P<pk>\d+)', views.viewsinglesubjectsinclassdetails, name="viewsinglesubjectsinclassdetails"),
 
 url(r'^syllabusofclass1', views.syllabusofclass1, name="syllabusofclass1"),
+url(r'^syllabusofclass2', views.syllabusofclass2, name="syllabusofclass2"),
+url(r'^syllabusofclass3', views.syllabusofclass3, name="syllabusofclass3"),
+url(r'^syllabusofclass4', views.syllabusofclass4, name="syllabusofclass4"),
+url(r'^syllabusofclass5', views.syllabusofclass5, name="syllabusofclass5"),
+url(r'^syllabusofclass6', views.syllabusofclass6, name="syllabusofclass6"),
 url(r'^logout', views.login, name="logout")
 ]
