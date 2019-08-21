@@ -190,5 +190,12 @@ url(r'^assignmentofclass3', views.assignmentofclass3, name="assignmentofclass3")
 url(r'^assignmentofclass4', views.assignmentofclass4, name="assignmentofclass4"),
 url(r'^assignmentofclass5', views.assignmentofclass5, name="assignmentofclass5"),
 url(r'^assignmentofclass6', views.assignmentofclass6, name="assignmentofclass6"),
+
+url(r'^streamsofclass1', views.streamsofclass1, name="streamsofclass1"),
+url(r'^streamsofclass2', views.streamsofclass2, name="streamsofclass2"),
+url(r'^streamsofclass3', views.streamsofclass3, name="streamsofclass3"),
+url(r'^streamsofclass4', views.streamsofclass4, name="streamsofclass4"),
+url(r'^streamsofclass5', views.streamsofclass5, name="streamsofclass5"),
+url(r'^streamsofclass6', views.streamsofclass6, name="streamsofclass6"),
 url(r'^logout', views.login, name="logout")
 ]

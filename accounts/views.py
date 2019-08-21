@@ -1379,4 +1379,43 @@ def assignmentofclass6(request):
     all_classes=Classinformation.objects.all()
     all_info = Assignment.objects.filter(Class=all_classes[5])
     context={'all_info':all_info,'all_classes':all_classes}
-    return render(request, 'accounts/Assignment/view_class_assignment.html', context)    
+    return render(request, 'accounts/Assignment/view_class_assignment.html', context)
+
+ ################################################
+#     STUDENT  VIEWING CLASS STREAMS             #
+ ################################################
+def streamsofclass1(request):
+    all_classes=Classinformation.objects.all()
+    all_info = Sectioninformation.objects.filter(NameOfClass=all_classes[0])
+    context={'all_info':all_info,'all_classes':all_classes}
+    return render(request, 'accounts/Section/view_class_stream.html', context)
+
+def streamsofclass2(request):
+    all_classes=Classinformation.objects.all()
+    all_info = Sectioninformation.objects.filter(NameOfClass=all_classes[1])
+    context={'all_info':all_info,'all_classes':all_classes}
+    return render(request, 'accounts/Section/view_class_stream.html', context)
+
+def streamsofclass3(request):
+    all_classes=Classinformation.objects.all()
+    all_info = Sectioninformation.objects.filter(NameOfClass=all_classes[2])
+    context={'all_info':all_info,'all_classes':all_classes}
+    return render(request, 'accounts/Section/view_class_stream.html', context)
+
+def streamsofclass4(request):
+    all_classes=Classinformation.objects.all()
+    all_info = Sectioninformation.objects.filter(NameOfClass=all_classes[3])
+    context={'all_info':all_info,'all_classes':all_classes}
+    return render(request, 'accounts/Section/view_class_stream.html', context)
+
+def streamsofclass5(request):
+    all_classes=Classinformation.objects.all()
+    all_info = Sectioninformation.objects.filter(NameOfClass=all_classes[4])
+    context={'all_info':all_info,'all_classes':all_classes}
+    return render(request, 'accounts/Section/view_class_stream.html', context)
+
+def streamsofclass6(request):
+    all_classes=Classinformation.objects.all()
+    all_info = Sectioninformation.objects.filter(NameOfClass=all_classes[5])
+    context={'all_info':all_info,'all_classes':all_classes}
+    return render(request, 'accounts/Section/view_class_stream.html', context)
