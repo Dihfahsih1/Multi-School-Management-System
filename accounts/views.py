@@ -1263,6 +1263,36 @@ def studentsinaclass6(request):
       ################################################
 def subjectsinaclass1(request):
     all_classes=Classinformation.objects.all()
-    all_subjects = Subjects.objects.filter(Subjectname=all_classes[0])
+    all_subjects = Subjects.objects.filter(Class=all_classes[0])
     context={'all_subjects':all_subjects,'all_classes':all_classes}
-    return render(request, 'accounts/StudentClass/view_form_one_subjects.html', context)
+    return render(request, 'accounts/Subjects/view_form_one_subjects.html', context)
+
+def subjectsinaclass2(request):
+    all_classes=Classinformation.objects.all()
+    all_subjects = Subjects.objects.filter(Class=all_classes[1])
+    context={'all_subjects':all_subjects,'all_classes':all_classes}
+    return render(request, 'accounts/Subjects/view_form_two_subjects.html', context)
+
+def subjectsinaclass3(request):
+    all_classes=Classinformation.objects.all()
+    all_subjects = Subjects.objects.filter(Class=all_classes[2])
+    context={'all_subjects':all_subjects,'all_classes':all_classes}
+    return render(request, 'accounts/Subjects/view_form_three_subjects.html', context)
+
+def subjectsinaclass4(request):
+    all_classes=Classinformation.objects.all()
+    all_subjects = Subjects.objects.filter(Class=all_classes[3])
+    context={'all_subjects':all_subjects,'all_classes':all_classes}
+    return render(request, 'accounts/Subjects/view_form_four_subjects.html', context)        
+
+def subjectsinaclass5(request):
+    all_classes=Classinformation.objects.all()
+    all_subjects = Subjects.objects.filter(Class=all_classes[4])
+    context={'all_subjects':all_subjects,'all_classes':all_classes}
+    return render(request, 'accounts/Subjects/view_form_five_subjects.html', context)
+
+def subjectsinaclass6(request):
+    all_classes=Classinformation.objects.all()
+    all_subjects = Subjects.objects.filter(Class=all_classes[5])
+    context={'all_subjects':all_subjects,'all_classes':all_classes}
+    return render(request, 'accounts/Subjects/view_form_six_subjects.html', context)
