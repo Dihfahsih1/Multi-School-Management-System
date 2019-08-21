@@ -107,7 +107,7 @@ def viewsubjects(request):
     return render(request, 'accounts/Subject/viewsubjects.html', context)
 
 
-#######################################
+ #######################################
 #   CRUD FOR THE Syllabus MODULE        #
 #######################################
 def addsyllabus(request):
@@ -1218,6 +1218,10 @@ def parentofstudentdetails(request, pk):
     context={'all_info':all_info}
     return render(request, 'accounts/Students/parentofstudentdetails.html', context)
 
+      ################################################
+    #     STUDENT  VIEWING HIS OR HER CLASS           #
+      ################################################
+
 def studentsinaclass1(request):
     all_classes=Classinformation.objects.all()
     all_info = DataStudent.objects.filter(Class=all_classes[0])
@@ -1253,3 +1257,12 @@ def studentsinaclass6(request):
     all_info = DataStudent.objects.filter(Class=all_classes[5])
     context={'all_info':all_info}
     return render(request, 'accounts/StudentClass/view_form_six_students.html', context)
+
+      ################################################
+    #     STUDENT  VIEWING HIS OR HER CLASS SUBJECTS   #
+      ################################################
+def subjectsinaclass1(request):
+    all_classes=Classinformation.objects.all()
+    all_subjects = Subjects.objects.filter(Subjectname=all_classes[0])
+    context={'all_subjects':all_subjects,'all_classes':all_classes}
+    return render(request, 'accounts/StudentClass/view_form_one_subjects.html', context)

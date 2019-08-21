@@ -169,5 +169,7 @@ url(r'^studentsinaclass4', views.studentsinaclass4, name="studentsinaclass4"),
 url(r'^studentsinaclass5', views.studentsinaclass5, name="studentsinaclass5"),
 url(r'^studentsinaclass6', views.studentsinaclass6, name="studentsinaclass6"),
 
+url(r'^subjectsinaclass1', views.subjectsinaclass1, name="subjectsinaclass1"),
+
 url(r'^logout', views.login, name="logout")
 ]
