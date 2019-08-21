@@ -1,7 +1,6 @@
 # Multi-School-Management-System
-THIS MSMS PROJECT IS STILL UNDER DEVELOPMENT WITH DAILY COMMITS
-Among the many software applications and systems that i as Mugoya Dihfahsih  worked on and  as well as still monitoring, include the following;
-1. MULT SCHOOL MANAGEMENT SCHOOL
+
+ MULTI SCHOOL MANAGEMENT SCHOOL
 
 
 With this system, the super admin can add many schools as possible for only those who have subscribed to the company and paid their dues. 
