@@ -1283,7 +1283,7 @@ def subjectsinaclass4(request):
     all_classes=Classinformation.objects.all()
     all_subjects = Subjects.objects.filter(Class=all_classes[3])
     context={'all_subjects':all_subjects,'all_classes':all_classes}
-    return render(request, 'accounts/Subject/view_form_four_subjects.html', context)        
+    return render(request, 'accounts/Subject/view_form_four_subjects.html', context)
 
 def subjectsinaclass5(request):
     all_classes=Classinformation.objects.all()
@@ -1296,3 +1296,8 @@ def subjectsinaclass6(request):
     all_subjects = Subjects.objects.filter(Class=all_classes[5])
     context={'all_subjects':all_subjects,'all_classes':all_classes}
     return render(request, 'accounts/Subject/view_form_six_subjects.html', context)
+
+def viewsinglesubjectsinclassdetails(request, pk):
+    all_info = Subjects.objects.filter(id=pk)
+    context={'all_info':all_info}
+    return render(request, 'accounts/Subject/viewsinglesubjectsinclassdetails.html', context)
