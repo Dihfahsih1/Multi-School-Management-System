@@ -1341,3 +1341,42 @@ def syllabusofclass6(request):
     all_info = Syllabus.objects.filter(Class=all_classes[5])
     context={'all_info':all_info,'all_classes':all_classes}
     return render(request, 'accounts/Syllabus/view_class_syllabus.html', context)
+
+ ################################################
+#     STUDENT  VIEWING HIS SYLLABUS             #
+ ################################################
+def assignmentofclass1(request):
+    all_classes=Classinformation.objects.all()
+    all_info = Assignment.objects.filter(Class=all_classes[0])
+    context={'all_info':all_info,'all_classes':all_classes}
+    return render(request, 'accounts/Assignment/view_class_assignment.html', context)
+
+def assignmentofclass2(request):
+    all_classes=Classinformation.objects.all()
+    all_info = Assignment.objects.filter(Class=all_classes[1])
+    context={'all_info':all_info,'all_classes':all_classes}
+    return render(request, 'accounts/Assignment/view_class_assignment.html', context)
+
+def assignmentofclass3(request):
+    all_classes=Classinformation.objects.all()
+    all_info = Assignment.objects.filter(Class=all_classes[2])
+    context={'all_info':all_info,'all_classes':all_classes}
+    return render(request, 'accounts/Assignment/view_class_assignment.html', context)
+
+def assignmentofclass4(request):
+    all_classes=Classinformation.objects.all()
+    all_info = Assignment.objects.filter(Class=all_classes[3])
+    context={'all_info':all_info,'all_classes':all_classes}
+    return render(request, 'accounts/Assignment/view_class_assignment.html', context)
+
+def assignmentofclass5(request):
+    all_classes=Classinformation.objects.all()
+    all_info = Assignment.objects.filter(Class=all_classes[4])
+    context={'all_info':all_info,'all_classes':all_classes}
+    return render(request, 'accounts/Assignment/view_class_assignment.html', context)
+
+def assignmentofclass6(request):
+    all_classes=Classinformation.objects.all()
+    all_info = Assignment.objects.filter(Class=all_classes[5])
+    context={'all_info':all_info,'all_classes':all_classes}
+    return render(request, 'accounts/Assignment/view_class_assignment.html', context)    

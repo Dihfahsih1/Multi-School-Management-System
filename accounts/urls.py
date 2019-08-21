@@ -183,5 +183,12 @@ url(r'^syllabusofclass3', views.syllabusofclass3, name="syllabusofclass3"),
 url(r'^syllabusofclass4', views.syllabusofclass4, name="syllabusofclass4"),
 url(r'^syllabusofclass5', views.syllabusofclass5, name="syllabusofclass5"),
 url(r'^syllabusofclass6', views.syllabusofclass6, name="syllabusofclass6"),
+
+url(r'^assignmentofclass1', views.assignmentofclass1, name="assignmentofclass1"),
+url(r'^assignmentofclass2', views.assignmentofclass2, name="assignmentofclass2"),
+url(r'^assignmentofclass3', views.assignmentofclass3, name="assignmentofclass3"),
+url(r'^assignmentofclass4', views.assignmentofclass4, name="assignmentofclass4"),
+url(r'^assignmentofclass5', views.assignmentofclass5, name="assignmentofclass5"),
+url(r'^assignmentofclass6', views.assignmentofclass6, name="assignmentofclass6"),
 url(r'^logout', views.login, name="logout")
 ]
