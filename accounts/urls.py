@@ -170,6 +170,11 @@ url(r'^studentsinaclass5', views.studentsinaclass5, name="studentsinaclass5"),
 url(r'^studentsinaclass6', views.studentsinaclass6, name="studentsinaclass6"),
 
 url(r'^subjectsinaclass1', views.subjectsinaclass1, name="subjectsinaclass1"),
+url(r'^subjectsinaclass2', views.subjectsinaclass2, name="subjectsinaclass2"),
+url(r'^subjectsinaclass3', views.subjectsinaclass3, name="subjectsinaclass3"),
+url(r'^subjectsinaclass4', views.subjectsinaclass4, name="subjectsinaclass4"),
+url(r'^subjectsinaclass5', views.subjectsinaclass5, name="subjectsinaclass5"),
+url(r'^subjectsinaclass6', views.subjectsinaclass6, name="subjectsinaclass6"),
 
 url(r'^logout', views.login, name="logout")
 ]
