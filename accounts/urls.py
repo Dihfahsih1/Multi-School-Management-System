@@ -175,8 +175,8 @@ url(r'^subjectsinaclass3', views.subjectsinaclass3, name="subjectsinaclass3"),
 url(r'^subjectsinaclass4', views.subjectsinaclass4, name="subjectsinaclass4"),
 url(r'^subjectsinaclass5', views.subjectsinaclass5, name="subjectsinaclass5"),
 url(r'^subjectsinaclass6', views.subjectsinaclass6, name="subjectsinaclass6"),
-
 url(r'^viewsinglesubjectsinclassdetails/(?P<pk>\d+)', views.viewsinglesubjectsinclassdetails, name="viewsinglesubjectsinclassdetails"),
 
+url(r'^syllabusofclass1', views.syllabusofclass1, name="syllabusofclass1"),
 url(r'^logout', views.login, name="logout")
 ]
