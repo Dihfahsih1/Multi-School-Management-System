@@ -256,13 +256,62 @@ class FeeType(models.Model):
     def __str__(self):
         return self.FeeTitle
 
+class DataStudent(models.Model):
+    sex = (('female','female'), ('male','male'))
+    reli = (('moslem','moslem'), ('Christian','Christian'),('Others','Others'))
+    relation = (('Brother','Brother'), ('Sister','Sister'),('Mother','Mother'),
+    ('Father','Father'), ('Uncle','Uncle'),('Auntie','Auntie'))
+    school = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
+    religion = models.CharField(max_length=130, choices=reli, blank=False)
+    name = models.CharField(max_length=100, default="Student_name")
+    username = models.CharField(max_length=100)
+    gender = models.CharField(max_length=130, choices=sex, blank=False)
+    Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
+    stream = models.ForeignKey(Sectioninformation, on_delete=models.PROTECT, blank=True, null=True)
+    admission_no = models.CharField(max_length=130, default="nypefjhjhd")
+    admission_date = models.CharField(max_length=100, default="nyfjhjpd")
+    Birth_Date= models.CharField(max_length=100, default="nyfjhjpd")
+    Guardian = models.CharField(max_length=130, default="text")
+    GuardianRelationshipToStudent = models.CharField(max_length=130, choices=relation, default="text",blank=False)
+    phone = models.CharField(max_length=150, default="Use NIN")
+    NationaId = models.CharField(max_length=150, default="Use NIN")
+    PresentAddress = models.CharField(max_length=100, default="current area")
+    PermanentAddress = models.CharField(max_length=100, default="home")
+    previous_class = models.CharField(max_length=100, default="home")
+    previous_school = models.CharField(max_length=100, default="home")
+    FatherName = models.CharField(max_length=100, default="text")
+    FatherPhone =  models.CharField(max_length=100, default="text")
+    FatherProfession =  models.CharField(max_length=100, default="text")
+    FatherDesignation = models.CharField(max_length=100, default="text")
+    MotherName = models.CharField(max_length=100, default="text")
+    MotherPhone =  models.CharField(max_length=100, default="text")
+    MotherProfession =  models.CharField(max_length=100, default="text")
+    MotherDesignation = models.CharField(max_length=100, default="text")
+    email = models.CharField(max_length=100, default="text")
+    health_condition = models.CharField(max_length=100, default="text")
+    password = models.CharField(max_length=100, default="text")
+    Transfer_Certificate = models.ImageField(upload_to="gallery", default="text")
+    Father_Photo = models.ImageField(upload_to="gallery", default="text")
+    Student_Photo = models.ImageField(upload_to="gallery", default="text")
+    Mother_Photo = models.ImageField(upload_to="gallery", default="text")
+    def __str__(self):
+        return self.name
+
+class StudentPresence(models.Model):
+    attend = (('1','Present'), ('0','Absent'))
+    Student_Name = models.ForeignKey(DataStudent,on_delete=models.PROTECT, blank=False)
+    Attendance=models.CharField(max_length=8, choices=attend,null=True,default="none")
+    Attendance_Date = models.DateField(default=timezone.now())
+    def __str__(self):
+        return self.Student_Name
+
 class FeeCollection(models.Model):
     fee = (('General Fee','General Fee'),('Transport','Transport'),('Hostel','Hostel'))
     choices = (('Yes','Yes'),('No','No'))
     status = (('Paid','Paid'),('Unpaid','Unpaid'))
     School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
-    Student =models.CharField(max_length=130)
+    Student_Name = models.ForeignKey(DataStudent,on_delete=models.PROTECT, blank=True, null=True)
     FeeType = models.CharField(max_length=130, choices=fee, blank=False, null=True)
     FeeAmount = models.CharField(max_length=130)
     Month = models.CharField(max_length=130)
@@ -350,52 +399,3 @@ class Profile (models.Model):
     OtherInfo = models.TextField(max_length=120)
     def __str__(self):
         return self.Name
-
-class DataStudent(models.Model):
-    sex = (('female','female'), ('male','male'))
-    reli = (('moslem','moslem'), ('Christian','Christian'),('Others','Others'))
-    relation = (('Brother','Brother'), ('Sister','Sister'),('Mother','Mother'),
-    ('Father','Father'), ('Uncle','Uncle'),('Auntie','Auntie'))
-    school = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
-    religion = models.CharField(max_length=130, choices=reli, blank=False)
-    name = models.CharField(max_length=100)
-    username = models.CharField(max_length=100)
-    gender = models.CharField(max_length=130, choices=sex, blank=False)
-    Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
-    stream = models.ForeignKey(Sectioninformation, on_delete=models.PROTECT, blank=True, null=True)
-    admission_no = models.CharField(max_length=130, default="nypefjhjhd")
-    admission_date = models.CharField(max_length=100, default="nyfjhjpd")
-    Birth_Date= models.CharField(max_length=100, default="nyfjhjpd")
-    Guardian = models.CharField(max_length=130, default="text")
-    GuardianRelationshipToStudent = models.CharField(max_length=130, choices=relation, default="text",blank=False)
-    phone = models.CharField(max_length=150, default="Use NIN")
-    NationaId = models.CharField(max_length=150, default="Use NIN")
-    PresentAddress = models.CharField(max_length=100, default="current area")
-    PermanentAddress = models.CharField(max_length=100, default="home")
-    previous_class = models.CharField(max_length=100, default="home")
-    previous_school = models.CharField(max_length=100, default="home")
-    FatherName = models.CharField(max_length=100, default="text")
-    FatherPhone =  models.CharField(max_length=100, default="text")
-    FatherProfession =  models.CharField(max_length=100, default="text")
-    FatherDesignation = models.CharField(max_length=100, default="text")
-    MotherName = models.CharField(max_length=100, default="text")
-    MotherPhone =  models.CharField(max_length=100, default="text")
-    MotherProfession =  models.CharField(max_length=100, default="text")
-    MotherDesignation = models.CharField(max_length=100, default="text")
-    email = models.CharField(max_length=100, default="text")
-    health_condition = models.CharField(max_length=100, default="text")
-    password = models.CharField(max_length=100, default="text")
-    Transfer_Certificate = models.ImageField(upload_to="gallery", default="text")
-    Father_Photo = models.ImageField(upload_to="gallery", default="text")
-    Student_Photo = models.ImageField(upload_to="gallery", default="text")
-    Mother_Photo = models.ImageField(upload_to="gallery", default="text")
-    def __str__(self):
-        return self.name
-
-class StudentPresence(models.Model):
-    attend = (('1','Present'), ('0','Absent'))
-    Student_Name = models.ForeignKey(DataStudent,on_delete=models.PROTECT, blank=False)
-    Attendance=models.CharField(max_length=8, choices=attend,null=True,default="none")
-    Attendance_Date = models.DateField(default=timezone.now())
-    def __str__(self):
-        return self.Student_Name
