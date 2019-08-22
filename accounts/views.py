@@ -648,7 +648,7 @@ def adddiscount(request):
            form.save()
            return redirect('adddiscount')
    else:
-       form = AddFeeTypeForm()
+       form = AddDiscountForm()
        context = {'form': form}
        return render(request, 'accounts/Accounting/adddiscount.html', context)
 
