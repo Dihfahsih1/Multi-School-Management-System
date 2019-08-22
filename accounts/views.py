@@ -643,7 +643,7 @@ def viewsalarygrade(request):
  ################################################
 def adddiscount(request):
    if request.method=="POST":
-       form=AddFeeTypeForm(request.POST,request.FILES)
+       form=AddDiscountForm(request.POST,request.FILES)
        if form.is_valid():
            form.save()
            return redirect('adddiscount')

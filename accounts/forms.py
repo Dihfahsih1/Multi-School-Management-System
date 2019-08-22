@@ -194,7 +194,7 @@ class AddDiscountForm(forms.ModelForm):
 class EditDiscountForm(forms.ModelForm):
     class Meta:
         model = Discount
-        fields =('School','Title','Amount','Notes')
+        fields =('School','Title','Percentage','Notes')
 
 class AddFeeTypeForm(forms.ModelForm):
     class Meta:
