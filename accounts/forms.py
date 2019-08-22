@@ -190,7 +190,7 @@ class EditSalaryGradeForm(forms.ModelForm):
 class AddDiscountForm(forms.ModelForm):
     class Meta:
         model = Discount
-        fields = ('School','Title','Amount','Notes')
+        fields = ('School','Title','Percentage','Notes')
 class EditDiscountForm(forms.ModelForm):
     class Meta:
         model = Discount

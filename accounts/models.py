@@ -242,7 +242,7 @@ class VisitorInfor(models.Model):
 class Discount(models.Model):
     School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     Title= models.CharField(max_length=130)
-    Amount= models.CharField(max_length=130)
+    Percentage= models.CharField(max_length=130)
     Notes = models.TextField(max_length=110)
     def __str__(self):
         return self.Title

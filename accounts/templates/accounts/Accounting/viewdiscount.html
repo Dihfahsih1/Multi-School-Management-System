@@ -46,7 +46,6 @@
 <table class="table table-hover" border="2">
    <thead class="table-success">
     <tr>
-         <td>id</td>
          <td>School</td>
          <td>Title</td>
          <td>Amount</td>
@@ -58,10 +57,9 @@
      {% if all_info %}
      {% for item in all_info %}
      <tr>
-       <td>{{ item.id}}</td>
        <td>{{ item.School}}</td>
        <td>{{ item.Title}}</td>
-       <td>{{ item.Amount}}</td>
+       <td>{{ item.Percentage}}</td>
        <td>{{ item.Notes}}</td>
        <td><a href="{% url 'editdiscount' pk=item.id  %}" >
          <button class="btn btn-warning">Edit</button></a>|
