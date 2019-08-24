@@ -45,12 +45,30 @@
 <br><br>
 {% load crispy_forms_tags %}
 <div class="col-lg-4" style="float:left">
-<form method="post" enctype="multipart/form-data">
+<form method="post" id="studentsclass_form" student-data-url="{% url 'load_students' %}" enctype="multipart/form-data" novalidate>
 <p>Enter Details</p>
   {% csrf_token %}
   {{ form|crispy }}
 <button type="submit" class="btn btn-success">Submit</button></form>
 <a href="{% url 'viewfeecollection' %}"><button class="btn btn-info">Cancel</button></a>
 </div>
-</div>
+</div
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+  $("#id_class").change(function () {
+    var url = $("#studentsclass_form").attr("student-data-url");  // get the url of the `load_cities` view
+    var classId = $(this).val();  // get the selected country ID from the HTML input
+
+    $.ajax({                       // initialize an AJAX request
+      url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+      data: {
+        'Class': classId       // add the country id to the GET parameters
+      },
+      success: function (data) {   // `data` is the return of the `load_cities` view function
+        $("#id_student").html(data);  // replace the contents of the city input with the data that came from the server
+      }
+    });
+
+  });
+</script>
 {% endblock %}

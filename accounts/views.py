@@ -1421,3 +1421,7 @@ def streamsofclass6(request):
     all_info = Sectioninformation.objects.filter(NameOfClass=all_classes[5])
     context={'all_info':all_info,'all_classes':all_classes}
     return render(request, 'accounts/Section/view_class_stream.html', context)
+def load_students(request):
+    Class_id=request.GET.get('ClassName')
+    students = DataStudent.objects.filter(Class_id=Class_id).order_by('name')
+    return render(request, 'accounts/Accounting/students_dropdown_list.html', {'students': students})

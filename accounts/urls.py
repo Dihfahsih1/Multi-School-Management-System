@@ -197,5 +197,7 @@ url(r'^streamsofclass3', views.streamsofclass3, name="streamsofclass3"),
 url(r'^streamsofclass4', views.streamsofclass4, name="streamsofclass4"),
 url(r'^streamsofclass5', views.streamsofclass5, name="streamsofclass5"),
 url(r'^streamsofclass6', views.streamsofclass6, name="streamsofclass6"),
+
+url(r'^load_students', views.load_students, name="load_students"),
 url(r'^logout', views.login, name="logout")
 ]

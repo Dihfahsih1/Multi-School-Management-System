@@ -209,6 +209,17 @@ class AddFeeCollectionForm(forms.ModelForm):
     class Meta:
         model = FeeCollection
         fields = ('School','Class','Student_Name','FeeType','FeeAmount','Month','IsApplicableDiscount','PaidStatus','Notes')
+    def __init__(self, *args, **kwargs):
+       super().__init__(*args, **kwargs)
+       self.fields['Student_Name'].queryset = DataStudent.objects.none()
+       if 'Class' in self.data:
+            try:
+                Class_id = int(self.data.get('Class'))
+                self.fields['Student_Name'].queryset = DataStudent.objects.filter(Class_id=Class_id).order_by('name')
+            except (ValueError, TypeError):
+                pass  # invalid input from the client; ignore and fallback to empty City queryset
+       elif self.instance.pk:
+           self.fields['Student_Name'].queryset = self.instance.Class.Student_Name_set.order_by('name')
 class EditFeeCollectionForm(forms.ModelForm):
     class Meta:
         model = FeeCollection
