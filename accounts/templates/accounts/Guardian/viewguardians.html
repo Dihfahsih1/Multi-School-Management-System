@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+  <br><h4>Manage Gaurdian</h4>
+  <hr style=" margin-top: 1rem;margin-bottom: 1rem;border: 0; border-top: 1px solid rgba(0, 0, 0, 0.1);"/>
+
+  <nav class="nav navbar-expand" style="float:left">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><button class="btn btn-default">List of Guardians</button></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'addguardian' %}"><button class="btn btn-success">Add Guardian</button></a>
+      </li>
+    </ul>
+  </nav>
+<br>
+<div class="container" style="margin-left:2px; font-size:15px; padding:3px">
+<table class="table table-hover" border="2">
+   <thead class="table-success">
+    <tr>
+
+        <td>Photo</td>
+         <td>Name</td>
+         <td>Phone</td>
+         <td>Profession</td>
+         <td>Email</td>
+         <td>Action</td>
+     </tr>
+   </thead>
+   <tbody>
+     {% if all_info %}
+     {% for item in all_info %}
+     <tr>
+       <td><img src='{{ item.Photo}}'></td>
+       <td>{{ item.name}}</td>
+       <td>{{ item.phone}}</td>
+       <td>{{ item.profession}}</td>
+       <td>{{ item.Email}}</td>
+       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+       <td><a class="btn btn-primary a-btn-slide-text" href="{% url 'singleguardiandetails' pk=item.id  %}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+      <span><strong>View</strong></span></a>
+         <a class="btn btn-danger a-btn-slide-text" href="{% url 'deleteguardian' pk=item.id %}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <span><strong>Delete</strong></span> </a>
+       </td>
+        {% endfor %}
+     </tr>
+     {% endif %}
+   </tbody>
+</table>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block body %}
+{% if all_info %}
+{% for item in all_info %}
+<style>
+b{
+font-size:100%;
+color:blue;
+}
+</style>
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+<br><h4> Guardian <b>{{ item.name}} Information </b></h4><br>
+<hr style="margin-top: 1rem; margin-bottom: 1rem;border: 0; border-top: 1px solid rgba(0, 0, 0, 0.1);"/>
+<nav class="nav navbar-expand">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+    <a class="nav-link" href="{% url 'viewguardians' %}"><button class="btn btn-warning">All Guardians</button></a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#"><button class="btn btn-default">Guardian Details</button></a><li>
+    <li class="nav-item">
+    <a class="nav-link" href="#}"><button class="btn btn-primary">Student List</button></a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{#}"><button class="btn btn-primary">Invoice List</button></a><li>
+  </ul>
+</nav>
+<hr style="margin-top: 1rem; margin-bottom: 1rem;border: 0; border-top: 1px solid rgba(0, 0, 0, 0.1);"/>
+<div class="container" style="margin-left:20px; font-size:130%; padding:3px">
+<div class="form-row" style="margin:5px;">
+  <div class="col-lg-4" style="float:right">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="text-warning">Basic Information</h5>
+        <p><b>Name:  </b>{{ item.name  }}</p>
+        <p><b>Phone:  </b>{{ item.phone }}</p>
+        <p><b>Profession:  </b>{{ item.profession }}</p>
+        <p><b>Religion:  </b>{{ item.religion  }}</p>
+        <p><b>Pressent Address:  </b>{{ item.Present_Address}}</p>
+        <p><b>Permanent Address:  </b>{{ item.Permanent_Address }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 " >
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="text-warning">Academic Information</h5>
+          <p><b>Nationa Id:  </b>{{ item.National_Id }}</p>
+          <p><b>Role:  </b>{{ item.Role }}</p>
+          <p><b>Email School:  </b>{{ item.Email }}</p>
+          <p><b>Username:  </b>{{ item.username }}</p>
+          <p><b>Password:  </b>{{ item.password }}</p>
+
+      </div>
+     </div>
+  </div>
+<div class="col-lg-4 " >
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="text-warning">Other Information</h5>
+      <p><b>Gender:  </b>{{ item.gender }}</p>
+      <p><b>Other Infor:  </b>{{ item.Other_Info }}</p>
+      <p><b>Photo:  </b><img src='{{item.Photo.url}}'/></p>
+
+    </div>
+  </div>
+</div>
+</div>
+<div class="col-md-4 col-sm-6 col-xs-6" style="float:right">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <button class="btn btn-warning" name="button"> Print </button>
+    </div>
+  </div>
+</div>
+<div class="col-md-4 col-sm-6 col-xs-6" style="float:right">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="text-default">Edit Guardian's Data</h5>
+      <a href="{% url 'editguardian' pk=item.id  %}"><button  class="btn btn-success" name="button"> Edit </button></a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+</div>
+</div>
+{% endblock %}
