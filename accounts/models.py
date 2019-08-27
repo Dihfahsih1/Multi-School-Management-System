@@ -292,7 +292,7 @@ class DataStudent(models.Model):
     admission_no = models.CharField(max_length=130, default="nypefjhjhd")
     admission_date = models.CharField(max_length=100, default="nyfjhjpd")
     Birth_Date= models.CharField(max_length=100, default="nyfjhjpd")
-    Guardian = models.CharField(max_length=130, default="text")
+    Guardian = models.ForeignKey(Guardian, on_delete=models.PROTECT, blank=True, null=True)
     GuardianRelationshipToStudent = models.CharField(max_length=130, choices=relation, default="text",blank=False)
     phone = models.CharField(max_length=150, default="Use NIN")
     NationaId = models.CharField(max_length=150, default="Use NIN")
