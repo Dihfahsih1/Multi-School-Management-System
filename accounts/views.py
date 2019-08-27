@@ -1458,7 +1458,7 @@ def deleteguardian(request, pk):
    context={'all_info' :all_info}
    return render(request, 'accounts/Guardian/viewguardians.html', context)
 
-def viewstudents(request):
+def viewguardians(request):
     all_info = Guardian.objects.all()
     context={'all_info' :all_info}
     return render(request, 'accounts/Guardian/viewguardians.html', context)

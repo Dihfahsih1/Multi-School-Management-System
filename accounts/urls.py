@@ -199,5 +199,12 @@ url(r'^streamsofclass5', views.streamsofclass5, name="streamsofclass5"),
 url(r'^streamsofclass6', views.streamsofclass6, name="streamsofclass6"),
 
 url(r'^load_students', views.load_students, name="load_students"),
+
+url(r'^addguardian', views.addguardian, name="addguardian"),
+url(r'^editguardian/(?P<pk>\d+)', views.editguardian, name="editguardian"),
+url(r'^deleteguardian/(?P<pk>\d+)', views.deleteguardian, name="deleteguardian"),
+url(r'^viewguardians', views.viewguardians, name="viewguardians"),
+url(r'^singleguardiandetails/(?P<pk>\d+)', views.singleguardiandetails, name="singleguardiandetails"),
+
 url(r'^logout', views.login, name="logout")
 ]
