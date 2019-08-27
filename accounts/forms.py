@@ -321,9 +321,9 @@ class AddStudentAttendanceForm(forms.ModelForm):
         model = StudentPresence
         fields = ('Student_Name','Attendance','Attendance_Date')
 class AddGuardianForm(forms.ModelForm):
-        class Meta:
-            model = Guardian
-            fields = ( 'name','phone','profession'
+     class Meta:
+         model = Guardian
+         fields = ( 'name','phone','profession'
             ,'Present_Address','Permanent_Address','National_Id',
             'username','gender', 'religion','Role',
             'Email','password','Other_Info','Photo')
