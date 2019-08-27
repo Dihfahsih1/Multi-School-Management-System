@@ -9,6 +9,27 @@ class School (models.Model):
     DateOfRegistration=models.CharField(max_length=130)
     def __str__(self):
         return self.SchoolName
+class Guardian(models.Model):
+    name = models.CharField(max_length=100, default="guardian name")
+    phone = models.CharField(max_length=150, default="phone number")
+    profession =  models.CharField(max_length=100, default="career")
+    Present_Address = models.CharField(max_length=100, default="current area")
+    Permanent_Address = models.CharField(max_length=100, default="home")
+    National_Id = models.CharField(max_length=150, default="Use NIN")
+    sex = (('female','female'), ('male','male'))
+    reli = (('moslem','moslem'), ('Christian','Christian'),('Others','Others'))
+    role = (('Brother','Brother'), ('Sister','Sister'), ('Uncle','Uncle'),('Auntie','Auntie'),
+    ('Guardian','Guardian'),('Other','Other'))
+    religion = models.CharField(max_length=130, choices=reli, blank=False)
+    Role = models.CharField(max_length=130, choices=role, default="next of kin",blank=False)
+    username = models.CharField(max_length=100)
+    gender = models.CharField(max_length=130, choices=sex, blank=False)
+    Email= models.CharField(max_length=100, default="email")
+    password = models.CharField(max_length=100, default="password")
+    Other_Info = models.CharField(max_length=130, default="Notes")
+    Photo = models.ImageField(upload_to="gallery", default="text")
+    def __str__(self):
+        return self.name
 
 class SalaryGrade(models.Model):
     GradeName= models.CharField(max_length=130)
