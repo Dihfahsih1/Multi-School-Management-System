@@ -1425,3 +1425,44 @@ def load_students(request):
     Class_id=request.GET.get('ClassName')
     students = DataStudent.objects.filter(Class_id=Class_id).order_by('name')
     return render(request, 'accounts/Accounting/students_dropdown_list.html', {'students': students})
+
+###############################################
+#   CRUD FOR THE GUARDIAN MODULE                #
+################################################
+def addguardian(request):
+    if request.method=="POST":
+        form=AddGuardianForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('addguardian')
+        return render(request, 'accounts/Guardian/addguardian.html',{'form': form})
+    else:
+        form = AddGuardianForm()
+        context = {'form': form}
+        return render(request, 'accounts/Guardian/addguardian.html', context)
+
+def editguardian(request, pk):
+   item = get_object_or_404(DataStudent, id=pk)
+   if request.method == "POST":
+       form =  AddGuardianForm(request.POST,request.FILES,instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewguardians')
+   else:
+       form =  AddGuardianForm(instance=item)
+       return render(request, 'accounts/Guardian/editguardian.html', {'form': form})
+
+def deleteguardian(request, pk):
+   Guardian.objects.filter(id=pk).delete()
+   all_info=Guardian.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/Guardian/viewguardians.html', context)
+
+def viewstudents(request):
+    all_info = Guardian.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/Guardian/viewguardians.html', context)
+def singleguardiandetails(request, pk):
+    all_info = Guardian.objects.filter(id=pk)
+    context={'all_info':all_info}
+    return render(request, 'accounts/Guardian/singleguardiandetails.html', context)
