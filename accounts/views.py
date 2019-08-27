@@ -1173,12 +1173,12 @@ def addstudent(request):
 def editstudent(request, pk):
    item = get_object_or_404(DataStudent, id=pk)
    if request.method == "POST":
-       form =  EditStudentForm(request.POST,request.FILES,instance=item)
+       form =  AddStudentForm(request.POST,request.FILES,instance=item)
        if form.is_valid():
            form.save()
            return redirect('viewstudents')
    else:
-       form =  EditStudentForm(instance=item)
+       form =  AddStudentForm(instance=item)
        return render(request, 'accounts/Students/editstudent.html', {'form': form})
 
 def deletestudent(request, pk):
@@ -1469,6 +1469,8 @@ def singleguardiandetails(request, pk):
 
 def studentsofguardian(request):
     all_guardians=Guardian.objects.all()
-    all_info = DataStudent.objects.filter(Guardian=all_guardians[0])
-    context={'all_info':all_info,'all_guardians':all_guardians}
+    print(all_guardians)
+    all_info = DataStudent.objects.filter(Guardian=request.all_guardians)
+    print(all_info)
+    context={'all_info':all_info}
     return render(request, 'accounts/Guardian/view_guardians_student.html', context)
