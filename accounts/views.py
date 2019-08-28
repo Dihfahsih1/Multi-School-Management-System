@@ -2,6 +2,7 @@ from django.shortcuts import *
 from django.views.generic import CreateView
 from .models import *
 from .forms import *
+
 def home(request):
     return render(request, 'accounts/home.html')
 def login(request):
@@ -1468,7 +1469,9 @@ def singleguardiandetails(request, pk):
     return render(request, 'accounts/Guardian/singleguardiandetails.html', context)
 
 def studentsofguardian(request):
-    all_guardians=Guardian.objects.values_list('name')
-    all_info = DataStudent.objects.get(Guardian=request.all_guardians)
-    context={'all_info':all_info}
+    all_guardians=Guardian.objects.all()
+    for guardian in all_guardians:
+        guardian.name
+    all_info = DataStudent.objects.filter(Guardian=guardian)
+    context={'all_info':all_info, 'guardian':'guardian'}
     return render(request, 'accounts/Guardian/view_guardians_student.html', context)
