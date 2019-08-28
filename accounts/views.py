@@ -1468,8 +1468,8 @@ def singleguardiandetails(request, pk):
     context={'all_info':all_info}
     return render(request, 'accounts/Guardian/singleguardiandetails.html', context)
 
-def studentsofguardian(request):
-    all_guardians=Guardian.objects.all()
+def studentsofguardian(request, pk):
+    all_guardians=Guardian.objects.filter(id=pk)
     for guardian in all_guardians:
         guardian.name
     all_info = DataStudent.objects.filter(Guardian=guardian)

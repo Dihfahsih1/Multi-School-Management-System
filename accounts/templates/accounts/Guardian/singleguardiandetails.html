@@ -18,9 +18,13 @@ color:blue;
     </li>
     <li class="nav-item">
     <a class="nav-link" href="#"><button class="btn btn-default">Guardian Details</button></a><li>
-    <li class="nav-item">
-    <a class="nav-link" href="{% url 'studentsofguardian' %}"><button class="btn btn-primary">Student List</button></a>
-    </li>
+      <li class="nav-item">
+        {% if all_info %}
+        {% for item in all_info %}
+      <a class="nav-link" href="{% url 'studentsofguardian' pk=item.id %}"><button class="btn btn-primary">Student List</button></a>
+       {% endfor %}
+       {% endif %}
+      </li>
     <li class="nav-item">
     <a class="nav-link" href="#"><button class="btn btn-primary">Invoice List</button></a><li>
   </ul>
