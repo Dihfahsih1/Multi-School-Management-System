@@ -1473,5 +1473,6 @@ def studentsofguardian(request):
     for guardian in all_guardians:
         guardian.name
     all_info = DataStudent.objects.filter(Guardian=guardian)
+    print(all_info)
     context={'all_info':all_info, 'guardian':'guardian'}
     return render(request, 'accounts/Guardian/view_guardians_student.html', context)
