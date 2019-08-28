@@ -1482,7 +1482,7 @@ def students_of_guardian_in_form_one(request):
     for guardian in all_guardians:
         guardian.name
     all_info = DataStudent.objects.filter(Guardian=guardian, Class=all_classes[0])
-    context={'all_info':all_info}
+    context={'all_info':all_info, 'guardian':guardian}
     return render(request, 'accounts/Guardian/guardian_students_in_class.html', context)
 
 def students_of_guardian_in_form_two(request):
@@ -1491,7 +1491,7 @@ def students_of_guardian_in_form_two(request):
     for guardian in all_guardians:
         guardian.name
     all_info = DataStudent.objects.filter(Guardian=guardian, Class=all_classes[1])
-    context={'all_info':all_info}
+    context={'all_info':all_info, 'guardian':guardian}
     return render(request, 'accounts/Guardian/guardian_students_in_class.html', context)
 
 def students_of_guardian_in_form_three(request):
@@ -1500,7 +1500,7 @@ def students_of_guardian_in_form_three(request):
     for guardian in all_guardians:
         guardian.name
     all_info = DataStudent.objects.filter(Guardian=guardian, Class=all_classes[2])
-    context={'all_info':all_info}
+    context={'all_info':all_info, 'guardian':guardian}
     return render(request, 'accounts/Guardian/guardian_students_in_class.html', context)
 
 def students_of_guardian_in_form_four(request):
@@ -1509,7 +1509,7 @@ def students_of_guardian_in_form_four(request):
     for guardian in all_guardians:
         guardian.name
     all_info = DataStudent.objects.filter(Guardian=guardian, Class=all_classes[3])
-    context={'all_info':all_info}
+    context={'all_info':all_info, 'guardian':guardian}
     return render(request, 'accounts/Guardian/guardian_students_in_class.html', context)
 
 def students_of_guardian_in_form_five(request):
@@ -1518,7 +1518,7 @@ def students_of_guardian_in_form_five(request):
     for guardian in all_guardians:
         guardian.name
     all_info = DataStudent.objects.filter(Guardian=guardian, Class=all_classes[4])
-    context={'all_info':all_info}
+    context={'all_info':all_info, 'guardian':guardian}
     return render(request, 'accounts/Guardian/guardian_students_in_class.html', context)
 
 def students_of_guardian_in_form_six(request):
@@ -1527,5 +1527,5 @@ def students_of_guardian_in_form_six(request):
     for guardian in all_guardians:
         guardian.name
     all_info = DataStudent.objects.filter(Guardian=guardian, Class=all_classes[5])
-    context={'all_info':all_info}
+    context={'all_info':all_info, 'guardian':guardian}
     return render(request, 'accounts/Guardian/guardian_students_in_class.html', context)
