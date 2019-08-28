@@ -207,5 +207,7 @@ url(r'^viewguardians', views.viewguardians, name="viewguardians"),
 url(r'^singleguardiandetails/(?P<pk>\d+)', views.singleguardiandetails, name="singleguardiandetails"),
 
 url(r'^studentsofguardian/(?P<pk>\d+)', views.studentsofguardian, name="studentsofguardian"),
+
+url(r'^students_of_guardian_in_form_one/(?P<pk>\d+)', views.students_of_guardian_in_form_one, name="students_of_guardian_in_form_one"),
 url(r'^logout', views.login, name="logout")
 ]

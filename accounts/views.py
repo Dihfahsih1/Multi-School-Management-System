@@ -1476,3 +1476,14 @@ def studentsofguardian(request, pk):
     print(all_info)
     context={'all_info':all_info, 'guardian':'guardian'}
     return render(request, 'accounts/Guardian/view_guardians_student.html', context)
+
+def students_of_guardian_in_form_one(request, pk):
+    all_guardians=Guardian.objects.filter(id=pk)
+    for guardian in all_guardians:
+        guardian.name
+    all_info = DataStudent.objects.filter(Guardian=guardian)
+    all_classes=Classinformation.objects.all()
+    combine = DataStudent.objects.filter(Class=all_classes[0])
+    if all_info==combine:
+        context={'combine':combine}
+        return render(request, 'accounts/Guardian/guardian_students_form_one.html', context)
