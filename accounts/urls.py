@@ -208,6 +208,11 @@ url(r'^singleguardiandetails/(?P<pk>\d+)', views.singleguardiandetails, name="si
 
 url(r'^studentsofguardian/(?P<pk>\d+)', views.studentsofguardian, name="studentsofguardian"),
 
-url(r'^students_of_guardian_in_form_one/(?P<pk>\d+)', views.students_of_guardian_in_form_one, name="students_of_guardian_in_form_one"),
+url(r'^students_of_guardian_in_form_one', views.students_of_guardian_in_form_one, name="students_of_guardian_in_form_one"),
+url(r'^students_of_guardian_in_form_two', views.students_of_guardian_in_form_two, name="students_of_guardian_in_form_two"),
+url(r'^students_of_guardian_in_form_three', views.students_of_guardian_in_form_three, name="students_of_guardian_in_form_three"),
+url(r'^students_of_guardian_in_form_four', views.students_of_guardian_in_form_four, name="students_of_guardian_in_form_four"),
+url(r'^students_of_guardian_in_form_five', views.students_of_guardian_in_form_five, name="students_of_guardian_in_form_five"),
+url(r'^students_of_guardian_in_form_six', views.students_of_guardian_in_form_six, name="students_of_guardian_in_form_six"),
 url(r'^logout', views.login, name="logout")
 ]

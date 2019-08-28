@@ -1473,17 +1473,59 @@ def studentsofguardian(request, pk):
     for guardian in all_guardians:
         guardian.name
     all_info = DataStudent.objects.filter(Guardian=guardian)
-    print(all_info)
-    context={'all_info':all_info, 'guardian':'guardian'}
+    context={'all_info':all_info, 'guardian':guardian}
     return render(request, 'accounts/Guardian/view_guardians_student.html', context)
 
-def students_of_guardian_in_form_one(request, pk):
-    all_guardians=Guardian.objects.filter(id=pk)
+def students_of_guardian_in_form_one(request):
+    all_guardians=Guardian.objects.all()
+    all_classes=Classinformation.objects.all()
     for guardian in all_guardians:
         guardian.name
-    all_info = DataStudent.objects.filter(Guardian=guardian)
+    all_info = DataStudent.objects.filter(Guardian=guardian, Class=all_classes[0])
+    context={'all_info':all_info}
+    return render(request, 'accounts/Guardian/guardian_students_form_one.html', context)
+
+def students_of_guardian_in_form_two(request):
+    all_guardians=Guardian.objects.all()
     all_classes=Classinformation.objects.all()
-    combine = DataStudent.objects.filter(Class=all_classes[0])
-    if all_info==combine:
-        context={'combine':combine}
-        return render(request, 'accounts/Guardian/guardian_students_form_one.html', context)
+    for guardian in all_guardians:
+        guardian.name
+    all_info = DataStudent.objects.filter(Guardian=guardian, Class=all_classes[1])
+    context={'all_info':all_info}
+    return render(request, 'accounts/Guardian/guardian_students_form_one.html', context)
+
+def students_of_guardian_in_form_three(request):
+    all_guardians=Guardian.objects.all()
+    all_classes=Classinformation.objects.all()
+    for guardian in all_guardians:
+        guardian.name
+    all_info = DataStudent.objects.filter(Guardian=guardian, Class=all_classes[2])
+    context={'all_info':all_info}
+    return render(request, 'accounts/Guardian/guardian_students_form_one.html', context)
+
+def students_of_guardian_in_form_four(request):
+    all_guardians=Guardian.objects.all()
+    all_classes=Classinformation.objects.all()
+    for guardian in all_guardians:
+        guardian.name
+    all_info = DataStudent.objects.filter(Guardian=guardian, Class=all_classes[3])
+    context={'all_info':all_info}
+    return render(request, 'accounts/Guardian/guardian_students_form_one.html', context)
+
+def students_of_guardian_in_form_five(request):
+    all_guardians=Guardian.objects.all()
+    all_classes=Classinformation.objects.all()
+    for guardian in all_guardians:
+        guardian.name
+    all_info = DataStudent.objects.filter(Guardian=guardian, Class=all_classes[4])
+    context={'all_info':all_info}
+    return render(request, 'accounts/Guardian/guardian_students_form_one.html', context)
+
+def students_of_guardian_in_form_six(request):
+    all_guardians=Guardian.objects.all()
+    all_classes=Classinformation.objects.all()
+    for guardian in all_guardians:
+        guardian.name
+    all_info = DataStudent.objects.filter(Guardian=guardian, Class=all_classes[5])
+    context={'all_info':all_info}
+    return render(request, 'accounts/Guardian/guardian_students_form_one.html', context)

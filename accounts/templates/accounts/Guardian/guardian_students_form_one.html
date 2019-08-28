@@ -4,7 +4,7 @@
 
 <div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
 
-   <br><h4>Manage Students in Form One</h4>
+   <br><h4>Manage Students</h4>
   <hr style=" margin-top: 1rem;margin-bottom: 1rem;border: 0; border-top: 1px solid rgba(0, 0, 0, 0.1);"/>
   <nav class="nav navbar-expand" style="font-size:15px; padding: 1px 1px 1px 1px">
     <i style="font-size: 15px; color:red;">Quick Links</i>
@@ -48,8 +48,8 @@
      </tr>
    </thead>
    <tbody>
-     {% if combine %}
-     {% for item in combine %}
+     {% if all_info %}
+     {% for item in all_info %}
      <tr>
        <td>{{ item.id}}</td>
        <td><img src='{{ item.Student_Photo}}'></td>
@@ -57,8 +57,10 @@
        <td>{{ item.Class}}</td>
        <td>{{ item.stream}}</td>
        <td>{{ item.admission_no}}</td>
-       <td><a  href="{% url 'singlestudentdetails' pk=item.id  %}">View</a>
-       </td>
+       <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+       <td>
+         <a class="btn btn-primary a-btn-slide-text" href="{% url 'singlestudentdetails' pk=item.id  %}" target="_blank"><span class="glyphicon glyphicon-eye-open"  aria-hidden="true"></span>
+        <span><strong>View</strong></span></a></td>
         {% endfor %}
      </tr>
      {% endif %}
