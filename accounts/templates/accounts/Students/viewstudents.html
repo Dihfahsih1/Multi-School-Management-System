@@ -46,7 +46,8 @@
      {% for item in all_info %}
      <tr>
        <td>{{ item.id}}</td>
-       <td><img src='{{ item.Student_Photo}}'></td>
+
+       <td>{% if item.Student_Photo %}<img src="{{ item.Student_Photo.url}}" width="50">{% endif %}</td>
        <td>{{ item.name}}</td>
        <td>{{ item.Class}}</td>
        <td>{{ item.stream}}</td>
