@@ -3,9 +3,26 @@
 <div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
   {% load crispy_forms_tags %}
   <form method="get">
-    <p style="display:inline-block">{{ filter.form.name|as_crispy_field  }} {{ filter.form.Class|as_crispy_field  }} {{ filter.form.stream|as_crispy_field  }} </p>
+    <nav class="container nav navbar-expand navbar" >
+      <div style="color:black; font-size:160%">
+          <ul class="navbar-nav mr-auto" >
+               <li class="nav-item">
+              {{ filter.form.name|as_crispy_field  }}
+              </li>
+              <li class="nav-item">
+             {{ filter.form.Class|as_crispy_field  }}
+             </li>
+             <li class="nav-item">
+             {{ filter.form.stream|as_crispy_field  }}
+            </li>
+            <li style="margin-left:5%"> <button type="submit" style="margin-top:60%;" class="btn btn-primary">Search </button>
+            </li>
+          </ul>
+      </div>
+  </nav>
 
-    <button type="submit">Search</button>
+
+
   </form>
   <ul>
   {% for student in filter.qs %}
