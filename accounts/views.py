@@ -748,7 +748,7 @@ def classrooms_choices_ajax(request):
     school = request.GET.get('School')
     classrooms = ClassInformation.objects.filter(School=school)
     context = {'classrooms': classrooms}
-    return render(request, 'accounts/Accounting/_classrooms_choices.html', context)    
+    return render(request, 'accounts/Accounting/_classrooms_choices.html', context)
 
 def sections_ajax(request):
     classroom = request.GET.get('Class')
@@ -1582,3 +1582,8 @@ def students_of_guardian_in_form_six(request):
         klass.Class
     context={'all_info':all_info, 'guardian':guardian,'klass':klass}
     return render(request, 'accounts/Guardian/guardian_students_in_class.html', context)
+
+def search_student(request):
+    student_list = DataStudent.objects.all()
+    student_filter = StudentFilter(request.GET, queryset=student_list)
+    return render(request, 'accounts/Students/Search/student_list.html', {'filter': student_filter})

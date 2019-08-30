@@ -1,6 +1,7 @@
 from django import forms
 from .models import *
 from django.forms.widgets import RadioSelect
+import django_filters
 class LoginForm(forms.ModelForm):
     class Meta:
         model = Login
@@ -204,6 +205,13 @@ class EditFeeTypeForm(forms.ModelForm):
     class Meta:
         model = FeeType
         fields = ('School','FeeType','FeeTitle','Notes')
+
+class StudentFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(lookup_expr='icontains')
+    class Meta:
+        model = DataStudent
+        fields = ('Class','stream','name')
+
 
 class AddFeeCollectionForm(forms.ModelForm):
     class Meta:

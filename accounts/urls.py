@@ -1,6 +1,7 @@
 from django.urls import path
 from django.conf.urls import url, include
 from . import views
+from django_filters.views import FilterView
 urlpatterns=[
 url(r'^$', views.home, name="home"),
 url(r'^login', views.login, name="login"),
@@ -220,6 +221,7 @@ url(r'^students_of_guardian_in_form_four', views.students_of_guardian_in_form_fo
 url(r'^students_of_guardian_in_form_five', views.students_of_guardian_in_form_five, name="students_of_guardian_in_form_five"),
 url(r'^students_of_guardian_in_form_six', views.students_of_guardian_in_form_six, name="students_of_guardian_in_form_six"),
 
+url(r'^search_student', views.search_student, name="search_student"),
 
 url(r'^logout', views.login, name="logout")
 ]

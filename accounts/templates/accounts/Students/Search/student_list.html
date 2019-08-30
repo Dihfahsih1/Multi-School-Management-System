@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+  {% for student in student_filter.qs %}
+    <li>{{ student.name }} - {{ student.Class }}- {{student.stream}}</li>
+  {% endfor %}
+  </ul>
+  </div>
+{% endblock %}
