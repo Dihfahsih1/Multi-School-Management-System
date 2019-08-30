@@ -736,6 +736,25 @@ def addfeecollection(request):
        context = {'form': form}
        return render(request, 'accounts/Accounting/addfeecollection.html', context)
 
+def classrooms_ajax(request):
+    school = request.GET.get('School')
+    classrooms = ClassInformation.objects.filter(School=school)
+    context = {'classrooms': classrooms}
+    return render(request, 'accounts/Accounting/_classrooms.html', context)
+
+def sections_ajax(request):
+    classroom = request.GET.get('Class')
+    sections = Sectioninformation.objects.filter(NameOfClass=classroom)
+    context = {'sections': sections}
+    return render(request, 'accounts/Accounting/_sections.html', context)
+
+def sections_choices_ajax(request):
+    classroom = request.GET.get('Class')
+    sections = Sectioninformation.objects.filter(NameOfClass=classroom)
+    context = {'sections': sections}
+    return render(request, 'attendance/includes/_sections_choices.html', context)
+
+
 def editfeecollection(request, pk):
    item = get_object_or_404(FeeCollection, id=pk)
    if request.method == "POST":

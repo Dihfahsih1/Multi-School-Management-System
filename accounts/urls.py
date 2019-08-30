@@ -108,6 +108,11 @@ url(r'^deletefeetype/(?P<pk>\d+)', views.deletefeetype, name="deletefeetype"),
 url(r'^viewfeetype', views.viewfeetype, name="viewfeetype"),
 
 url(r'^addfeecollection', views.addfeecollection, name="addfeecollection"),
+url('classrooms/ajax/', views.classrooms_ajax, name='classrooms_ajax'),
+url('classrooms/choices/ajax/', views.classrooms_choices_ajax, name='classrooms_choices_ajax'),
+url('sections/ajax/', views.sections_ajax, name='sections_ajax'),
+url('sections/choices/ajax/', views.sections_choices_ajax, name='sections_choices_ajax'),
+
 url(r'^editfeecollection/(?P<pk>\d+)', views.editfeecollection, name="editfeecollection"),
 url(r'^deletefeecollection/(?P<pk>\d+)', views.deletefeecollection, name="deletefeecollection"),
 url(r'^viewfeecollection', views.viewfeecollection, name="viewfeecollection"),
@@ -214,5 +219,7 @@ url(r'^students_of_guardian_in_form_three', views.students_of_guardian_in_form_t
 url(r'^students_of_guardian_in_form_four', views.students_of_guardian_in_form_four, name="students_of_guardian_in_form_four"),
 url(r'^students_of_guardian_in_form_five', views.students_of_guardian_in_form_five, name="students_of_guardian_in_form_five"),
 url(r'^students_of_guardian_in_form_six', views.students_of_guardian_in_form_six, name="students_of_guardian_in_form_six"),
+
+
 url(r'^logout', views.login, name="logout")
 ]

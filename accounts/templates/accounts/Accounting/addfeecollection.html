@@ -45,29 +45,78 @@
 <br><br>
 {% load crispy_forms_tags %}
 <div class="col-lg-4" style="float:left">
-<form method="post" id="studentsclass_form" student-data-url="{% url 'load_students' %}" enctype="multipart/form-data" novalidate>
+<form method="post" enctype="multipart/form-data" novalidate>
 <p>Enter Details</p>
   {% csrf_token %}
-  {{ form|crispy }}
-<button type="submit" class="btn btn-success">Submit</button></form>
-<a href="{% url 'viewfeecollection' %}"><button class="btn btn-info">Cancel</button></a>
-</div>
-</div
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script>
-  $("#id_class").change(function () {
-    var url = $("#studentsclass_form").attr("student-data-url");  // get the url of the `load_cities` view
-    var classId = $(this).val();  // get the selected country ID from the HTML input
+  <div class="x_content">
+    <form id="myForm"
+          method="GET"
+          class="form-inline"
+          data-school="{{ request.GET.School }}"
+          data-classroom="{{ request.GET.Class }}"
+          data-section="{{ request.GET.Section }}">
+        <div class="row">
 
-    $.ajax({                       // initialize an AJAX request
-      url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
-      data: {
-        'Class': classId       // add the country id to the GET parameters
-      },
-      success: function (data) {   // `data` is the return of the `load_cities` view function
-        $("#id_student").html(data);  // replace the contents of the city input with the data that came from the server
-      }
-    });
-  });
-</script>
+            <div class="col-md-3 col-sm-4 col-xs-12">
+                <div class="item form-group">
+                    <label for="schoolSelect">School</label>
+                    {% render_field form.School title="Schools" class="form-control" %}
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-4 col-xs-12">
+                <div class="item form-group">
+                    <label for="classroomSelect">Classroom</label>
+                    {% render_field form.Class title="Classrooms" class="form-control" %}
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-4 col-xs-12">
+                <div class="item form-group">
+                    <label for="sectionSelect">Section</label>
+                    {% render_field form.Section title="Section" class="form-control" %}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button id="btnSubmit" class="btn btn-success" type="submit">Filter</button>
+            </div>
+            <div class="item form-group">
+                <label >Student Name</label>
+                {% render_field form.Student_Name  class="form-control" %}
+            </div>
+            <div class="item form-group">
+                <label >Fee Type</label>
+                {% render_field form.FeeType  class="form-control" %}
+            </div>
+            <div class="item form-group">
+                <label >Amount</label>
+                {% render_field form.FeeAmount  class="form-control" %}
+            </div>
+
+            <div class="item form-group">
+                <label >Month</label>
+                {% render_field form.Month  class="form-control" %}
+            </div>
+            <div class="item form-group">
+                <label >Discount applicable</label>
+                {% render_field form.IsApplicableDiscount  class="form-control" %}
+            </div>
+            <div class="item form-group">
+                <label >Status</label>
+                {% render_field form.PaidStatus class="form-control" %}
+            </div>
+            <div class="item form-group">
+                <label >Notes</label>
+                {% render_field form.Notes  class="form-control" %}
+            </div>
+        </div>
+
+    </form>
+
+</div>
+</div>
+</div>
 {% endblock %}
