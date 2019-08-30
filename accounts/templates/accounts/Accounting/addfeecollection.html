@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 {% block body %}
 <div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
 <h4>Manage Invoice</h4>
@@ -80,9 +81,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <button id="btnSubmit" class="btn btn-success" type="submit">Filter</button>
-            </div>
+
             <div class="item form-group">
                 <label >Student Name</label>
                 {% render_field form.Student_Name  class="form-control" %}
@@ -113,6 +112,9 @@
                 {% render_field form.Notes  class="form-control" %}
             </div>
         </div>
+        <div class="form-group">
+            <button id="btnSubmit" class="btn btn-success" type="submit">Filter</button>
+        </div>
 
     </form>
 
@@ -120,3 +122,30 @@
 </div>
 </div>
 {% endblock %}
+
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            let school = $('#myForm').data('school')
+            let classroom = $('#myForm').data('classroom')
+            let section = $('#myForm').data('section')
+            if (school) {
+                $('#id_school option[value=' + school + ']').attr('selected', 'selected');
+            }
+            if (classroom) {
+                $('#id_classroom option[value=' + classroom + ']').attr('selected', 'selected');
+            }
+            if (section) {
+                $('#id_section option[value=' + section + ']').attr('selected', 'selected');
+            }
+        });
+
+        $('#id_school').on('change', function () {
+            $('#btnSubmit').click();
+        });
+
+        $('#id_classroom').on('change', function () {
+            $('#btnSubmit').click();
+        });
+    </script>
+{% endblock js %}

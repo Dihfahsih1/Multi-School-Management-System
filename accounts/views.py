@@ -726,12 +726,14 @@ def addfeecollection(request):
         q = q.replace('.', '')
         students = DataStudent.objects.filter(stream=str(q))
         context = {'students': students}
-   if request.method=="POST":
+    return render(request, 'accounts/Accounting/addfeecollection.html', context)
+    if request.method=="POST":
+
        form=AddFeeCollectionForm(request.POST,request.FILES)
        if form.is_valid():
            form.save()
            return redirect('addfeecollection')
-   else:
+    else:
        form = AddFeeCollectionForm()
        context = {'form': form}
        return render(request, 'accounts/Accounting/addfeecollection.html', context)
@@ -741,6 +743,12 @@ def classrooms_ajax(request):
     classrooms = ClassInformation.objects.filter(School=school)
     context = {'classrooms': classrooms}
     return render(request, 'accounts/Accounting/_classrooms.html', context)
+
+def classrooms_choices_ajax(request):
+    school = request.GET.get('School')
+    classrooms = ClassInformation.objects.filter(School=school)
+    context = {'classrooms': classrooms}
+    return render(request, 'accounts/Accounting/_classrooms_choices.html', context)    
 
 def sections_ajax(request):
     classroom = request.GET.get('Class')
