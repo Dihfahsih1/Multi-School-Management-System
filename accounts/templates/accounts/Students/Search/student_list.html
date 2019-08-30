@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="container" style="margin-left: 200px;font-size: 20px; padding: 0px 10px;">
+  {% load crispy_forms_tags %}
   <form method="get">
-    {{ filter.form.as_p }}
+    <p style="display:inline-block">{{ filter.form.name|as_crispy_field  }} {{ filter.form.Class|as_crispy_field  }} {{ filter.form.stream|as_crispy_field  }} </p>
+
     <button type="submit">Search</button>
   </form>
   <ul>
   {% for student in filter.qs %}
-    <li>{{ student.name }} - {{ student.Class }}- {{student.stream}}</li>
+    <li>Guardian Name: {{student.Guardian}}{{ student.name }} - {{ student.Class }}- {{student.stream}}</li>
   {% endfor %}
   </ul>
   </div>
