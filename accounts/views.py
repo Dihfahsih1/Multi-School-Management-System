@@ -716,8 +716,16 @@ def viewfeetype(request):
 #   CRUD FOR THE FEE COLLECTION MODULE        #
 ################################################
 def addfeecollection(request):
-   all_classes=Classinformation.objects.all()
-   all_info = FeeCollection.objects.filter(Class=all_classes[0])
+    context = {}
+    School = request.GET.get('School')
+    Class = request.GET.get('Class')
+    context['form'] = AddFeeCollectionForm(School, Class)
+    # Filter
+    q = request.GET.get('Section')
+    if q:
+        q = q.replace('.', '')
+        students = DataStudent.objects.filter(stream=str(q))
+        context = {'students': students}
    if request.method=="POST":
        form=AddFeeCollectionForm(request.POST,request.FILES)
        if form.is_valid():

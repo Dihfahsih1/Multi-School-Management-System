@@ -80,6 +80,7 @@ class Login(models.Model):
     password = models.CharField(max_length=30, blank=True)
 
 class Classinformation(models.Model):
+    School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     nameclass= (('Form_One','Form_One'), ('Form_Two', 'Form_Two'),('Form_Three','Form_Three'), ('Form_Four', 'Form_Four'),
     ('Form_Five_Arts','Form_Five_Arts'), ('Form_Five_Sciences', 'Form_Five_Sciences'),
     ('Form_Five_Six','Form_Six_Arts'), ('Form_Six_Sciences', 'Form_Six_Sciences'))
@@ -332,6 +333,7 @@ class FeeCollection(models.Model):
     status = (('Paid','Paid'),('Unpaid','Unpaid'))
     School = models.ForeignKey(School, on_delete=models.PROTECT, blank=True, null=True)
     Class = models.ForeignKey(Classinformation, on_delete=models.PROTECT, blank=True, null=True)
+    Section = models.ForeignKey(Sectioninformation, on_delete=models.PROTECT, blank=True, null=True)
     Student_Name = models.ForeignKey(DataStudent,on_delete=models.PROTECT, blank=True, null=True)
     FeeType = models.CharField(max_length=130, choices=fee, blank=False, null=True)
     FeeAmount = models.CharField(max_length=130)
