@@ -14,7 +14,7 @@ def logout(request):
  return render(request, 'accounts/login.html')
 
  #######################################
-# THE CRUD OPERATIONS ON A CLASS MODULE #
+# THE CRUD OPERATIONS ON A CLASS MODULE  #
  #######################################
 def createclassinformation(request):
     if request.method=="POST":
