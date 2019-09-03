@@ -50,12 +50,7 @@
 <p>Enter Details</p>
   {% csrf_token %}
   <div class="x_content">
-    <form id="myForm"
-          method="GET"
-          class="form-inline"
-          data-school="{{ request.GET.School }}"
-          data-classroom="{{ request.GET.Class }}"
-          data-section="{{ request.GET.Section }}">
+    <form id="myForm"method="GET"class="form-inline" data-school="{{ request.GET.School }}"data-classroom="{{ request.GET.Class }}"data-section="{{ request.GET.Section }}">
         <div class="row">
 
             <div class="col-md-3 col-sm-4 col-xs-12">

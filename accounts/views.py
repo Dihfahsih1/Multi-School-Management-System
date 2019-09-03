@@ -712,78 +712,7 @@ def viewfeetype(request):
    return render(request, 'accounts/Accounting/viewfeetype.html', context)
 
 
-################################################
-#   CRUD FOR THE FEE COLLECTION MODULE        #
-################################################
-def addfeecollection(request):
-    context = {}
-    School = request.GET.get('School')
-    Class = request.GET.get('Class')
-    context['form'] = AddFeeCollectionForm(School, Class)
-    # Filter
-    q = request.GET.get('Section')
-    if q:
-        q = q.replace('.', '')
-        students = DataStudent.objects.filter(stream=str(q))
-        context = {'students': students}
-    return render(request, 'accounts/Accounting/addfeecollection.html', context)
-    if request.method=="POST":
 
-       form=AddFeeCollectionForm(request.POST,request.FILES)
-       if form.is_valid():
-           form.save()
-           return redirect('addfeecollection')
-    else:
-       form = AddFeeCollectionForm()
-       context = {'form': form}
-       return render(request, 'accounts/Accounting/addfeecollection.html', context)
-
-def classrooms_ajax(request):
-    school = request.GET.get('School')
-    classrooms = ClassInformation.objects.filter(School=school)
-    context = {'classrooms': classrooms}
-    return render(request, 'accounts/Accounting/_classrooms.html', context)
-
-def classrooms_choices_ajax(request):
-    school = request.GET.get('School')
-    classrooms = ClassInformation.objects.filter(School=school)
-    context = {'classrooms': classrooms}
-    return render(request, 'accounts/Accounting/_classrooms_choices.html', context)
-
-def sections_ajax(request):
-    classroom = request.GET.get('Class')
-    sections = Sectioninformation.objects.filter(NameOfClass=classroom)
-    context = {'sections': sections}
-    return render(request, 'accounts/Accounting/_sections.html', context)
-
-def sections_choices_ajax(request):
-    classroom = request.GET.get('Class')
-    sections = Sectioninformation.objects.filter(NameOfClass=classroom)
-    context = {'sections': sections}
-    return render(request, 'attendance/includes/_sections_choices.html', context)
-
-
-def editfeecollection(request, pk):
-   item = get_object_or_404(FeeCollection, id=pk)
-   if request.method == "POST":
-       form =  EditFeeCollectionForm(request.POST,request.FILES, instance=item)
-       if form.is_valid():
-           form.save()
-           return redirect('viewfeecollection')
-   else:
-       form =  EditFeeCollectionForm(instance=item)
-       return render(request, 'accounts/Accounting/editfeecollection.html', {'form': form})
-
-def deletefeecollection(request, pk):
-   FeeCollection.objects.filter(id=pk).delete()
-   all_info=FeeCollection.objects.all()
-   context={'all_info' :all_info}
-   return render(request, 'accounts/Accounting/feecollection.html', context)
-
-def viewfeecollection(request):
-   all_info = FeeCollection.objects.all()
-   context={'all_info':all_info}
-   return render(request, 'accounts/Accounting/viewfeecollection.html', context)
 
 ################################################
 #   CRUD FOR THE FEE INCOME MODULE        #
@@ -1218,12 +1147,12 @@ def editstudent(request, pk):
        return render(request, 'accounts/Students/editstudent.html', {'form': form})
 
 def deletestudent(request, pk):
-   DataStudent.objects.filter(id=pk).delete()
-   all_info=DataStudent.objects.all()
-   context={'all_info' :all_info}
-   return render(request, 'accounts/Students/viewstudents.html', context)
-
+    DataStudent.objects.filter(id=pk).delete()
+    all_info=DataStudent.objects.all()
+    context={'all_info' :all_info}
+    return render(request, 'accounts/Students/viewstudents.html', context)
 def viewstudents(request):
+
     all_info = DataStudent.objects.all()
     context={'all_info' :all_info}
     return render(request, 'accounts/Students/viewstudents.html', context)
@@ -1587,3 +1516,75 @@ def search_student(request):
     student_list = DataStudent.objects.all()
     student_filter = StudentFilter(request.GET, queryset=student_list)
     return render(request, 'accounts/Students/Search/student_list.html', {'filter': student_filter})
+
+################################################
+#   CRUD FOR THE FEE COLLECTION MODULE        #
+################################################
+def addfeecollection(request):
+    context = {}
+    School = request.GET.get('School')
+    Class = request.GET.get('Class')
+    context['form'] = AddFeeCollectionForm(School, Class)
+    # Filter
+    q = request.GET.get('Section')
+    if q:
+        q = q.replace('.', '')
+        students = DataStudent.objects.filter(stream=str(q))
+        context = {'students': students}
+    return render(request, 'accounts/Accounting/addfeecollection.html', context)
+    if request.method=="POST":
+       form=AddFeeCollectionForm(request.POST,request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('addfeecollection')
+    else:
+       form = AddFeeCollectionForm()
+       context = {'form': form}
+       return render(request, 'accounts/Accounting/addfeecollection.html', context)
+
+def classrooms_ajax(request):
+    school = request.GET.get('School')
+    classrooms = ClassInformation.objects.filter(School=school)
+    context = {'classrooms': classrooms}
+    return render(request, 'accounts/Accounting/_classrooms.html', context)
+
+def classrooms_choices_ajax(request):
+    school = request.GET.get('School')
+    classrooms = ClassInformation.objects.filter(School=school)
+    context = {'classrooms': classrooms}
+    return render(request, 'accounts/Accounting/_classrooms_choices.html', context)
+
+def sections_ajax(request):
+    classroom = request.GET.get('Class')
+    sections = Sectioninformation.objects.filter(NameOfClass=classroom)
+    context = {'sections': sections}
+    return render(request, 'accounts/Accounting/_sections.html', context)
+
+def sections_choices_ajax(request):
+    classroom = request.GET.get('Class')
+    sections = Sectioninformation.objects.filter(NameOfClass=classroom)
+    context = {'sections': sections}
+    return render(request, 'attendance/includes/_sections_choices.html', context)
+
+
+def editfeecollection(request, pk):
+   item = get_object_or_404(FeeCollection, id=pk)
+   if request.method == "POST":
+       form =  EditFeeCollectionForm(request.POST,request.FILES, instance=item)
+       if form.is_valid():
+           form.save()
+           return redirect('viewfeecollection')
+   else:
+       form =  EditFeeCollectionForm(instance=item)
+       return render(request, 'accounts/Accounting/editfeecollection.html', {'form': form})
+
+def deletefeecollection(request, pk):
+   FeeCollection.objects.filter(id=pk).delete()
+   all_info=FeeCollection.objects.all()
+   context={'all_info' :all_info}
+   return render(request, 'accounts/Accounting/feecollection.html', context)
+
+def viewfeecollection(request):
+   all_info = FeeCollection.objects.all()
+   context={'all_info':all_info}
+   return render(request, 'accounts/Accounting/viewfeecollection.html', context)
