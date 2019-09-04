@@ -109,11 +109,6 @@ url(r'^deletefeetype/(?P<pk>\d+)', views.deletefeetype, name="deletefeetype"),
 url(r'^viewfeetype', views.viewfeetype, name="viewfeetype"),
 
 url(r'^addfeecollection', views.addfeecollection, name="addfeecollection"),
-url('classrooms/ajax/', views.classrooms_ajax, name='classrooms_ajax'),
-url('classrooms/choices/ajax/', views.classrooms_choices_ajax, name='classrooms_choices_ajax'),
-url('sections/ajax/', views.sections_ajax, name='sections_ajax'),
-url('sections/choices/ajax/', views.sections_choices_ajax, name='sections_choices_ajax'),
-
 url(r'^editfeecollection/(?P<pk>\d+)', views.editfeecollection, name="editfeecollection"),
 url(r'^deletefeecollection/(?P<pk>\d+)', views.deletefeecollection, name="deletefeecollection"),
 url(r'^viewfeecollection', views.viewfeecollection, name="viewfeecollection"),

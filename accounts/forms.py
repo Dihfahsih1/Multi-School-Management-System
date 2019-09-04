@@ -213,14 +213,7 @@ class StudentFilter(django_filters.FilterSet):
         fields = ('Class','stream','name')
 
 
-class AddFeeCollectionForm(forms.ModelForm):
-    class Meta:
-        model = FeeCollection
-        fields = ('School','Class','Section','Student_Name','FeeType','FeeAmount','Month','IsApplicableDiscount','PaidStatus','Notes')
-class EditFeeCollectionForm(forms.ModelForm):
-    class Meta:
-        model = FeeCollection
-        fields = ('School','Class','Student_Name','FeeType','FeeAmount','Month','IsApplicableDiscount','PaidStatus','Notes')
+
 
 class AddIncomeForm(forms.ModelForm):
     class Meta:
@@ -321,3 +314,8 @@ class AddGuardianForm(forms.ModelForm):
             ,'Present_Address','Permanent_Address','National_Id',
             'username','gender', 'religion','Role',
             'Email','password','Other_Info','Photo')
+
+class AddFeeCollectionForm(forms.ModelForm):
+    class Meta:
+        model = FeeCollection
+        fields = ('School','Class','Section','Student_Name','FeeType','FeeAmount','Month','IsApplicableDiscount','PaidStatus','Notes')
