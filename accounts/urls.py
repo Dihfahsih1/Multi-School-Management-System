@@ -217,6 +217,5 @@ url(r'^students_of_guardian_in_form_five', views.students_of_guardian_in_form_fi
 url(r'^students_of_guardian_in_form_six', views.students_of_guardian_in_form_six, name="students_of_guardian_in_form_six"),
 
 url(r'^search_student', views.search_student, name="search_student"),
-
 url(r'^logout', views.login, name="logout")
 ]

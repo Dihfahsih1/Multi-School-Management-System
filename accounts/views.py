@@ -1,7 +1,8 @@
 from django.shortcuts import *
-from django.views.generic import CreateView
+from django.views.generic import ListView, CreateView, UpdateView
 from .models import *
 from .forms import *
+from django.urls import reverse_lazy
 
 def home(request):
     return render(request, 'accounts/home.html')
@@ -1559,3 +1560,5 @@ def viewfeecollection(request):
    all_info = FeeCollection.objects.all()
    context={'all_info':all_info}
    return render(request, 'accounts/Accounting/viewfeecollection.html', context)
+
+#
