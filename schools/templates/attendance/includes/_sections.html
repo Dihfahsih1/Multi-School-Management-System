@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>Section</th>
+        <th>Classroom</th>
+        <th>School</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for section in sections %}
+        <tr>
+            <td>{{ section.name }}</td>
+            <td>{{ section.classroom }}</td>
+            <td>{{ section.classroom.school }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

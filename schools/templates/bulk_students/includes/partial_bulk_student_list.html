@@ -1,0 +1,12 @@
+{% for bulk_student in bulk_students %}
+    <tr>
+        <td>{{ bulk_student.id }}</td>
+        <td>{{ bulk_student.school }}</td>
+        <td>{{ bulk_student.class_name }}</td>
+        <td>{{ bulk_student.section_name }}</td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Bulk_student</td>
+    </tr>
+{% endfor %}

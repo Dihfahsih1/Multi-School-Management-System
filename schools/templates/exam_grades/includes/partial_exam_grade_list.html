@@ -1,0 +1,27 @@
+{% for exam_grade in exam_grades %}
+    <tr>
+        <td>{{ exam_grade.id }}</td>
+        <td>{{ exam_grade.school }}</td>
+        <td>{{ exam_grade.exam_grade }}</td>
+        <td>{{ exam_grade.grade_point }}</td>
+        <td>{{ exam_grade.mark_from }}</td>
+        <td>{{ exam_grade.mark_to }}</td>
+        <td>{{ exam_grade.note }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-exam_grade"
+                    data-url="{% url 'exam_grade_update' exam_grade.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-exam_grade"
+                    data-url="{% url 'exam_grade_delete' exam_grade.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Exam Grade</td>
+    </tr>
+{% endfor %}

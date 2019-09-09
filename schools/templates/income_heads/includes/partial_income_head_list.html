@@ -1,0 +1,24 @@
+{% for income_head in income_heads %}
+    <tr>
+        <td>{{ income_head.id }}</td>
+        <td>{{ income_head.school }}</td>
+        <td>{{ income_head.income_head }}</td>
+        <td>{{ income_head.note }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-income_head"
+                    data-url="{% url 'income_head_update' income_head.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-income_head"
+                    data-url="{% url 'income_head_delete' income_head.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Income Head</td>
+    </tr>
+{% endfor %}

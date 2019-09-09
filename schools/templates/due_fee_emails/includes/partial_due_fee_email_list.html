@@ -1,0 +1,26 @@
+{% for due_fee_email in due_fee_emails %}
+    <tr>
+        <td>{{ due_fee_email.id }}</td>
+        <td>{{ due_fee_email.school }}</td>
+        <td>{{ due_fee_email.receiver_role }}</td>
+        <td>{{ due_fee_email.due_fee_student }}</td>
+        <td>{{ due_fee_email.subject }}</td>
+        <td>{{ due_fee_email.subject }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-due_fee_email"
+                    data-url="{% url 'due_fee_email_update' due_fee_email.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-due_fee_email"
+                    data-url="{% url 'due_fee_email_delete' due_fee_email.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Due Fee Email</td>
+    </tr>
+{% endfor %}

@@ -1,0 +1,215 @@
+{% extends "app/base_site.html" %}
+
+{% block title %} Student Attendance {% endblock title %}
+
+{% load widget_tweaks %}
+
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="right_col" role="main">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2><i class="fa fa-check-square-o"></i><small> Student Attendance</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="x_content quick-link">
+                        <span>Quick Link:</span>
+                        <a href="#">Student Attendance</a>
+                        | <a href="#">Teacher Attendance</a>
+                        | <a href="#">Employee Attendance</a>
+                        | <a href="#">Absent Email</a>
+                        | <a href="#">Absent SMS</a>
+
+                        <div class="x_content">
+
+                            <form id="myForm"
+                                  method="GET"
+                                  class="form-inline"
+                                  data-school="{{ request.GET.school }}"
+                                  data-classroom="{{ request.GET.classroom }}"
+                                  data-section="{{ request.GET.section }}">
+                                <div class="row">
+
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label for="schoolSelect">School</label>
+                                            {% render_field form.school title="Schools" class="form-control" %}
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label for="classroomSelect">Classroom</label>
+                                            {% render_field form.classroom title="Classrooms" class="form-control" %}
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-3 col-sm-4 col-xs-12">
+                                        <div class="item form-group">
+                                            <label for="sectionSelect">Section</label>
+                                            {% render_field form.section title="Section" class="form-control" %}
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <div class="item form-group">
+                                            <label for="dateSelect">Date</label>
+                                            {% render_field form.date title="Date" class="form-control" %}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="btnSubmit" class="btn btn-success" type="submit">Filter</button>
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <div class="x_content">
+                            <table id="datatable-responsive"
+                                   class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0"
+                                   width="100%">
+                                <thead>
+                                <tr>
+                                    <th>#SL</th>
+                                    <th>Photo</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Roll No</th>
+                                    <th><input type="checkbox" value="P" name="present" id="fn_present"
+                                               class="fn_all_attendnce"/> Present All
+                                    </th>
+                                    <th><input type="checkbox" value="L" name="late" id="fn_late"
+                                               class="fn_all_attendnce"/> Late All
+                                    </th>
+                                    <th><input type="checkbox" value="A" name="absent" id="fn_absent"
+                                               class="fn_all_attendnce"/> Absent All
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody id="fn_attendance">
+                                {% for student in students %}
+                                    <tr>
+                                        <td>{{ student.id }}</td>
+                                        <td>
+                                            {% if student.student_photo %}
+                                                <img src="{{ student.student_photo.url }}"
+                                                     alt="" width="50"
+                                                     style="background: rgba(15,174,221,0.97); padding: 2px;"/><br/>
+                                                <br/>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ student.name }}</td>
+                                        <td>{{ student.email }}</td>
+                                        <td>{{ student.phone }}</td>
+                                        <td>{{ student.roll_no }}</td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="present"
+                                                       name="studentAttendance">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="late"
+                                                       name="studentAttendance" >
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="absent"
+                                                       name="studentAttendance">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% empty %}
+                                    <tr>
+                                        <td colspan="9" class="text-center bg-warning">No Data</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            let school = $('#myForm').data('school')
+            let classroom = $('#myForm').data('classroom')
+            let section = $('#myForm').data('section')
+            if (school) {
+                $('#id_school option[value=' + school + ']').attr('selected', 'selected');
+            }
+            if (classroom) {
+                $('#id_classroom option[value=' + classroom + ']').attr('selected', 'selected');
+            }
+            if (section) {
+                $('#id_section option[value=' + section + ']').attr('selected', 'selected');
+            }
+        });
+
+        $('#id_school').on('change', function () {
+            $('#btnSubmit').click();
+        });
+
+        $('#id_classroom').on('change', function () {
+            $('#btnSubmit').click();
+        });
+    </script>
+{% endblock js %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <!-- Chart.js -->
+    <script src="/static/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="/static/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- Skycons -->
+    <script src="/static/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="/static/vendors/Flot/jquery.flot.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="/static/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="/static/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="/static/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="/static/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="/static/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="/static/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="/static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+{% endblock javascripts %}
+
+
+
+
+
+

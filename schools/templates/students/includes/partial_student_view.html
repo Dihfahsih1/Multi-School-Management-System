@@ -1,0 +1,278 @@
+<form method="post" action="{% url 'student_view' form.instance.pk %}" class="js-student-view-form"
+      enctype="multipart/form-data">
+    {% csrf_token %}
+
+
+    <div class="modal-lg" tabindex="-1" role="document" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">View Student</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs bordered" role="tablist">
+                        <li class="active"><a href="#tab_content1" id="basic-tab" role="tab"
+                                              data-toggle="tab" aria-expanded="true">
+                            <i class="fa fa-info-circle">&nbsp;</i>Basic Information</a>
+                        </li>
+                        <li class=""><a href="#tab_content2" role="tab" id="guardian-tab" data-toggle="tab"
+                                        aria-expanded="false">
+                            <i class="fa fa-paw">&nbsp;</i>Guardian Info</a>
+                        </li>
+                        <li class=""><a href="#tab_content3" role="tab" id="parent-tab" data-toggle="tab"
+                                        aria-expanded="false">
+                            <i class="fa fa-male">&nbsp;</i>Parent Info</a>
+                        </li>
+                        <li class=""><a href="#tab_content4" role="tab" id="attendance-tab" data-toggle="tab"
+                                        aria-expanded="false">
+                            <i class="fa fa-check-circle-o">&nbsp;</i>Attendance</a>
+                        </li>
+                        <li class=""><a href="#tab_content5" role="tab" id="exam-tab" data-toggle="tab"
+                                        aria-expanded="false">
+                            <i class="fa fa-sticky-note">&nbsp;</i>Exam Mark</a>
+                        </li>
+                        <li class=""><a href="#tab_content6" role="tab" id="payment-tab" data-toggle="tab"
+                                        aria-expanded="false">
+                            <i class="fa fa-dollar">&nbsp;</i>Payment</a>
+                        </li>
+                        <li class=""><a href="#tab_content7" role="tab" id="activity-tab" data-toggle="tab"
+                                        aria-expanded="false">
+                            <i class="fa fa-copy">&nbsp;</i>Activity</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1"
+                             aria-labelledby="basic-tab">
+                            <p></p>
+                            <table id="tablePreview" class="table table-bordered table-striped">
+                                <!--Table head-->
+                                <thead>
+                                <tr>
+                                    <th>School Name</th>
+                                    <td>{{ form.instance.school }}</td>
+                                    <th>Username</th>
+                                    <td>{{ form.instance.username }}</td>
+                                </tr>
+                                </thead>
+                                <!--Table head-->
+                                <!--Table body-->
+                                <tbody>
+                                <tr>
+                                    <th>Admission No</th>
+                                    <td>{{ form.instance.admission_no }}</td>
+                                    <th>Name</th>
+                                    <td>{{ form.instance.full_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Admission Date</th>
+                                    <td>{{ form.instance.admission_date }}</td>
+                                    <th>Birth Date</th>
+                                    <td>{{ form.instance.birth_date }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Gender</th>
+                                    <td>{{ form.instance.gender }}</td>
+                                    <th>Blood Group</th>
+                                    <td>{{ form.instance.blood_group }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Religion</th>
+                                    <td>{{ form.instance.religion }}</td>
+                                    <th>Phone</th>
+                                    <td>{{ form.instance.phone }}</td>
+                                </tr>
+                                <tr>
+                                    <th>National ID</th>
+                                    <td>{{ form.instance.national_ID }}</td>
+                                    <th>Email</th>
+                                    <td>{{ form.instance.email }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Present Address</th>
+                                    <td>{{ form.instance.present_address }}</td>
+                                    <th>Permanent Address</th>
+                                    <td>{{ form.instance.permanent_address }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Class</th>
+                                    <td>{{ form.instance.classroom }}</td>
+                                    <th>Section</th>
+                                    <td>{{ form.instance.section }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Roll No</th>
+                                    <td>{{ form.instance.roll_no }}</td>
+                                    <th>Registration No</th>
+                                    <td>{{ form.instance.registration_no }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Discount</th>
+                                    <td>{{ form.instance.discount }}</td>
+                                    <th>Second Language</th>
+                                    <td>{{ form.instance.second_language }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Previous School</th>
+                                    <td>{{ form.instance.previous_school }}</td>
+                                    <th>Previous Class</th>
+                                    <td>{{ form.instance.previous_class }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Group</th>
+                                    <td>{{ form.instance.group }}</td>
+                                    <th>Health Condition</th>
+                                    <td>{{ form.instance.health_condition }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Other Info</th>
+                                    <td>{{ form.instance.other_info }}</td>
+                                    <th>Student Photo</th>
+                                    <td><img src="{{ form.instance.photo.url }}"
+                                             alt="" width="30"
+                                             style="background: rgba(15,174,221,0.97); padding: 2px;"/><br/>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <!--Table body-->
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="guardian-tab">
+                            <p></p>
+                            <table id="tablePreview" class="table table-bordered table-striped">
+                                <!--Table head-->
+                                <thead>
+                                <tr>
+                                    <th>Guardian</th>
+                                    <td>{{ form.instance.guardian }}</td>
+                                    <th>Relation With Guardian</th>
+                                    <td>{{ form.instance.relation_With_Guardian }}</td>
+                                </tr>
+                                </thead>
+                                <!--Table head-->
+                                <!--Table body-->
+                                <tbody>
+                                <tr>
+                                    <th>Phone</th>
+                                    <td>{{ form.instance.guardian.phone }}</td>
+                                    <th>National ID</th>
+                                    <td>{{ form.instance.guardian.national_ID }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Present Address</th>
+                                    <td>{{ form.instance.enable_frontend }}</td>
+                                    <th>Permanent address</th>
+                                    <td>{{ form.instance.exam_final_result }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Religion</th>
+                                    <td>{{ form.instance.enable_frontend }}</td>
+                                    <th>Role</th>
+                                    <td>{{ form.instance.exam_final_result }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td>{{ form.instance.enable_frontend }}</td>
+                                    <th>Profession</th>
+                                    <td>{{ form.instance.exam_final_result }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Photo</th>
+                                    <td>{{ form.instance.enable_frontend }}</td>
+                                    <th>Other Info</th>
+                                    <td>{{ form.instance.exam_final_result }}</td>
+                                </tr>
+                                </tbody>
+                                <!--Table body-->
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="parent-tab">
+                            <p></p>
+                            <table id="tablePreview" class="table table-bordered table-striped">
+                                <!--Table head-->
+                                <thead>
+                                <tr>
+                                    <th>Father Name</th>
+                                    <td>{{ form.instance.father_name }}</td>
+                                    <th>Mother Name</th>
+                                    <td>{{ form.instance.mother_name }}</td>
+                                </tr>
+                                </thead>
+                                <!--Table head-->
+                                <!--Table body-->
+                                <tbody>
+                                <tr>
+                                    <th>Father Phone</th>
+                                    <td>{{ form.instance.father_phone }}</td>
+                                    <th>Mother Phone</th>
+                                    <td>{{ form.instance.mother_phone }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Father Education</th>
+                                    <td>{{ form.instance.father_education }}</td>
+                                    <th>Mother Education</th>
+                                    <td>{{ form.instance.mother_education }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Father Profession</th>
+                                    <td>{{ form.instance.father_profession }}</td>
+                                    <th>Mother Profession</th>
+                                    <td>{{ form.instance.mother_profession }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Father Designation</th>
+                                    <td>{{ form.instance.father_designation }}</td>
+                                    <th>Mother Designation</th>
+                                    <td>{{ form.instance.mother_designation }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Father Photo</th>
+                                    <td><img src="{{ form.instance.father_photo.url }}"
+                                             alt="" width="30"
+                                             style="background: rgba(15,174,221,0.97); padding: 2px;"/><br/>
+                                    </td>
+                                    <th>Mother Photo</th>
+                                    <td><img src="{{ form.instance.mother_photo.url }}"
+                                             alt="" width="30"
+                                             style="background: rgba(15,174,221,0.97); padding: 2px;"/><br/>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <!--Table body-->
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="attendance-tab">
+                            <p></p>
+                            <table id="tablePreview" class="table table-bordered table-striped">
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content5" aria-labelledby="exam-tab">
+                            <p></p>
+                            <table id="tablePreview" class="table table-bordered table-striped">
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content6" aria-labelledby="payment-tab">
+                            <p></p>
+                            <table id="tablePreview" class="table table-bordered table-striped">
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content7" aria-labelledby="activity-tab">
+                            <p></p>
+                            <table id="tablePreview" class="table table-bordered table-striped">
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+</form>

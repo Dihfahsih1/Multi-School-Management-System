@@ -1,0 +1,27 @@
+{% for salary_grade in salary_grades %}
+    <tr>
+        <td>{{ salary_grade.id }}</td>
+        <td>{{ salary_grade.school }}</td>
+        <td>{{ salary_grade.grade_name }}</td>
+        <td>{{ salary_grade.basic_salary }}</td>
+        <td>{{ salary_grade.hourly_rate }}</td>
+        <td>{{ salary_grade.gross_salary }}</td>
+        <td>{{ salary_grade.net_salary }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-salary_grade"
+                    data-url="{% url 'salary_grade_update' school.id salary_grade.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-salary_grade"
+                    data-url="{% url 'salary_grade_delete' school.id salary_grade.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Salary Grade</td>
+    </tr>
+{% endfor %}

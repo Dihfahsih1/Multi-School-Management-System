@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Log In | Global - Multi School Management System Express</title>
+    <link rel="icon" href="http://www.codetroopers-team.com/gmsms/assets/images/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap -->
+    <link href="http://www.codetroopers-team.com/gmsms/assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="http://www.codetroopers-team.com/gmsms/assets/vendors/font-awesome/css/font-awesome.min.css"
+          rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="http://www.codetroopers-team.com/gmsms/assets/css/custom.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="http://www.codetroopers-team.com/gmsms/assets/js/jquery-1.11.2.min.js"></script>
+    <style type="text/css">
+        .demo-note {
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        .demo-button {
+            margin: 8px;
+            font-size: 16px;
+            padding: 5px 12px !important;
+        }
+    </style>
+</head>
+
+<body class="login">
+
+<div class="login_wrapper">
+    <section>
+        <center>
+            <img width="100" height="100" src="http://www.codetroopers-team.com/gmsms/assets/images//sms-logo.png">
+        </center>
+    </section>
+    <form action="http://www.codetroopers-team.com/gmsms/auth/login" name="login" id="login" method="post"
+          accept-charset="utf-8">
+        <div class="form login_form">
+            <section><h1 class="text-center">Log In</h1></section>
+            <section class="login_content">
+                <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+                    <p class="red"></p>
+                    <p class="green"></p>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                    <input type="text" name="username" class="form-control has-feedback-left" placeholder="Username">
+                    <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                    <input type="password" name="password" class="form-control has-feedback-left"
+                           placeholder="Password">
+                    <span class="fa fa-asterisk form-control-feedback left" aria-hidden="true"></span>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="submit" name="submit" value="Log In" class="btn btn-primary"/>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <a class="reset_pass" href="http://www.codetroopers-team.com/gmsms/auth/forgot">Lost your
+                        password?</a>
+                </div>
+                <div class="clearfix"></div>
+            </section>
+        </div>
+    </form>
+</div>
+<section>
+    <div class="col-md-12 col-sm-12 text-center col-xs-12">
+        <a class="btn btn-success  demo-note" href="#">
+            For Demo Login Please Click Below...
+        </a>
+    </div>
+</section>
+<section>
+    <center>
+        <div class="btn-group" role="group" aria-label="...">
+            <button class="btn btn-sm btn-warning demo-button" id="superadmin">Super Admin</button>
+        </div>
+    </center>
+</section>
+<section>
+    <center>
+        <div class="btn-group" role="group" aria-label="School-1">
+            <div class=" btn-sm btn-info demo-button" style="float: left;background: black;">Windsor Park School:</div>
+            <button class="btn btn-sm btn-info demo-button" id="admin">Admin</button>
+            <button class="btn btn-sm btn-danger demo-button" id="guardian">Guardian</button>
+            <button class="btn btn-sm btn-success demo-button" id="student">Student</button>
+            <button class="btn btn-sm btn-warning demo-button" id="teacher">Teacher</button>
+            <button class="btn btn-sm btn-info demo-button" id="accountant">Accountant</button>
+            <button class="btn btn-sm btn-danger demo-button" id="librarian">Librarian</button>
+            <button class="btn btn-sm btn-success demo-button" id="receptionist">Receptionist</button>
+            <button class="btn btn-sm btn-default demo-button" id="staff">Staff</button>
+        </div>
+    </center>
+</section>
+<section>
+    <center>
+        <div class="btn-group" role="group" aria-label="School-2">
+            <div class="btn-sm btn-info demo-button" style="float: left;background: black;">Ideal Stevenson School:
+            </div>
+            <button class="btn btn-sm btn-info demo-button" id="admin2">Admin</button>
+            <button class="btn btn-sm btn-danger demo-button" id="guardian2">Guardian</button>
+            <button class="btn btn-sm btn-success demo-button" id="student2">Student</button>
+            <button class="btn btn-sm btn-warning demo-button" id="teacher2">Teacher</button>
+            <button class="btn btn-sm btn-info demo-button" id="accountant2">Accountant</button>
+            <button class="btn btn-sm btn-danger demo-button" id="librarian2">Librarian</button>
+            <button class="btn btn-sm btn-success demo-button" id="receptionist2">Receptionist</button>
+            <button class="btn btn-sm btn-default demo-button" id="staff2">Staff</button>
+        </div>
+    </center>
+</section>
+<script type="text/javascript">
+
+    $('#superadmin').click(function () {
+        $("input[name=username]").val('superadmin');
+        $("input[name=password]").val('123456');
+    });
+
+    $('#admin').click(function () {
+        $("input[name=username]").val('admin');
+        $("input[name=password]").val('123456');
+    });
+    $('#guardian').click(function () {
+        $("input[name=username]").val('guardian');
+        $("input[name=password]").val('123456');
+    });
+    $('#student').click(function () {
+        $("input[name=username]").val('student');
+        $("input[name=password]").val('123456');
+    });
+    $('#teacher').click(function () {
+        $("input[name=username]").val('teacher');
+        $("input[name=password]").val('123456');
+    });
+    $('#accountant').click(function () {
+        $("input[name=username]").val('accountant');
+        $("input[name=password]").val('123456');
+    });
+    $('#librarian').click(function () {
+        $("input[name=username]").val('librarian');
+        $("input[name=password]").val('123456');
+    });
+    $('#receptionist').click(function () {
+        $("input[name=username]").val('receptionist');
+        $("input[name=password]").val('123456');
+    });
+    $('#staff').click(function () {
+        $("input[name=username]").val('staff');
+        $("input[name=password]").val('123456');
+    });
+
+
+    $('#admin2').click(function () {
+        $("input[name=username]").val('admin2');
+        $("input[name=password]").val('123456');
+    });
+    $('#guardian2').click(function () {
+        $("input[name=username]").val('guardian2');
+        $("input[name=password]").val('123456');
+    });
+    $('#student2').click(function () {
+        $("input[name=username]").val('student2');
+        $("input[name=password]").val('123456');
+    });
+    $('#teacher2').click(function () {
+        $("input[name=username]").val('teacher2');
+        $("input[name=password]").val('123456');
+    });
+    $('#accountant2').click(function () {
+        $("input[name=username]").val('accountant2');
+        $("input[name=password]").val('123456');
+    });
+    $('#librarian2').click(function () {
+        $("input[name=username]").val('librarian2');
+        $("input[name=password]").val('123456');
+    });
+    $('#receptionist2').click(function () {
+        $("input[name=username]").val('receptionist2');
+        $("input[name=password]").val('123456');
+    });
+    $('#staff2').click(function () {
+        $("input[name=username]").val('staff2');
+        $("input[name=password]").val('123456');
+    });
+
+</script>
+</body>
+</html>

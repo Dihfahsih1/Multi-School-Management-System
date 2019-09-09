@@ -1,0 +1,31 @@
+{% for certificate in certificates %}
+    <tr>
+        <td>{{ certificate.id }}</td>
+        <td>{{ certificate.certificate_name }}</td>
+        <td>{{ certificate.school_name }}</td>
+        <td>{{ certificate.certificate_text }}</td>
+        <td>
+            {% if certificate.background %}
+                <img src="{{ certificate.background.url }}"
+                     alt="" width="50"
+                     style="background: rgba(15,174,221,0.97); padding: 2px;"/><br/><br/>
+            {% endif %}
+        </td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-certificate"
+                    data-url="{% url 'certificate_update' school.id certificate.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-certificate"
+                    data-url="{% url 'certificate_delete' school.id certificate.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Certificate</td>
+    </tr>
+{% endfor %}

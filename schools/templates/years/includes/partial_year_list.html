@@ -1,0 +1,34 @@
+{% for year in years %}
+    <tr>
+        <td>{{ year.id }}</td>
+        <td>{{ year.school }}</td>
+        <td>{{ year.year }}</td>
+        <td>{{ year.is_running }}</td>
+        <td>{{ year.note }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-info btn-sm js-view-year"
+                    data-url="{% url 'year_view' year.id %}">
+                <span class="glyphicon glyphicon-eye-open"></span> View
+            </button>
+            <br>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-year"
+                    data-url="{% url 'year_update' year.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <br>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-year"
+                    data-url="{% url 'year_delete' year.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+            <br>
+        </td>
+
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Year</td>
+    </tr>
+{% endfor %}

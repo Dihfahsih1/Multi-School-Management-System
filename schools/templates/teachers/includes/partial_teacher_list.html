@@ -1,0 +1,43 @@
+{% for teacher in school_teachers %}
+    <tr>
+        <td>{{ teacher.id }}</td>
+        <td>{{ teacher.school.school_name }}</td>
+        <td>
+            {% if teacher.user.photo %}
+                <img src="{{ teacher.user.photo.url }}"
+                     alt="" width="50"
+                     style="background: rgba(15,174,221,0.97); padding: 2px;"/><br/><br/>
+            {% endif %}
+        </td>
+        <td>{{ teacher.user.full_name }}</td>
+        <td>{{ teacher.user.responsibility }}</td>
+        <td>{{ teacher.user.phone }}</td>
+        <td>{{ teacher.user.email }}</td>
+        <td>{{ teacher.user.Is_View_on_Web }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-info btn-sm js-view-teacher"
+                    data-url="{% url 'teacher_view' school.id teacher.id %}">
+                <span class="glyphicon glyphicon-eye-open"></span> View
+            </button>
+
+            <br>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-teacher"
+                    data-url="{% url 'teacher_update' school.id teacher.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <br>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-teacher"
+                    data-url="{% url 'teacher_delete' school.id teacher.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+            <br>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Teacher</td>
+    </tr>
+{% endfor %}

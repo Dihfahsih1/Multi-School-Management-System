@@ -1,0 +1,31 @@
+{% for due_fee_sms in due_fee_smss %}
+    <tr>
+        <td>{{ due_fee_sms.id }}</td>
+        <td>{{ due_fee_sms.school }}</td>
+        <td>{{ due_fee_sms.school }}</td>
+        <td>{{ due_fee_sms.receiver_type }}</td>
+        <td>{{ due_fee_sms.due_fee_student }}</td>
+        <td>{{ due_fee_sms.SMS }}</td>
+        <td>
+            <img src="#"
+                 alt="" width="80"
+                 style="background: rgba(16,67,221,0.84); padding: 5px;"/><br/><br/>
+        </td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-due_fee_sms"
+                    data-url="{% url 'due_fee_sms_update' due_fee_sms.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-due_fee_sms"
+                    data-url="{% url 'due_fee_sms_delete' due_fee_sms.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Due Fee SMS</td>
+    </tr>
+{% endfor %}

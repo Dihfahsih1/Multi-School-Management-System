@@ -1,0 +1,26 @@
+{% for holiday in holidays %}
+    <tr>
+        <td>{{ holiday.id }}</td>
+        <td>{{ holiday.school }}</td>
+        <td>{{ holiday.holiday_date }}</td>
+        <td>{{ holiday.from_date }}</td>
+        <td>{{ holiday.to_date }}</td>
+        <td>{{ holiday.Is_View_on_Web }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-holiday"
+                    data-url="{% url 'holiday_update' holiday.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-holiday"
+                    data-url="{% url 'holiday_delete' holiday.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Holiday</td>
+    </tr>
+{% endfor %}

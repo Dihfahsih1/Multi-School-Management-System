@@ -1,0 +1,250 @@
+{% extends "app/base_site.html" %}
+
+
+
+
+{% block title %} Home {% endblock title %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <!-- FullCalendar -->
+    <link href="/static/vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="/static/vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="right_col" role="main">
+        <!-- top tiles -->
+        <div class="row ">
+            <div class="row top_tiles">
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon"><i class="fa fa-graduation-cap"></i></div>
+                        <div class="count">{{ school_count }}</div>
+                        <h3>Schools</h3>
+                        <p>Number of schools registered.</p>
+                    </div>
+                </div>
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon"><i class="fa fa-group"></i></div>
+                        <div class="count">{{ student_count }}</div>
+                        <h3>Students</h3>
+                        <p>Number of students registered</p>
+                    </div>
+                </div>
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon"><i class="fa fa-dollar"></i></div>
+                        <div class="count">179</div>
+                        <h3>Income</h3>
+                        <p>Expected income.</p>
+                    </div>
+                </div>
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon"><i class="fa fa-dollar"></i></div>
+                        <div class="count">179</div>
+                        <h3>Expenditure</h3>
+                        <p>Expected Expenditure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- /top tiles -->
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel tile overflow_hidden">
+                    <div class="x_title">
+                        <h2 class="head-title">School Statistics</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-12">
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="">
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Calendar Events <small>Sessions</small></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <div id='calendar'></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- calendar modal -->
+                    <div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog"
+                         aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">New Calendar Entry</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="testmodal" style="padding: 5px 20px;">
+                                        <form id="antoform" class="form-horizontal calender" role="form">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Title</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="title" name="title">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Description</label>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control" style="height:55px;" id="descr"
+                                                              name="descr"></textarea>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close
+                                    </button>
+                                    <button type="button" class="btn btn-primary antosubmit">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="CalenderModalEdit" class="modal fade" tabindex="-1" role="dialog"
+                         aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel2">Edit Calendar Entry</h4>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div id="testmodal2" style="padding: 5px 20px;">
+                                        <form id="antoform2" class="form-horizontal calender" role="form">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Title</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" id="title2" name="title2">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">Description</label>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control" style="height:55px;" id="descr2"
+                                                              name="descr"></textarea>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                    <button type="button" class="btn btn-primary antosubmit2">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
+                    <div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
+                    <!-- /calendar modal -->
+                </div>
+
+
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-xs-12">
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel tile fixed_height_320">
+                            <div class="x_title">
+                                <h2 class="head-title">Message</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2 class="head-title">User</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <!-- Chart.js -->
+    <script src="/static/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="/static/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- Skycons -->
+    <script src="/static/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="/static/vendors/Flot/jquery.flot.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="/static/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="/static/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="/static/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="/static/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="/static/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="/static/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="/static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- FullCalendar -->
+    <script src="/static/vendors/moment/min/moment.min.js"></script>
+    <script src="/static/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+{% endblock javascripts %}

@@ -1,0 +1,29 @@
+{% for section in sections %}
+    <tr>
+        <td>{{ section.id }}</td>
+        <td>{{ section.school }}</td>
+        <td>{{ section.section }}</td>
+        <td>{{ section.classroom }}</td>
+        <td>{{ section.class_teacher }}</td>
+        <td>{{ section.note }}</td>
+
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-section"
+                    data-url="{% url 'section_update' classroom.school.pk classroom.pk section.pk %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <br>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-section"
+                    data-url="{% url 'section_delete' classroom.school.pk classroom.pk section.pk %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+            <br>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Section</td>
+    </tr>
+{% endfor %}

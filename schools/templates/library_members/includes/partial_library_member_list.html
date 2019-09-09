@@ -1,0 +1,32 @@
+{% for library_member in library_members %}
+    <tr>
+        <td>{{ library_member.id }}</td>
+        <td>{{ library_member.school }}</td>
+        <td>
+            <img src="#"
+                 alt="" width="80"
+                 style="background: rgba(16,67,221,0.84); padding: 5px;"/><br/><br/>
+        </td>
+        <td>{{ library_member.library_ID }}</td>
+        <td>{{ library_member.name }}</td>
+        <td>{{ library_member.class_name }}</td>
+        <td>{{ library_member.section_name }}</td>
+        <td>{{ library_member.roll_no }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-library_member"
+                    data-url="{% url 'library_member_update' library_member.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-library_member"
+                    data-url="{% url 'library_member_delete' library_member.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Library Member</td>
+    </tr>
+{% endfor %}

@@ -1,0 +1,16 @@
+<form method="post" action="{% url 'transport_member_delete' transport_member.id %}" class="js-transport_member-delete-form">
+    {% csrf_token %}
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Confirm Transport Member deletion</h4>
+    </div>
+    <div class="modal-body">
+        <p class="lead">Are you sure you want to delete the transport member <strong>{{ transport_member.name }}</strong>?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-danger">Delete Transport Member</button>
+    </div>
+</form>

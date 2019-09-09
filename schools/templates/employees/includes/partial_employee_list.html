@@ -1,0 +1,44 @@
+{% for employee in employees %}
+    <tr>
+        <td>{{ employee.user.id }}</td>
+        <td>{{ employee.user.school.school_name }}</td>
+        <td>
+            {% if employee.user.photo %}
+                <img src="{{ employee.user.photo.url }}"
+                     alt="" width="50"
+                     style="background: rgba(15,174,221,0.97); padding: 2px;"/><br/><br/>
+            {% endif %}
+        </td>
+        <td>{{ employee.user.first_name }} {{ employee.user.last_name }}</td>
+        <td>{{ employee.user.designation.designation }}</td>
+        <td>{{ employee.user.phone }}</td>
+        <td>{{ employee.user.email }}</td>
+        <td>{{ employee.user.joining_date }}</td>
+        <td>{{ employee.user.Is_View_on_Web }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-info btn-sm js-view-employee"
+                    data-url="{% url 'employee_view' employee.id %}">
+                <span class="glyphicon glyphicon-eye-open"></span> View
+            </button>
+
+            <br>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-employee"
+                    data-url="{% url 'employee_update' employee.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <br>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-employee"
+                    data-url="{% url 'employee_delete' employee.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+            <br>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Employee</td>
+    </tr>
+{% endfor %}

@@ -1,0 +1,832 @@
+<div class="left_col scroll-view">
+    <div class="navbar nav_title" style="border: 0;">
+        <a href="{% url 'index' %}" class="site_title"><i class="fa fa-spinner"></i> <span>Canon</span></a>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <!-- menu profile quick info -->
+    <div class="profile clearfix">
+        <div class="profile_pic">
+            <img src="/static/images/img.jpg" alt="..." class="img-circle profile_img">
+        </div>
+        <div class="profile_info">
+            <span>Welcome,</span>
+            <h2>{{ request.user.username }}</h2>
+        </div>
+    </div>
+    <!-- /menu profile quick info -->
+
+    <br/>
+
+    <!-- sidebar menu -->
+    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+        {% if user.is_superuser %}
+            <div class="menu_section">
+                <ul class="nav side-menu">
+
+                    <li><a href="{% url 'index' %}"><i
+                            class="fa fa-dashboard"></i> Dashboard</a></li>
+
+                    <li><a href="{% url 'theme' %}"><i class="fa fa-cubes"></i> Theme</a>
+                    </li>
+
+                    <li><a href="{% url 'language' %}"><i class="fa fa-language"></i>
+                        Language</a></li>
+
+                    <li><a><i class="fa fa-user"></i> Administrator <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{% url 'settings' %}">General Setting</a></li>
+                            <li><a href="{% url 'school_list' %}">Manage School</a></li>
+                            <li><a href="#">Payment Setting</a></li>
+                            <li><a href="#">SMS Setting</a></li>
+                            <li><a href="#">Academic Year</a></li>
+                            <li><a href="#">User Role (ACL)</a></li>
+                            <li><a href="#">Role Permission (ACL)</a></li>
+                            <li><a href="#">Manage User</a></li>
+                            <li><a href="{% url 'superuser_list' %}">Manage Super Admin</a></li>
+                            <li><a href="#">Reset User Password</a></li>
+                            <li><a href="#">Email Template</a></li>
+                            <li><a href="#">SMS Template</a></li>
+                            <li><a href="#">Activity Log</a></li>
+                            <li><a href="#">Publish Guardian Feedback</a></li>
+                            <li><a href="#">Backup Database</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fa fa-user-md"></i> Human
+                        Resource <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Manage Designation</a></li>
+                            <li><a href="#">Manage Employee</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fa fa-users"></i>
+                        Teacher</a></li>
+
+                    <li><a href="#"><i
+                            class="fa fa-slideshare"></i> Class</a></li>
+
+                    <li><a href="#"><i
+                            class="fa fa-bars"></i> Section </a></li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-folder-open"></i> Subject </a></li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-clipboard"></i> Syllabus</a></li>
+
+                    <li><a href="#"> <i
+                            class="fa fa-clock-o"></i> Class Routine</a></li>
+
+                    <li><a href="#"><i
+                            class="fa fa-paw"></i> Guardian</a></li>
+
+
+                    <li><a><i class="fa fa-group"></i> Student <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#"> Manage
+                                Student</a></li>
+
+                            <li><a href="#"> Admit Student</a>
+                            </li>
+{#                            {% url 'student_create' school.id %}#}
+
+                            <li><a href="#"> Bulk
+                                Admission</a></li>
+
+                            <li><a href="#"> Student
+                                Activity</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-check-circle-o"></i> Attendance <span
+                            class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+
+
+                            <li><a href="{% url 'student_attendance' %}">Student
+                                Attendance</a></li>
+
+                            <li><a href="#">Teacher
+                                Attendance</a></li>
+                            <li><a href="#">Employee
+                                Attendance</a></li>
+
+                            <li><a href="#">Absent
+                                Email</a></li>
+
+                            <li><a href="#">Absent
+                                SMS</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-file-word-o"></i> Assignment</a></li>
+
+
+                    <li><a><i class="fa fa-graduation-cap"></i> Exam <span
+                            class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Exam Grade</a></li>
+                            <li><a href="#">Exam Term</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-thumb-tack"></i>Exam Schedule</a></li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-file-text"></i>Exam Suggestion</a></li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-check"></i> Exam Attendance</a></li>
+
+
+                    <li><a><i class="fa fa-file-text-o"></i> Exam Mark <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Manage Mark</a></li>
+                            <li><a href="#">Exam Term
+                                Result</a></li>
+                            <li><a href="#">Exam final
+                                result</a></li>
+                            <li><a href="#">Exam Merit
+                                List</a></li>
+                            <li><a href="#">Student Mark
+                                Sheet</a></li>
+                            <li><a href="#">Student Result
+                                Card</a></li>
+
+                            <li><a href="#">Mark send by
+                                Email</a></li>
+                            <li><a href="#">Mark send by SMS</a>
+                            </li>
+
+                            <li><a href="#">Result
+                                Email</a></li>
+
+                            <li><a href="#">Result
+                                SMS</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li><a href="#"><i
+                            class="fa fa-mail-forward"></i>Promotion</a></li>
+
+                    <li><a><i class="fa fa-certificate"></i> Certificate <span
+                            class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Certificate
+                                Type</a></li>
+                            <li><a href="#">Generate
+                                Certificate</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-book"></i> Library <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Book</a>
+                            </li>
+                            <li><a href="#">Library
+                                Member</a></li>
+                            <li><a href="#">Issue &
+                                Return</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-bus"></i> Transport <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Vehicle</a>
+                            </li>
+                            <li><a href="#">Manage
+                                Route</a></li>
+                            <li><a href="#">Transport
+                                Member</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-hotel"></i> Hostel <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Manage Hostel</a>
+                            </li>
+                            <li><a href="{% url 'room_list' %}">Manage
+                                Room</a></li>
+                            <li><a href="#">Hostel
+                                Member</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-comments-o"></i> Message</a></li>
+
+                    <li><a><i class="fa fa-envelope-o"></i> Mail & SMS <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+
+                            <li><a href="#">General
+                                Email</a></li>
+
+                            <li><a href="#">General
+                                SMS</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-bullhorn"></i> Announcement <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Notice</a>
+                            </li>
+                            <li>
+                                <a href="#">News</a>
+                            </li>
+                            <li><a href="#">Holiday</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa fa-calendar-check-o"></i> Event</a></li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-male"></i> Visitor Info</a></li>
+
+
+                    <li><a><i class="fa fa-dollar"></i> Payroll <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+
+                            <li><a href="#">Salary
+                                Grade</a></li>
+
+                            <li><a href="#"> Salary
+                                Payment</a></li>
+
+                            <li><a href="#"> Payment
+                                History</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-calculator"></i> Accounting <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="#">Discount</a>
+                            </li>
+                            <li><a href="#"> Fee
+                                Type</a></li>
+
+
+                            <li><a href="#">Fee
+                                Collection</a></li>
+                            <li><a href="#">Manage
+                                Invoice</a></li>
+
+                            <li><a href="#">Due
+                                Fee</a></li>
+
+
+                            <li><a href="#">Due
+                                Fee Email</a></li>
+
+                            <li><a href="#">Due
+                                Fee SMS</a></li>
+
+                            <li><a href="#">Income
+                                Head</a></li>
+                            <li><a href="#">Income</a>
+                            </li>
+
+                            <li><a href="#">Expenditure
+                                Head</a></li>
+                            <li><a href="#">Expenditure</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-bar-chart"></i> Report <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Income Report</a>
+                            </li>
+                            <li><a href="#">Expenditure
+                                Report</a></li>
+                            <li><a href="#">Invoice
+                                Report</a></li>
+                            <li><a href="#">Due Fee
+                                Report</a></li>
+                            <li><a href="#">Fee
+                                Collection Report</a></li>
+                            <li><a href="#">Accounting
+                                Balance Report</a></li>
+                            <li><a href="#">Library
+                                Report</a></li>
+                            <li><a href="#">Student
+                                Attendance</a></li>
+                            <li><a href="#">Student
+                                Yearly Attendance</a></li>
+                            <li><a href="#">Teacher
+                                Attendance</a></li>
+                            <li><a href="#">Teacher
+                                Yearly Attendance</a></li>
+                            <li><a href="#">Employee
+                                Attendance</a></li>
+                            <li><a href="#">Employee
+                                Yearly Attendance</a></li>
+                            <li><a href="#">Student
+                                Report</a></li>
+                            <li><a href="#">Student Invoice
+                                Report</a></li>
+                            <li><a href="#">Student
+                                Activity Report</a></li>
+                            <li><a href="#">Payroll
+                                Report</a></li>
+                            <li><a href="#">Daily
+                                Transaction Report</a></li>
+                            <li><a href="#">Daily
+                                Statement Report</a></li>
+                            <li><a href="#">Exam Result
+                                Report</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-image"></i>Media Gallery <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Manage
+                                Gallery</a></li>
+
+                            <li><a href="#">Manage
+                                Gallery Image</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-desktop"></i>Frontend <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#"> Manage Page</a>
+                            </li>
+                            <li><a href="#"> Manage
+                                Slider</a></li>
+
+                            <li><a href="#"> Frontend
+                                About</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-lock"></i>Profile <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="#">Change
+                                Password</a></li>
+                            <li><a href="{% url 'logout_user' %}">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        {% endif %}
+
+        {% if user.is_receptionist %}
+            <div class="menu_section">
+                <ul class="nav side-menu">
+
+                    <li><a href="{% url 'index' %}"><i
+                            class="fa fa-dashboard"></i> Dashboard</a></li>
+
+                    <li><a><i class="fa fa-bus"></i> Transport <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Vehicle</a>
+                            </li>
+                            <li><a href="#">Manage
+                                Route</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-hotel"></i> Hostel <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Manage Hostel</a>
+                            </li>
+                            <li><a href="{% url 'room_list' %}">Manage
+                                Room</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-comments-o"></i> Message</a></li>
+
+                    <li><a><i class="fa fa-lock"></i>Profile <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="#">Change
+                                Password</a></li>
+                            <li><a href="{% url 'logout_user' %}">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        {% endif %}
+
+        {% if user.is_teacher %}
+            <div class="menu_section">
+                <ul class="nav side-menu">
+
+                    <li><a href="{% url 'index' %}"><i
+                            class="fa fa-dashboard"></i> Dashboard</a></li>
+
+                    <li><a href="#"><i class="fa fa-users"></i>
+                        Teacher</a></li>
+
+
+                    <li><a href="#"> <i
+                            class="fa fa-clock-o"></i> Class Routine</a></li>
+
+                    <li><a><i class="fa fa-group"></i> Student <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#"> Manage
+                                Student</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-check-circle-o"></i> Attendance <span
+                            class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+
+                            <li><a href="#">Student
+                                Attendance</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li><a href="#"><i
+                            class="fa fa-file-word-o"></i> Assignment</a></li>
+
+                    <li><a href="#"><i
+                            class="fa fa-thumb-tack"></i>Exam Schedule</a></li>
+
+                    <li><a><i class="fa fa-file-text-o"></i> Exam Mark <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Manage Mark</a></li>
+
+                            <li><a href="#">Student Mark
+                                Sheet</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li><a href="#"><i
+                            class="fa fa-comments-o"></i> Message</a></li>
+
+                    <li><a><i class="fa fa-bullhorn"></i> Announcement <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Notice</a>
+                            </li>
+                            <li>
+                                <a href="#">News</a>
+                            </li>
+                            <li><a href="#">Holiday</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#"><i
+                            class="fa fa fa-calendar-check-o"></i> Event</a></li>
+
+                    <li><a><i class="fa fa-lock"></i>Profile <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="#">Change
+                                Password</a></li>
+                            <li><a href="{% url 'logout_user' %}">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        {% endif %}
+
+        {% if user.is_student %}
+            <div class="menu_section">
+                <ul class="nav side-menu">
+
+                    <li><a href="{% url 'index' %}"><i
+                            class="fa fa-dashboard"></i> Dashboard</a></li>
+
+                    <li><a href="#"><i class="fa fa-users"></i>
+                        Teacher</a></li>
+
+                    <li><a href="#"><i
+                            class="fa fa-slideshare"></i> Class</a></li>
+
+                    <li><a href="#"><i
+                            class="fa fa-bars"></i> Section </a></li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-folder-open"></i> Subject </a></li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-clipboard"></i> Syllabus</a></li>
+
+                    <li><a href="#"> <i
+                            class="fa fa-clock-o"></i> Class Routine</a></li>
+
+                    <li><a href="#"><i
+                            class="fa fa-paw"></i> Guardian</a></li>
+
+
+                    <li><a><i class="fa fa-group"></i> Student <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#"> Manage
+                                Student</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#"><i
+                            class="fa fa-file-word-o"></i> Assignment</a></li>
+
+
+                    <li><a><i class="fa fa-graduation-cap"></i> Exam <span
+                            class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Exam Grade</a></li>
+                            <li><a href="#">Exam Term</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-thumb-tack"></i>Exam Schedule</a></li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-file-text"></i>Exam Suggestion</a></li>
+
+                    <li><a><i class="fa fa-file-text-o"></i> Exam Mark <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Student Mark
+                                Sheet</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-book"></i> Library <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Book</a>
+                            </li>
+                            <li><a href="#">Issue &
+                                Return</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-bus"></i> Transport <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Vehicle</a>
+                            </li>
+                            <li><a href="#">Manage
+                                Route</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-hotel"></i> Hostel <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Manage Hostel</a>
+                            </li>
+                            <li><a href="{% url 'room_list' %}">Manage
+                                Room</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-comments-o"></i> Message</a></li>
+
+                    <li><a><i class="fa fa-calculator"></i> Accounting <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+
+                            <li><a href="#">Due
+                                Invoice</a></li>
+                        </ul>
+
+                    </li>
+
+
+                    <li><a><i class="fa fa-lock"></i>Profile <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="#">Change
+                                Password</a></li>
+                            <li><a href="{% url 'logout_user' %}">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        {% endif %}
+
+        {% if user.is_guardian %}
+            <div class="menu_section">
+                <ul class="nav side-menu">
+
+                    <li><a href="{% url 'index' %}"><i
+                            class="fa fa-dashboard"></i> Dashboard</a></li>
+
+                    <li><a href="#"><i class="fa fa-users"></i>
+                        Teacher</a></li>
+
+                    <li><a href="#"><i
+                            class="fa fa-slideshare"></i> Class</a></li>
+
+                    <li><a href="#"><i
+                            class="fa fa-bars"></i> Section </a></li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-folder-open"></i> Subject </a></li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-clipboard"></i> Syllabus</a></li>
+
+                    <li><a href="#"> <i
+                            class="fa fa-clock-o"></i> Class Routine</a></li>
+
+                    <li><a><i class="fa fa-group"></i> Student <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#"> Manage
+                                Student</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-check-circle-o"></i> Attendance <span
+                            class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+
+                            <li><a href="{% url 'student_attendance' %}">Student
+                                Attendance</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-file-word-o"></i> Assignment</a></li>
+
+
+                    <li><a><i class="fa fa-graduation-cap"></i> Exam <span
+                            class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Exam Grade</a></li>
+                            <li><a href="#">Exam Term</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-thumb-tack"></i>Exam Schedule</a></li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-file-text"></i>Exam Suggestion</a></li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-check"></i> Exam Attendance</a></li>
+
+
+                    <li><a><i class="fa fa-file-text-o"></i> Exam Mark <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Student Mark
+                                Sheet</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-book"></i> Library <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Book</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-bus"></i> Transport <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Vehicle</a>
+                            </li>
+                            <li><a href="#">Manage
+                                Route</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-hotel"></i> Hostel <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Manage Hostel</a>
+                            </li>
+                            <li><a href="{% url 'room_list' %}">Manage
+                                Room</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-comments-o"></i> Message</a></li>
+
+                    <li><a><i class="fa fa-bullhorn"></i> Announcement <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Notice</a>
+                            </li>
+                            <li>
+                                <a href="#">News</a>
+                            </li>
+                            <li><a href="#">Holiday</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa fa-calendar-check-o"></i> Event</a></li>
+
+
+                    <li><a href="#"><i
+                            class="fa fa-male"></i> Visitor Info</a></li>
+
+
+                    <li><a><i class="fa fa-calculator"></i> Accounting <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Due
+                                Invoice</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-image"></i>Media Gallery <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Manage
+                                Gallery</a></li>
+
+                            <li><a href="#">Manage
+                                Gallery Image</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li><a><i class="fa fa-lock"></i>Profile <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="#">Change
+                                Password</a></li>
+                            <li><a href="{% url 'logout_user' %}">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        {% endif %}
+
+
+        <div class="menu_section">
+            <h3>Live On</h3>
+            <ul class="nav side-menu">
+                <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Class Video Conferencing <span
+                        class="label label-success pull-right">Coming Soon</span></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- /sidebar menu -->
+
+    <!-- /menu footer buttons -->
+    <div class="sidebar-footer hidden-small">
+        <a data-toggle="tooltip" data-placement="top" title="Settings">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="Lock">
+            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+        </a>
+    </div>
+    <!-- /menu footer buttons -->
+</div>

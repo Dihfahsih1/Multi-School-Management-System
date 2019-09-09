@@ -1,0 +1,35 @@
+{% for issue in issues %}
+    <tr>
+        <td>{{ issue.id }}</td>
+        <td>{{ issue.school }}</td>
+        <td>{{ issue.photo }}</td>
+        <td>{{ issue.student_name }}</td>
+        <td>{{ issue.select_book }}</td>
+        <td>{{ issue.ISBN_no }}</td>
+        <td>{{ issue.issue_date }}</td>
+        <td>{{ issue.due_date }}</td>
+        <td>{{ issue.return_date }}</td>
+        <td>{{ issue.return_date }}</td>
+        <td>
+            <img src="#"
+                 alt="" width="80"
+                 style="background: rgba(16,67,221,0.84); padding: 5px;"/><br/><br/>
+        </td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-issue"
+                    data-url="{% url 'issue_update' issue.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-issue"
+                    data-url="{% url 'issue_delete' issue.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="11" class="text-center bg-warning">No Issue</td>
+    </tr>
+{% endfor %}

@@ -1,0 +1,27 @@
+{% for vehicle in vehicles %}
+    <tr>
+        <td>{{ vehicle.id }}</td>
+        <td>{{ vehicle.school }}</td>
+        <td>{{ vehicle.vehicle_number }}</td>
+        <td>{{ vehicle.vehicle_model }}</td>
+        <td>{{ vehicle.driver }}</td>
+        <td>{{ vehicle.vehicle_licence }}</td>
+        <td>{{ vehicle.vehicle_contact }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-vehicle"
+                    data-url="{% url 'vehicle_update' vehicle.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-vehicle"
+                    data-url="{% url 'vehicle_delete' vehicle.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Vehicle</td>
+    </tr>
+{% endfor %}

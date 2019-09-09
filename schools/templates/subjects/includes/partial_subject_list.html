@@ -1,0 +1,26 @@
+{% for subject in subjects %}
+    <tr>
+        <td>{{ subject.id }}</td>
+        <td>{{ subject.school }}</td>
+        <td>{{ subject.subject_name }}</td>
+        <td>{{ subject.subject_code }}</td>
+        <td>{{ subject.classroom }}</td>
+        <td>{{ subject.subject_teacher }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-subject"
+                    data-url="{% url 'subject_update' school.id subject.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-subject"
+                    data-url="{% url 'subject_delete' school.id subject.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Subject</td>
+    </tr>
+{% endfor %}

@@ -1,0 +1,24 @@
+{% for fee_type in fee_types %}
+    <tr>
+        <td>{{ fee_type.id }}</td>
+        <td>{{ fee_type.school }}</td>
+        <td>{{ fee_type.fee_title }}</td>
+        <td>{{ fee_type.note }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-fee_type"
+                    data-url="{% url 'fee_type_update' fee_type.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-fee_type"
+                    data-url="{% url 'fee_type_delete' fee_type.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Fee Type</td>
+    </tr>
+{% endfor %}

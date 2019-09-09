@@ -1,0 +1,29 @@
+{% for transport_member in transport_members %}
+    <tr>
+        <td>{{ transport_member.id }}</td>
+        <td>{{ transport_member.school }}</td>
+        <td>{{ transport_member.photo }}</td>
+        <td>{{ transport_member.name }}</td>
+        <td>{{ transport_member.class_name }}</td>
+        <td>{{ transport_member.class_name }}</td>
+        <td>{{ transport_member.section_name }}</td>
+        <td>{{ transport_member.roll_no }}</td>
+        <td>{{ transport_member.transport_route_name }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-transport_member"
+                    data-url="{% url 'transport_member_update' transport_member.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-transport_member"
+                    data-url="{% url 'transport_member_delete' transport_member.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Transport Member</td>
+    </tr>
+{% endfor %}

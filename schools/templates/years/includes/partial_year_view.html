@@ -1,0 +1,152 @@
+<form method="post" action="{% url 'year_view' form.instance.pk %}" class="js-year-delete-form"
+      enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Year Information</h4>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+
+
+                    <ul class="nav nav-tabs bordered">
+                        <li role="tab" class="active"><a href="#tab_content11" id="home-tabb" role="tab"
+                                                         data-toggle="tab" aria-controls="home"
+                                                         aria-expanded="true"><i class="fa fa-info">&nbsp;</i>Basic
+                            Information</a>
+                        </li>
+                        <li role="tab" class=""><a href="#tab_content22" role="tab" id="profile-tabb"
+                                                   data-toggle="tab" aria-controls="profile"
+                                                   aria-expanded="false"><i class="fa fa-gear">&nbsp;</i>Settings
+                            Information</a>
+                        </li>
+                        <li role="tab" class=""><a href="#tab_content33" role="tab" id="profile-tabb3"
+                                                   data-toggle="tab" aria-controls="profile"
+                                                   aria-expanded="false"><i class="fa fa-share">&nbsp;</i>Social
+                            Information</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent2" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content11"
+                             aria-labelledby="home-tab">
+                            <table class="table table-bordered table-striped">
+                                <tbody>
+                                <tr>
+                                    <th><strong>Year Name</strong></th>
+                                    <th>{{ form.instance.year_name }}</th>
+                                    <th>Year Code</th>
+                                    <th>{{ form.instance.year_code }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Address</th>
+                                    <th>{{ form.instance.address }}</th>
+                                    <th>Phone</th>
+                                    <th>{{ form.instance.phone }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Registration Date</th>
+                                    <th>{{ form.instance.registration_date }}</th>
+                                    <th>Email</th>
+                                    <th>{{ form.instance.email_address }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Latitude</th>
+                                    <th>{{ form.instance.latitude }}</th>
+                                    <th>Longitude</th>
+                                    <th>{{ form.instance.longitude }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Fax</th>
+                                    <th>{{ form.instance.fax }}</th>
+                                    <th>Footer</th>
+                                    <th>{{ form.instance.footer }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Logo</th>
+                                    <th>
+                                        <img src="{{ form.instance.log.url }}"
+                                             alt="" width="80"
+                                             style="background: rgba(16,67,221,0.84); padding: 5px;"/><br/><br/>
+                                    </th>
+                                    <th>Theme</th>
+                                    <th>{{ form.instance.theme }}</th>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content22" aria-labelledby="profile-tab">
+                            <table class="table table-bordered table-striped">
+                                <tbody>
+                                <tr>
+                                    <th><strong>Currency</strong></th>
+                                    <th>{{ form.instance.currency }}</th>
+                                    <th>Currency Symbol</th>
+                                    <th>{{ form.instance.currency_symbol }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Session Start Month</th>
+                                    <th>{{ form.instance.session_start_month }}</th>
+                                    <th>Session End Month</th>
+                                    <th>{{ form.instance.session_end_month }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Enable Frontend</th>
+                                    <th>{{ form.instance.enable_frontend }}</th>
+                                    <th>Exam Final Result</th>
+                                    <th>{{ form.instance.exam_final_result }}</th>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content33" aria-labelledby="profile-tab">
+                            <table class="table table-bordered table-striped">
+                                <tbody>
+                                <tr>
+                                    <th>Facebook URL</th>
+                                    <th>{{ form.instance.facebook_url }}</th>
+                                    <th>Linkedin URL</th>
+                                    <th>{{ form.instance.linkedIn_url }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Twitter URL</th>
+                                    <th>{{ form.instance.twitter_url }}</th>
+                                    <th>Google Plus URL</th>
+                                    <th>{{ form.instance.google_plus_url }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Instagram URL</th>
+                                    <th>{{ form.instance.instagram_url }}</th>
+                                    <th>Pinterest URL</th>
+                                    <th>{{ form.instance.pinterest_url }}</th>
+                                </tr>
+                                <tr>
+                                    <th>Youtube URL</th>
+                                    <th>{{ form.instance.youtube_url }}</th>
+                                     <th></th>
+                                    <th></th>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+
+
+</form>

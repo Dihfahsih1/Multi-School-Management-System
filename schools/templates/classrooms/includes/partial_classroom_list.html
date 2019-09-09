@@ -1,0 +1,26 @@
+{% for classroom in classrooms %}
+    <tr>
+        <td>{{ classroom.id }}</td>
+        <td>{{ classroom.school }}</td>
+        <td>{{ classroom.classroom }}</td>
+        <td>{{ classroom.numeric_name }}</td>
+        <td>{{ classroom.class_teacher }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-classroom"
+                    data-url="{% url 'classroom_update' school.id classroom.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-classroom"
+                    data-url="{% url 'classroom_delete' school.id classroom.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+            <br>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Classroom</td>
+    </tr>
+{% endfor %}

@@ -1,0 +1,28 @@
+{% for route in routes %}
+    <tr>
+        <td>{{ route.id }}</td>
+        <td>{{ route.school }}</td>
+        <td>{{ route.route_title }}</td>
+        <td>{{ route.route_start }}</td>
+        <td>{{ route.route_end }}</td>
+        <td>{{ route.vehicle_for_route }}</td>
+        <td>[{{ route.stop_name }}] - [{{ route.stop_km }}] - [{{ route.stop_fare }}] </td>
+        <td>{{ route.note }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-route"
+                    data-url="{% url 'route_update' route.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-route"
+                    data-url="{% url 'route_delete' route.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Route</td>
+    </tr>
+{% endfor %}

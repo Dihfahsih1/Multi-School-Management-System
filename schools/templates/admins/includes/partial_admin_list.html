@@ -1,0 +1,41 @@
+{% for admin in admins %}
+    <tr>
+        <td>{{ admin.id }}</td>
+        <td>
+            {% if admin.user.photo %}
+                <img src="{{ admin.photo.url }}"
+                     alt="" width="50"
+                     style="background: rgba(15,174,221,0.97); padding: 2px;"/><br/><br/>
+            {% endif %}
+        </td>
+        <td>{{ admin.user.full_name }}</td>
+        <td>{{ admin.user.phone }}</td>
+        <td>{{ admin.user.email }}</td>
+        <td>{{ admin.roles }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-info btn-sm js-view-admin"
+                    data-url="{% url 'admin_view' school.id admin.id %}">
+                <span class="glyphicon glyphicon-eye-open"></span> View
+            </button>
+
+            <br>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-admin"
+                    data-url="{% url 'admin_update' school.id admin.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <br>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-admin"
+                    data-url="{% url 'admin_delete' school.id admin.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+            <br>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Admin</td>
+    </tr>
+{% endfor %}

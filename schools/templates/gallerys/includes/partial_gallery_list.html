@@ -1,0 +1,25 @@
+{% for gallery in gallerys %}
+    <tr>
+        <td>{{ gallery.id }}</td>
+        <td>{{ gallery.school }}</td>
+        <td>{{ gallery.gallery_title }}</td>
+        <td>{{ gallery.note }}</td>
+        <td>{{ gallery.Is_View_on_Web }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-gallery"
+                    data-url="{% url 'gallery_update' gallery.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-gallery"
+                    data-url="{% url 'gallery_delete' gallery.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Gallery</td>
+    </tr>
+{% endfor %}

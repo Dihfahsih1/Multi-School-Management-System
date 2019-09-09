@@ -1,0 +1,29 @@
+{% for page in pages %}
+    <tr>
+        <td>{{ page.id }}</td>
+        <td>{{ page.school }}</td>
+        <td>{{ page.page_location }}</td>
+        <td>{{ page.page_title }}</td>
+        <td>
+            <img src="#"
+                 alt="" width="80"
+                 style="background: rgba(16,67,221,0.84); padding: 5px;"/><br/><br/>
+        </td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-page"
+                    data-url="{% url 'page_update' page.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-page"
+                    data-url="{% url 'page_delete' page.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Page</td>
+    </tr>
+{% endfor %}

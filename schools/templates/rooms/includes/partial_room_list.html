@@ -1,0 +1,27 @@
+{% for room in rooms %}
+    <tr>
+        <td>{{ room.id }}</td>
+        <td>{{ room.school }}</td>
+        <td>{{ room.room_no }}</td>
+        <td>{{ room.room_type }}</td>
+        <td>{{ room.seat_total }}</td>
+        <td>{{ room.hostel }}</td>
+        <td>{{ room.cost_per_seat }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-room"
+                    data-url="{% url 'room_update' room.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-room"
+                    data-url="{% url 'room_delete' room.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Room</td>
+    </tr>
+{% endfor %}

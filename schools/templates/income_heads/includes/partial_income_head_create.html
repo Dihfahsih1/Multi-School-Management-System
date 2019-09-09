@@ -1,0 +1,18 @@
+{% load widget_tweaks %}
+
+<form method="post" action="{% url 'income_head_create' %}" class="js-income_head-create-form">
+    {% csrf_token %}
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Create a New Income Head</h4>
+    </div>
+    <div class="modal-body">
+         {% include 'income_heads/includes/partial_income_head_form.html' %}
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Create Income Head</button>
+    </div>
+</form>

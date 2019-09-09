@@ -1,0 +1,26 @@
+{% for syllabus in syllabuss %}
+    <tr>
+        <td>{{ syllabus.id }}</td>
+        <td>{{ syllabus.school }}</td>
+        <td>{{ syllabus.syllabus_title }}</td>
+        <td>{{ syllabus.classroom }}</td>
+        <td>{{ syllabus.subject_name }}</td>
+        <td>{{ syllabus.year }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-syllabus"
+                    data-url="{% url 'syllabus_update' school.id syllabus.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-syllabus"
+                    data-url="{% url 'syllabus_delete' school.id syllabus.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Syllabus</td>
+    </tr>
+{% endfor %}

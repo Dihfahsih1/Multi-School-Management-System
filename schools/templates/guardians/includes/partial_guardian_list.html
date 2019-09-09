@@ -1,0 +1,42 @@
+{% for guardian in guardians %}
+    <tr>
+        <td>{{ guardian.id }}</td>
+        <td>{{ guardian.school }}</td>
+        <td>
+            {% if guardian.user.photo %}
+                <img src="{{ guardian.user.photo.url }}"
+                     alt="" width="50"
+                     style="background: rgba(15,174,221,0.97); padding: 2px;"/><br/><br/>
+            {% endif %}
+        </td>
+        <td>{{ guardian.user.username }}</td>
+        <td>{{ guardian.user.phone }}</td>
+        <td>{{ guardian.user.profession }}</td>
+        <td>{{ guardian.user.email }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-info btn-sm js-view-guardian"
+                    data-url="{% url 'guardian_view' school.id guardian.id %}">
+                <span class="glyphicon glyphicon-eye-open"></span> View
+            </button>
+
+            <br>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-guardian"
+                    data-url="{% url 'guardian_update' school.id guardian.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <br>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-guardian"
+                    data-url="{% url 'guardian_delete' school.id guardian.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+            <br>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Guardian</td>
+    </tr>
+{% endfor %}

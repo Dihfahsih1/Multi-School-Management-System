@@ -1,0 +1,28 @@
+{% for exam_schedule in exam_schedules %}
+    <tr>
+        <td>{{ exam_schedule.id }}</td>
+        <td>{{ exam_schedule.school }}</td>
+        <td>{{ exam_schedule.exam }}</td>
+        <td>{{ exam_schedule.class_name }}</td>
+        <td>{{ exam_schedule.subject }}</td>
+        <td>{{ exam_schedule.exam_date }}</td>
+        <td>{{ exam_schedule.start_time }} - {{ exam_schedule.end_time }}</td>
+        <td>{{ exam_schedule.room_no }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-exam_schedule"
+                    data-url="{% url 'exam_schedule_update' exam_schedule.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-exam_schedule"
+                    data-url="{% url 'exam_schedule_delete' exam_schedule.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Exam Schedule</td>
+    </tr>
+{% endfor %}

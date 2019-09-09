@@ -1,0 +1,411 @@
+{% extends "app/base_site.html" %}
+
+{% block title %} Manage Absent SMS {% endblock title %}
+
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="right_col" role="main">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2><i class="fa fa-envelope-o"></i><small> Manage Absent SMS</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="x_content quick-link">
+                        <span>Quick Link:</span>
+                        <a href="#">Student Attendance</a>
+                        | <a href="#">Teacher Attendance</a>
+                        | <a href="#">Employee Attendance</a>
+                        | <a href="#">Absent Email</a>
+                        | <a href="#">Absent SMS</a>
+                    </div>
+
+                    <div class="x_content">
+                        <div class="" data-example-id="togglable-tabs">
+
+                            <ul class="nav nav-tabs bordered">
+                                <li class="active"><a href="#tab_sms_list" role="tab" data-toggle="tab"
+                                                      aria-expanded="true"><i class="fa fa-list-ol"></i> SMS
+                                    List</a></li>
+                                <li class=""><a href="#tab_add_sms" role="tab" data-toggle="tab"
+                                                aria-expanded="false"><i class="fa fa-plus-square-o"></i> Send
+                                    SMS</a></li>
+
+                                <li class="li-class-list">
+
+                                    <select class="form-control col-md-7 col-xs-12 auto-width"
+                                            name="school_id_filter" id="school_id_filter"
+                                            onchange="get_class_by_school_filter(this.value)">
+                                        <option value="">--Select School--</option>
+                                        <option value="http://www.codetroopers-team.com/gmsms/attendance/absentsms/index/2">
+                                            The British Standard School
+                                        </option>
+                                        <option value="http://www.codetroopers-team.com/gmsms/attendance/absentsms/index/3">
+                                            Ideal Stevenson High School
+                                        </option>
+                                        <option value="http://www.codetroopers-team.com/gmsms/attendance/absentsms/index/4">
+                                            Scholastica Ideal School
+                                        </option>
+                                        <option value="http://www.codetroopers-team.com/gmsms/attendance/absentsms/index/5">
+                                            MI COLEGIO
+                                        </option>
+
+                                    </select>
+
+                                </li>
+                            </ul>
+                            <br/>
+
+                            <div class="tab-content">
+
+                                <div class="tab-pane fade in active" id="tab_sms_list">
+                                    <div class="x_content">
+                                        <table id="datatable-responsive"
+                                               class="table table-striped table-bordered dt-responsive nowrap"
+                                               cellspacing="0" width="100%">
+                                            <thead>
+                                            <tr>
+                                                <th>#SL</th>
+                                                <th>School</th>
+                                                <th>Session Year</th>
+                                                <th>Receiver Type</th>
+                                                <th>Receiver Name</th>
+                                                <th>Send Time</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Guardian</td>
+                                                <td>TK Musakandae,Natalie Sciver,Nasir Javed,</td>
+                                                <td>9 months ago</td>
+                                                <td>
+                                                    <a onclick="get_sms_modal(1);" data-toggle="modal"
+                                                       data-target=".bs-sms-modal-lg"
+                                                       class="btn btn-success btn-xs"><i class="fa fa-eye"></i> View
+                                                    </a>
+                                                    <a href="http://www.codetroopers-team.com/gmsms/attendance/absentsms/delete/1"
+                                                       onclick="javascript: return confirm('Are you sure you want to delete this');"
+                                                       class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>
+                                                        Delete </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Student</td>
+                                                <td>SW Ambris,Sikander Zulfiqar,Mudassar Bukhari,</td>
+                                                <td>9 months ago</td>
+                                                <td>
+                                                    <a onclick="get_sms_modal(2);" data-toggle="modal"
+                                                       data-target=".bs-sms-modal-lg"
+                                                       class="btn btn-success btn-xs"><i class="fa fa-eye"></i> View
+                                                    </a>
+                                                    <a href="http://www.codetroopers-team.com/gmsms/attendance/absentsms/delete/2"
+                                                       onclick="javascript: return confirm('Are you sure you want to delete this');"
+                                                       class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>
+                                                        Delete </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Guardian</td>
+                                                <td>TK Musakandae,Natalie Sciver,Nasir Javed,</td>
+                                                <td>9 months ago</td>
+                                                <td>
+                                                    <a onclick="get_sms_modal(3);" data-toggle="modal"
+                                                       data-target=".bs-sms-modal-lg"
+                                                       class="btn btn-success btn-xs"><i class="fa fa-eye"></i> View
+                                                    </a>
+                                                    <a href="http://www.codetroopers-team.com/gmsms/attendance/absentsms/delete/3"
+                                                       onclick="javascript: return confirm('Are you sure you want to delete this');"
+                                                       class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>
+                                                        Delete </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>Guardian</td>
+                                                <td>TK Musakandae,Natalie Sciver,Nasir Javed,</td>
+                                                <td>9 months ago</td>
+                                                <td>
+                                                    <a onclick="get_sms_modal(4);" data-toggle="modal"
+                                                       data-target=".bs-sms-modal-lg"
+                                                       class="btn btn-success btn-xs"><i class="fa fa-eye"></i> View
+                                                    </a>
+                                                    <a href="http://www.codetroopers-team.com/gmsms/attendance/absentsms/delete/4"
+                                                       onclick="javascript: return confirm('Are you sure you want to delete this');"
+                                                       class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>
+                                                        Delete </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade in " id="tab_add_sms">
+                                    <div class="x_content">
+                                        <form action="http://www.codetroopers-team.com/gmsms/attendance/absentsms/add"
+                                              name="add" id="add" class="form-horizontal form-label-left"
+                                              enctype="multipart/form-data" method="post" accept-charset="utf-8">
+
+                                            <div class="item form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                       for="school_id">School <span
+                                                        class="required">*</span></label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <select class="form-control col-md-7 col-xs-12 fn_school_id"
+                                                            name="school_id" id="add_school_id" required="required">
+                                                        <option value="">--Select--</option>
+                                                        <option value="2">The British Standard School</option>
+                                                        <option value="3">Ideal Stevenson High School</option>
+                                                        <option value="4">Scholastica Ideal School</option>
+                                                        <option value="5">MI COLEGIO</option>
+                                                    </select>
+                                                    <div class="help-block"></div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="item form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                       for="role_id">Receiver Type <span
+                                                        class="required">*</span></label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <select class="form-control col-md-12 col-xs-12" name="role_id"
+                                                            id="role_id" required="required"
+                                                            onchange="get_user_by_role(this.value, '');">
+                                                        <option value="">--Select--</option>
+                                                        <option value="2">Admin</option>
+                                                        <option value="3">Guardian</option>
+                                                        <option value="4">Student</option>
+                                                        <option value="5">Teacher</option>
+                                                        <option value="6">Accountant</option>
+                                                        <option value="7">Librarian</option>
+                                                        <option value="8">Receptioniast</option>
+                                                        <option value="9">Staff</option>
+                                                        <option value="13">Servent</option>
+
+                                                    </select>
+                                                    <div class="help-block"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item form-group display">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                       for="class_id">Class <span class="required">*</span></label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <select class="form-control col-md-12 col-xs-12" name="class_id"
+                                                            id="class_id" onchange="get_user('', this.value,'');">
+                                                        <option value="">--Select--</option>
+                                                        <option value="2">one</option>
+                                                        <option value="3">Three</option>
+                                                        <option value="5">Five</option>
+                                                        <option value="6">six</option>
+                                                        <option value="7">Seven</option>
+                                                        <option value="8">Eight</option>
+                                                        <option value="9">Nine</option>
+                                                        <option value="10">Ten</option>
+                                                        <option value="11">One</option>
+                                                        <option value="12">Two</option>
+                                                        <option value="13">Three</option>
+                                                        <option value="14">Four</option>
+                                                        <option value="15">Five</option>
+                                                        <option value="19">One</option>
+                                                        <option value="20">Two</option>
+                                                        <option value="21">Three</option>
+                                                        <option value="22">Four</option>
+                                                        <option value="23">Five</option>
+                                                        <option value="24">Matematica</option>
+                                                        <option value="25">Matematica</option>
+                                                        <option value="26">Ciencias Sociales</option>
+                                                        <option value="27">Ciencias Naturales</option>
+                                                        <option value="28">Lengua Española</option>
+                                                        <option value="29">Educación Física</option>
+
+                                                    </select>
+                                                    <div class="help-block"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                       for="receiver_id">Absent User <span
+                                                        class="required">*</span></label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <select class="form-control col-md-12 col-xs-12"
+                                                            name="receiver_id" id="receiver_id" required="required">
+                                                        <option value="">--Select--</option>
+                                                    </select>
+                                                    <div class="help-block"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                       for="template">Template </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <select class="form-control col-md-12 col-xs-12" name="template"
+                                                            id="fn_template" onchange="get_template(this.value)">
+                                                        <option itemid="" value="">--Select--</option>
+                                                    </select>
+                                                    <div class="help-block"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                       for="absent_date">Absent Date<span
+                                                        class="required"> *</span></label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <input class="form-control col-md-7 col-xs-12"
+                                                           name="absent_date" id="absent_date" value=""
+                                                           placeholder="Absent Date" required="required" type="text"
+                                                           autocomplete="off">
+                                                    <div class="help-block"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="body">SMS
+                                                    <span class="required">*</span></label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <textarea class="form-control" name="body" id="body"
+                                                                  onKeyDown="limitText(this.value);"
+                                                                  onKeyUp="limitText(this.value);" maxlength="160"
+                                                                  required="required" placeholder="SMS"></textarea>
+                                                    <div class="help-block"></div>
+                                                    <div class="help-block fn_countdown">You have remain character/
+                                                        letter :160
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="item form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                       for="sms_gateway">Gateway <span
+                                                        class="required">*</span></label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <select class="form-control col-md-12 col-xs-12"
+                                                            name="sms_gateway" id="sms_gateway" required="required">
+                                                        <option value="">--Select--</option>
+                                                    </select>
+                                                    <div class="help-block"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Dynamic
+                                                    Tag</label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12" id="fn_tag">[name]
+                                                    [absent_date]
+                                                </div>
+                                            </div>
+
+                                            <div class="ln_solid"></div>
+                                            <div class="form-group">
+                                                <div class="col-md-6 col-md-offset-3">
+                                                    <a href="http://www.codetroopers-team.com/gmsms/attendance/absentsms/index"
+                                                       class="btn btn-primary">Cancel</a>
+                                                    <button id="send" type="submit" class="btn btn-success">Submit
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade bs-sms-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                        </button>
+                        <h4 class="modal-title">SMS Information</h4>
+                    </div>
+                    <div class="modal-body fn_sms_data">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+            function get_sms_modal(sms_id) {
+
+                $('.fn_sms_data').html('<p style="padding: 20px;"><p style="padding: 20px;text-align:center;"><img src="http://www.codetroopers-team.com/gmsms/assets/images/loading.gif" /></p>');
+                $.ajax({
+                    type: "POST",
+                    url: "http://www.codetroopers-team.com/gmsms/attendance/absentsms/get_single_sms",
+                    data: {sms_id: sms_id},
+                    success: function (response) {
+                        if (response) {
+                            $('.fn_sms_data').html(response);
+                        }
+                    }
+                });
+            }
+        </script>
+
+
+    </div>
+{% endblock content %}
+
+{% block javascripts %}
+    {{ block.super }}
+    <!-- Chart.js -->
+    <script src="/static/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="/static/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- Skycons -->
+    <script src="/static/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="/static/vendors/Flot/jquery.flot.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="/static/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="/static/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="/static/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="/static/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="/static/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="/static/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="/static/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="/static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+{% endblock javascripts %}
+
+
+
+
+
+

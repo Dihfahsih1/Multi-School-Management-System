@@ -1,0 +1,26 @@
+{% for exam_suggestion in exam_suggestions %}
+    <tr>
+        <td>{{ exam_suggestion.id }}</td>
+        <td>{{ exam_suggestion.school }}</td>
+        <td>{{ exam_suggestion.suggestion_title }}</td>
+        <td>{{ exam_suggestion.exam }}</td>
+        <td>{{ exam_suggestion.class_name }}</td>
+        <td>{{ exam_suggestion.subject }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-exam_suggestion"
+                    data-url="{% url 'exam_suggestion_update' exam_suggestion.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-exam_suggestion"
+                    data-url="{% url 'exam_suggestion_delete' exam_suggestion.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Exam Suggestion</td>
+    </tr>
+{% endfor %}

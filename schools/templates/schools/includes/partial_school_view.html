@@ -1,0 +1,162 @@
+<form method="post" action="{% url 'school_view' form.instance.pk %}" class="js-school-view-form"
+      enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="modal-lg" tabindex="-1" role="document" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">School Information</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs bordered" role="tablist">
+                        <li class="active"><a href="#tab_content1" id="basic-tab" role="tab"
+                                              data-toggle="tab" aria-expanded="true">
+                            <i class="fa fa-info-circle">&nbsp;</i>Basic Information</a>
+                        </li>
+                        <li class=""><a href="#tab_content2" role="tab" id="settings-tab" data-toggle="tab"
+                                        aria-expanded="false">
+                            <i class="fa fa-gear">&nbsp;</i>Setting Information</a>
+                        </li>
+                        <li class=""><a href="#tab_content3" role="tab" id="social-tab" data-toggle="tab"
+                                        aria-expanded="false">
+                            <i class="fa fa-share">&nbsp;</i>Social Information</a>
+                        </li>
+
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1"
+                             aria-labelledby="basic-tab">
+                            <p></p>
+                            <table id="tablePreview" class="table table-bordered table-striped">
+                                <!--Table head-->
+                                <thead>
+                                <tr>
+                                    <th>School Code</th>
+                                    <td>{{ form.instance.school_name }}</td>
+                                    <th>School Name</th>
+                                    <td>{{ form.instance.school_code }}</td>
+                                </tr>
+                                </thead>
+                                <!--Table head-->
+                                <!--Table body-->
+                                <tbody>
+                                <tr>
+                                    <th>Address</th>
+                                    <td>{{ form.instance.address }}</td>
+                                    <th>Phone</th>
+                                    <td>{{ form.instance.phone }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Registration Date</th>
+                                    <td>{{ form.instance.registration_date }}</td>
+                                    <th>Email</th>
+                                    <td>{{ form.instance.email_address }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Latitude</th>
+                                    <td>{{ form.instance.address }}</td>
+                                    <th>Longitude</th>
+                                    <td>{{ form.instance.phone }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fax</th>
+                                    <td>{{ form.instance.fax }}</td>
+                                    <th>Footer</th>
+                                    <td>{{ form.instance.footer }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Logo</th>
+                                    <td><img src="{{ form.instance.logo.url }}"
+                                             alt="" width="30"
+                                             style="background: rgba(15,174,221,0.97); padding: 2px;"/><br/>
+                                    </td>
+                                    <th>Theme</th>
+                                    <td>{{ form.instance.theme }}</td>
+                                </tr>
+                                </tbody>
+                                <!--Table body-->
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="settings-tab">
+                            <p></p>
+                            <table id="tablePreview" class="table table-bordered table-striped">
+                                <!--Table head-->
+                                <thead>
+                                <tr>
+                                    <th>Currency</th>
+                                    <td>{{ form.instance.currency }}</td>
+                                    <th>Currency Symbol</th>
+                                    <td>{{ form.instance.currency_symbol }}</td>
+                                </tr>
+                                </thead>
+                                <!--Table head-->
+                                <!--Table body-->
+                                <tbody>
+                                <tr>
+                                    <th>Session Start Month</th>
+                                    <td>{{ form.instance.session_start_month }}</td>
+                                    <th>Session End Month</th>
+                                    <td>{{ form.instance.session_end_month }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Enable Frontend</th>
+                                    <td>{{ form.instance.enable_frontend }}</td>
+                                    <th>Exam Final Result</th>
+                                    <td>{{ form.instance.exam_final_result }}</td>
+                                </tr>
+                                </tbody>
+                                <!--Table body-->
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="settings-tab">
+                            <p></p>
+                            <table id="tablePreview" class="table table-bordered table-striped">
+                                <!--Table head-->
+                                <thead>
+                                <tr>
+                                    <th>Facebook URL</th>
+                                    <td>{{ form.instance.facebook_url }}</td>
+                                    <th>Linkedin URL</th>
+                                    <td>{{ form.instance.linkedIn_url }}</td>
+                                </tr>
+                                </thead>
+                                <!--Table head-->
+                                <!--Table body-->
+                                <tbody>
+                                <tr>
+                                    <th>Twitter URL</th>
+                                    <td>{{ form.instance.twitter_url }}</td>
+                                    <th>Google Plus URL</th>
+                                    <td>{{ form.instance.google_plus_url }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Instagram URL</th>
+                                    <td>{{ form.instance.instagram_url }}</td>
+                                    <th>Pinterest URL</th>
+                                    <td>{{ form.instance.pinterest_url }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Youtube URL</th>
+                                    <td>{{ form.instance.youtube_url }}</td>
+                                    <th></th>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                                <!--Table body-->
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</form>

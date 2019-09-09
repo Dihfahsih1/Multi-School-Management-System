@@ -1,0 +1,150 @@
+<form method="post" action="{% url 'teacher_view' form.instance.pk %}" class="js-teacher-view-form"
+      enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="modal-lg" tabindex="-1" role="document" aria-hidden="true">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Teacher Information</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs bordered" role="tablist">
+                        <li class="active"><a href="#tab_content1" id="basic-tab" role="tab"
+                                              data-toggle="tab" aria-expanded="true">
+                            <i class="fa fa-info-circle">&nbsp;</i>Basic Information</a>
+                        </li>
+                        <li class=""><a href="#tab_content3" role="tab" id="social-tab" data-toggle="tab"
+                                        aria-expanded="false">
+                            <i class="fa fa-share">&nbsp;</i>Social Information</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1"
+                             aria-labelledby="basic-tab">
+                            <p></p>
+                            <table id="tablePreview" class="table table-bordered table-striped">
+                                <!--Table head-->
+                                <thead>
+                                <tr>
+                                    <th>School Name</th>
+                                    <td>{{ form.instance.school }}</td>
+                                    <th></th>
+                                    <td></td>
+                                </tr>
+                                </thead>
+                                <!--Table head-->
+                                <!--Table body-->
+                                <tbody>
+                                <tr>
+                                    <th>Name</th>
+                                    <td>{{ form.instance.full_name }}</td>
+                                    <th>Responsibility</th>
+                                    <td>{{ form.instance.responsibility }}</td>
+                                </tr>
+                                <tr>
+                                    <th>National ID</th>
+                                    <td>{{ form.instance.national_ID }}</td>
+                                    <th>Phone</th>
+                                    <td>{{ form.instance.phone }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Present Address</th>
+                                    <td>{{ form.instance.present_address }}</td>
+                                    <th>Permanent Address</th>
+                                    <td>{{ form.instance.permanent_address }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Gender</th>
+                                    <td>{{ form.instance.gender }}</td>
+                                    <th>Blood Group</th>
+                                    <td>{{ form.instance.blood_group }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Religion</th>
+                                    <td>{{ form.instance.religion }}</td>
+                                    <th>Birth Date</th>
+                                    <td>{{ form.instance.birth_date }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Joining Date</th>
+                                    <td>{{ form.instance.joining_date }}</td>
+                                    <th>Role</th>
+                                    <td>{{ form.instance.footer }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Salary Grade</th>
+                                    <td>{{ form.instance.salary_grade }}</td>
+                                    <th>Salary Type</th>
+                                    <td>{{ form.instance.salary_type }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td>{{ form.instance.email }}</td>
+                                    <th>Other Info</th>
+                                    <td>{{ form.instance.other_info }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Photo</th>
+                                    <td><img src="{{ form.instance.photo.url }}"
+                                             alt="" width="30"
+                                             style="background: rgba(15,174,221,0.97); padding: 2px;"/><br/>
+                                    </td>
+                                    <th>Resume</th>
+                                    <td>{{ form.instance.resume.url }}</td>
+                                </tr>
+                                </tbody>
+                                <!--Table body-->
+                            </table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                            <p></p>
+                            <table id="tablePreview" class="table table-bordered table-striped">
+                                <!--Table head-->
+                                <thead>
+                                <tr>
+                                    <th>Facebook URL</th>
+                                    <td>{{ form.instance.facebook_url }}</td>
+                                    <th>Linkedin URL</th>
+                                    <td>{{ form.instance.linkedIn_url }}</td>
+                                </tr>
+                                </thead>
+                                <!--Table head-->
+                                <!--Table body-->
+                                <tbody>
+                                <tr>
+                                    <th>Twitter URL</th>
+                                    <td>{{ form.instance.twitter_url }}</td>
+                                    <th>Google Plus URL</th>
+                                    <td>{{ form.instance.google_plus_url }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Instagram URL</th>
+                                    <td>{{ form.instance.instagram_url }}</td>
+                                    <th>Pinterest URL</th>
+                                    <td>{{ form.instance.pinterest_url }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Youtube URL</th>
+                                    <td>{{ form.instance.youtube_url }}</td>
+                                    <th>Is View on Web</th>
+                                    <td>{{ form.instance.Is_View_on_Web }}</td>
+                                </tr>
+                                </tbody>
+                                <!--Table body-->
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,26 @@
+{% for expenditure in expenditures %}
+    <tr>
+        <td>{{ expenditure.id }}</td>
+        <td>{{ expenditure.school }}</td>
+        <td>{{ expenditure.expenditure_head }}</td>
+        <td>{{ expenditure.expenditure_method }}</td>
+        <td>{{ expenditure.amount }}</td>
+        <td>{{ expenditure.date }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-expenditure"
+                    data-url="{% url 'expenditure_update' expenditure.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-expenditure"
+                    data-url="{% url 'expenditure_delete' expenditure.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Expenditure</td>
+    </tr>
+{% endfor %}

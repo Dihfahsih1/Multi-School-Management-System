@@ -1,0 +1,31 @@
+{% for routine in routines %}
+    <tr>
+        <td>{{ routine.id }}</td>
+        <td>{{ routine.routine_name }}</td>
+        <td>{{ routine.address }}</td>
+        <td>{{ routine.phone }}</td>
+        <td>{{ routine.email }}</td>
+        <td>{{ routine.currency_symbol }}</td>
+        <td>
+            <img src="#"
+                 alt="" width="80"
+                 style="background: rgba(16,67,221,0.84); padding: 5px;"/><br/><br/>
+        </td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-routine"
+                    data-url="{% url 'routine_update' routine.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-routine"
+                    data-url="{% url 'routine_delete' routine.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Routine</td>
+    </tr>
+{% endfor %}

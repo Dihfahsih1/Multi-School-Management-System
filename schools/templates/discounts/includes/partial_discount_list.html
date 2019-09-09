@@ -1,0 +1,25 @@
+{% for discount in discounts %}
+    <tr>
+        <td>{{ discount.id }}</td>
+        <td>{{ discount.school }}</td>
+        <td>{{ discount.title }}</td>
+        <td>{{ discount.amount }}</td>
+        <td>{{ discount.note }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-discount"
+                    data-url="{% url 'discount_update' school.id discount.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-discount"
+                    data-url="{% url 'discount_delete' school.id discount.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Discount</td>
+    </tr>
+{% endfor %}

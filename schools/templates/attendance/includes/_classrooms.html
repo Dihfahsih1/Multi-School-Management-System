@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Classroom</th>
+      <th>School</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for classroom in classrooms %}
+      <tr>
+        <td>
+          <a href=""
+             class="classroom"
+             data-url="{% url 'sections_ajax' %}?classroom={{ classroom.pk }}"
+             data-school="{{ classroom.pk }}"
+             >{{ classroom.name }}</a>
+        </td>
+        <td>{{ classroom.school }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

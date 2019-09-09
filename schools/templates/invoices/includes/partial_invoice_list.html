@@ -1,0 +1,39 @@
+{% for invoice in invoices %}
+    <tr>
+        <td>{{ invoice.id }}</td>
+        <td>{{ invoice.school }}</td>
+        <td>{{ invoice.invoice_number }}</td>
+        <td>{{ invoice.student_name }}</td>
+        <td>{{ invoice.class_name }}</td>
+        <td>{{ invoice.fee_type }}</td>
+        <td>{{ invoice.gross_amount }}</td>
+        <td>{{ invoice.discount }}</td>
+        <td>{{ invoice.fee_amount }}</td>
+        <td>{{ invoice.paid_status }}</td>
+        <td>
+            <button type="button"
+                    class="btn btn-info btn-sm js-view-invoice"
+                    data-url="{% url 'invoice_view' invoice.id %}">
+                <span class="glyphicon glyphicon-eye-open"></span> View
+            </button>
+
+            <br>
+            <button type="button"
+                    class="btn btn-warning btn-sm js-update-invoice"
+                    data-url="{% url 'invoice_update' invoice.id %}">
+                <span class="glyphicon glyphicon-pencil"></span> Edit
+            </button>
+            <br>
+            <button type="button"
+                    class="btn btn-danger btn-sm js-delete-invoice"
+                    data-url="{% url 'invoice_delete' invoice.id %}">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+            </button>
+            <br>
+        </td>
+    </tr>
+{% empty %}
+    <tr>
+        <td colspan="9" class="text-center bg-warning">No Invoice</td>
+    </tr>
+{% endfor %}
