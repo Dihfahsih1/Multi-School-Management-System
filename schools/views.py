@@ -13,7 +13,7 @@ from .forms import *
 
 IMAGE_FILE_TYPES = ['png', 'jpg', 'pjeg']
 
-
+#user logging in.
 def login_user(request):
     if request.method == "POST":
         email = request.POST.get('email')
@@ -125,19 +125,6 @@ def save_school_form(request, form, template_name):
     context = {'form': form}
     data['html_form'] = render_to_string(template_name, context, request=request)
     return JsonResponse(data)
-
-
-#
-#
-# def school_create(request):
-#     if request.method == 'POST':
-#         form = SchoolForm(request.POST, request.FILES)
-#     else:
-#         form = SchoolForm()
-#     return save_school_form(request, form, 'schools/includes/partial_school_create.html')
-#
-#
-
 
 def school_view(request, school_id):
     school = get_object_or_404(School, pk=school_id)
